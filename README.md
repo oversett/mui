@@ -1,2 +1,0 @@
-# mui
-Autotranslated MUI docs
