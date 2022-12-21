@@ -1,16 +1,18 @@
-# Vision
 
-<p class="description">Our vision is to provide an elegant React implementation of the Material Design guidelines that can be customized to fully match your brand.</p>
 
-The Material Design guidelines are an incredible starting point, but they do not provide guidance on all aspects or needs of an application. In addition to the guidelines-specific implementation, we want MUI to become whatever is generally useful for application development, all in the spirit of the Material Design guidelines.
+# Видение <meta data-oversett="" data-original-text="Vision">
 
-Therefore, MUI will be not only be an implementation of the Material Design guidelines, but a general use UI library of components that are needed by many. This generalized use doesn't imply any other design methodology. It also means we will have components or combinations that are simply not addressed in the design guidelines.
+<p class="description">Наша цель - предоставить элегантную реализацию React в соответствии с рекомендациями Material Design, которая может быть настроена так, чтобы полностью соответствовать вашему бренду.</p>
 
-We will focus on providing all the low-level tools needed to build a rich user-interface with React. Once we implement the Material Design guidelines (which is a bar set quite high), you should be able to take advantage of it for your own business with any style customization needed. We want to see companies succeeding using MUI in a way that matches their brand, close to the material philosophy or not. We don't want them to feel that their UI simply looks like another Google product.
+Руководство по Material Design является отличной отправной точкой, но оно не обеспечивает руководство по всем аспектам или потребностям приложения. В дополнение к конкретной реализации руководства, мы хотим, чтобы MUI стал тем, что в целом полезно для разработки приложений, и все это в духе руководства Material Design.
 
-From a developer's point of view, we want MUI to:
+Поэтому MUI будет не только реализацией рекомендаций Material Design, но и библиотекой пользовательского интерфейса общего пользования, состоящей из компонентов, которые нужны многим. Это общее использование не подразумевает никакой другой методологии дизайна. Это также означает, что у нас будут компоненты или комбинации, которые просто не рассматриваются в руководстве по дизайну.
 
-- Deliver on fully encapsulated / composable React components.
-- Be themeable / customizable.
-- Be cross browser compatible and accessible.
-- Promote developer joy, a sense of community, and an environment where new and experienced developers can learn from each other.
+Мы сосредоточимся на предоставлении всех низкоуровневых инструментов, необходимых для создания богатого пользовательского интерфейса с помощью React. Как только мы внедрим руководство по Material Design (а это довольно высокая планка), вы сможете воспользоваться его преимуществами для своего бизнеса без какой-либо настройки стиля. Мы хотим, чтобы компании добились успеха, используя MUI так, чтобы это соответствовало их бренду, независимо от того, близка философия Material или нет. Мы не хотим, чтобы они чувствовали, что их пользовательский интерфейс просто похож на другой продукт Google.
+
+С точки зрения разработчика, мы хотим, чтобы MUI:
+
+-   Поставлялся на полностью инкапсулированных / композитных React-компонентах.
+-   Быть тематическим / настраиваемым.
+-   Быть кроссбраузерным и доступным.
+-   Способствовать радости разработчиков, чувству сообщества и среде, где новые и опытные разработчики могут учиться друг у друга.

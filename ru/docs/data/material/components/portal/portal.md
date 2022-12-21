@@ -5,15 +5,14 @@ components: Portal
 githubLabel: 'component: Portal'
 ---
 
-# Portal
+# Портал <meta data-oversett="" data-original-text="Portal">
 
-<p class="description">The Portal component lets you render its children into a DOM node that exists outside of the Portal's own DOM hierarchy.</p>
+<p class="description">Компонент Portal позволяет отображать его дочерние элементы в узел DOM, который существует вне иерархии DOM самого Portal.</p>
 
-## MUI Base
+## MUI Base <meta data-oversett="" data-original-text="MUI Base">
 
 :::info
-Portal is a part of the standalone [MUI Base](/base/getting-started/overview/) component library.
-It is currently re-exported from `@mui/material` for your convenience, but it will be removed from this package in a future major version, after `@mui/base` gets a stable release.
+Portal является частью отдельной библиотеки компонентов [MUI Base](/base/getting-started/overview/). В настоящее время он реэкспортирован из `@mui/material` для вашего удобства, но он будет удален из этого пакета в будущей основной версии, после того как `@mui/base` получит стабильный релиз.
 
-Please refer to the [Portal](/base/react-portal/) component page in the MUI Base docs for examples and details on usage.
+Пожалуйста, обратитесь к странице компонента [Portal](/base/react-portal/) в документации MUI Base за примерами и подробностями использования.
 :::

@@ -1,33 +1,30 @@
-# TODO merge with other pages
 
-<p class="description">Learn about the experimental API for using CSS variables with Material UI components.</p>
 
-CSS variables provide significant improvements in developer experience related to theming and customization.
-With these variables, you can inject a theme into your app's stylesheet _at build time_ to apply the user's selected settings before the whole app is rendered.
+# TODO объединить с другими страницами <meta data-oversett="" data-original-text="TODO merge with other pages">
 
-This solves the problem of dark-mode SSR flickering; lets you provide your users with multiple themes beyond light and dark; and offers a better debugging experience overall, among other benefits.
+<p class="description">Узнайте об экспериментальном API для использования переменных CSS с компонентами Material UI.</p>
 
-Previously, these CSS variables were only available as an experimental API in the MUI System package.
-Now they are ready for experimental use with Material UI components.
+CSS-переменные обеспечивают значительные улучшения в работе разработчиков, связанные с темой и настройкой. С помощью этих переменных вы можете внедрить тему в таблицу стилей вашего приложения во _время сборки_, чтобы применить выбранные пользователем настройки до того, как все приложение будет отображено.
+
+Это решает проблему мерцания SSR в темном режиме, позволяет предоставить пользователям несколько тем, помимо светлой и темной, а также улучшает отладку, среди прочих преимуществ.
+
+Ранее эти переменные CSS были доступны только в качестве экспериментального API в пакете MUI System. Теперь они готовы для экспериментального использования в компонентах Material UI.
 
 :::info
-If you want to see wider support for this API across Material UI's component library, please feel free to contribute to the ongoing development. Make sure to check the [GitHub issue](https://github.com/mui/material-ui/issues/32049) that keeps track of our progress, to see if anyone else is currently working on a component you're interested in.
-<br/>
-<br/>
-We'd appreciate any feedback about this API, as it is still in development.
+Если вы хотите увидеть более широкую поддержку этого API во всей библиотеке компонентов Material UI, пожалуйста, не стесняйтесь вносить свой вклад в текущую разработку. Не забудьте проверить [вопрос на GitHub](https://github.com/mui/material-ui/issues/32049), который отслеживает наш прогресс, чтобы узнать, работает ли кто-нибудь еще над интересующим вас компонентом.\
+\
+Мы будем благодарны за любые отзывы об этом API, поскольку он все еще находится в стадии разработки.
 :::
 
-## Introduction
+## Введение <meta data-oversett="" data-original-text="Introduction">
 
-The CSS variables API relies on a new experimental provider for the theme called `Experimental_CssVarsProvider` to inject styles into Material UI components.
-In addition to providing the theme in the inner React context, this new provider also generates CSS variables out of all tokens in the theme that are not functions, and makes them available in the context as well.
+API переменных CSS полагается на новый экспериментальный поставщик темы под названием `Experimental_CssVarsProvider` для внедрения стилей в компоненты Material UI. Помимо предоставления темы во внутреннем контексте React, этот новый поставщик также генерирует переменные CSS из всех токенов темы, которые не являются функциями, и делает их также доступными в контексте.
 
-All of these variables are accessible in an object in the theme called `vars`.
-The structure of this object is nearly identical to the theme structure, the only difference is that the values represent CSS variables.
+Все эти переменные доступны в объекте темы под названием `vars`. Структура этого объекта практически идентична структуре темы, единственное отличие заключается в том, что значения представляют собой CSS-переменные.
 
-## Usage
+## Использование <meta data-oversett="" data-original-text="Usage">
 
-`Experimental_CssVarsProvider` is a new experimental provider that attaches all generated CSS variables to the theme and puts them in React's context. Children elements under this provider will also be able to read the CSS variables from the `theme.vars`.
+`Experimental_CssVarsProvider` это новый экспериментальный провайдер, который присоединяет все сгенерированные CSS переменные к теме и помещает их в контекст React. Детские элементы под этим провайдером также смогут считывать CSS-переменные с сайта `theme.vars`.
 
 ```js
 import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
@@ -37,18 +34,17 @@ function App() {
 }
 ```
 
-If you use TypeScript, check out the [theme types setup](#typescript).
+Если вы используете TypeScript, ознакомьтесь с [настройкой типов тем](#typescript).
 
-### Customizing components
+### Настройка компонентов <meta data-oversett="" data-original-text="Customizing components">
 
-Because the CSS variables API is an experimental feature, it is currently only supported by the `Button` component.
-To customize it using CSS variables, you'll need to wrap your application with `Experimental_CssVarsProvider`.
+Поскольку API переменных CSS является экспериментальной функцией, в настоящее время она поддерживается только компонентом `Button`. Чтобы настроить его с помощью переменных CSS, вам нужно обернуть ваше приложение компонентом `Experimental_CssVarsProvider`.
 
-Play around with the demo below!
+Поиграйте с демонстрацией ниже!
 
 {{"demo": "CssVariablesCustomization.js" }}
 
-If you are using TypeScript you should use module augmentation to update the `Theme` structure:
+Если вы используете TypeScript, то для обновления структуры `Theme` следует использовать модульную аугментацию:
 
 ```tsx
 import { Theme as MuiTheme } from '@mui/material/styles';
@@ -63,9 +59,9 @@ declare module '@mui/material/styles' {
 }
 ```
 
-### Customizing the theme
+### Настройка темы <meta data-oversett="" data-original-text="Customizing the theme">
 
-If you want, for example, to override Material UI's default color schemes, you can use the `experimental_extendTheme` utility.
+Если вы хотите, например, переопределить цветовые схемы Material UI по умолчанию, вы можете использовать утилиту `experimental_extendTheme`.
 
 ```jsx
 const theme = experimental_extendTheme({
@@ -88,7 +84,7 @@ const theme = experimental_extendTheme({
 
 {{"demo": "CssVarsCustomTheme.js" }}
 
-If you are using [`ThemeProvider`](/material-ui/customization/theming/#theme-provider), you can replace it with the new experimental provider.
+Если вы используете [`ThemeProvider`](/material-ui/customization/theming/#theme-provider)вы можете заменить его новым экспериментальным провайдером.
 
 ```diff
 -import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -106,11 +102,9 @@ If you are using [`ThemeProvider`](/material-ui/customization/theming/#theme-pro
  }
 ```
 
-### Toggle between light and dark mode
+### Переключение между светлым и темным режимом <meta data-oversett="" data-original-text="Toggle between light and dark mode">
 
-`Experimental_CssVarsProvider` provides light and dark mode by default.
-It stores the user's selected mode and syncs it with the browser's local storage internally.
-You can read and update the mode via the `useColorScheme` API.
+`Experimental_CssVarsProvider` по умолчанию предоставляет светлый и темный режим. Он сохраняет выбранный пользователем режим и синхронизирует его с локальным хранилищем браузера. Вы можете читать и обновлять режим через API `useColorScheme`.
 
 ```jsx
 import {
@@ -157,13 +151,13 @@ function App() {
 }
 ```
 
-### Server-side rendering
+### Рендеринг на стороне сервера <meta data-oversett="" data-original-text="Server-side rendering">
 
-To prevent the dark-mode SSR flickering during the hydration phase, place `getInitColorSchemeScript()` before the `<Main />` tag.
+Чтобы предотвратить мерцание SSR в темном режиме во время фазы гидратации, поместите `getInitColorSchemeScript()` перед тегом `<Main />`.
 
-#### Next.js
+#### Next.js <meta data-oversett="" data-original-text="Next.js">
 
-To use the API with a Next.js project, add the following code to the custom [`pages/_document.js`](https://nextjs.org/docs/advanced-features/custom-document) file:
+Чтобы использовать API в проекте Next.js, добавьте следующий код в пользовательский [`pages/_document.js`](https://nextjs.org/docs/advanced-features/custom-document) файл:
 
 ```jsx
 import Document, { Html, Head, Main, NextScript } from 'next/document';
@@ -185,9 +179,9 @@ export default class MyDocument extends Document {
 }
 ```
 
-#### Gatsby
+#### Gatsby <meta data-oversett="" data-original-text="Gatsby">
 
-To use the API with a Gatsby project, add the following code to the custom [`gatsby-ssr.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) file:
+Чтобы использовать API в проекте Gatsby, добавьте следующий код в пользовательский файл [`gatsby-ssr.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) файл:
 
 ```jsx
 import React from 'react';
@@ -202,16 +196,16 @@ export function onRenderBody({ setPreBodyComponents }) {
 }
 ```
 
-### TypeScript
+### TypeScript <meta data-oversett="" data-original-text="TypeScript">
 
-You need to import the theme augmentation to include `theme.vars` and other utilities related to CSS variables to the theme:
+Вам необходимо импортировать дополнение темы, чтобы включить в тему `theme.vars` и другие утилиты, связанные с переменными CSS:
 
 ```ts
 // this can be the root file of you application
 import type {} from '@mui/material/themeCssVarsAugmentation';
 ```
 
-Then, you will be able to access `theme.vars` in any of the styling APIs, for example the `styled`:
+Затем вы сможете получить доступ к `theme.vars` в любом из API стилей, например, в `styled`:
 
 ```ts
 import { styled } from '@mui/material/styles';
@@ -222,27 +216,27 @@ const StyledComponent = styled('button')(({ theme }) => ({
 }));
 ```
 
-## API
+## API <meta data-oversett="" data-original-text="API">
 
-### `<CssVarsProvider>` props
+### `<CssVarsProvider>` props <meta data-oversett="" data-original-text="<CssVarsProvider> props">
 
-- `defaultMode?: 'light' | 'dark' | 'system'` - Application's default mode (`light` by default)
-- `disableTransitionOnChange : boolean` - Disable CSS transitions when switching between modes
-- `enableColorScheme: boolean` - Indicate to the browser which color scheme is used (light or dark) for rendering built-in UI
-- `prefix: string` - CSS variable prefix
-- `theme: ThemeInput` - the theme provided to React's context
-- `modeStorageKey?: string` - localStorage key used to store application `mode`
-- `attribute?: string` - DOM attribute for applying color scheme
+-   `defaultMode?: 'light' | 'dark' | 'system'` - Режим приложения по умолчанию (`light` по умолчанию).
+-   `disableTransitionOnChange : boolean` - Отключать переходы CSS при переключении между режимами
+-   `enableColorScheme: boolean` - Указывать браузеру, какая цветовая схема используется (светлая или темная) для рендеринга встроенного пользовательского интерфейса
+-   `prefix: string` - префикс переменной CSS
+-   `theme: ThemeInput` - тема, предоставляемая контексту React
+-   `modeStorageKey?: string` - ключ localStorage, используемый для хранения приложения `mode`
+-   `attribute?: string` - DOM-атрибут для применения цветовой схемы
 
-### `useColorScheme: () => ColorSchemeContextValue`
+### `useColorScheme: () => ColorSchemeContextValue` <meta data-oversett="" data-original-text="useColorScheme: () => ColorSchemeContextValue">
 
-- `mode: string` - The user's selected mode
-- `setMode: mode => {…}` - Function for setting the `mode`. The `mode` is saved to internal state and local storage; if `mode` is null, it will be reset to the default mode
+-   `mode: string` - выбранный пользователем режим
+-   `setMode: mode => {…}` - Функция для установки `mode`. Значение `mode` сохраняется во внутреннем состоянии и локальном хранилище; если значение `mode` равно null, будет сброшен режим по умолчанию.
 
-### `getInitColorSchemeScript: (options) => React.ReactElement`
+### `getInitColorSchemeScript: (options) => React.ReactElement` <meta data-oversett="" data-original-text="getInitColorSchemeScript: (options) => React.ReactElement">
 
-**options**
+**параметры**
 
-- `defaultMode?: 'light' | 'dark' | 'system'`: - Application's default mode before React renders the tree (`light` by default)
-- `modeStorageKey?: string`: - localStorage key used to store application `mode`
-- `attribute?: string` - DOM attribute for applying color scheme
+-   `defaultMode?: 'light' | 'dark' | 'system'`: - режим по умолчанию приложения перед рендерингом дерева React (`light` по умолчанию)
+-   `modeStorageKey?: string`: - ключ localStorage, используемый для хранения приложения `mode`
+-   `attribute?: string` - DOM-атрибут для применения цветовой схемы

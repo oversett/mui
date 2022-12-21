@@ -5,62 +5,55 @@ githubLabel: 'component: link'
 waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/link/
 ---
 
-# Links
+# Ссылки <meta data-oversett="" data-original-text="Links">
 
-<p class="description">The Link component allows you to easily customize anchor elements with your theme colors and typography styles.</p>
+<p class="description">Компонент Link позволяет легко настраивать элементы якоря в соответствии с цветами вашей темы и стилями типографики.</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic links
+## Основные ссылки <meta data-oversett="" data-original-text="Basic links">
 
-The Link component is built on top of the [Typography](/material-ui/api/typography/) component, meaning that you can use its props.
+Компонент Link построен поверх компонента [Typography](/material-ui/api/typography/), что означает, что вы можете использовать его реквизиты.
 
 {{"demo": "Links.js"}}
 
-However, the Link component has some different default props than the Typography component:
+Однако компонент Link имеет несколько других реквизитов по умолчанию, чем компонент Typography:
 
-- `color="primary"` as the link needs to stand out.
-- `variant="inherit"` as the link will, most of the time, be used as a child of a Typography component.
+-   `color="primary"` так как ссылка должна выделяться.
+-   `variant="inherit"` поскольку ссылка в большинстве случаев будет использоваться как дочерний компонент компонента Typography.
 
-## Underline
+## Подчеркивание <meta data-oversett="" data-original-text="Underline">
 
-The `underline` prop can be used to set the underline behavior. The default is `always`.
+Реквизит `underline` может быть использован для установки поведения подчеркивания. По умолчанию используется `always`.
 
 {{"demo": "UnderlineLink.js"}}
 
-## Security
+## Безопасность <meta data-oversett="" data-original-text="Security">
 
-When you use `target="_blank"` with Links, it is [recommended](https://developers.google.com/web/tools/lighthouse/audits/noopener) to always set `rel="noopener"` or `rel="noreferrer"` when linking to third party content.
+При использовании `target="_blank"` в ссылках [рекомендуется](https://developers.google.com/web/tools/lighthouse/audits/noopener) всегда устанавливать `rel="noopener"` или `rel="noreferrer"` при ссылках на сторонний контент.
 
-- `rel="noopener"` prevents the new page from being able to access the `window.opener` property and ensures it runs in a separate process.
-  Without this, the target page can potentially redirect your page to a malicious URL.
-- `rel="noreferrer"` has the same effect, but also prevents the _Referer_ header from being sent to the new page.
-  ⚠️ Removing the referrer header will affect analytics.
+-   `rel="noopener"` предотвращает доступ новой страницы к свойству `window.opener` и обеспечивает ее запуск в отдельном процессе. Без этого целевая страница может перенаправить вашу страницу на вредоносный URL.
+-   `rel="noreferrer"` имеет тот же эффект, но также предотвращает отправку заголовка _Referer_ на новую страницу. ⚠️ Удаление заголовка referrer повлияет на аналитику.
 
-## Third-party routing library
+## Сторонняя библиотека маршрутизации <meta data-oversett="" data-original-text="Third-party routing library">
 
-One frequent use case is to perform navigation on the client only, without an HTTP round-trip to the server.
-The `Link` component provides the `component` prop to handle this use case.
-Here is a [more detailed guide](/material-ui/guides/routing/#link).
+Одним из частых случаев использования является выполнение навигации только на клиенте, без HTTP-перехода на сервер. Компонент `Link` предоставляет реквизит `component` для обработки этого случая использования. Здесь представлено [более подробное руководство](/material-ui/guides/routing/#link).
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-(WAI-ARIA: https://www.w3.org/WAI/ARIA/apg/patterns/link/)
+(WAI-ARIA: [https://www.w3.org/WAI/ARIA/apg/patterns/link/)](https://www.w3.org/WAI/ARIA/apg/patterns/link/)
 
-- When providing the content for the link, avoid generic descriptions like "click here" or "go to".
-  Instead, use [specific descriptions](https://developers.google.com/web/tools/lighthouse/audits/descriptive-link-text).
-- For the best user experience, links should stand out from the text on the page. For instance, you can keep the default `underline="always"` behavior.
-- If a link doesn't have a meaningful href, [it should be rendered using a `<button>` element](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md).
-  The demo below illustrates how to properly link with a `<button>`:
+-   При предоставлении содержания для ссылки избегайте общих описаний типа "нажмите здесь" или "перейдите на". Вместо этого используйте [конкретные описания](https://developers.google.com/web/tools/lighthouse/audits/descriptive-link-text).
+-   Для лучшего восприятия пользователем ссылки должны выделяться из текста на странице. Например, вы можете сохранить стандартное поведение `underline="always"`.
+-   Если ссылка не имеет значимого href, [ее следует отображать с помощью элемента `<button>`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md) . Демонстрация ниже показывает, как правильно отображать ссылку с помощью `<button>`:
 
 {{"demo": "ButtonLink.js"}}
 
-### Keyboard accessibility
+### Доступность клавиатуры <meta data-oversett="" data-original-text="Keyboard accessibility">
 
-- Interactive elements should receive focus in a coherent order when the user presses the <kbd class="key">Tab</kbd> key.
-- Users should be able to open a link by pressing <kbd class="key">Enter</kbd>.
+-   Интерактивные элементы должны получать фокус в последовательном порядке, когда пользователь нажимает клавишу <kbd class="key">Tab</kbd>.
+-   Пользователи должны иметь возможность открыть ссылку, нажав клавишу <kbd class="key">Enter</kbd>.
 
-### Screen reader accessibility
+### Доступность считывателя экрана <meta data-oversett="" data-original-text="Screen reader accessibility">
 
-- When a link receives focus, screen readers should announce a descriptive link name.
-  If the link opens in a new window or browser tab, add an [`aria-label`](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA8) to inform screen reader users—for example, _"To learn more, visit the About page which opens in a new window."_
+-   Когда ссылка получает фокус, устройства чтения с экрана должны объявлять описательное имя ссылки. Если ссылка открывается в новом окне или вкладке браузера, добавьте символ [`aria-label`](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA8) например, _"Чтобы узнать больше, посетите страницу "О сайте", которая откроется в новом окне"._

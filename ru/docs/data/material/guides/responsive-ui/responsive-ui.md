@@ -1,11 +1,12 @@
-# Responsive UI
 
-<p class="description">Material Design layouts encourage consistency across platforms, environments, and screen sizes by using uniform elements and spacing.</p>
 
-[Responsive layouts](https://m2.material.io/design/layout/responsive-layout-grid.html) in Material Design adapt to any possible screen size.
-We provide the following helpers to make the UI responsive:
+# Отзывчивый пользовательский интерфейс <meta data-oversett="" data-original-text="Responsive UI">
 
-- [Grid](/material-ui/react-grid/): The Material Design responsive layout grid adapts to screen size and orientation, ensuring consistency across layouts.
-- [Container](/material-ui/react-container/): The container centers your content horizontally. It's the most basic layout element.
-- [Breakpoints](/material-ui/customization/breakpoints/): API that enables the use of breakpoints in a wide variety of contexts.
-- [useMediaQuery](/material-ui/react-use-media-query/): This is a CSS media query hook for React. It listens for matches to a CSS media query.
+<p class="description">Макеты Material Design способствуют согласованности между платформами, средами и размерами экранов благодаря использованию единых элементов и расстояний между ними.</p>
+
+[Отзывчивые макеты](https://m2.material.io/design/layout/responsive-layout-grid.html) в Material Design адаптируются под любой возможный размер экрана. Мы предоставляем следующие помощники, чтобы сделать пользовательский интерфейс отзывчивым:
+
+-   [Сетка](/material-ui/react-grid/): Сетка отзывчивых макетов Material Design адаптируется к размеру и ориентации экрана, обеспечивая согласованность макетов.
+-   [Контейнер](/material-ui/react-container/): Контейнер центрирует содержимое по горизонтали. Это самый базовый элемент макета.
+-   [Точки останова](/material-ui/customization/breakpoints/): API, позволяющий использовать точки останова в самых разных контекстах.
+-   [useMediaQuery](/material-ui/react-use-media-query/): Это крючок медиазапроса CSS для React. Он прослушивает совпадения с медиазапросом CSS.

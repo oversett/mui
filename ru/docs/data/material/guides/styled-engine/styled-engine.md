@@ -1,36 +1,29 @@
-# `@mui/styled-engine`
 
-<p class="description">Configuring your preferred styling library.</p>
 
-The default style library used for generating CSS styles for MUI components is [emotion](https://github.com/emotion-js/emotion).
-All of the MUI components rely on the `styled()` API to inject CSS into the page.
-This API is supported by multiple popular styling libraries, which makes it possible to switch between them in MUI.
+# `@mui/styled-engine` <meta data-oversett="" data-original-text="@mui/styled-engine">
 
-## How to switch to styled-components
+<p class="description">Настройка предпочитаемой библиотеки стилей.</p>
+
+По умолчанию для генерации стилей CSS для компонентов MUI используется библиотека стилей [emotion](https://github.com/emotion-js/emotion). Все компоненты MUI полагаются на API `styled()` для внедрения CSS на страницу. Этот API поддерживается несколькими популярными библиотеками стилей, что позволяет переключаться между ними в MUI.
+
+## Как переключиться на компоненты со стилями <meta data-oversett="" data-original-text="How to switch to styled-components">
 
 :::error
-Using `styled-components` as an engine at this moment is not working when used in a SSR projects.
-The reason is that the `babel-plugin-styled-components` is not picking up correctly the usages of the `styled()` utility inside the `@mui` packages.
-For more details, take a look at this [issue](https://github.com/mui/material-ui/issues/29742).
-We strongly recommend using Emotion for SSR projects.
+Использование `styled-components` в качестве движка на данный момент не работает при использовании в SSR проектах. Причина в том, что `babel-plugin-styled-components` не правильно подхватывает использование утилиты `styled()` внутри пакетов `@mui`. Для более подробной информации, посмотрите этот [вопрос](https://github.com/mui/material-ui/issues/29742). Мы настоятельно рекомендуем использовать Emotion для SSR проектов.
 :::
 
-If you already have [styled-components](https://github.com/styled-components/styled-components) installed, it's possible to use it exclusively.
-There are currently two packages available to choose from:
+Если у вас уже установлены [styled-components](https://github.com/styled-components/styled-components), то можно использовать только его. В настоящее время доступны два пакета на выбор:
 
-- `@mui/styled-engine` - a thin wrapper around [emotion's `styled()`](https://emotion.sh/docs/styled) API, with the addition of few other required utilities, such as the `<GlobalStyles />` component, the `css` and `keyframe` helpers, etc. This is the default.
-- `@mui/styled-engine-sc` - a similar wrapper around `styled-components`.
+-   `@mui/styled-engine` - тонкая обертка вокруг API [Эмоции `styled()`](https://emotion.sh/docs/styled), с добавлением нескольких других необходимых утилит, таких как компонент `<GlobalStyles />`, помощники `css` и `keyframe` и т.д. Это используется по умолчанию.
+-   `@mui/styled-engine-sc` - аналогичная обертка вокруг `styled-components`.
 
-These two packages implement the same interface, which makes it possible to replace one with the other.
-By default, `@mui/material` has `@mui/styled-engine` as a dependency, but you can configure your bundler to replace it with `@mui/styled-engine-sc`.
+Эти два пакета реализуют один и тот же интерфейс, что позволяет заменить один на другой. По умолчанию `@mui/material` имеет `@mui/styled-engine` в качестве зависимости, но вы можете настроить свой пакет на замену его на `@mui/styled-engine-sc`.
 
-### yarn
+### yarn <meta data-oversett="" data-original-text="yarn">
 
-If you are using yarn, you can configure it using a package resolution:
+Если вы используете yarn, вы можете настроить его с помощью разрешения пакетов:
 
 **package.json**
-
-<!-- #default-branch-switch -->
 
 ```diff
  {
@@ -44,9 +37,9 @@ If you are using yarn, you can configure it using a package resolution:
  }
 ```
 
-### npm
+### npm <meta data-oversett="" data-original-text="npm">
 
-As package resolutions are not available in npm at this moment, you need to update you bundler's config to add this alias. Here is an example of how you can do it, if you use `webpack`:
+Поскольку разрешения пакетов недоступны в npm в данный момент, вам нужно обновить конфигурацию вашего бандлера, чтобы добавить этот псевдоним. Вот пример того, как это можно сделать, если вы используете `webpack`:
 
 **webpack.config.js**
 
@@ -61,7 +54,7 @@ As package resolutions are not available in npm at this moment, you need to upda
  };
 ```
 
-If you are using TypeScript, you will need to also update the TSConfig.
+Если вы используете TypeScript, вам также необходимо обновить TSConfig.
 
 **tsconfig.json**
 
@@ -75,7 +68,7 @@ If you are using TypeScript, you will need to also update the TSConfig.
  }
 ```
 
-### Next.js
+### Next.js <meta data-oversett="" data-original-text="Next.js">
 
 **next.config.js**
 
@@ -97,19 +90,16 @@ If you are using TypeScript, you will need to also update the TSConfig.
 +});
 ```
 
-### Ready-to-use examples
+### Готовые к использованию примеры <meta data-oversett="" data-original-text="Ready-to-use examples">
 
-If you are using create-react-app, there is a ready-to-use template in the example projects.
-You can use these `styled-component` examples as a reference:
+Если вы используете create-react-app, в примерах проектов есть готовый к использованию шаблон. Вы можете использовать эти примеры `styled-component` в качестве справочника:
 
-<!-- #default-branch-switch -->
-
-- [create-react-app](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-styled-components)
-- [create-react-app with TypeScript](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-styled-components-typescript)
-- [and many others](https://github.com/mui/material-ui/tree/master/examples)
+-   [create-react-app](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-styled-components)
+-   [create-react-app с TypeScript](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-styled-components-typescript)
+-   [и многие другие](https://github.com/mui/material-ui/tree/master/examples)
 
 :::warning
-`@emotion/react`, `@emotion/styled`, and `styled-components` are optional peer dependencies of `@mui/material`, so you need to install them yourself. See the [Installation guide](/material-ui/getting-started/installation/) for more info.
+`@emotion/react` `@emotion/styled` и являются необязательными зависимостями от , поэтому вам необходимо установить их самостоятельно. Более подробную информацию см. в `styled-components` `@mui/material`[руководстве по установке](/material-ui/getting-started/installation/).
 :::
 
-This package-swap approach is identical to the replacement of React with [Preact](https://github.com/preactjs/preact). The Preact team has documented a large number of installation configurations. If you are stuck with MUI + styled-components, don't hesitate to check out how they solve the problem, as you can likely transfer the solution.
+Этот подход с заменой пакетов идентичен замене React на [Preact](https://github.com/preactjs/preact). Команда Preact задокументировала большое количество конфигураций установки. Если вы застряли с MUI + styled-components, не стесняйтесь проверить, как они решают проблему, так как вы, вероятно, сможете перенести решение.

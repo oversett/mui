@@ -6,55 +6,54 @@ githubLabel: 'component: breadcrumbs'
 waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/
 ---
 
-# Breadcrumbs
+# Хлебные крошки <meta data-oversett="" data-original-text="Breadcrumbs">
 
-<p class="description">Breadcrumbs consist of a list of links that help a user visualize a page's location within the hierarchical structure of a website, and allow navigation up to any of its "ancestors".</p>
+<p class="description">Хлебные крошки состоят из списка ссылок, которые помогают пользователю представить расположение страницы в иерархической структуре сайта и позволяют перейти к любому из ее "предков".</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic breadcrumbs
+## Основные хлебные крошки <meta data-oversett="" data-original-text="Basic breadcrumbs">
 
 {{"demo": "BasicBreadcrumbs.js"}}
 
-## Active last breadcrumb
+## Активная последняя хлебная крошка <meta data-oversett="" data-original-text="Active last breadcrumb">
 
-Keep the last breadcrumb interactive.
+Поддерживать последнюю хлебную крошку в интерактивном режиме.
 
 {{"demo": "ActiveLastBreadcrumb.js"}}
 
-## Custom separator
+## Пользовательский разделитель <meta data-oversett="" data-original-text="Custom separator">
 
-In the following examples, we are using two string separators and an SVG icon.
+В следующих примерах мы используем два строковых разделителя и SVG-иконку.
 
 {{"demo": "CustomSeparator.js"}}
 
-## Breadcrumbs with icons
+## Хлебные крошки с иконками <meta data-oversett="" data-original-text="Breadcrumbs with icons">
 
 {{"demo": "IconBreadcrumbs.js"}}
 
-## Collapsed breadcrumbs
+## Свернутые хлебные крошки <meta data-oversett="" data-original-text="Collapsed breadcrumbs">
 
 {{"demo": "CollapsedBreadcrumbs.js"}}
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here is an example of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведен пример настройки компонента. Вы можете узнать больше об этом на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedBreadcrumbs.js"}}
 
-## Integration with react-router
+## Интеграция с react-router <meta data-oversett="" data-original-text="Integration with react-router">
 
 {{"demo": "RouterBreadcrumbs.js", "bg": true}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-(WAI-ARIA: https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/)
+(WAI-ARIA: [https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/)](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/)
 
-Be sure to add a `aria-label` description on the `Breadcrumbs` component.
+Обязательно добавьте описание `aria-label` на компонент `Breadcrumbs`.
 
-The accessibility of this component relies on:
+Доступность этого компонента зависит от:
 
-- The set of links is structured using an ordered list (`<ol>` element).
-- To prevent screen reader announcement of the visual separators between links, they are hidden with `aria-hidden`.
-- A nav element labeled with `aria-label` identifies the structure as a breadcrumb trail and makes it a navigation landmark so that it is easy to locate.
+-   Набор ссылок структурирован с помощью упорядоченного списка (элемент`<ol>` ).
+-   Чтобы экранное устройство чтения не объявляло визуальные разделители между ссылками, они скрыты с помощью `aria-hidden`.
+-   Элемент nav, помеченный `aria-label`, идентифицирует структуру как хлебные крошки и делает ее навигационным ориентиром, чтобы ее было легко найти.

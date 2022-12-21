@@ -1,6 +1,7 @@
-# Changelog
 
-<p class="description">MUI follows Semantic Versioning 2.0.0.</p>
 
-All notable changes of the current major version are described in the [CHANGELOG.md file](https://github.com/mui/material-ui/blob/HEAD/CHANGELOG.md).
-Changes of older versions are described in the [CHANGELOG.old.md file](https://github.com/mui/material-ui/blob/HEAD/CHANGELOG.old.md)
+# Changelog <meta data-oversett="" data-original-text="Changelog">
+
+<p class="description">MUI следует стандарту Semantic Versioning 2.0.0.</p>
+
+Все заметные изменения текущей основной версии описаны в [файле CHANGELOG.md](https://github.com/mui/material-ui/blob/HEAD/CHANGELOG.md). Изменения старых версий описаны в [файле CHANGELOG.old.md](https://github.com/mui/material-ui/blob/HEAD/CHANGELOG.old.md)

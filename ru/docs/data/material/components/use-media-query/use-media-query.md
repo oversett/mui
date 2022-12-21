@@ -4,31 +4,30 @@ title: Media queries in React for responsive design
 githubLabel: 'hook: useMediaQuery'
 ---
 
-# useMediaQuery
+# useMediaQuery <meta data-oversett="" data-original-text="useMediaQuery">
 
-<p class="description">This is a CSS media query hook for React. It listens for matches to a CSS media query. It allows the rendering of components based on whether the query matches or not.</p>
+<p class="description">Это крючок медиазапроса CSS для React. Он прослушивает совпадения с медиа-запросом CSS. Он позволяет отрисовывать компоненты в зависимости от того, соответствует запрос или нет.</p>
 
-Some of the key features:
+Некоторые ключевые особенности:
 
-- ⚛️ It has an idiomatic React API.
-- 🚀 It's performant, it observes the document to detect when its media queries change, instead of polling the values periodically.
-- 📦 [1 kB gzipped](/size-snapshot/).
-- 🤖 It supports server-side rendering.
+-   ⚛️ Имеет идиоматический React API.
+-   🚀 Он перформативен, он наблюдает за документом, чтобы определить, когда его медиа-запросы изменяются, вместо того, чтобы периодически опрашивать значения.
+-   📦 [1 kB gzipped](/size-snapshot/).
+-   🤖 Поддерживает рендеринг на стороне сервера.
 
 {{"component": "modules/components/ComponentLinkHeader.js", "design": false}}
 
-## Basic media query
+## Базовый медиазапрос <meta data-oversett="" data-original-text="Basic media query">
 
-You should provide a media query to the first argument of the hook.
-The media query string can be any valid CSS media query, e.g. [`'(prefers-color-scheme: dark)'`](/material-ui/customization/dark-mode/#system-preference).
+Вы должны указать медиа-запрос в первом аргументе хука. Строка медиа-запроса может быть любым допустимым CSS медиа-запросом, например. [`'(prefers-color-scheme: dark)'`](/material-ui/customization/dark-mode/#system-preference).
 
 {{"demo": "SimpleMediaQuery.js", "defaultCodeOpen": true}}
 
-⚠️ You can't use `'print'` per browsers limitation, e.g. [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=774398).
+⚠️ Вы не можете использовать `'print'` из-за ограничений браузеров, например, [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=774398).
 
-## Using MUI's breakpoint helpers
+## Использование помощников точки останова MUI <meta data-oversett="" data-original-text="Using MUI's breakpoint helpers">
 
-You can use MUI's [breakpoint helpers](/material-ui/customization/breakpoints/) as follows:
+Вы можете использовать [помощники точки останова](/material-ui/customization/breakpoints/) MUI следующим образом:
 
 ```jsx
 import { useTheme } from '@mui/material/styles';
@@ -44,7 +43,7 @@ function MyComponent() {
 
 {{"demo": "ThemeHelper.js", "defaultCodeOpen": false}}
 
-Alternatively, you can use a callback function, accepting the theme as a first argument:
+В качестве альтернативы вы можете использовать функцию обратного вызова, принимая тему в качестве первого аргумента:
 
 ```jsx
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -56,20 +55,19 @@ function MyComponent() {
 }
 ```
 
-⚠️ There is **no default** theme support, you have to inject it in a parent theme provider.
+⚠️ Поддержка темы **по умолчанию отсутствует**, ее необходимо внедрить в родительский провайдер темы.
 
-## Using JavaScript syntax
+## Использование синтаксиса JavaScript <meta data-oversett="" data-original-text="Using JavaScript syntax">
 
-You can use [json2mq](https://github.com/akiran/json2mq) to generate media query string from a JavaScript object.
+Вы можете использовать [json2mq](https://github.com/akiran/json2mq) для генерации строки медиа-запроса из объекта JavaScript.
 
 {{"demo": "JavaScriptMedia.js", "defaultCodeOpen": true}}
 
-## Testing
+## Тестирование <meta data-oversett="" data-original-text="Testing">
 
-You need an implementation of [matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) in your test environment.
+Вам необходима реализация [matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) в вашем тестовом окружении.
 
-For instance, [jsdom doesn't support it yet](https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom). You should polyfill it.
-Using [css-mediaquery](https://github.com/ericf/css-mediaquery) to emulate it is recommended.
+Например, [jsdom пока не поддерживает ее](https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom). Рекомендуется использовать [css-mediaquery](https://github.com/ericf/css-mediaquery) для его эмуляции.
 
 ```js
 import mediaQuery from 'css-mediaquery';
@@ -91,18 +89,15 @@ describe('MyTests', () => {
 });
 ```
 
-## Client-side only rendering
+## Рендеринг только на стороне клиента <meta data-oversett="" data-original-text="Client-side only rendering">
 
-To perform the server-side hydration, the hook needs to render twice.
-A first time with `false`, the value of the server, and a second time with the resolved value.
-This double pass rendering cycle comes with a drawback. It's slower.
-You can set the `noSsr` option to `true` if you are doing **client-side only** rendering.
+Чтобы выполнить гидратацию на стороне сервера, хук должен рендерить дважды. Первый раз с `false`, значением сервера, и второй раз с разрешенным значением. Этот цикл рендеринга с двойным проходом имеет недостаток. Он медленнее. Вы можете установить опцию `noSsr` на `true`, если вы делаете рендеринг **только на стороне клиента**.
 
 ```js
 const matches = useMediaQuery('(min-width:600px)', { noSsr: true });
 ```
 
-or it can turn it on globally with the theme:
+Или можно включить его глобально в теме:
 
 ```js
 const theme = createTheme({
@@ -116,32 +111,28 @@ const theme = createTheme({
 });
 ```
 
-## Server-side rendering
+## Рендеринг на стороне сервера <meta data-oversett="" data-original-text="Server-side rendering">
 
 :::warning
-Server-side rendering and client-side media queries are fundamentally at odds.
-Be aware of the tradeoff. The support can only be partial.
+Рендеринг на стороне сервера и клиентские медиа-запросы в корне противоречат друг другу. Будьте внимательны к компромиссу. Поддержка может быть только частичной.
 :::
 
-Try relying on client-side CSS media queries first.
-For instance, you could use:
+Попробуйте сначала полагаться на клиентские медиазапросы CSS. Например, вы можете использовать:
 
-- [`<Box display>`](/system/display/#hiding-elements)
-- [`themes.breakpoints.up(x)`](/material-ui/customization/breakpoints/#css-media-queries)
-- or [`sx prop`](/system/getting-started/the-sx-prop/)
+-   [`<Box display>`](/system/display/#hiding-elements)
+-   [`themes.breakpoints.up(x)`](/material-ui/customization/breakpoints/#css-media-queries)
+-   или [`sx prop`](/system/getting-started/the-sx-prop/)
 
-If none of the above alternatives are an option, you can proceed reading this section of the documentation.
+Если ни одна из вышеперечисленных альтернатив не подходит, вы можете продолжить чтение этого раздела документации.
 
-First, you need to guess the characteristics of the client request, from the server.
-You have the choice between using:
+Во-первых, вам нужно угадать характеристики клиентского запроса от сервера. У вас есть выбор между использованием:
 
-- **User agent**. Parse the user agent string of the client to extract information. Using [ua-parser-js](https://github.com/faisalman/ua-parser-js) to parse the user agent is recommended.
-- **Client hints**. Read the hints the client is sending to the server. Be aware that this feature is [not supported everywhere](https://caniuse.com/#search=client%20hint).
+-   **Агент пользователя**. Разобрать строку агента пользователя клиента для извлечения информации. Рекомендуется использовать [ua-parser-js](https://github.com/faisalman/ua-parser-js) для разбора агента пользователя.
+-   **Подсказки клиента**. Считывать подсказки, которые клиент посылает серверу. Имейте в виду, что эта функция [поддерживается не везде](https://caniuse.com/#search=client%20hint).
 
-Finally, you need to provide an implementation of [matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) to the `useMediaQuery` with the previously guessed characteristics.
-Using [css-mediaquery](https://github.com/ericf/css-mediaquery) to emulate matchMedia is recommended.
+Наконец, вам нужно предоставить реализацию [matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) на `useMediaQuery` с угаданными ранее характеристиками. Рекомендуется использовать [css-mediaquery](https://github.com/ericf/css-mediaquery) для эмуляции matchMedia.
 
-For instance on the server-side:
+Например, на стороне сервера:
 
 ```js
 import ReactDOMServer from 'react-dom/server';
@@ -181,42 +172,35 @@ function handleRender(req, res) {
 
 {{"demo": "ServerSide.js", "defaultCodeOpen": false}}
 
-Make sure you provide the same custom match media implementation to the client-side to guarantee a hydration match.
+Убедитесь, что вы предоставили такую же пользовательскую реализацию matchMedia на стороне клиента, чтобы гарантировать совпадение гидратации.
 
-## Migrating from `withWidth()`
+## Переход с `withWidth()` <meta data-oversett="" data-original-text="Migrating from withWidth()">
 
-The `withWidth()` higher-order component injects the screen width of the page.
-You can reproduce the same behavior with a `useWidth` hook:
+Компонент высшего порядка `withWidth()` вводит ширину экрана страницы. Вы можете воспроизвести то же поведение с помощью хука `useWidth`:
 
 {{"demo": "UseWidth.js"}}
 
-## API
+## API <meta data-oversett="" data-original-text="API">
 
-### `useMediaQuery(query, [options]) => matches`
+### `useMediaQuery(query, [options]) => matches` <meta data-oversett="" data-original-text="useMediaQuery(query, [options]) => matches">
 
-#### Arguments
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-1. `query` (_string_ | _func_): A string representing the media query to handle or a callback function accepting the theme (in the context) that returns a string.
-2. `options` (_object_ [optional]):
+1.  `query` _(string_ | _func_): Строка, представляющая медиа-запрос для обработки, или функция обратного вызова, принимающая тему (в контексте), которая возвращает строку.
+2.  `options` _(object_ \[необязательно\]):
 
-- `options.defaultMatches` (_bool_ [optional]):
-  As `window.matchMedia()` is unavailable on the server,
-  we return a default matches during the first mount. The default value is `false`.
-- `options.matchMedia` (_func_ [optional]): You can provide your own implementation of _matchMedia_. This can be used for handling an iframe content window.
-- `options.noSsr` (_bool_ [optional]): Defaults to `false`.
-  To perform the server-side hydration, the hook needs to render twice.
-  A first time with `false`, the value of the server, and a second time with the resolved value.
-  This double pass rendering cycle comes with a drawback. It's slower.
-  You can set this option to `true` if you are doing **client-side only** rendering.
-- `options.ssrMatchMedia` (_func_ [optional]): You can provide your own implementation of _matchMedia_ in a [server-side rendering context](#server-side-rendering).
+-   `options.defaultMatches` _(bool_ \[optional\]): Поскольку `window.matchMedia()` недоступен на сервере, при первом монтировании мы возвращаем соответствие по умолчанию. Значение по умолчанию - `false`.
+-   `options.matchMedia` _(func_ \[необязательно\]): Вы можете предоставить свою собственную реализацию _matchMedia_. Это может быть использовано для обработки окна содержимого iframe.
+-   `options.noSsr` _(bool_ \[необязательно\]): По умолчанию `false`. Чтобы выполнить гидратацию на стороне сервера, хук должен выполнить рендеринг дважды. Первый раз с `false`, значением сервера, и второй раз с разрешенным значением. Этот цикл рендеринга с двойным проходом имеет недостаток. Он медленнее. Вы можете установить этот параметр на `true`, если вы делаете рендеринг **только на стороне клиента**.
+-   `options.ssrMatchMedia` _(func_ \[необязательно\]): Вы можете предоставить свою собственную реализацию _matchMedia_ в [контексте рендеринга на стороне сервера](#server-side-rendering).
 
-Note: You can change the default options using the [`default props`](/material-ui/customization/theme-components/#default-props) feature of the theme with the `MuiUseMediaQuery` key.
+Примечание: Вы можете изменить параметры по умолчанию, используя [`default props`](/material-ui/customization/theme-components/#default-props) функцию темы с помощью ключа `MuiUseMediaQuery`.
 
-#### Returns
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-`matches`: Matches is `true` if the document currently matches the media query and `false` when it does not.
+`matches`: Возвращает `true`, если документ в данный момент соответствует медиа-запросу, и `false`, если не соответствует.
 
-#### Examples
+#### Примеры <meta data-oversett="" data-original-text="Examples">
 
 ```jsx
 import * as React from 'react';

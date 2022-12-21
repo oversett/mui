@@ -1,10 +1,12 @@
-# CSS theme variables - Usage
 
-<p class="description">Learn how to use the experimental APIs to adopt CSS theme variables.</p>
 
-## Getting started
+# Переменные темы CSS - Использование <meta data-oversett="" data-original-text="CSS theme variables - Usage">
 
-`Experimental_CssVarsProvider` is a provider that generates CSS theme variables and attaches a reference to the theme object (a React context).
+<p class="description">Узнайте, как использовать экспериментальные API для принятия переменных темы CSS.</p>
+
+## Начало работы <meta data-oversett="" data-original-text="Getting started">
+
+`Experimental_CssVarsProvider` это провайдер, который генерирует переменные темы CSS и прикрепляет ссылку на объект темы (контекст React).
 
 ```js
 import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
@@ -14,8 +16,7 @@ function App() {
 }
 ```
 
-Once the `App` renders on the screen, you will see the CSS theme variables in the html `:root` stylesheet.
-The variables are flattened and prefixed with `--mui` by default:
+После рендеринга `App` на экране вы увидите переменные темы CSS в таблице стилей html `:root`. По умолчанию переменные сглажены и имеют префикс `--mui`:
 
 ```css
 /* generated global stylesheet */
@@ -29,12 +30,12 @@ The variables are flattened and prefixed with `--mui` by default:
 ```
 
 :::info
-The `CssVarsProvider` is built on top of the [`ThemeProvider`](/material-ui/customization/theming/#themeprovider) with extra features like CSS variable generation, storage synchronization, unlimited color schemes, and more.
+`CssVarsProvider` построен поверх [`ThemeProvider`](/material-ui/customization/theming/#themeprovider) с дополнительными возможностями, такими как генерация переменных CSS, синхронизация хранилищ, неограниченные цветовые схемы и многое другое.
 :::
 
-## Toggle between light and dark mode
+## Переключение между светлым и темным режимом <meta data-oversett="" data-original-text="Toggle between light and dark mode">
 
-The `useColorScheme` hook lets you read and update the user-selected mode:
+Хук `useColorScheme` позволяет считывать и обновлять выбранный пользователем режим:
 
 ```jsx
 import {
@@ -83,44 +84,44 @@ function App() {
 }
 ```
 
-## Using theme variables
+## Использование переменных темы <meta data-oversett="" data-original-text="Using theme variables">
 
-- `theme.vars` (recommended): an object that refers to the CSS theme variables.
+-   `theme.vars` (рекомендуется): объект, который ссылается на переменные темы CSS.
+    
+    ```js
+    const Button = styled('button')(({ theme }) => ({
+      backgroundColor: theme.vars.palette.primary.main, // var(--mui-palette-primary-main)
+      color: theme.vars.palette.primary.contrastText, // var(--mui-palette-primary-contrastText)
+    }));
+    ```
+    
+    В **TypeScript** переменные темы не включены по умолчанию. Следуйте [настройкам TypeScript](#typescript), чтобы включить переменные темы.
+    
+    :::warning
+    Убедитесь, что компоненты, обращающиеся к `theme.vars.*`, отрисовываются под новым провайдером, иначе вы получите `TypeError`.
+    :::
+    
+-   **Native CSS**: если вы не можете получить доступ к объекту темы, например, в чистом файле CSS, вы можете использовать [`var()`](https://developer.mozilla.org/en-US/docs/Web/CSS/var) напрямую:
+    
+    ```css
+    /* external-scope.css */
+    .external-section {
+      background-color: var(--mui-palette-grey-50);
+    }
+    ```
+    
+    :::warning
+    Если вы настроили [пользовательский префикс](/material-ui/experimental-api/css-theme-variables/customization/#changing-variable-prefixes), убедитесь, что он заменяет стандартный `--mui`.
+    :::
+    
 
-  ```js
-  const Button = styled('button')(({ theme }) => ({
-    backgroundColor: theme.vars.palette.primary.main, // var(--mui-palette-primary-main)
-    color: theme.vars.palette.primary.contrastText, // var(--mui-palette-primary-contrastText)
-  }));
-  ```
+## Рендеринг на стороне сервера <meta data-oversett="" data-original-text="Server-side rendering">
 
-  For **TypeScript**, the typings are not enabled by default.
-  Follow the [TypeScript setup](#typescript) to enable the typings.
+Поместите `getInitColorSchemeScript()` перед тегом `<Main />`, чтобы предотвратить мерцание SSR в темном режиме во время фазы гидратации.
 
-  :::warning
-  Make sure that the components accessing `theme.vars.*` are rendered under the new provider, otherwise you will get a `TypeError`.
-  :::
+### Next.js <meta data-oversett="" data-original-text="Next.js">
 
-- **Native CSS**: if you can't access the theme object, e.g. in a pure CSS file, you can use [`var()`](https://developer.mozilla.org/en-US/docs/Web/CSS/var) directly:
-
-  ```css
-  /* external-scope.css */
-  .external-section {
-    background-color: var(--mui-palette-grey-50);
-  }
-  ```
-
-  :::warning
-  If you have set up a [custom prefix](/material-ui/experimental-api/css-theme-variables/customization/#changing-variable-prefixes), make sure to replace the default `--mui`.
-  :::
-
-## Server-side rendering
-
-Place `getInitColorSchemeScript()` before the `<Main />` tag to prevent the dark-mode SSR flickering during the hydration phase.
-
-### Next.js
-
-Add the following code to the custom [`pages/_document.js`](https://nextjs.org/docs/advanced-features/custom-document) file:
+Добавьте следующий код в пользовательский [`pages/_document.js`](https://nextjs.org/docs/advanced-features/custom-document) файл:
 
 ```jsx
 import Document, { Html, Head, Main, NextScript } from 'next/document';
@@ -142,9 +143,9 @@ export default class MyDocument extends Document {
 }
 ```
 
-### Gatsby
+### Gatsby <meta data-oversett="" data-original-text="Gatsby">
 
-Add the following code to the custom [`gatsby-ssr.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) file:
+Добавьте следующий код в пользовательский [`gatsby-ssr.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) файл:
 
 ```jsx
 import React from 'react';
@@ -155,9 +156,9 @@ export function onRenderBody({ setPreBodyComponents }) {
 }
 ```
 
-## TypeScript
+## TypeScript <meta data-oversett="" data-original-text="TypeScript">
 
-The theme variables type is not enabled by default. You need to import the module augmentation to enable the typings:
+Тип переменных темы не включен по умолчанию. Вам необходимо импортировать модуль augmentation для включения типов:
 
 ```ts
 // The import can be in any file that is included in your `tsconfig.json`

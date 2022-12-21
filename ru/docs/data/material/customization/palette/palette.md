@@ -1,44 +1,44 @@
-# Palette
 
-<p class="description">The palette enables you to modify the color of the components to suit your brand.</p>
 
-## Palette colors
+# Палитра <meta data-oversett="" data-original-text="Palette">
 
-The theme exposes the following palette colors (accessible under `theme.palette.`):
+<p class="description">Палитра позволяет изменять цвет компонентов в соответствии с вашим брендом.</p>
 
-- _primary_ - used to represent primary interface elements for a user. It's the color displayed most frequently across your app's screens and components.
-- _secondary_ - used to represent secondary interface elements for a user. It provides more ways to accent and distinguish your product. Having it is optional.
-- _error_ - used to represent interface elements that the user should be made aware of.
-- _warning_ - used to represent potentially dangerous actions or important messages.
-- _info_ - used to present information to the user that is neutral and not necessarily important.
-- _success_ - used to indicate the successful completion of an action that user triggered.
+## Цвета палитры <meta data-oversett="" data-original-text="Palette colors">
 
-If you want to learn more about color, you can check out [the color section](/material-ui/customization/color/).
+Тема предоставляет следующие цвета палитры (доступны по ссылке `theme.palette.`):
 
-## Default values
+-   _основной_ - используется для представления основных элементов интерфейса для пользователя. Это цвет, который чаще всего отображается на экранах и компонентах вашего приложения.
+-   _вторичный_ - используется для представления вторичных элементов интерфейса для пользователя. Он предоставляет больше способов подчеркнуть и выделить ваш продукт. Его наличие необязательно.
+-   _ошибка_ - используется для обозначения элементов интерфейса, на которые пользователь должен обратить внимание.
+-   _предупреждение_ - используется для представления потенциально опасных действий или важных сообщений.
+-   _info_ - используется для представления пользователю информации, которая является нейтральной и не обязательно важной.
+-   _success_ - используется для обозначения успешного завершения действия, которое было инициировано пользователем.
 
-You can explore the default values of the palette using [the theme explorer](/material-ui/customization/default-theme/?expand-path=$.palette) or by opening the dev tools console on this page (`window.theme.palette`).
+Если вы хотите узнать больше о цвете, вы можете ознакомиться с [разделом "Цвет](/material-ui/customization/color/)".
+
+## Значения по умолчанию <meta data-oversett="" data-original-text="Default values">
+
+Вы можете изучить значения палитры по умолчанию с помощью [проводника тем](/material-ui/customization/default-theme/?expand-path=$.palette) или открыв консоль dev tools на этой странице (`window.theme.palette`).
 
 {{"demo": "Intentions.js", "bg": "inline", "hideToolbar": true}}
 
-The default palette uses the shades prefixed with `A` (`A200`, etc.) for the secondary palette color,
-and the un-prefixed shades for the other palette colors.
+Палитра по умолчанию использует оттенки с префиксом `A` (`A200`, и т.д.) для вторичного цвета палитры, а для остальных цветов палитры - оттенки без префиксов.
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-You may override the default palette values by including a palette object as part of your theme.
-If any of the:
+Вы можете переопределить значения палитры по умолчанию, включив объект палитры как часть вашей темы. Если любой из объектов:
 
-- [`.palette.primary`](/material-ui/customization/default-theme/?expand-path=$.palette.primary)
-- [`.palette.secondary`](/material-ui/customization/default-theme/?expand-path=$.palette.secondary)
-- [`.palette.error`](/material-ui/customization/default-theme/?expand-path=$.palette.error)
-- [`.palette.warning`](/material-ui/customization/default-theme/?expand-path=$.palette.warning)
-- [`.palette.info`](/material-ui/customization/default-theme/?expand-path=$.palette.info)
-- [`.palette.success`](/material-ui/customization/default-theme/?expand-path=$.palette.success)
+-   [`.palette.primary`](/material-ui/customization/default-theme/?expand-path=$.palette.primary)
+-   [`.palette.secondary`](/material-ui/customization/default-theme/?expand-path=$.palette.secondary)
+-   [`.palette.error`](/material-ui/customization/default-theme/?expand-path=$.palette.error)
+-   [`.palette.warning`](/material-ui/customization/default-theme/?expand-path=$.palette.warning)
+-   [`.palette.info`](/material-ui/customization/default-theme/?expand-path=$.palette.info)
+-   [`.palette.success`](/material-ui/customization/default-theme/?expand-path=$.palette.success)
 
-palette color objects are provided, they will replace the default ones.
+объектов цвета палитры, то они заменят значения по умолчанию.
 
-The palette color value can either be a [color](/material-ui/customization/color/#2014-material-design-color-palettes) object, or an object with one or more of the keys specified by the following TypeScript interface:
+Значение цвета палитры может быть либо объектом [цвета](/material-ui/customization/color/#2014-material-design-color-palettes), либо объектом с одним или несколькими ключами, указанными в следующем интерфейсе TypeScript:
 
 ```ts
 interface PaletteColor {
@@ -49,10 +49,9 @@ interface PaletteColor {
 }
 ```
 
-### Using a color object
+### Использование объекта цвета <meta data-oversett="" data-original-text="Using a color object">
 
-The simplest way to customize a palette color is to import one or more of the provided colors
-and apply them:
+Самый простой способ настроить цвет палитры - импортировать один или несколько предоставленных цветов и применить их:
 
 ```js
 import { createTheme } from '@mui/material/styles';
@@ -65,10 +64,9 @@ const theme = createTheme({
 });
 ```
 
-### Providing the colors directly
+### Предоставление цветов напрямую <meta data-oversett="" data-original-text="Providing the colors directly">
 
-If you wish to provide more customized colors, you can either create your own palette color,
-or directly supply colors to some or all of the `theme.palette` keys:
+Если вы хотите предоставить более настраиваемые цвета, вы можете либо создать свой собственный цвет палитры, либо напрямую предоставить цвета некоторым или всем ключам `theme.palette`:
 
 ```js
 import { createTheme } from '@mui/material/styles';
@@ -108,16 +106,12 @@ const theme = createTheme({
 });
 ```
 
-As in the example above, if the palette color contains custom colors using any of the
-"main", "light", "dark" or "contrastText" keys, these map as follows:
+Как и в примере выше, если цвет палитры содержит пользовательские цвета, использующие любой из ключей "main", "light", "dark" или "contrastText", они отображаются следующим образом:
 
-- If the "dark" and / or "light" keys are omitted, their value(s) will be calculated from "main",
-  according to the "tonalOffset" value.
-- If "contrastText" is omitted, its value will be calculated to contrast with "main",
-  according to the "contrastThreshold" value.
+-   Если ключи "dark" и/или "light" опущены, их значение(я) будет вычислено из "main", в соответствии со значением "tonalOffset".
+-   Если "contrastText" опущен, его значение будет рассчитано для контраста с "основным" в соответствии со значением "contrastThreshold".
 
-Both the "tonalOffset" and "contrastThreshold" values may be customized as needed.
-The "tonalOffset" value can either be a number between 0 and 1, which will apply to both light and dark variants, or an object with light and dark variants specified by the following TypeScript type:
+Значения "tonalOffset" и "contrastThreshold" могут быть настроены по необходимости. Значение "tonalOffset" может быть либо числом от 0 до 1, которое будет применяться как к светлым, так и к темным вариантам, либо объектом со светлыми и темными вариантами, заданными следующим типом TypeScript:
 
 ```ts
 type PaletteTonalOffset =
@@ -128,14 +122,11 @@ type PaletteTonalOffset =
     };
 ```
 
-A higher value for "tonalOffset" will make calculated values for "light" lighter, and "dark" darker.
-A higher value for "contrastThreshold" increases the point at which a background color is considered
-light, and given a dark "contrastText". Note that "contrastThreshold" follows a non-linear curve, and
-starts with a value of 3 (requiring a minimum contrast ratio of 3:1).
+Более высокое значение для "tonalOffset" сделает вычисленные значения для "light" светлее, а "dark" темнее. Более высокое значение для "contrastThreshold" увеличивает точку, в которой цвет фона считается светлым, и ему присваивается темный "contrastText". Обратите внимание, что "contrastThreshold" следует нелинейной кривой и начинается со значения 3 (требующего минимального соотношения контрастности 3:1).
 
-### Accessibility
+### Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-To meet the minimum contrast of at least 4.5:1 as defined in [WCAG 2.1 Rule 1.4.3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html), create a custom theme with `contrastThreshold: 4.5`.
+Чтобы обеспечить минимальную контрастность не менее 4,5:1, как определено в [правиле 1.4.3 стандарта WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html), создайте пользовательскую тему с помощью `contrastThreshold: 4.5`.
 
 ```js
 import { createTheme } from '@mui/material/styles';
@@ -149,13 +140,13 @@ const theme = createTheme({
 });
 ```
 
-### Example
+### Пример <meta data-oversett="" data-original-text="Example">
 
 {{"demo": "Palette.js", "defaultCodeOpen": true}}
 
-### Adding new colors
+### Добавление новых цветов <meta data-oversett="" data-original-text="Adding new colors">
 
-You can add new colors inside and outside the palette of the theme as follows:
+Вы можете добавлять новые цвета внутри и вне палитры темы следующим образом:
 
 ```js
 import { createTheme } from '@mui/material/styles';
@@ -177,9 +168,7 @@ const theme = createTheme({
 });
 ```
 
-If you are using TypeScript, you would also need to use [module augmentation](/material-ui/guides/typescript/#customization-of-theme) for the theme to accept the above values.
-
-<!-- tested with packages/mui-material/test/typescript/augmentation/paletteColors.spec.ts -->
+Если вы используете TypeScript, вам также необходимо использовать [расширение модуля](/material-ui/guides/typescript/#customization-of-theme), чтобы тема принимала указанные выше значения.
 
 ```ts
 declare module '@mui/material/styles' {
@@ -215,10 +204,10 @@ declare module '@mui/material/styles' {
 
 {{"demo": "CustomColor.js"}}
 
-## Picking colors
+## Выбор цветов <meta data-oversett="" data-original-text="Picking colors">
 
-Need inspiration? The Material Design team has built an [palette configuration tool](/material-ui/customization/color/#picking-colors) to help you.
+Нужно вдохновение? Команда Material Design создала [инструмент настройки палитры](/material-ui/customization/color/#picking-colors), который поможет вам.
 
-## Dark mode
+## Темный режим <meta data-oversett="" data-original-text="Dark mode">
 
-For details of how you can set up a dark mode for your theme, head to the [dark mode guide](/material-ui/customization/dark-mode/).
+Подробную информацию о том, как настроить темный режим для вашей темы, можно найти в [руководстве по темному режиму](/material-ui/customization/dark-mode/).

@@ -6,19 +6,19 @@ githubLabel: 'component: list'
 materialDesign: https://m2.material.io/components/lists
 ---
 
-# Lists
+# Списки <meta data-oversett="" data-original-text="Lists">
 
-<p class="description">Lists are continuous, vertical indexes of text or images.</p>
+<p class="description">Списки - это непрерывные вертикальные указатели текста или изображений.</p>
 
-Lists are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.
+Списки - это непрерывная группа текста или изображений. Они состоят из элементов, содержащих основные и дополнительные действия, которые представлены значками и текстом.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic List
+## Основной список <meta data-oversett="" data-original-text="Basic List">
 
 {{"demo": "BasicList.js", "bg": true}}
 
-The last item of the previous demo shows how you can render a link:
+Последний элемент предыдущей демонстрации показывает, как можно отобразить ссылку:
 
 ```jsx
 <ListItemButton component="a" href="#simple-list">
@@ -26,90 +26,82 @@ The last item of the previous demo shows how you can render a link:
 </ListItemButton>
 ```
 
-You can find a [demo with React Router following this section](/material-ui/guides/routing/#list) of the documentation.
+Вы можете найти [демо с React Router в этом разделе](/material-ui/guides/routing/#list) документации.
 
-## Nested List
+## Вложенный список <meta data-oversett="" data-original-text="Nested List">
 
 {{"demo": "NestedList.js", "bg": true}}
 
-## Folder List
+## Папка-список <meta data-oversett="" data-original-text="Folder List">
 
 {{"demo": "FolderList.js", "bg": true}}
 
-## Interactive
+## Интерактивный <meta data-oversett="" data-original-text="Interactive">
 
-Below is an interactive demo that lets you explore the visual results of the different settings:
+Ниже приведена интерактивная демонстрация, позволяющая изучить визуальные результаты различных настроек:
 
 {{"demo": "InteractiveList.js", "bg": true}}
 
-## Selected ListItem
+## Selected ListItem <meta data-oversett="" data-original-text="Selected ListItem">
 
 {{"demo": "SelectedListItem.js", "bg": true}}
 
-## Align list items
+## Выравнивание элементов списка <meta data-oversett="" data-original-text="Align list items">
 
-When displaying three lines or more, the avatar is not aligned at the top.
-You should set the `alignItems="flex-start"` prop to align the avatar at the top, following the Material Design guidelines:
+При отображении трех и более строк аватар не выравнивается по верху. Вам следует установить параметр `alignItems="flex-start"` для выравнивания аватара по верху, следуя рекомендациям Material Design:
 
 {{"demo": "AlignItemsList.js", "bg": true}}
 
-## List Controls
+## Элементы управления списком <meta data-oversett="" data-original-text="List Controls">
 
-### Checkbox
+### Флажок <meta data-oversett="" data-original-text="Checkbox">
 
-A checkbox can either be a primary action or a secondary action.
+Флажок может быть как основным, так и дополнительным действием.
 
-The checkbox is the primary action and the state indicator for the list item. The comment button is a secondary action and a separate target.
+Флажок - это первичное действие и индикатор состояния элемента списка. Кнопка комментария - это вторичное действие и отдельная цель.
 
 {{"demo": "CheckboxList.js", "bg": true}}
 
-The checkbox is the secondary action for the list item and a separate target.
+Флажок является вторичным действием для элемента списка и отдельной целью.
 
 {{"demo": "CheckboxListSecondary.js", "bg": true}}
 
-### Switch
+### Переключатель <meta data-oversett="" data-original-text="Switch">
 
-The switch is the secondary action and a separate target.
+Переключатель является вторичным действием и отдельной целью.
 
 {{"demo": "SwitchListSecondary.js", "bg": true}}
 
-## Sticky subheader
+## Липкий подзаголовок <meta data-oversett="" data-original-text="Sticky subheader">
 
-Upon scrolling, subheaders remain pinned to the top of the screen until pushed off screen by the next subheader.
-This feature relies on CSS sticky positioning.
-(⚠️ no IE 11 support)
+При прокрутке подзаголовки остаются прикрепленными к верхней части экрана, пока их не вытеснит следующий подзаголовок. Эта функция основана на липком позиционировании CSS. (⚠️ нет поддержки IE 11)
 
 {{"demo": "PinnedSubheaderList.js", "bg": true}}
 
-## Inset List Item
+## Вставка элемента списка <meta data-oversett="" data-original-text="Inset List Item">
 
-The `inset` prop enables a list item that does not have a leading icon or avatar to align correctly with items that do.
+Реквизит `inset` позволяет элементу списка, не имеющему ведущей иконки или аватара, правильно выравниваться по отношению к элементам, имеющим ведущую иконку или аватар.
 
 {{"demo": "InsetList.js", "bg": true}}
 
-## Gutterless list
+## Список без желоба <meta data-oversett="" data-original-text="Gutterless list">
 
-When rendering a list within a component that defines its own gutters, `ListItem` gutters can be disabled with `disableGutters`.
+При отображении списка в компоненте, который определяет свои собственные желоба, `ListItem` желоба могут быть отключены с помощью `disableGutters`.
 
 {{"demo": "GutterlessList.js", "bg": true}}
 
-## Virtualized List
+## Виртуализированный список <meta data-oversett="" data-original-text="Virtualized List">
 
-In the following example, we demonstrate how to use [react-window](https://github.com/bvaughn/react-window) with the `List` component.
-It renders 200 rows and can easily handle more.
-Virtualization helps with performance issues.
+В следующем примере мы демонстрируем, как использовать [react-window](https://github.com/bvaughn/react-window) с компонентом `List`. Он отображает 200 строк и может легко обрабатывать больше. Виртуализация помогает решить проблемы производительности.
 
 {{"demo": "VirtualizedList.js", "bg": true}}
 
-The use of [react-window](https://github.com/bvaughn/react-window) when possible is encouraged.
-If this library doesn't cover your use case, you should consider using [react-virtualized](https://github.com/bvaughn/react-virtualized), then alternatives like [react-virtuoso](https://github.com/petyosi/react-virtuoso).
+Использование [react-window](https://github.com/bvaughn/react-window), когда это возможно, приветствуется. Если эта библиотека не подходит для вашего случая использования, вам следует рассмотреть возможность использования [react-virtualized](https://github.com/bvaughn/react-virtualized), а затем альтернативы, например [react-virtuoso](https://github.com/petyosi/react-virtuoso).
 
-## Customization
+## Кастомизация <meta data-oversett="" data-original-text="Customization">
 
-Here are some examples of customizing the component.
-You can learn more about this in the
-[overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведены примеры настройки компонента. Вы можете узнать больше об этом на[странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedList.js"}}
 
-🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/list-item/).
+🎨 Если вы ищете вдохновение, вы можете посмотреть [примеры кастомизации MUI Treasury](https://mui-treasury.com/styles/list-item/).

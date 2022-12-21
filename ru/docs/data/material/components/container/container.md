@@ -5,17 +5,17 @@ components: Container
 githubLabel: 'component: Container'
 ---
 
-# Container
+# Контейнер <meta data-oversett="" data-original-text="Container">
 
-<p class="description">The container centers your content horizontally. It's the most basic layout element.</p>
+<p class="description">Контейнер центрирует содержимое по горизонтали. Это самый простой элемент макета.</p>
 
-While containers can be nested, most layouts do not require a nested container.
+Хотя контейнеры могут быть вложенными, большинство макетов не требуют вложенных контейнеров.
 
 {{"component": "modules/components/ComponentLinkHeader.js", "design": false}}
 
-## Fluid
+## Жидкий <meta data-oversett="" data-original-text="Fluid">
 
-A fluid container width is bounded by the `maxWidth` prop value.
+Ширина плавного контейнера ограничена значением параметра `maxWidth`.
 
 {{"demo": "SimpleContainer.js", "iframe": true, "defaultCodeOpen": false}}
 
@@ -23,10 +23,9 @@ A fluid container width is bounded by the `maxWidth` prop value.
 <Container maxWidth="sm">
 ```
 
-## Fixed
+## Фиксированный <meta data-oversett="" data-original-text="Fixed">
 
-If you prefer to design for a fixed set of sizes instead of trying to accommodate a fully fluid viewport, you can set the `fixed` prop.
-The max-width matches the min-width of the current breakpoint.
+Если вы предпочитаете разрабатывать дизайн для фиксированного набора размеров вместо того, чтобы пытаться приспособить полностью текучий видовой экран, вы можете установить реквизит `fixed`. Максимальная ширина совпадает с минимальной шириной текущей точки останова.
 
 {{"demo": "FixedContainer.js", "iframe": true, "defaultCodeOpen": false}}
 

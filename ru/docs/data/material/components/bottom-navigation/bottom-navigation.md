@@ -6,34 +6,32 @@ githubLabel: 'component: bottom navigation'
 materialDesign: https://m2.material.io/components/bottom-navigation
 ---
 
-# Bottom Navigation
+# Нижняя навигация <meta data-oversett="" data-original-text="Bottom Navigation">
 
-<p class="description">The Bottom Navigation bar allows movement between primary destinations in an app.</p>
+<p class="description">Нижняя навигационная панель позволяет перемещаться между основными пунктами назначения в приложении.</p>
 
-Bottom navigation bars display three to five destinations at the bottom of a screen. Each destination is represented by an icon and an optional text label. When a bottom navigation icon is tapped, the user is taken to the top-level navigation destination associated with that icon.
+Нижние навигационные панели отображают от трех до пяти пунктов назначения в нижней части экрана. Каждый пункт назначения представлен значком и дополнительной текстовой надписью. При нажатии на значок нижней навигационной панели пользователь переходит к пункту назначения верхнего уровня, связанному с этим значком.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Bottom navigation
+## Нижняя навигация <meta data-oversett="" data-original-text="Bottom navigation">
 
-When there are only **three** actions, display both icons and text labels at all times.
+Когда есть только **три** действия, всегда отображайте и значки, и текстовые метки.
 
 {{"demo": "SimpleBottomNavigation.js", "bg": true}}
 
-## Bottom navigation with no label
+## Нижняя навигация без ярлыка <meta data-oversett="" data-original-text="Bottom navigation with no label">
 
-If there are **four** or **five** actions, display inactive views as icons only.
+При наличии **четырех** или **пяти** действий отображайте неактивные представления только в виде значков.
 
 {{"demo": "LabelBottomNavigation.js", "bg": true}}
 
-## Fixed positioning
+## Фиксированное позиционирование <meta data-oversett="" data-original-text="Fixed positioning">
 
-This demo keeps bottom navigation fixed to the bottom, no matter the amount of content on-screen.
+В этом демо нижняя навигация фиксируется внизу, независимо от количества контента на экране.
 
 {{"demo": "FixedBottomNavigation.js", "bg": true, "iframe": true, "maxWidth": 600}}
 
-## Third-party routing library
+## Библиотека маршрутизации сторонних производителей <meta data-oversett="" data-original-text="Third-party routing library">
 
-One frequent use case is to perform navigation on the client only, without an HTTP round-trip to the server.
-The `BottomNavigationAction` component provides the `component` prop to handle this use case.
-Here is a [more detailed guide](/material-ui/guides/routing/).
+Одним из частых случаев использования является выполнение навигации только на клиенте, без HTTP-трипа на сервер. Компонент `BottomNavigationAction` предоставляет реквизит `component` для обработки этого случая использования. Здесь представлено [более подробное руководство](/material-ui/guides/routing/).

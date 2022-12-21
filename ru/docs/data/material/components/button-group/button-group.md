@@ -5,45 +5,44 @@ components: Button, ButtonGroup
 githubLabel: 'component: ButtonGroup'
 ---
 
-# Button Group
+# Группа кнопок <meta data-oversett="" data-original-text="Button Group">
 
-<p class="description">The ButtonGroup component can be used to group related buttons.</p>
+<p class="description">Компонент ButtonGroup можно использовать для группировки связанных кнопок.</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic button group
+## Основная группа кнопок <meta data-oversett="" data-original-text="Basic button group">
 
-The buttons can be grouped by wrapping them with the `ButtonGroup` component.
-They need to be immediate children.
+Кнопки можно сгруппировать, обернув их компонентом `ButtonGroup`. Они должны быть непосредственными дочерними элементами.
 
 {{"demo": "BasicButtonGroup.js"}}
 
-## Button variants
+## Варианты кнопок <meta data-oversett="" data-original-text="Button variants">
 
-All the standard button variants are supported.
+Поддерживаются все стандартные варианты кнопок.
 
 {{"demo": "VariantButtonGroup.js"}}
 
-## Sizes and colors
+## Размеры и цвета <meta data-oversett="" data-original-text="Sizes and colors">
 
-The `size` and `color` props can be used to control the appearance of the button group.
+Реквизиты `size` и `color` могут быть использованы для управления внешним видом группы кнопок.
 
 {{"demo": "GroupSizesColors.js"}}
 
-## Vertical group
+## Вертикальная группа <meta data-oversett="" data-original-text="Vertical group">
 
-The button group can be displayed vertically using the `orientation` prop.
+Группа кнопок может быть отображена вертикально с помощью реквизита `orientation`.
 
 {{"demo": "GroupOrientation.js"}}
 
-## Split button
+## Разделенная кнопка <meta data-oversett="" data-original-text="Split button">
 
-`ButtonGroup` can also be used to create a split button. The dropdown can change the button action (as in this example) or be used to immediately trigger a related action.
+`ButtonGroup` также может быть использован для создания разделенной кнопки. Выпадающий элемент может изменить действие кнопки (как в этом примере) или использоваться для немедленного запуска связанного действия.
 
 {{"demo": "SplitButton.js"}}
 
-## Disabled elevation
+## Отключенное возвышение <meta data-oversett="" data-original-text="Disabled elevation">
 
-You can remove the elevation with the `disableElevation` prop.
+Вы можете убрать возвышение с помощью реквизита `disableElevation`.
 
 {{"demo": "DisableElevation.js"}}

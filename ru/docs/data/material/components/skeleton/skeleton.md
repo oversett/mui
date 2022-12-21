@@ -5,18 +5,17 @@ components: Skeleton
 githubLabel: 'component: skeleton'
 ---
 
-# Skeleton
+# Скелет <meta data-oversett="" data-original-text="Skeleton">
 
-<p class="description">Display a placeholder preview of your content before the data gets loaded to reduce load-time frustration.</p>
+<p class="description">Отображение предварительного просмотра содержимого перед загрузкой данных для уменьшения раздражения при загрузке.</p>
 
-The data for your components might not be immediately available. You can improve the perceived responsiveness of the page by using skeletons. It feels like things are happening immediately, then the information is incrementally displayed on the screen (Cf. [Avoid The Spinner](https://www.lukew.com/ff/entry.asp?1797)).
+Данные для ваших компонентов могут быть доступны не сразу. Вы можете улучшить воспринимаемую отзывчивость страницы, используя скелеты. Создается впечатление, что все происходит немедленно, а затем информация постепенно отображается на экране (ср. " [Избегайте спиннера](https://www.lukew.com/ff/entry.asp?1797)").
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Usage
+## Использование <meta data-oversett="" data-original-text="Usage">
 
-The component is designed to be used **directly in your components**.
-For instance:
+Компонент предназначен для использования **непосредственно в ваших компонентах**. Например:
 
 ```jsx
 {
@@ -35,34 +34,34 @@ For instance:
 }
 ```
 
-## Variants
+## Варианты <meta data-oversett="" data-original-text="Variants">
 
-The component supports 4 shape variants:
+Компонент поддерживает 4 варианта формы:
 
-- `text` (default): represents a single line of text (you can adjust the height via font size).
-- `circular`, `rectangular`, and `rounded`: come with different border radius to let you take control of the size.
+-   `text` (по умолчанию): представляет собой одну строку текста (вы можете настроить высоту через размер шрифта).
+-   `circular`, `rectangular`, и `rounded`: имеют разный радиус границы, что позволяет вам контролировать размер.
 
 {{"demo": "Variants.js"}}
 
-## Animations
+## Анимации <meta data-oversett="" data-original-text="Animations">
 
-By default, the skeleton pulsates, but you can change the animation to a wave or disable it entirely.
+По умолчанию скелет пульсирует, но вы можете изменить анимацию на волну или полностью отключить ее.
 
 {{"demo": "Animations.js"}}
 
-### Pulsate example
+### Пример пульсации <meta data-oversett="" data-original-text="Pulsate example">
 
 {{"demo": "YouTube.js", "defaultCodeOpen": false}}
 
-### Wave example
+### Пример волны <meta data-oversett="" data-original-text="Wave example">
 
 {{"demo": "Facebook.js", "defaultCodeOpen": false, "bg": true}}
 
-## Inferring dimensions
+## Определение размеров <meta data-oversett="" data-original-text="Inferring dimensions">
 
-In addition to accepting `width` and `height` props, the component can also infer the dimensions.
+Помимо приема реквизитов `width` и `height`, компонент также может определять размеры.
 
-It works well when it comes to typography as its height is set using `em` units.
+Это хорошо работает, когда речь идет о типографике, поскольку ее высота задается с помощью единиц `em`.
 
 ```jsx
 <Typography variant="h1">{loading ? <Skeleton /> : 'h1'}</Typography>
@@ -70,9 +69,7 @@ It works well when it comes to typography as its height is set using `em` units.
 
 {{"demo": "SkeletonTypography.js", "defaultCodeOpen": false}}
 
-But when it comes to other components, you may not want to repeat the width and
-height. In these instances, you can pass `children` and it will
-infer its width and height from them.
+Но когда речь идет о других компонентах, вы можете не захотеть повторять ширину и высоту. В таких случаях можно передать `children`, и компонент сам определит ширину и высоту.
 
 ```jsx
 loading ? (
@@ -86,24 +83,22 @@ loading ? (
 
 {{"demo": "SkeletonChildren.js", "defaultCodeOpen": false}}
 
-## Color
+## Цвет <meta data-oversett="" data-original-text="Color">
 
-The color of the component can be customized by changing its `background-color` CSS property.
-This is especially useful when on a black background (as the skeleton will otherwise be invisible).
+Цвет компонента можно настроить, изменив его CSS-свойство `background-color`. Это особенно полезно на черном фоне (иначе скелет будет невидим).
 
 {{"demo": "SkeletonColor.js", "bg": "inline"}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-Skeleton screens provide an alternative to the traditional spinner method.
-Rather than showing an abstract widget, skeleton screens create anticipation of what is to come and reduce cognitive load.
+Скелетные экраны представляют собой альтернативу традиционному методу спиннера. Вместо того чтобы показывать абстрактный виджет, скелетные экраны создают предвкушение того, что будет дальше, и снижают когнитивную нагрузку.
 
-The background color of the skeleton uses the least amount of luminance to be visible in good conditions (good ambient light, good screen, no visual impairments).
+Цвет фона скелета использует наименьшее количество яркости, чтобы быть видимым в хороших условиях (хорошее окружающее освещение, хороший экран, отсутствие нарушений зрения).
 
-### ARIA
+### ARIA <meta data-oversett="" data-original-text="ARIA">
 
-None.
+Нет.
 
-### Keyboard
+### Клавиатура <meta data-oversett="" data-original-text="Keyboard">
 
-The skeleton is not focusable.
+Скелет не фокусируется.

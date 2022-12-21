@@ -1,47 +1,49 @@
-# Transitions
 
-<p class="description">The theme key enables you to customize the durations and easings of the various transitions used across MUI components, and offers a utility for creating custom transitions.</p>
 
-## API
+# Переходы <meta data-oversett="" data-original-text="Transitions">
 
-### `theme.transitions.create(props, options) => transition`
+<p class="description">Ключ темы позволяет настраивать длительность и смягчение различных переходов, используемых в компонентах MUI, а также предлагает утилиту для создания пользовательских переходов.</p>
 
-#### Arguments
+## API <meta data-oversett="" data-original-text="API">
 
-1. `props` (_string_ | _string[]_): Defaults to `['all']`. Provides a CSS property, or a list of CSS properties that should be transitioned.
-2. `options` (_object_ [optional]):
+### `theme.transitions.create(props, options) => transition` <meta data-oversett="" data-original-text="theme.transitions.create(props, options) => transition">
 
-- `options.duration` (_string_ | _number_ [optional]): Defaults to `theme.transitions.duration.standard`. Provides the duration of the transition.
-- `options.easing` (_string_ [optional]): Defaults to `theme.transitions.easing.easeInOut`. Provides the easing for the transition.
-- `options.delay` (_string_ | _number_ [optional]): Defaults to `0`. Provides the delay for the transition.
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-#### Returns
+1.  `props` _(string_ | _string\[\]_): По умолчанию `['all']`. Предоставляет CSS-свойство или список CSS-свойств, для которых должен быть выполнен переход.
+2.  `options` _(объект_ \[необязательно\]):
 
-`transition`: A CSS transition value, which composes all CSS properties that should be transitioned, together with the defined duration, easing and delay.
+-   `options.duration` _(строка_ | _число_ \[необязательно\]): По умолчанию `theme.transitions.duration.standard`. Предоставляет длительность перехода.
+-   `options.easing` _(строка_ \[необязательно\]): По умолчанию `theme.transitions.easing.easeInOut`. Предоставляет смягчение для перехода.
+-   `options.delay` _(строка_ | _число_ \[необязательно\]): По умолчанию `0`. Предоставляет задержку для перехода.
 
-Use the <code>theme.transitions.create()</code> helper to create consistent transitions for the elements of your UI.</p>
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
+
+`transition`: Значение CSS-перехода, в котором собраны все CSS-свойства, которые должны быть переведены, вместе с заданной длительностью, смягчением и задержкой.
+
+Используйте помощник `theme.transitions.create()` для создания последовательных переходов для элементов вашего пользовательского интерфейса.
 
 ```js
 theme.transitions.create(['background-color', 'transform']);
 ```
 
-#### Example
+#### Пример <meta data-oversett="" data-original-text="Example">
 
 {{"demo": "TransitionHover.js", "defaultCodeOpen": false}}
 
-### `theme.transitions.getAutoHeightDuration(height) => duration`
+### `theme.transitions.getAutoHeightDuration(height) => duration` <meta data-oversett="" data-original-text="theme.transitions.getAutoHeightDuration(height) => duration">
 
-#### Arguments
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-1. `height` (_number_): The height of the component.
+1.  `height` _(число_): Высота компонента.
 
-#### Returns
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-`duration`: The calculated duration based on the height.
+`duration`: Вычисленная продолжительность на основе высоты.
 
-## Durations
+## Длительности <meta data-oversett="" data-original-text="Durations">
 
-You can change some or all of the duration values, or provide your own (for use in the `create()` helper). This example shows all the default values (in milliseconds), but you only need to provide the keys you wish to change or add.
+Вы можете изменить некоторые или все значения длительности, или предоставить свои собственные (для использования в помощнике `create()` ). В этом примере показаны все значения по умолчанию (в миллисекундах), но вам нужно указать только те ключи, которые вы хотите изменить или добавить.
 
 ```js
 const theme = createTheme({
@@ -63,9 +65,9 @@ const theme = createTheme({
 });
 ```
 
-## Easings
+## Easings <meta data-oversett="" data-original-text="Easings">
 
-You can change some or all of the easing values, or provide your own, by providing a custom CSS <code>transition-timing-function</code> value.
+Вы можете изменить некоторые или все значения смягчения или предоставить свои собственные, указав пользовательское значение CSS `transition-timing-function`.
 
 ```js
 const theme = createTheme({
@@ -85,6 +87,6 @@ const theme = createTheme({
 });
 ```
 
-## References
+## Ссылки <meta data-oversett="" data-original-text="References">
 
-Check out the [Transitions](/material-ui/transitions/) page to explore the transition components that are included with MUI.
+Посетите страницу [Переходы](/material-ui/transitions/), чтобы изучить компоненты переходов, включенные в MUI.

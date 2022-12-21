@@ -1,40 +1,38 @@
-# Theming
 
-<p class="description">Customize MUI with your theme. You can change the colors, the typography and much more.</p>
 
-The theme specifies the color of the components, darkness of the surfaces, level of shadow, appropriate opacity of ink elements, etc.
+# Тематика <meta data-oversett="" data-original-text="Theming">
 
-Themes let you apply a consistent tone to your app. It allows you to **customize all design aspects** of your project in order to meet the specific needs of your business or brand.
+<p class="description">Настройте MUI с помощью своей темы. Вы можете изменить цвета, типографику и многое другое.</p>
 
-To promote greater consistency between apps, light and dark theme types are available to choose from. By default, components use the light theme type.
+Тема задает цвет компонентов, темноту поверхностей, уровень тени, соответствующую непрозрачность чернильных элементов и т.д.
 
-## Theme provider
+Темы позволяют применить единый тон к вашему приложению. Они позволяют **настроить все аспекты дизайна** вашего проекта в соответствии с конкретными потребностями вашего бизнеса или бренда.
 
-If you wish to customize the theme, you need to use the `ThemeProvider` component in order to inject a theme into your application.
-However, this is optional; MUI components come with a default theme.
+Для обеспечения большей согласованности между приложениями на выбор предлагаются светлые и темные темы. По умолчанию компоненты используют светлый тип темы.
 
-`ThemeProvider` relies on the [context feature of React](https://reactjs.org/docs/context.html) to pass the theme down to the components, so you need to make sure that `ThemeProvider` is a parent of the components you are trying to customize.
-You can learn more about this in [the API section](#themeprovider).
+## Поставщик темы <meta data-oversett="" data-original-text="Theme provider">
 
-## Theme configuration variables
+Если вы хотите настроить тему, вам необходимо использовать компонент `ThemeProvider`, чтобы внедрить тему в ваше приложение. Однако это необязательно; компоненты MUI поставляются с темой по умолчанию.
 
-Changing the theme configuration variables is the most effective way to match MUI to your needs.
-The following sections cover the most important theme variables:
+`ThemeProvider` Полагается на [контекстную функцию React](https://reactjs.org/docs/context.html) для передачи темы компонентам, поэтому вам нужно убедиться, что `ThemeProvider` является родителем компонентов, которые вы хотите настроить. Вы можете узнать больше об этом в [разделе API](#themeprovider).
 
-- [`.palette`](/material-ui/customization/palette/)
-- [`.typography`](/material-ui/customization/typography/)
-- [`.spacing`](/material-ui/customization/spacing/)
-- [`.breakpoints`](/material-ui/customization/breakpoints/)
-- [`.zIndex`](/material-ui/customization/z-index/)
-- [`.transitions`](/material-ui/customization/transitions/)
-- [`.components`](/material-ui/customization/theme-components/)
+## Переменные конфигурации темы <meta data-oversett="" data-original-text="Theme configuration variables">
 
-You can check out the [default theme section](/material-ui/customization/default-theme/) to view the default theme in full.
+Изменение переменных конфигурации темы является наиболее эффективным способом приведения MUI в соответствие с вашими потребностями. В следующих разделах рассматриваются наиболее важные переменные темы:
 
-### Custom variables
+-   [`.palette`](/material-ui/customization/palette/)
+-   [`.typography`](/material-ui/customization/typography/)
+-   [`.spacing`](/material-ui/customization/spacing/)
+-   [`.breakpoints`](/material-ui/customization/breakpoints/)
+-   [`.zIndex`](/material-ui/customization/z-index/)
+-   [`.transitions`](/material-ui/customization/transitions/)
+-   [`.components`](/material-ui/customization/theme-components/)
 
-When using MUI's theme with [MUI System](/system/getting-started/overview/) or [any other styling solution](/material-ui/guides/interoperability/), it can be convenient to add additional variables to the theme so you can use them everywhere.
-For instance:
+Вы можете заглянуть в [раздел "Тема по умолчанию"](/material-ui/customization/default-theme/), чтобы полностью ознакомиться с темой по умолчанию.
+
+### Пользовательские переменные <meta data-oversett="" data-original-text="Custom variables">
+
+При использовании темы MUI с [MUI System](/system/getting-started/overview/) или [любым другим решением для стилизации](/material-ui/guides/interoperability/) может быть удобно добавить дополнительные переменные в тему, чтобы вы могли использовать их везде. Например:
 
 ```jsx
 const theme = createTheme({
@@ -44,7 +42,7 @@ const theme = createTheme({
 });
 ```
 
-**WARNING**: `vars` is a private field used for CSS variables support. It will throw an error if you try to use it:
+**WARNING**: `vars` - это приватное поле, используемое для поддержки переменных CSS. При попытке его использования будет выброшена ошибка:
 
 ```jsx
 createTheme({
@@ -52,7 +50,7 @@ createTheme({
 })
 ```
 
-If you are using TypeScript, you would also need to use [module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) for the theme to accept the above values.
+Если вы используете TypeScript, вам также нужно будет использовать [расширение модуля](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation), чтобы тема принимала вышеуказанные значения.
 
 ```tsx
 declare module '@mui/material/styles' {
@@ -72,20 +70,18 @@ declare module '@mui/material/styles' {
 
 {{"demo": "CustomStyles.js"}}
 
-## Theme builder
+## Конструктор тем <meta data-oversett="" data-original-text="Theme builder">
 
-<video autoPlay muted loop width="320">
-  <source src="/static/studies.mp4" type="video/mp4" >
-</video>
+<video autoplay="" muted="" loop="" width="320"><source src="/static/studies.mp4" type="video/mp4"></video>
 
-The community has built great tools to build a theme:
+Сообщество создало отличные инструменты для создания темы:
 
-- [mui-theme-creator](https://bareynol.github.io/mui-theme-creator/): A tool to help design and customize themes for the MUI component library. Includes basic site templates to show various components and how they are affected by the theme
-- [Material palette generator](https://m2.material.io/inline-tools/color/): The Material palette generator can be used to generate a palette for any color you input.
+-   [mui-theme-creator](https://bareynol.github.io/mui-theme-creator/): Инструмент, помогающий создавать и настраивать темы для библиотеки компонентов MUI. Включает базовые шаблоны сайтов, чтобы показать различные компоненты и то, как на них влияет тема.
+-   [Генератор палитры материалов](https://m2.material.io/inline-tools/color/): Генератор палитры материалов можно использовать для создания палитры для любого введенного вами цвета.
 
-## Accessing the theme in a component
+## Доступ к теме в компоненте <meta data-oversett="" data-original-text="Accessing the theme in a component">
 
-You can access the theme variables inside your functional React components using the `useTheme` hook:
+Вы можете получить доступ к переменным темы внутри ваших функциональных компонентов React с помощью хука `useTheme`:
 
 ```jsx
 import { useTheme } from '@mui/material/styles';
@@ -96,31 +92,29 @@ function DeepChild() {
 }
 ```
 
-## Nesting the theme
+## Вложение темы <meta data-oversett="" data-original-text="Nesting the theme">
 
-[You can nest](/system/styles/advanced/#theme-nesting) multiple theme providers.
+[Вы можете вложить](/system/styles/advanced/#theme-nesting) несколько провайдеров тем.
 
 {{"demo": "ThemeNesting.js"}}
 
-The inner theme will **override** the outer theme.
-You can extend the outer theme by providing a function:
+Внутренняя тема будет **переопределять** внешнюю тему. Вы можете расширить внешнюю тему, предоставив функцию:
 
 {{"demo": "ThemeNestingExtend.js"}}
 
-## API
+## API <meta data-oversett="" data-original-text="API">
 
-### `createTheme(options, ...args) => theme`
+### `createTheme(options, ...args) => theme` <meta data-oversett="" data-original-text="createTheme(options, ...args) => theme">
 
-Generate a theme base on the options received. Then, pass it as a prop to [`ThemeProvider`](#themeprovider).
+Сгенерируйте тему на основе полученных параметров. Затем передайте ее в качестве параметра [`ThemeProvider`](#themeprovider).
 
-#### Arguments
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-1. `options` (_object_): Takes an incomplete theme object and adds the missing parts.
-2. `...args` (_object[]_): Deep merge the arguments with the about to be returned theme.
+1.  `options` _(объект_): Берет неполный объект темы и добавляет недостающие части.
+2.  `...args` _(object\[\]_): Глубокое слияние аргументов с возвращаемой темой.
 
 :::warning
-Only the first argument (`options`) is processed by the `createTheme` function.
-If you want to actually merge two themes' options and create a new one based on them, you may want to deep merge the two options and provide them as a first argument to the `createTheme` function.
+Только первый аргумент (`options`) обрабатывается функцией `createTheme`. Если вы хотите фактически объединить параметры двух тем и создать на их основе новую, вы можете глубоко объединить эти два параметра и предоставить их в качестве первого аргумента функции `createTheme`.
 :::
 
 ```js
@@ -130,11 +124,11 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme(deepmerge(options1, options2));
 ```
 
-#### Returns
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-`theme` (_object_): A complete, ready-to-use theme object.
+`theme` _(объект_): Полный, готовый к использованию объект темы.
 
-#### Examples
+#### Примеры <meta data-oversett="" data-original-text="Examples">
 
 ```js
 import { createTheme } from '@mui/material/styles';
@@ -152,9 +146,9 @@ const theme = createTheme({
 });
 ```
 
-#### Theme composition: using theme options to define other options
+#### Композиция тем: использование опций темы для определения других опций <meta data-oversett="" data-original-text="Theme composition: using theme options to define other options">
 
-When the value for a theme option is dependent on another theme option, you should compose the theme in steps.
+Когда значение опции темы зависит от другой опции темы, вы должны составлять тему поэтапно.
 
 ```js
 import { createTheme } from '@mui/material/styles';
@@ -179,32 +173,29 @@ theme = createTheme(theme, {
 });
 ```
 
-Think of creating a theme as a two-step composition process: first, you define the basic design options; then, you'll use these design options to compose other options.
+Рассматривайте создание темы как двухэтапный процесс композиции: сначала вы определяете основные параметры оформления; затем вы будете использовать эти параметры оформления для составления других параметров.
 
-**WARNING**: `theme.vars` is a private field used for CSS variables support. Please use another name for a custom object.
+**ВНИМАНИЕ**: `theme.vars` - это частное поле, используемое для поддержки переменных CSS. Пожалуйста, используйте другое имя для пользовательского объекта.
 
-### `responsiveFontSizes(theme, options) => theme`
+### `responsiveFontSizes(theme, options) => theme` <meta data-oversett="" data-original-text="responsiveFontSizes(theme, options) => theme">
 
-Generate responsive typography settings based on the options received.
+Сгенерировать настройки отзывчивой типографики на основе полученных опций.
 
-#### Arguments
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-1. `theme` (_object_): The theme object to enhance.
-2. `options` (_object_ [optional]):
+1.  `theme` _(объект_): Объект темы для улучшения.
+2.  `options` _(объект_ \[необязательно\]):
 
-- `breakpoints` (_array\<string\>_ [optional]): Default to `['sm', 'md', 'lg']`. Array of [breakpoints](/material-ui/customization/breakpoints/) (identifiers).
-- `disableAlign` (_bool_ [optional]): Default to `false`. Whether font sizes change slightly so line
-  heights are preserved and align to Material Design's 4px line height grid.
-  This requires a unitless line height in the theme's styles.
-- `factor` (_number_ [optional]): Default to `2`. This value determines the strength of font size resizing. The higher the value, the less difference there is between font sizes on small screens.
-  The lower the value, the bigger font sizes for small screens. The value must be greater than 1.
-- `variants` (_array\<string\>_ [optional]): Default to all. The typography variants to handle.
+-   `breakpoints` _(array<string>_ \[необязательно\]): По умолчанию `['sm', 'md', 'lg']`. Массив [точек останова](/material-ui/customization/breakpoints/) (идентификаторы).
+-   `disableAlign` _(bool_ \[необязательно\]): По умолчанию `false`. Следует ли слегка изменять размер шрифта, чтобы высота строк сохранялась и соответствовала сетке высоты строк Material Design 4px. Для этого в стилях темы необходимо задать высоту строк без единиц.
+-   `factor` _(число_ \[необязательно\]): По умолчанию `2`. Это значение определяет силу изменения размера шрифта. Чем больше значение, тем меньше разница между размерами шрифтов на маленьких экранах. Чем меньше значение, тем больше размеры шрифтов на маленьких экранах. Значение должно быть больше 1.
+-   `variants` _(array<string>_ \[необязательно\]): По умолчанию все. Варианты шрифтов для обработки.
 
-#### Returns
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-`theme` (_object_): The new theme with a responsive typography.
+`theme` _(объект_): Новая тема с отзывчивой типографикой.
 
-#### Examples
+#### Примеры <meta data-oversett="" data-original-text="Examples">
 
 ```js
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
@@ -213,26 +204,26 @@ let theme = createTheme();
 theme = responsiveFontSizes(theme);
 ```
 
-### `unstable_createMuiStrictModeTheme(options, ...args) => theme`
+### `unstable_createMuiStrictModeTheme(options, ...args) => theme` <meta data-oversett="" data-original-text="unstable_createMuiStrictModeTheme(options, ...args) => theme">
 
-**WARNING**: Do not use this method in production.
+**ПРЕДУПРЕЖДЕНИЕ**: Не используйте этот метод в производстве.
 
-Generates a theme that reduces the amount of warnings inside [`React.StrictMode`](https://reactjs.org/docs/strict-mode.html) like `Warning: findDOMNode is deprecated in StrictMode`.
+Генерирует тему, которая уменьшает количество предупреждений внутри [`React.StrictMode`](https://reactjs.org/docs/strict-mode.html) например, `Warning: findDOMNode is deprecated in StrictMode`.
 
-#### Requirements
+#### Требования <meta data-oversett="" data-original-text="Requirements">
 
-Currently `unstable_createMuiStrictModeTheme` adds no additional requirements.
+В настоящее время `unstable_createMuiStrictModeTheme` не добавляет никаких дополнительных требований.
 
-#### Arguments
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-1. `options` (_object_): Takes an incomplete theme object and adds the missing parts.
-2. `...args` (_object[]_): Deep merge the arguments with the about to be returned theme.
+1.  `options` _(объект_): Берет неполный объект темы и добавляет недостающие части.
+2.  `...args` _(object\[\]_): Глубокое объединение аргументов с возвращаемой темой.
 
-#### Returns
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-`theme` (_object_): A complete, ready-to-use theme object.
+`theme` _(объект_): Полный, готовый к использованию объект темы.
 
-#### Examples
+#### Примеры <meta data-oversett="" data-original-text="Examples">
 
 ```js
 import { unstable_createMuiStrictModeTheme } from '@mui/material/styles';
@@ -250,19 +241,18 @@ function App() {
 }
 ```
 
-### `ThemeProvider`
+### `ThemeProvider` <meta data-oversett="" data-original-text="ThemeProvider">
 
-This component takes a `theme` prop and applies it to the entire React tree that it is wrapping around.
-It should preferably be used at **the root of your component tree**.
+Этот компонент принимает реквизит `theme` и применяет его ко всему дереву React, вокруг которого он оборачивается. Предпочтительно использовать его в **корне дерева компонентов**.
 
-#### Props
+#### Реквизит <meta data-oversett="" data-original-text="Props">
 
-| Name             | Type                                     | Description                                                                                                                                                                                               |
-| :--------------- | :--------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| children&nbsp;\* | node                                     | Your component tree.                                                                                                                                                                                      |
-| theme&nbsp;\*    | union:&nbsp;object&nbsp;&#124;&nbsp;func | A theme object, usually the result of [`createTheme()`](#createtheme-options-args-theme). The provided theme will be merged with the default theme. You can provide a function to extend the outer theme. |
+| Имя | Тип | Описание |
+| --- | --- | --- |
+| дети \* | узел | Дерево вашего компонента. |
+| тема \* | союз: объект \| func | Объект темы, обычно являющийся результатом [`createTheme()`](#createtheme-options-args-theme). Предоставленная тема будет объединена с темой по умолчанию. Вы можете предоставить функцию для расширения внешней темы. |
 
-#### Examples
+#### Примеры <meta data-oversett="" data-original-text="Examples">
 
 ```jsx
 import * as React from 'react';

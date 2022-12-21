@@ -1,8 +1,9 @@
-# Flow
 
-<p class="description">You can add static typing to JavaScript to improve developer productivity and code quality thanks to Flow.</p>
 
-## flow-typed
+# Flow <meta data-oversett="" data-original-text="Flow">
 
-[flow-typed](https://github.com/flow-typed/flow-typed) is a repository of third-party library interface definitions for use with Flow.
-The community is maintaining [the definitions under this project](https://github.com/flow-typed/flow-typed/tree/master/definitions/npm/%40material-ui).
+<p class="description">Благодаря Flow вы можете добавить статическую типизацию в JavaScript для повышения производительности разработчиков и качества кода.</p>
+
+## flow-typed <meta data-oversett="" data-original-text="flow-typed">
+
+[flow-typed](https://github.com/flow-typed/flow-typed) - это хранилище определений интерфейсов сторонних библиотек для использования с Flow. Сообщество поддерживает [эти определения в рамках этого проекта](https://github.com/flow-typed/flow-typed/tree/master/definitions/npm/%40material-ui).

@@ -8,76 +8,73 @@ waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/
 unstyled: /base/react-tabs/
 ---
 
-# Tabs
+# Вкладки <meta data-oversett="" data-original-text="Tabs">
 
-<p class="description">Tabs make it easy to explore and switch between different views.</p>
+<p class="description">Вкладки облегчают изучение и переключение между различными видами.</p>
 
-Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.
+Вкладки организуют и позволяют перемещаться между группами контента, которые связаны между собой и находятся на одном уровне иерархии.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic tabs
+## Основные вкладки <meta data-oversett="" data-original-text="Basic tabs">
 
-A basic example with tab panels.
+Базовый пример с панелями вкладок.
 
 {{"demo": "BasicTabs.js"}}
 
-## Experimental API
+## Экспериментальный API <meta data-oversett="" data-original-text="Experimental API">
 
-`@mui/lab` offers utility components that inject props to implement accessible tabs
-following [WAI-ARIA authoring practices](https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/).
+`@mui/lab` предлагает вспомогательные компоненты, которые вводят реквизиты для реализации доступных вкладок в соответствии с [авторской практикой WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/).
 
 {{"demo": "LabTabs.js"}}
 
-## Wrapped labels
+## Обернутые метки <meta data-oversett="" data-original-text="Wrapped labels">
 
-Long labels will automatically wrap on tabs.
-If the label is too long for the tab, it will overflow, and the text will not be visible.
+Длинные ярлыки автоматически заворачиваются на вкладках. Если ярлык слишком длинный для вкладки, он будет переполнен, и текст не будет виден.
 
 {{"demo": "TabsWrappedLabel.js"}}
 
-## Colored tab
+## Цветная вкладка <meta data-oversett="" data-original-text="Colored tab">
 
 {{"demo": "ColorTabs.js"}}
 
-## Disabled tab
+## Отключенная вкладка <meta data-oversett="" data-original-text="Disabled tab">
 
-A tab can be disabled by setting the `disabled` prop.
+Вкладку можно отключить, установив параметр `disabled`.
 
 {{"demo": "DisabledTabs.js"}}
 
-## Fixed tabs
+## Фиксированные вкладки <meta data-oversett="" data-original-text="Fixed tabs">
 
-Fixed tabs should be used with a limited number of tabs, and when a consistent placement will aid muscle memory.
+Фиксированные вкладки следует использовать при ограниченном количестве вкладок, а также в тех случаях, когда их последовательное размещение способствует развитию мышечной памяти.
 
-### Full width
+### Полная ширина <meta data-oversett="" data-original-text="Full width">
 
-The `variant="fullWidth"` prop should be used for smaller views.
-This demo also uses [react-swipeable-views](https://github.com/oliviertassinari/react-swipeable-views) to animate the Tab transition, and allowing tabs to be swiped on touch devices.
+Реквизит `variant="fullWidth"` следует использовать для небольших представлений. В этом демонстрационном примере также используется [react-swipeable-views](https://github.com/oliviertassinari/react-swipeable-views) для анимации перехода вкладок, что позволяет пролистывать вкладки на сенсорных устройствах.
 
 {{"demo": "FullWidthTabs.js", "bg": true}}
 
-### Centered
+### По центру <meta data-oversett="" data-original-text="Centered">
 
-The `centered` prop should be used for larger views.
+Реквизит `centered` следует использовать для больших представлений.
 
 {{"demo": "CenteredTabs.js", "bg": true}}
 
-## Scrollable tabs
+## Прокручиваемые вкладки <meta data-oversett="" data-original-text="Scrollable tabs">
 
-### Automatic scroll buttons
+### Автоматические кнопки прокрутки <meta data-oversett="" data-original-text="Automatic scroll buttons">
 
-By default, left and right scroll buttons are automatically presented on desktop and hidden on mobile. (based on viewport width)
+По умолчанию левая и правая кнопки прокрутки автоматически отображаются на настольных компьютерах и скрываются на мобильных. (в зависимости от ширины области просмотра)
 
 {{"demo": "ScrollableTabsButtonAuto.js", "bg": true}}
 
-### Forced scroll buttons
+### Принудительные кнопки прокрутки <meta data-oversett="" data-original-text="Forced scroll buttons">
 
-Left and right scroll buttons be presented (reserve space) regardless of the viewport width with `scrollButtons={true}` `allowScrollButtonsMobile`:
+Левая и правая кнопки прокрутки будут представлены (резервируют место) независимо от ширины области просмотра с помощью `scrollButtons={true}` `allowScrollButtonsMobile` :
 
 {{"demo": "ScrollableTabsButtonForce.js", "bg": true}}
 
-If you want to make sure the buttons are always visible, you should customize the opacity.
+Если вы хотите, чтобы кнопки всегда были видны, настройте их непрозрачность.
 
 ```css
 .MuiTabs-scrollButtons.Mui-disabled {
@@ -87,78 +84,70 @@ If you want to make sure the buttons are always visible, you should customize th
 
 {{"demo": "ScrollableTabsButtonVisible.js", "bg": true}}
 
-### Prevent scroll buttons
+### Запретить кнопки прокрутки <meta data-oversett="" data-original-text="Prevent scroll buttons">
 
-Left and right scroll buttons are never be presented with `scrollButtons={false}`.
-All scrolling must be initiated through user agent scrolling mechanisms (e.g. left/right swipe, shift mouse wheel, etc.)
+Левая и правая кнопки прокрутки никогда не будут представлены с помощью `scrollButtons={false}`. Вся прокрутка должна инициироваться через механизмы прокрутки пользовательского агента (например, прокрутка влево/вправо, сдвиг колеса мыши и т.д.).
 
 {{"demo": "ScrollableTabsButtonPrevent.js", "bg": true}}
 
-## Customization
+## Настройка <meta data-oversett="" data-original-text="Customization">
 
-Here is an example of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведен пример настройки компонента. Вы можете узнать больше об этом на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedTabs.js"}}
 
-🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/tabs/).
+🎨 Если вы ищете вдохновение, вы можете посмотреть [примеры кастомизации MUI Treasury](https://mui-treasury.com/styles/tabs/).
 
-## Vertical tabs
+## Вертикальные вкладки <meta data-oversett="" data-original-text="Vertical tabs">
 
-To make vertical tabs instead of default horizontal ones, there is `orientation="vertical"`:
+Чтобы сделать вертикальные вкладки вместо горизонтальных по умолчанию, существует `orientation="vertical"`:
 
 {{"demo": "VerticalTabs.js", "bg": true}}
 
-Note that you can restore the scrollbar with `visibleScrollbar`.
+Обратите внимание, что вы можете восстановить полосу прокрутки с помощью `visibleScrollbar`.
 
-## Nav tabs
+## Вкладки Nav <meta data-oversett="" data-original-text="Nav tabs">
 
-By default, tabs use a `button` element, but you can provide your custom tag or component. Here's an example of implementing tabbed navigation:
+По умолчанию вкладки используют элемент `button`, но вы можете предоставить свой собственный тег или компонент. Вот пример реализации навигации с вкладками:
 
 {{"demo": "NavTabs.js"}}
 
-## Icon tabs
+## Вкладки с иконками <meta data-oversett="" data-original-text="Icon tabs">
 
-Tab labels may be either all icons or all text.
+Ярлыки вкладок могут быть либо полностью иконками, либо полностью текстом.
 
 {{"demo": "IconTabs.js"}}
 
 {{"demo": "IconLabelTabs.js"}}
 
-## Icon position
+## Положение значка <meta data-oversett="" data-original-text="Icon position">
 
-By default, the icon is positioned at the `top` of a tab. Other supported positions are `start`, `end`, `bottom`.
+По умолчанию значок располагается на `top` вкладки. Другие поддерживаемые позиции: `start`, `end`, `bottom`.
 
 {{"demo": "IconPositionTabs.js"}}
 
-## Third-party routing library
+## Сторонняя библиотека маршрутизации <meta data-oversett="" data-original-text="Third-party routing library">
 
-One frequent use case is to perform navigation on the client only, without an HTTP round-trip to the server.
-The `Tab` component provides the `component` prop to handle this use case.
-Here is a [more detailed guide](/material-ui/guides/routing/#tabs).
+Одним из частых случаев использования является выполнение навигации только на клиенте, без HTTP-перехода на сервер. Компонент `Tab` предоставляет реквизит `component` для обработки этого случая использования. Здесь представлено [более подробное руководство](/material-ui/guides/routing/#tabs).
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-(WAI-ARIA: https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/)
+(WAI-ARIA: [https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/)](https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/)
 
-The following steps are needed in order to provide necessary information for assistive technologies:
+Чтобы предоставить необходимую информацию для вспомогательных технологий, необходимо выполнить следующие действия:
 
-1. Label `Tabs` via `aria-label` or `aria-labelledby`.
-2. `Tab`s need to be connected to their
-   corresponding `[role="tabpanel"]` by setting the correct `id`, `aria-controls` and `aria-labelledby`.
+1.  Разметить `Tabs` через `aria-label` или `aria-labelledby`.
+2.  `Tab`s должны быть связаны с соответствующим `[role="tabpanel"]` путем установки правильных `id`, `aria-controls` и `aria-labelledby`.
 
-An example for the current implementation can be found in the demos on this page. We've also published [an experimental API](#experimental-api) in `@mui/lab` that does not require
-extra work.
+Пример текущей реализации можно найти в демонстрациях на этой странице. Мы также опубликовали [экспериментальный API](#experimental-api) в `@mui/lab`, который не требует дополнительной работы.
 
-### Keyboard navigation
+### Клавиатурная навигация <meta data-oversett="" data-original-text="Keyboard navigation">
 
-The components implement keyboard navigation using the "manual activation" behavior. If you want to switch to the
-"selection automatically follows focus" behavior you have pass `selectionFollowsFocus` to the `Tabs` component. The WAI-ARIA authoring practices have a detailed guide on [how to decide when to make selection automatically follow focus](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#x6-4-deciding-when-to-make-selection-automatically-follow-focus).
+Компоненты реализуют навигацию по клавиатуре, используя поведение "ручной активации". Если вы хотите переключиться на поведение "выбор автоматически следует за фокусом", вы должны передать `selectionFollowsFocus` компоненту `Tabs`. Практика разработки WAI-ARIA содержит подробное руководство о [том, как решить, когда выбор должен автоматически следовать за фокусом](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#x6-4-deciding-when-to-make-selection-automatically-follow-focus).
 
-#### Demo
+#### Демонстрация <meta data-oversett="" data-original-text="Demo">
 
-The following two demos only differ in their keyboard navigation behavior.
-Focus a tab and navigate with arrow keys to notice the difference, e.g. <kbd class="key">Arrow Left</kbd>.
+Следующие две демонстрации отличаются только поведением клавиатурной навигации. Сфокусируйтесь на вкладке и перемещайтесь с помощью клавиш со стрелками, чтобы заметить разницу, например, <kbd class="key">Arrow Left</kbd>.
 
 ```jsx
 /* Tabs where selection follows focus */

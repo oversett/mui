@@ -6,42 +6,36 @@ githubLabel: 'component: drawer'
 materialDesign: https://m2.material.io/components/navigation-drawer
 ---
 
-# Drawer
+# Ящик <meta data-oversett="" data-original-text="Drawer">
 
-<p class="description">Navigation drawers provide access to destinations in your app. Side sheets are surfaces containing supplementary content that are anchored to the left or right edge of the screen.</p>
+<p class="description">Навигационные ящики обеспечивают доступ к пунктам назначения в вашем приложении. Боковые панели - это поверхности с дополнительным содержимым, которые крепятся к левому или правому краю экрана.</p>
 
-Navigation drawers (or "sidebars") provide access to destinations and app functionality, such as switching accounts. They can either be permanently on-screen or controlled by a navigation menu icon.
+Навигационные ящики (или "боковые панели") обеспечивают доступ к пунктам назначения и функциональным возможностям приложения, таким как переключение учетных записей. Они могут постоянно находиться на экране или управляться значком навигационного меню.
 
-[Side sheets](https://m2.material.io/components/sheets-side) are supplementary surfaces primarily used on tablet and desktop.
+[Боковые панели](https://m2.material.io/components/sheets-side) - это дополнительные поверхности, используемые в основном на планшетах и настольных компьютерах.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Temporary drawer
+## Временный ящик <meta data-oversett="" data-original-text="Temporary drawer">
 
-Temporary navigation drawers can toggle open or closed. Closed by default, the drawer opens temporarily above all other content until a section is selected.
+Временные навигационные ящики могут быть открыты или закрыты. Закрытый по умолчанию, ящик временно открывается над всем остальным содержимым, пока не будет выбран раздел.
 
-The Drawer can be cancelled by clicking the overlay or pressing the Esc key.
-It closes when an item is selected, handled by controlling the `open` prop.
+Ящик можно отменить, щелкнув по накладке или нажав клавишу Esc. Он закрывается при выборе элемента, что управляется с помощью опоры `open`.
 
 {{"demo": "TemporaryDrawer.js"}}
 
-### Swipeable
+### Пролистываемый <meta data-oversett="" data-original-text="Swipeable">
 
-You can make the drawer swipeable with the `SwipeableDrawer` component.
+Вы можете сделать ящик пролистываемым с помощью компонента `SwipeableDrawer`.
 
-This component comes with a 2 kB gzipped payload overhead.
-Some low-end mobile devices won't be able to follow the fingers at 60 FPS.
-You can use the `disableBackdropTransition` prop to help.
+Этот компонент поставляется с накладной полезной нагрузкой размером 2 кБ. Некоторые мобильные устройства низкого класса не смогут следить за пальцами при 60 FPS. Вы можете использовать реквизит `disableBackdropTransition`, чтобы помочь.
 
 {{"demo": "SwipeableTemporaryDrawer.js"}}
 
-The following properties are used in this documentation website for optimal usability of the component:
+Следующие свойства используются на этом сайте документации для оптимального использования компонента:
 
-- iOS is hosted on high-end devices.
-  The backdrop transition can be enabled without dropping frames.
-  The performance will be good enough.
-- iOS has a "swipe to go back" feature that interferes
-  with the discovery feature, so discovery has to be disabled.
+-   iOS размещается на устройствах высокого класса. Переход фона может быть включен без падения кадров. Производительность будет достаточно хорошей.
+-   В iOS есть функция "swipe to go back", которая мешает функции обнаружения, поэтому обнаружение должно быть отключено.
 
 ```jsx
 const iOS =
@@ -50,21 +44,19 @@ const iOS =
 <SwipeableDrawer disableBackdropTransition={!iOS} disableDiscovery={iOS} />;
 ```
 
-### Swipeable edge
+### Пролистываемый край <meta data-oversett="" data-original-text="Swipeable edge">
 
-You can configure the `SwipeableDrawer` to have a visible edge when closed.
+Вы можете настроить `SwipeableDrawer` так, чтобы при закрытии у него был видимый край.
 
-If you are on a desktop, you can toggle the drawer with the "OPEN" button.
-If you are on mobile, you can open the demo in CodeSandbox ("edit" icon) and swipe.
+Если вы находитесь на настольном компьютере, вы можете переключить ящик кнопкой "OPEN". Если вы находитесь на мобильном, вы можете открыть демо в CodeSandbox (иконка "edit") и провести пальцем.
 
 {{"demo": "SwipeableEdgeDrawer.js", "iframe": true, "disableLiveEdit": true, "height": 400, "maxWidth": 300}}
 
-### Keep mounted
+### Сохранять смонтированным <meta data-oversett="" data-original-text="Keep mounted">
 
-The Modal used internally by the Swipeable Drawer has the `keepMounted` prop set by default.
-This means that the contents of the drawer are always present in the DOM.
+Модал, используемый внутри Swipeable Drawer, по умолчанию имеет свойство `keepMounted`. Это означает, что содержимое ящика всегда присутствует в DOM.
 
-You can change this default behavior with the `ModalProps` prop, but you may encounter issues with `keepMounted: false` in React 18.
+Вы можете изменить это поведение по умолчанию с помощью реквизита `ModalProps`, но вы можете столкнуться с проблемами при использовании `keepMounted: false` в React 18.
 
 ```jsx
 <Drawer
@@ -75,54 +67,48 @@ You can change this default behavior with the `ModalProps` prop, but you may enc
 />
 ```
 
-## Responsive drawer
+## Отзывчивый ящик <meta data-oversett="" data-original-text="Responsive drawer">
 
-You can use the `temporary` variant to display a drawer for small screens and `permanent` for a drawer for wider screens.
+Вы можете использовать вариант `temporary` для отображения ящика для маленьких экранов и `permanent` для ящика для более широких экранов.
 
 {{"demo": "ResponsiveDrawer.js", "iframe": true, "disableLiveEdit": true}}
 
-## Persistent drawer
+## Постоянный ящик <meta data-oversett="" data-original-text="Persistent drawer">
 
-Persistent navigation drawers can toggle open or closed.
-The drawer sits on the same surface elevation as the content.
-It is closed by default and opens by selecting the menu icon, and stays open until closed by the user.
-The state of the drawer is remembered from action to action and session to session.
+Постоянные навигационные ящики могут быть открыты или закрыты. Ящик располагается на той же высоте поверхности, что и контент. По умолчанию он закрыт, открывается при выборе иконки меню и остается открытым, пока пользователь не закроет его. Состояние ящика запоминается от действия к действию и от сессии к сессии.
 
-When the drawer is outside of the page grid and opens, the drawer forces other content to change size and adapt to the smaller viewport.
+Когда ящик находится за пределами сетки страницы и открывается, он заставляет другое содержимое изменить размер и адаптироваться к уменьшенной области просмотра.
 
-Persistent navigation drawers are acceptable for all sizes larger than mobile.
-They are not recommended for apps with multiple levels of hierarchy that require using an up arrow for navigation.
+Постоянные навигационные ящики приемлемы для всех размеров, превышающих мобильный. Они не рекомендуются для приложений с несколькими уровнями иерархии, которые требуют использования стрелки вверх для навигации.
 
 {{"demo": "PersistentDrawerLeft.js", "iframe": true}}
 
 {{"demo": "PersistentDrawerRight.js", "iframe": true}}
 
-## Mini variant drawer
+## Мини-вариант ящика <meta data-oversett="" data-original-text="Mini variant drawer">
 
-In this variation, the persistent navigation drawer changes its width.
-Its resting state is as a mini-drawer at the same elevation as the content, clipped by the app bar.
-When expanded, it appears as the standard persistent navigation drawer.
+В этом варианте постоянный навигационный ящик изменяет свою ширину. В состоянии покоя он представляет собой мини-ящик на одной высоте с содержимым, обрезанный панелью приложения. При расширении он выглядит как стандартный постоянный навигационный ящик.
 
-The mini variant is recommended for apps sections that need quick selection access alongside content.
+Мини-вариант рекомендуется для разделов приложений, где требуется быстрый доступ к выбору рядом с содержимым.
 
 {{"demo": "MiniDrawer.js", "iframe": true}}
 
-## Permanent drawer
+## Постоянный ящик <meta data-oversett="" data-original-text="Permanent drawer">
 
-Permanent navigation drawers are always visible and pinned to the left edge, at the same elevation as the content or background. They cannot be closed.
+Постоянные навигационные ящики всегда видны и прижаты к левому краю, на одной высоте с содержимым или фоном. Их нельзя закрыть.
 
-Permanent navigation drawers are the **recommended default for desktop**.
+Постоянные навигационные ящики **рекомендуются по умолчанию для рабочего стола**.
 
-### Full-height navigation
+### Навигация по всей высоте <meta data-oversett="" data-original-text="Full-height navigation">
 
-Apps focused on information consumption that use a left-to-right hierarchy.
+Приложения, ориентированные на потребление информации и использующие иерархию слева направо.
 
 {{"demo": "PermanentDrawerLeft.js", "iframe": true}}
 
 {{"demo": "PermanentDrawerRight.js", "iframe": true}}
 
-### Clipped under the app bar
+### Вырезка под панелью приложений <meta data-oversett="" data-original-text="Clipped under the app bar">
 
-Apps focused on productivity that require balance across the screen.
+Приложения, ориентированные на продуктивность и требующие баланса по всему экрану.
 
 {{"demo": "ClippedDrawer.js", "iframe": true}}

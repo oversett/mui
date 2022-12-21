@@ -6,64 +6,64 @@ githubLabel: 'component: app bar'
 materialDesign: https://m2.material.io/components/app-bars-top
 ---
 
-# App Bar
+# Панель приложений <meta data-oversett="" data-original-text="App Bar">
 
-<p class="description">The App Bar displays information and actions relating to the current screen.</p>
+<p class="description">Панель приложений отображает информацию и действия, относящиеся к текущему экрану.</p>
 
-The top App bar provides content and actions related to the current screen. It's used for branding, screen titles, navigation, and actions.
+Верхняя панель App Bar предоставляет содержимое и действия, относящиеся к текущему экрану. Она используется для брендинга, заголовков экранов, навигации и действий.
 
-It can transform into a contextual action bar or be used as a navbar.
+Она может превращаться в контекстную панель действий или использоваться в качестве навигационной панели.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic App bar
+## Основная панель приложений <meta data-oversett="" data-original-text="Basic App bar">
 
 {{"demo": "ButtonAppBar.js", "bg": true}}
 
-## App bar with menu
+## Панель приложений с меню <meta data-oversett="" data-original-text="App bar with menu">
 
 {{"demo": "MenuAppBar.js", "bg": true}}
 
-## App bar with responsive menu
+## Панель приложений с отзывчивым меню <meta data-oversett="" data-original-text="App bar with responsive menu">
 
 {{"demo": "ResponsiveAppBar.js", "bg": true}}
 
-## App bar with search field
+## Панель приложений с полем поиска <meta data-oversett="" data-original-text="App bar with search field">
 
-A side searchbar.
+Боковая панель поиска.
 
 {{"demo": "SearchAppBar.js", "bg": true}}
 
-## Responsive App bar with Drawer
+## Отзывчивая панель приложений с ящиком <meta data-oversett="" data-original-text="Responsive App bar with Drawer">
 
 {{"demo": "DrawerAppBar.js", "bg": true,"iframe": true}}
 
-## App bar with a primary search field
+## Панель приложений с основным полем поиска <meta data-oversett="" data-original-text="App bar with a primary search field">
 
-A primary searchbar.
+Основная панель поиска.
 
 {{"demo": "PrimarySearchAppBar.js", "bg": true}}
 
-## Dense (desktop only)
+## Плотная (только для настольных компьютеров) <meta data-oversett="" data-original-text="Dense (desktop only)">
 
 {{"demo": "DenseAppBar.js", "bg": true}}
 
-## Prominent
+## Выдающийся <meta data-oversett="" data-original-text="Prominent">
 
-A prominent app bar.
+Выделяющаяся панель приложений.
 
 {{"demo": "ProminentAppBar.js", "bg": true}}
 
-## Bottom App bar
+## Нижняя панель приложений <meta data-oversett="" data-original-text="Bottom App bar">
 
 {{"demo": "BottomAppBar.js", "iframe": true, "maxWidth": 400}}
 
-## Fixed placement
+## Фиксированное размещение <meta data-oversett="" data-original-text="Fixed placement">
 
-When you render the app bar position fixed, the dimension of the element doesn't impact the rest of the page. This can cause some part of your content to be invisible, behind the app bar. Here are 3 possible solutions:
+При фиксированном размещении панели приложений размер элемента не влияет на остальную часть страницы. Это может привести к тому, что часть контента окажется невидимой за панелью приложений. Вот 3 возможных решения:
 
-1. You can use `position="sticky"` instead of fixed. ⚠️ sticky is not supported by IE11.
-2. You can render a second `<Toolbar />` component:
+1.  Вы можете использовать `position="sticky"` вместо фиксированного. ⚠️ sticky не поддерживается IE11.
+2.  Вы можете отобразить второй компонент `<Toolbar />`:
 
 ```jsx
 function App() {
@@ -78,7 +78,7 @@ function App() {
 }
 ```
 
-3. You can use `theme.mixins.toolbar` CSS:
+3.  Вы можете использовать `theme.mixins.toolbar` CSS:
 
 ```jsx
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
@@ -95,43 +95,43 @@ function App() {
 }
 ```
 
-## Scrolling
+## Прокрутка <meta data-oversett="" data-original-text="Scrolling">
 
-You can use the `useScrollTrigger()` hook to respond to user scroll actions.
+Вы можете использовать хук `useScrollTrigger()` для реагирования на действия пользователя по прокрутке.
 
-### Hide App bar
+### Скрыть панель приложений <meta data-oversett="" data-original-text="Hide App bar">
 
-The app bar hides on scroll down to leave more space for reading.
+Полоса приложений скрывается при прокрутке вниз, чтобы оставить больше места для чтения.
 
 {{"demo": "HideAppBar.js", "iframe": true, "disableLiveEdit": true}}
 
-### Elevate App bar
+### Поднять панель приложений <meta data-oversett="" data-original-text="Elevate App bar">
 
-The app bar elevates on scroll to communicate that the user is not at the top of the page.
+Полоса приложения поднимается при прокрутке, чтобы сообщить пользователю, что он находится не в верхней части страницы.
 
 {{"demo": "ElevateAppBar.js", "iframe": true, "disableLiveEdit": true}}
 
-### Back to top
+### Вернуться к началу <meta data-oversett="" data-original-text="Back to top">
 
-A floating action button appears on scroll to make it easy to get back to the top of the page.
+Плавающая кнопка действия появляется при прокрутке, чтобы легко вернуться к началу страницы.
 
 {{"demo": "BackToTop.js", "iframe": true, "disableLiveEdit": true}}
 
-### `useScrollTrigger([options]) => trigger`
+### `useScrollTrigger([options]) => trigger` <meta data-oversett="" data-original-text="useScrollTrigger([options]) => trigger">
 
-#### Arguments
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-1. `options` (_object_ [optional]):
+1.  `options` _(object_ \[optional\]):
+    
+    -   `options.disableHysteresis` _(bool_ \[необязательно\]): По умолчанию `false`. Отключить гистерезис. Игнорировать направление прокрутки при определении значения `trigger`.
+    -   `options.target` _(Узел_ \[необязательно\]): По умолчанию `window`.
+    -   `options.threshold` _(Число_ \[необязательно\]): По умолчанию `100`. Изменить значение `trigger`, когда вертикальная прокрутка строго пересекает этот порог (исключение).
 
-   - `options.disableHysteresis` (_bool_ [optional]): Defaults to `false`. Disable the hysteresis. Ignore the scroll direction when determining the `trigger` value.
-   - `options.target` (_Node_ [optional]): Defaults to `window`.
-   - `options.threshold` (_number_ [optional]): Defaults to `100`. Change the `trigger` value when the vertical scroll strictly crosses this threshold (exclusive).
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-#### Returns
+`trigger`: Соответствует ли положение прокрутки заданным критериям?
 
-`trigger`: Does the scroll position match the criteria?
-
-#### Examples
+#### Примеры <meta data-oversett="" data-original-text="Examples">
 
 ```jsx
 import useScrollTrigger from '@mui/material/useScrollTrigger';
@@ -146,9 +146,8 @@ function HideOnScroll(props) {
 }
 ```
 
-## Enable color on dark
+## Включить цвет на темном фоне <meta data-oversett="" data-original-text="Enable color on dark">
 
-Following the [Material Design guidelines](https://m2.material.io/design/color/dark-theme.html), the `color` prop has no effect on the appearance of the app bar in dark mode.
-You can override this behavior by setting the `enableColorOnDark` prop to `true`.
+В соответствии с [рекомендациями Material Design](https://m2.material.io/design/color/dark-theme.html), параметр `color` не влияет на внешний вид панели приложения в темном режиме. Вы можете отменить это поведение, установив параметр `enableColorOnDark` в значение `true`.
 
 {{"demo": "EnableColorOnDarkAppBar.js", "bg": true}}

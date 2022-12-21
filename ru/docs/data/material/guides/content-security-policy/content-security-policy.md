@@ -1,10 +1,12 @@
-# Content Security Policy (CSP)
 
-<p class="description">This section covers the details of setting up a CSP.</p>
 
-## What is CSP and why is it useful?
+# Политика безопасности содержимого (CSP) <meta data-oversett="" data-original-text="Content Security Policy (CSP)">
 
-CSP mitigates cross-site scripting (XSS) attacks by requiring developers to whitelist the sources their assets are retrieved from. This list is returned as a header from the server. For instance, say you have a site hosted at `https://example.com` the CSP header `default-src: 'self';` will allow all assets that are located at `https://example.com/*` and deny all others. If there is a section of your website that is vulnerable to XSS where unescaped user input is displayed, an attacker could input something like:
+<p class="description">В этом разделе рассматриваются подробности настройки CSP.</p>
+
+## Что такое CSP и почему она полезна? <meta data-oversett="" data-original-text="What is CSP and why is it useful?">
+
+CSP смягчает атаки межсайтового скриптинга (XSS), требуя от разработчиков вносить в белый список источники, из которых извлекаются их активы. Этот список возвращается в виде заголовка с сервера. Например, если у вас есть сайт, расположенный по адресу `https://example.com`, CSP-заголовок `default-src: 'self';` будет разрешать все активы, расположенные по адресу `https://example.com/*`, и запрещать все остальные. Если на вашем сайте есть раздел, уязвимый к XSS, где отображается пользовательский ввод без расшифровки, злоумышленник может ввести что-то вроде:
 
 ```html
 <script>
@@ -12,18 +14,17 @@ CSP mitigates cross-site scripting (XSS) attacks by requiring developers to whit
 </script>
 ```
 
-This vulnerability would allow the attacker to execute anything. However, with a secure CSP header, the browser will not load this script.
+Эта уязвимость позволит злоумышленнику выполнить все, что угодно. Однако при наличии безопасного заголовка CSP браузер не загрузит этот сценарий.
 
-You can read more about CSP on the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
+Вы можете прочитать больше о CSP в [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
 
-## How does one implement CSP?
+## Как реализовать CSP? <meta data-oversett="" data-original-text="How does one implement CSP?">
 
-### Server-Side Rendering (SSR)
+### Рендеринг на стороне сервера (SSR) <meta data-oversett="" data-original-text="Server-Side Rendering (SSR)">
 
-To use CSP with MUI (and emotion), you need to use a nonce.
-A nonce is a randomly generated string that is only used once, therefore you need to add server middleware to generate one on each request.
+Чтобы использовать CSP с MUI (и эмоциями), вам нужно использовать nonce. Nonce - это случайно сгенерированная строка, которая используется только один раз, поэтому вам нужно добавить серверное промежуточное ПО для генерации nonce при каждом запросе.
 
-A CSP nonce is a Base 64 encoded string. You can generate one like this:
+CSP nonce - это строка, закодированная в Base 64. Вы можете сгенерировать его следующим образом:
 
 ```js
 import uuidv4 from 'uuid/v4';
@@ -31,8 +32,7 @@ import uuidv4 from 'uuid/v4';
 const nonce = new Buffer(uuidv4()).toString('base64');
 ```
 
-You must use UUID version 4, as it generates an **unpredictable** string.
-You then apply this nonce to the CSP header. A CSP header might look like this with the nonce applied:
+Вы должны использовать UUID версии 4, так как он генерирует **непредсказуемую** строку. Затем вы применяете этот nonce к заголовку CSP. Заголовок CSP может выглядеть следующим образом с примененным кодом:
 
 ```js
 header('Content-Security-Policy').set(
@@ -40,7 +40,7 @@ header('Content-Security-Policy').set(
 );
 ```
 
-You should pass the nonce in the `<style>` tags on the server.
+Вы должны передать nonce в тегах `<style>` на сервере.
 
 ```jsx
 <style
@@ -50,10 +50,10 @@ You should pass the nonce in the `<style>` tags on the server.
 />
 ```
 
-Then, you must pass this nonce to Emotion's cache so it can add it to subsequent `<style>`.
+Затем вы должны передать этот nonce в кэш Emotion, чтобы он мог добавить его в последующие `<style>`.
 
 :::warning
-If you were using `StyledEngineProvider` with `injectFirst`, you will need to replace it with `CacheProvider` from Emotion and add the `prepend: true` option.
+Если вы использовали `StyledEngineProvider` с `injectFirst`, вам нужно будет заменить его на `CacheProvider` из Emotion и добавить опцию `prepend: true`.
 :::
 
 ```js
@@ -72,14 +72,12 @@ function App(props) {
 }
 ```
 
-### Create React App (CRA)
+### Создание React App (CRA) <meta data-oversett="" data-original-text="Create React App (CRA)">
 
-According to the [Create React App Docs](https://create-react-app.dev/docs/advanced-configuration/), a Create React App will dynamically embed the runtime script into index.html during the production build by default.
-This will require a new hash to be set in your CSP during each deployment.
+Согласно [документации Create React App Docs](https://create-react-app.dev/docs/advanced-configuration/), Create React App по умолчанию динамически внедряет сценарий выполнения в index.html во время сборки. Это потребует установки нового хэша в вашем CSP во время каждого развертывания.
 
-To use a CSP with a project initialized as a Create React App, you will need to set the `INLINE_RUNTIME_CHUNK=false` variable in the `.env` file used for your production build.
-This will import the runtime script as usual instead of embedding it, avoiding the need to set a new hash during each deployment.
+Чтобы использовать CSP с проектом, инициализированным как Create React App, вам нужно установить переменную `INLINE_RUNTIME_CHUNK=false` в файле `.env`, используемом для производственной сборки. Это позволит импортировать сценарий выполнения как обычно, а не встраивать его, избегая необходимости устанавливать новый хэш при каждом развертывании.
 
-### styled-components
+### styled-components <meta data-oversett="" data-original-text="styled-components">
 
-The configuration of the nonce is not straightforward, but you can follow [this issue](https://github.com/styled-components/styled-components/issues/2363) for more insights.
+Конфигурация nonce не является простой, но вы можете проследить за [этим вопросом](https://github.com/styled-components/styled-components/issues/2363), чтобы получить больше информации.

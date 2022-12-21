@@ -6,83 +6,80 @@ githubLabel: 'component: alert'
 waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/alert/
 ---
 
-# Alert
+# Оповещение <meta data-oversett="" data-original-text="Alert">
 
-<p class="description">An alert displays a short, important message in a way that attracts the user's attention without interrupting the user's task.</p>
+<p class="description">Оповещение отображает короткое, важное сообщение таким образом, чтобы привлечь внимание пользователя, не прерывая его задачу.</p>
 
-**Note:** This component is not documented in the [Material Design guidelines](https://m2.material.io/), but MUI supports it.
+**Примечание:** Этот компонент не документирован в [руководстве по Material Design](https://m2.material.io/), но MUI поддерживает его.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic alerts
+## Основные оповещения <meta data-oversett="" data-original-text="Basic alerts">
 
-The alert offers four severity levels that set a distinctive icon and color.
+Оповещение предлагает четыре уровня серьезности, для которых устанавливается отличительный значок и цвет.
 
 {{"demo": "BasicAlerts.js"}}
 
-## Description
+## Описание <meta data-oversett="" data-original-text="Description">
 
-You can use the `AlertTitle` component to display a formatted title above the content.
+Вы можете использовать компонент `AlertTitle` для отображения форматированного заголовка над содержимым.
 
 {{"demo": "DescriptionAlerts.js"}}
 
-## Actions
+## Действия <meta data-oversett="" data-original-text="Actions">
 
-An alert can have an action, such as a close or undo button.
-It is rendered after the message, at the end of the alert.
+Оповещение может иметь действие, например, кнопку закрытия или отмены. Оно отображается после сообщения, в конце оповещения.
 
-If an `onClose` callback is provided and no `action` prop is set, a close icon is displayed. The `action` prop can be used to provide an alternative action, for example using a Button or IconButton.
+Если указан обратный вызов `onClose` и не задано свойство `action`, отображается значок закрытия. Реквизит `action` можно использовать для предоставления альтернативного действия, например, с помощью кнопки Button или IconButton.
 
 {{"demo": "ActionAlerts.js"}}
 
-### Transition
+### Переход <meta data-oversett="" data-original-text="Transition">
 
-You can use a [transition component](/material-ui/transitions/) such as `Collapse` to transition the appearance of the alert.
+Вы можете использовать [компонент перехода](/material-ui/transitions/), такой как `Collapse`, для изменения внешнего вида оповещения.
 
 {{"demo": "TransitionAlerts.js"}}
 
-## Icons
+## Иконки <meta data-oversett="" data-original-text="Icons">
 
-The `icon` prop allows you to add an icon to the beginning of the alert component.
-This will override the default icon for the specified severity.
+Свойство `icon` позволяет добавить иконку в начало компонента оповещения. Это отменяет иконку по умолчанию для указанной степени тяжести.
 
-You can change the default severity to icon mapping with the `iconMapping` prop. This can be defined globally using [theme customization](/material-ui/customization/theme-components/#default-props).
+С помощью свойства `iconMapping` можно изменить стандартное соответствие между степенью тяжести и иконкой. Его можно задать глобально с помощью [настройки темы](/material-ui/customization/theme-components/#default-props).
 
-Setting the icon prop to `false` will remove the icon altogether.
+Установка свойства icon в `false` приведет к полному удалению иконки.
 
 {{"demo": "IconAlerts.js"}}
 
-## Variants
+## Варианты <meta data-oversett="" data-original-text="Variants">
 
-Two additional variants are available – outlined, and filled:
+Доступны два дополнительных варианта - очерченный и заполненный:
 
-### Outlined
+### Outlined <meta data-oversett="" data-original-text="Outlined">
 
 {{"demo": "OutlinedAlerts.js"}}
 
-When using an outlined alert with the [`Snackbar` component](/material-ui/react-snackbar/#customization), background content will be visible and bleed through the alert by default.
-You can prevent this by adding `bgcolor: 'background.paper'` to the[`sx` prop](/material-ui/customization/how-to-customize/#the-sx-prop) on the `Alert` component.
+При использовании очерченного оповещения с [компонентом`Snackbar`](/material-ui/react-snackbar/#customization) фоновое содержимое будет видно и по умолчанию будет просвечивать сквозь оповещение. Вы можете предотвратить это, добавив `bgcolor: 'background.paper'` к[параметру`sx`](/material-ui/customization/how-to-customize/#the-sx-prop) компонента `Alert`.
 
-### Filled
+### Заполненный <meta data-oversett="" data-original-text="Filled">
 
 {{"demo": "FilledAlerts.js"}}
 
-## Toast
+## Тост <meta data-oversett="" data-original-text="Toast">
 
-You can use the Snackbar to [display a toast](/material-ui/react-snackbar/#customization) with the Alert.
+Вы можете использовать закусочную панель для [отображения тоста](/material-ui/react-snackbar/#customization) с оповещением.
 
-## Color
+## Цвет <meta data-oversett="" data-original-text="Color">
 
-The `color` prop will override the default color for the specified severity.
+Свойство `color` переопределяет цвет по умолчанию для указанной степени тяжести.
 
 {{"demo": "ColorAlerts.js"}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-(WAI-ARIA: https://www.w3.org/WAI/ARIA/apg/patterns/alert/)
+(WAI-ARIA: [https://www.w3.org/WAI/ARIA/apg/patterns/alert/)](https://www.w3.org/WAI/ARIA/apg/patterns/alert/)
 
-When the component is dynamically displayed, the content is automatically announced by most screen readers. At this time, screen readers do not inform users of alerts that are present when the page loads.
+Когда компонент динамически отображается, его содержимое автоматически объявляется большинством программ для чтения с экрана. В настоящее время программы чтения с экрана не информируют пользователей о предупреждениях, возникающих при загрузке страницы.
 
-Using color to add meaning only provides a visual indication, which will not be conveyed to users of assistive technologies such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (for example the visible text), or is included through alternative means, such as additional hidden text.
+Использование цвета для придания смысла обеспечивает только визуальную индикацию, которая не будет передана пользователям вспомогательных технологий, таких как считыватели экрана. Убедитесь, что информация, обозначенная цветом, либо очевидна из самого содержимого (например, видимый текст), либо включена альтернативными средствами, например, дополнительным скрытым текстом.
 
-Actions must have a tab index of 0 so that they can be reached by keyboard-only users.
+Действия должны иметь индекс табуляции 0, чтобы к ним могли обращаться пользователи, использующие только клавиатуру.

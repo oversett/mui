@@ -8,58 +8,52 @@ waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/button/
 unstyled: /base/react-button/
 ---
 
-# Button
+# Кнопка <meta data-oversett="" data-original-text="Button">
 
-<p class="description">Buttons allow users to take actions, and make choices, with a single tap.</p>
+<p class="description">Кнопки позволяют пользователям выполнять действия и делать выбор одним нажатием.</p>
 
-Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:
+Кнопки сообщают о действиях, которые могут предпринять пользователи. Они обычно размещаются в пользовательском интерфейсе в таких местах, как:
 
-- Modal windows
-- Forms
-- Cards
-- Toolbars
+-   модальные окна
+-   Формы
+-   Карточки
+-   Панели инструментов
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic button
+## Основная кнопка <meta data-oversett="" data-original-text="Basic button">
 
-The `Button` comes with three variants: text (default), contained, and outlined.
+Кнопка `Button` имеет три варианта: текстовый (по умолчанию), содержащийся и очерченный.
 
 {{"demo": "BasicButtons.js"}}
 
-### Text button
+### Текстовая кнопка <meta data-oversett="" data-original-text="Text button">
 
-[Text buttons](https://m2.material.io/components/buttons#text-button)
-are typically used for less-pronounced actions, including those located: in dialogs, in cards.
-In cards, text buttons help maintain an emphasis on card content.
+[Текстовые кнопки](https://m2.material.io/components/buttons#text-button)обычно используются для менее выраженных действий, в том числе расположенных: в диалогах, в карточках. В карточках текстовые кнопки помогают сделать акцент на содержимом карточки.
 
 {{"demo": "TextButtons.js"}}
 
-### Contained button
+### Содержательная кнопка <meta data-oversett="" data-original-text="Contained button">
 
-[Contained buttons](https://m2.material.io/components/buttons#contained-button)
-are high-emphasis, distinguished by their use of elevation and fill.
-They contain actions that are primary to your app.
+[Содержательные кнопки](https://m2.material.io/components/buttons#contained-button)\- это кнопки с высоким акцентом, отличающиеся использованием возвышения и заливки. Они содержат действия, которые являются основными для вашего приложения.
 
 {{"demo": "ContainedButtons.js"}}
 
-You can remove the elevation with the `disableElevation` prop.
+Вы можете убрать возвышение с помощью реквизита `disableElevation`.
 
 {{"demo": "DisableElevation.js"}}
 
-### Outlined button
+### Выделенная кнопка <meta data-oversett="" data-original-text="Outlined button">
 
-[Outlined buttons](https://m2.material.io/components/buttons#outlined-button) are medium-emphasis buttons.
-They contain actions that are important but aren't the primary action in an app.
+[Подчеркнутые кнопки](https://m2.material.io/components/buttons#outlined-button) - это кнопки со средним выделением. Они содержат действия, которые важны, но не являются основными в приложении.
 
-Outlined buttons are also a lower emphasis alternative to contained buttons,
-or a higher emphasis alternative to text buttons.
+Выделенные кнопки также являются альтернативой кнопкам с меньшим акцентом для содержащихся кнопок или альтернативой текстовым кнопкам с большим акцентом.
 
 {{"demo": "OutlinedButtons.js"}}
 
-## Handling clicks
+## Обработка нажатий <meta data-oversett="" data-original-text="Handling clicks">
 
-All components accept an `onClick` handler that is applied to the root DOM element.
+Все компоненты принимают обработчик `onClick`, который применяется к корневому элементу DOM.
 
 ```jsx
 <Button
@@ -71,92 +65,87 @@ All components accept an `onClick` handler that is applied to the root DOM eleme
 </Button>
 ```
 
-Note that the documentation [avoids](/material-ui/guides/api/#native-properties) mentioning native props (there are a lot) in the API section of the components.
+Обратите внимание, что документация [избегает](/material-ui/guides/api/#native-properties) упоминания нативных реквизитов (их очень много) в разделе API компонентов.
 
-## Color
+## Цвет <meta data-oversett="" data-original-text="Color">
 
 {{"demo": "ColorButtons.js"}}
 
-In addition to using the default button colors, you can add custom ones, or disable any you don't need. See the [Adding new colors](/material-ui/customization/palette/#adding-new-colors) example for more info.
+В дополнение к использованию цветов кнопок по умолчанию, вы можете добавить пользовательские цвета или отключить те, которые вам не нужны. Более подробную информацию смотрите в примере [добавления новых цветов](/material-ui/customization/palette/#adding-new-colors).
 
-## Sizes
+## Размеры <meta data-oversett="" data-original-text="Sizes">
 
-For larger or smaller buttons, use the `size` prop.
+Для создания кнопок большего или меньшего размера используйте реквизит `size`.
 
 {{"demo": "ButtonSizes.js"}}
 
-## Upload button
+## Кнопка загрузки <meta data-oversett="" data-original-text="Upload button">
 
 {{"demo": "UploadButtons.js"}}
 
-## Buttons with icons and label
+## Кнопки с иконками и метками <meta data-oversett="" data-original-text="Buttons with icons and label">
 
-Sometimes you might want to have icons for certain buttons to enhance the UX of the application as we recognize logos more easily than plain text. For example, if you have a delete button you can label it with a dustbin icon.
+Иногда для улучшения пользовательского интерфейса приложения вам могут понадобиться значки для определенных кнопок, поскольку мы легче распознаем логотипы, чем простой текст. Например, если у вас есть кнопка удаления, вы можете пометить ее значком мусорного ведра.
 
 {{"demo": "IconLabelButtons.js"}}
 
-## Icon button
+## Кнопка с иконкой <meta data-oversett="" data-original-text="Icon button">
 
-Icon buttons are commonly found in app bars and toolbars.
+Кнопки-иконки обычно встречаются на панелях приложений и панелях инструментов.
 
-Icons are also appropriate for toggle buttons that allow a single choice to be selected or
-deselected, such as adding or removing a star to an item.
+Иконки также подходят для кнопок-переключателей, которые позволяют выбрать или отменить выбор одного варианта, например, добавить или убрать звезду у элемента.
 
 {{"demo": "IconButtons.js"}}
 
-### Sizes
+### Размеры <meta data-oversett="" data-original-text="Sizes">
 
-For larger or smaller icon buttons, use the `size` prop.
+Для увеличения или уменьшения размера кнопок-значков используйте реквизит `size`.
 
 {{"demo": "IconButtonSizes.js"}}
 
-### Colors
+### Цвета <meta data-oversett="" data-original-text="Colors">
 
-Use `color` prop to apply theme color palette to component.
+Используйте реквизит `color`, чтобы применить цветовую палитру темы к компоненту.
 
 {{"demo": "IconButtonColors.js"}}
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here are some examples of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведены некоторые примеры настройки компонента. Вы можете узнать больше об этом на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedButtons.js", "defaultCodeOpen": false}}
 
-🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/button/).
+🎨 Если вы ищете вдохновение, вы можете посмотреть [примеры кастомизации MUI Treasury](https://mui-treasury.com/styles/button/).
 
-## Loading button
+## Кнопка загрузки <meta data-oversett="" data-original-text="Loading button">
 
-The loading buttons can show loading state and disable interactions.
+Кнопки загрузки могут показывать состояние загрузки и отключать взаимодействие.
 
 {{"demo": "LoadingButtons.js"}}
 
-Toggle the loading switch to see the transition between the different states.
+Переключите кнопку загрузки, чтобы увидеть переход между различными состояниями.
 
 {{"demo": "LoadingButtonsTransition.js"}}
 
-## Complex button
+## Сложная кнопка <meta data-oversett="" data-original-text="Complex button">
 
-The Text Buttons, Contained Buttons, Floating Action Buttons and Icon Buttons are built on top of the same component: the `ButtonBase`.
-You can take advantage of this lower-level component to build custom interactions.
+Текстовые кнопки, содержащиеся кнопки, плавающие кнопки действий и кнопки с иконками построены на основе одного и того же компонента: `ButtonBase`. Вы можете использовать преимущества этого компонента нижнего уровня для создания пользовательских взаимодействий.
 
 {{"demo": "ButtonBase.js"}}
 
-## Third-party routing library
+## Сторонняя библиотека маршрутизации <meta data-oversett="" data-original-text="Third-party routing library">
 
-One frequent use case is to perform navigation on the client only, without an HTTP round-trip to the server.
-The `ButtonBase` component provides the `component` prop to handle this use case.
-Here is a [more detailed guide](/material-ui/guides/routing/#button).
+Одним из частых случаев использования является выполнение навигации только на клиенте, без HTTP-трипа на сервер. Компонент `ButtonBase` предоставляет реквизит `component` для обработки этого случая использования. Здесь представлено [более подробное руководство](/material-ui/guides/routing/#button).
 
-## Limitations
+## Ограничения <meta data-oversett="" data-original-text="Limitations">
 
-### Cursor not-allowed
+### Курсор не разрешен <meta data-oversett="" data-original-text="Cursor not-allowed">
 
-The ButtonBase component sets `pointer-events: none;` on disabled buttons, which prevents the appearance of a disabled cursor.
+Компонент ButtonBase устанавливает `pointer-events: none;` на отключенные кнопки, что предотвращает появление отключенного курсора.
 
-If you wish to use `not-allowed`, you have two options:
+Если вы хотите использовать `not-allowed`, у вас есть два варианта:
 
-1. **CSS only**. You can remove the pointer-events style on the disabled state of the `<button>` element:
+1.  **Только CSS**. Вы можете удалить стиль pointer-events на отключенном состоянии элемента `<button>`:
 
 ```css
 .MuiButtonBase-root:disabled {
@@ -165,12 +154,12 @@ If you wish to use `not-allowed`, you have two options:
 }
 ```
 
-However:
+Однако:
 
-- You should add `pointer-events: none;` back when you need to display [tooltips on disabled elements](/material-ui/react-tooltip/#disabled-elements).
-- The cursor won't change if you render something other than a button element, for instance, a link `<a>` element.
+-   Вы должны добавить `pointer-events: none;` обратно, когда вам нужно отображать [всплывающие подсказки на отключенных элементах](/material-ui/react-tooltip/#disabled-elements).
+-   Курсор не изменится, если вы отобразите не элемент кнопки, а что-то другое, например, элемент ссылки `<a>`.
 
-2. **DOM change**. You can wrap the button:
+2.  **Изменение DOM**. Вы можете обернуть кнопку:
 
 ```jsx
 <span style={{ cursor: 'not-allowed' }}>
@@ -180,12 +169,11 @@ However:
 </span>
 ```
 
-This has the advantage of supporting any element, for instance, a link `<a>` element.
+Преимуществом этого способа является поддержка любого элемента, например, элемента link `<a>`.
 
-## Material You version
+## Версия Material You <meta data-oversett="" data-original-text="Material You version">
 
-The default Button component follows the Material Design 2 specs.
-For the MD3 ([Material You](https://m3.material.io/)) version, install and import from the experimental `@mui/material-next` package:
+Компонент Button по умолчанию соответствует спецификации Material Design 2. Для версии MD3[(Material You](https://m3.material.io/)) установите и импортируйте из экспериментального пакета `@mui/material-next`:
 
 ```js
 import Button from '@mui/material-next/Button';

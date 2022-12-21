@@ -5,60 +5,57 @@ components: Pagination, PaginationItem
 githubLabel: 'component: pagination'
 ---
 
-# Pagination
+# Pagination <meta data-oversett="" data-original-text="Pagination">
 
-<p class="description">The Pagination component enables the user to select a specific page from a range of pages.</p>
+<p class="description">Компонент Pagination позволяет пользователю выбрать определенную страницу из ряда страниц.</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic pagination
+## Базовая пагинация <meta data-oversett="" data-original-text="Basic pagination">
 
 {{"demo": "BasicPagination.js"}}
 
-## Outlined pagination
+## Очерченная пагинация <meta data-oversett="" data-original-text="Outlined pagination">
 
 {{"demo": "PaginationOutlined.js"}}
 
-## Rounded pagination
+## Закругленная пагинация <meta data-oversett="" data-original-text="Rounded pagination">
 
 {{"demo": "PaginationRounded.js"}}
 
-## Pagination size
+## Размер пагинации <meta data-oversett="" data-original-text="Pagination size">
 
 {{"demo": "PaginationSize.js"}}
 
-## Buttons
+## Кнопки <meta data-oversett="" data-original-text="Buttons">
 
-You can optionally enable first-page and last-page buttons, or disable the previous-page and next-page buttons.
+Вы можете включить кнопки первой и последней страниц или отключить кнопки предыдущей и следующей страниц.
 
 {{"demo": "PaginationButtons.js"}}
 
-## Custom icons
+## Пользовательские значки <meta data-oversett="" data-original-text="Custom icons">
 
-It's possible to customize the control icons.
+Можно настроить значки элементов управления.
 
 {{"demo": "CustomIcons.js"}}
 
-## Pagination ranges
+## Диапазоны пагинации <meta data-oversett="" data-original-text="Pagination ranges">
 
-You can specify how many digits to display either side of current page with the `siblingRange` prop, and adjacent to the start and end page number with the `boundaryRange` prop.
+Вы можете указать, сколько цифр отображать по обе стороны от текущей страницы с помощью реквизита `siblingRange`, а также рядом с номером начальной и конечной страницы с помощью реквизита `boundaryRange`.
 
 {{"demo": "PaginationRanges.js"}}
 
-## Controlled pagination
+## Управляемая пагинация <meta data-oversett="" data-original-text="Controlled pagination">
 
 {{"demo": "PaginationControlled.js"}}
 
-## Router integration
+## Интеграция маршрутизатора <meta data-oversett="" data-original-text="Router integration">
 
 {{"demo": "PaginationLink.js"}}
 
-## `usePagination`
+## `usePagination` <meta data-oversett="" data-original-text="usePagination">
 
-For advanced customization use cases, a headless `usePagination()` hook is exposed.
-It accepts almost the same options as the Pagination component minus all the props
-related to the rendering of JSX.
-The Pagination component is built on this hook.
+Для продвинутых случаев использования кастомизации существует безголовый хук `usePagination()`. Он принимает почти те же опции, что и компонент Pagination, за вычетом всех реквизитов, связанных с рендерингом JSX. Компонент Pagination построен на этом хуке.
 
 ```jsx
 import usePagination from '@mui/material/usePagination';
@@ -66,27 +63,26 @@ import usePagination from '@mui/material/usePagination';
 
 {{"demo": "UsePagination.js"}}
 
-## Table pagination
+## Пагинация таблиц <meta data-oversett="" data-original-text="Table pagination">
 
-The `Pagination` component was designed to paginate a list of arbitrary items when infinite loading isn't used.
-It's preferred in contexts where SEO is important, for instance, a blog.
+Компонент `Pagination` был разработан для постраничного отображения списка произвольных элементов, когда бесконечная загрузка не используется. Он предпочтителен в контекстах, где важно SEO, например, в блоге.
 
-For the pagination of a large set of tabular data, you should use the `TablePagination` component.
+Для постраничного отображения большого набора табличных данных следует использовать компонент `TablePagination`.
 
 {{"demo": "TablePagination.js"}}
 
 :::warning
-Note that the `Pagination` page prop starts at 1 to match the requirement of including the value in the URL, while the `TablePagination` page prop starts at 0 to match the requirement of zero-based JavaScript arrays that comes with rendering a lot of tabular data.
+Обратите внимание, что реквизит страницы `Pagination` начинается с 1, чтобы соответствовать требованию включения значения в URL, в то время как реквизит страницы `TablePagination` начинается с 0, чтобы соответствовать требованию нулевых массивов JavaScript, которые возникают при рендеринге большого количества табличных данных.
 :::
 
-You can learn more about this use case in the [table section](/material-ui/react-table/#custom-pagination-options) of the documentation.
+Вы можете узнать больше об этом примере использования в [разделе](/material-ui/react-table/#custom-pagination-options) документации, посвященном [таблицам](/material-ui/react-table/#custom-pagination-options).
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-### ARIA
+### ARIA <meta data-oversett="" data-original-text="ARIA">
 
-The root node has a role of "navigation" and aria-label "pagination navigation" by default. The page items have an aria-label that identifies the purpose of the item ("go to first page", "go to previous page", "go to page 1" etc.). You can override these using the `getItemAriaLabel` prop.
+Корневой узел по умолчанию имеет роль "navigation" и aria-label "pagination navigation". Элементы страницы имеют метку aria, которая определяет назначение элемента ("перейти на первую страницу", "перейти на предыдущую страницу", "перейти на страницу 1" и т.д.). Вы можете переопределить их с помощью параметра `getItemAriaLabel`.
 
-### Keyboard
+### Клавиатура <meta data-oversett="" data-original-text="Keyboard">
 
-The pagination items are in tab order, with a tabindex of "0".
+Элементы пагинации располагаются в порядке вкладок, с tabindex "0".

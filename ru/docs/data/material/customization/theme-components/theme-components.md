@@ -1,11 +1,12 @@
-# Components
 
-<p class="description">You can customize a component's styles, default props, and more by using its keys inside the theme. This helps to achieve styling consistency across your application.</p>
 
-## Default props
+# Компоненты <meta data-oversett="" data-original-text="Components">
 
-Every Material UI component has default preset values for each of its props.
-To change these default values, use the `defaultProps` key exposed in the theme's `components` key:
+<p class="description">Вы можете настроить стили компонента, реквизиты по умолчанию и многое другое, используя его ключи в теме. Это помогает достичь согласованности стилей во всем приложении.</p>
+
+## Реквизиты по умолчанию <meta data-oversett="" data-original-text="Default props">
+
+Каждый компонент Material UI имеет предустановленные значения по умолчанию для каждого из своих реквизитов. Чтобы изменить эти значения по умолчанию, используйте ключ `defaultProps`, открытый в ключе темы `components`:
 
 ```js
 const theme = createTheme({
@@ -23,12 +24,11 @@ const theme = createTheme({
 
 {{"demo": "DefaultProps.js"}}
 
-If you're using TypeScript and [lab components](/material-ui/about-the-lab/), check [this article to learn how to override their styles](/material-ui/about-the-lab/#typescript).
+Если вы используете TypeScript и [лабораторные компоненты](/material-ui/about-the-lab/), ознакомьтесь с [этой статьей, чтобы узнать, как переопределить их стили](/material-ui/about-the-lab/#typescript).
 
-## Global style overrides
+## Глобальные переопределения стилей <meta data-oversett="" data-original-text="Global style overrides">
 
-The theme's `styleOverrides` key makes it possible to potentially change every single style injected by Material UI into the DOM.
-This is useful if you want to apply a fully custom design system to Material UI's components.
+Ключ `styleOverrides` темы позволяет потенциально изменить каждый стиль, внедряемый Material UI в DOM. Это полезно, если вы хотите применить полностью индивидуальную систему дизайна к компонентам Material UI.
 
 ```js
 const theme = createTheme({
@@ -49,9 +49,7 @@ const theme = createTheme({
 
 {{"demo": "GlobalThemeOverride.js"}}
 
-Each component is composed of several different parts.
-These parts correspond to classes that are available to the component—see the **CSS** section of the component's API page for a detailed list.
-You can use these classes inside the `styleOverrides` key to modify the corresponding parts of the component.
+Каждый компонент состоит из нескольких различных частей. Эти части соответствуют классам, которые доступны компоненту - подробный список смотрите в разделе **CSS** на странице API компонента. Вы можете использовать эти классы внутри ключа `styleOverrides` для изменения соответствующих частей компонента.
 
 ```js
 const theme = createTheme({
@@ -71,11 +69,11 @@ const theme = createTheme({
 });
 ```
 
-### Overrides based on props
+### Переопределения на основе реквизитов <meta data-oversett="" data-original-text="Overrides based on props">
 
-You can pass a callback as a value in each slot of the component's `styleOverrides` to apply styles based on props.
+Вы можете передать обратный вызов в качестве значения в каждый слот компонента `styleOverrides` для применения стилей на основе реквизитов.
 
-The `ownerState` prop is a combination of public props that you pass to the component + internal state of the component.
+Реквизит `ownerState` представляет собой комбинацию публичных реквизитов, которые вы передаете компоненту + внутреннее состояние компонента.
 
 ```js
 const finalTheme = createTheme({
@@ -96,17 +94,14 @@ const finalTheme = createTheme({
 
 {{"demo": "GlobalThemeOverrideCallback.js"}}
 
-### The `sx` syntax (experimental)
+### Синтаксис `sx` (экспериментальный) <meta data-oversett="" data-original-text="The sx syntax (experimental)">
 
-The `sx` prop acts as a shortcut for defining custom styles that access the theme object.
-This prop lets you write inline styles using a superset of CSS.
-Learn more about [the concept behind the `sx` prop](/system/getting-started/the-sx-prop/) and [how `sx` differs from the `styled` utility](/system/styled/#difference-with-the-sx-prop).
+Реквизит `sx` служит в качестве ярлыка для определения пользовательских стилей, обращающихся к объекту темы. Этот реквизит позволяет писать встроенные стили, используя супермножество CSS. Узнайте больше о [концепции, лежащей в основе реквизита `sx`](/system/getting-started/the-sx-prop/) , и о том [, чем `sx` отличается от утилиты `styled`](/system/styled/#difference-with-the-sx-prop) .
 
-You can use the `sx` prop inside the `styleOverrides` key to modify styles within the theme using shorthand CSS notation.
-This is especially handy if you're already using the `sx` prop with your components, because you can use the same syntax in your theme and quickly transfer styles between the two.
+Вы можете использовать реквизит `sx` внутри ключа `styleOverrides` для изменения стилей в теме с помощью сокращенной нотации CSS. Это особенно удобно, если вы уже используете реквизит `sx` в своих компонентах, поскольку вы можете использовать тот же синтаксис в своей теме и быстро переносить стили между ними.
 
 :::info
-The `sx` prop is a stable feature for customizing components in Material UI v5, but it is still considered _experimental_ when used directly inside the theme object.
+Реквизит `sx` является стабильной функцией для настройки компонентов в Material UI v5, но он все еще считается _экспериментальным_, если используется непосредственно внутри объекта темы.
 :::
 
 {{"demo": "GlobalThemeOverrideSx.js", "defaultCodeOpen": false}}
@@ -136,15 +131,15 @@ const finalTheme = createTheme({
 });
 ```
 
-### Specificity
+### Специфика <meta data-oversett="" data-original-text="Specificity">
 
-If you use the theming approach to customize the components, you'll still be able to override them using the `sx` prop as it has a higher CSS specificity, even if you're using the experimental `sx` syntax within the theme.
+Если вы используете подход тематизации для настройки компонентов, вы все равно сможете переопределить их с помощью реквизита `sx`, поскольку он имеет более высокую специфичность CSS, даже если вы используете экспериментальный синтаксис `sx` внутри темы.
 
-## Creating new component variants
+## Создание новых вариантов компонентов <meta data-oversett="" data-original-text="Creating new component variants">
 
-You can use the `variants` key in the theme's `components` section to create new variants to Material UI components. These new variants can specify what styles the component should have when that specific variant prop value is applied.
+Вы можете использовать ключ `variants` в разделе темы `components` для создания новых вариантов компонентов Material UI. Эти новые варианты могут определять, какие стили должны быть у компонента, когда применяется конкретное значение параметра варианта.
 
-The definitions are specified in an array, under the component's name. For each of them a CSS class is added to the HTML `<head>`. The order is important, so make sure that the styles that should win are specified last.
+Варианты указываются в массиве под именем компонента. Для каждого из них в HTML добавляется CSS-класс `<head>`. Порядок важен, поэтому убедитесь, что стили, которые должны победить, указаны последними.
 
 ```js
 const theme = createTheme({
@@ -170,9 +165,7 @@ const theme = createTheme({
 });
 ```
 
-If you're using TypeScript, you'll need to specify your new variants/colors, using [module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
-
-<!-- Tested with packages/mui-material/test/typescript/augmentation/themeComponents.spec.ts -->
+Если вы используете TypeScript, вам нужно будет указать новые варианты/цвета, используя [дополнения модуля](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
 
 ```tsx
 declare module '@mui/material/Button' {
@@ -184,9 +177,9 @@ declare module '@mui/material/Button' {
 
 {{"demo": "GlobalThemeVariants.js"}}
 
-## Theme variables
+## Переменные темы <meta data-oversett="" data-original-text="Theme variables">
 
-Another way to override the look of all component instances is to adjust the [theme configuration variables](/material-ui/customization/theming/#theme-configuration-variables).
+Другой способ переопределить внешний вид всех экземпляров компонента - настроить [переменные конфигурации темы](/material-ui/customization/theming/#theme-configuration-variables).
 
 ```js
 const theme = createTheme({

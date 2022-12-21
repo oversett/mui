@@ -7,89 +7,84 @@ waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/table/
 materialDesign: https://m2.material.io/components/data-tables
 ---
 
-# Table
+# Таблица <meta data-oversett="" data-original-text="Table">
 
-<p class="description">Tables display sets of data. They can be fully customized.</p>
+<p class="description">В таблицах отображаются наборы данных. Они могут быть полностью настроены.</p>
 
-Tables display information in a way that's easy to scan, so that users can look for patterns and insights. They can be embedded in primary content, such as cards. They can include:
+Таблицы отображают информацию в виде, удобном для сканирования, чтобы пользователи могли искать закономерности и выводы. Они могут быть встроены в основной контент, например, в карточки. Они могут включать в себя:
 
-- A corresponding visualization
-- Navigation
-- Tools to query and manipulate data
+-   соответствующую визуализацию
+-   Навигация
+-   Инструменты для запросов и манипулирования данными
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic table
+## Базовая таблица <meta data-oversett="" data-original-text="Basic table">
 
-A simple example with no frills.
+Простой пример без излишеств.
 
 {{"demo": "BasicTable.js", "bg": true}}
 
-## Data table
+## Таблица данных <meta data-oversett="" data-original-text="Data table">
 
-The `Table` component has a close mapping to the native `<table>` elements.
-This constraint makes building rich data tables challenging.
+Компонент `Table` имеет тесное сопоставление с родными элементами `<table>`. Это ограничение делает создание богатых таблиц данных сложной задачей.
 
-The [`DataGrid` component](/x/react-data-grid/) is designed for use-cases that are focused on handling large amounts of tabular data.
-While it comes with a more rigid structure, in exchange, you gain more powerful features.
+[Компонент`DataGrid`](/x/react-data-grid/) предназначен для использования в случаях, ориентированных на работу с большими объемами табличных данных. Хотя он имеет более жесткую структуру, взамен вы получаете более мощные возможности.
 
 {{"demo": "DataTable.js", "bg": "inline"}}
 
-## Dense table
+## Плотная таблица <meta data-oversett="" data-original-text="Dense table">
 
-A simple example of a dense table with no frills.
+Простой пример плотной таблицы без излишеств.
 
 {{"demo": "DenseTable.js", "bg": true}}
 
-## Sorting & selecting
+## Сортировка и выбор <meta data-oversett="" data-original-text="Sorting &amp; selecting">
 
-This example demonstrates the use of `Checkbox` and clickable rows for selection, with a custom `Toolbar`. It uses the `TableSortLabel` component to help style column headings.
+Этот пример демонстрирует использование `Checkbox` и кликабельных строк для выбора с помощью пользовательского `Toolbar`. В нем используется компонент `TableSortLabel` для стилизации заголовков столбцов.
 
-The Table has been given a fixed width to demonstrate horizontal scrolling. In order to prevent the pagination controls from scrolling, the TablePagination component is used outside of the Table. (The ['Custom Table Pagination Action' example](#custom-pagination-actions) below shows the pagination within the TableFooter.)
+Таблица имеет фиксированную ширину, чтобы продемонстрировать горизонтальную прокрутку. Чтобы предотвратить прокрутку элементов управления пагинацией, компонент TablePagination используется вне таблицы. (В [примере 'Custom Table Pagination Action'](#custom-pagination-actions) ниже показана пагинация в нижнем колонтитуле таблицы).
 
 {{"demo": "EnhancedTable.js", "bg": true}}
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here is an example of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведен пример настройки компонента. Вы можете узнать больше об этом на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedTables.js", "bg": true}}
 
-### Custom pagination options
+### Пользовательские параметры пагинации <meta data-oversett="" data-original-text="Custom pagination options">
 
-It's possible to customize the options shown in the "Rows per page" select using the `rowsPerPageOptions` prop.
-You should either provide an array of:
+Можно настроить параметры, отображаемые в селекте "Rows per page", используя реквизит `rowsPerPageOptions`. Вы должны предоставить либо массив из:
 
-- **numbers**, each number will be used for the option's label and value.
+-   **чисел**, каждое число будет использоваться для метки и значения опции.
+    
+    ```jsx
+    <TablePagination rowsPerPageOptions={[10, 50]} />
+    ```
+    
+-   **объектов**, ключи `value` и `label` будут использоваться соответственно для значения и метки опции (полезно для языковых строк, таких как 'All').
+    
+    ```jsx
+    <TablePagination rowsPerPageOptions={[10, 50, { value: -1, label: 'All' }]} />
+    ```
+    
 
-  ```jsx
-  <TablePagination rowsPerPageOptions={[10, 50]} />
-  ```
+### Пользовательские действия пагинации <meta data-oversett="" data-original-text="Custom pagination actions">
 
-- **objects**, the `value` and `label` keys will be used respectively for the value and label of the option (useful for language strings such as 'All').
-
-  ```jsx
-  <TablePagination rowsPerPageOptions={[10, 50, { value: -1, label: 'All' }]} />
-  ```
-
-### Custom pagination actions
-
-The `ActionsComponent` prop of the `TablePagination` component allows the implementation of custom actions.
+Реквизит `ActionsComponent` компонента `TablePagination` позволяет реализовать пользовательские действия.
 
 {{"demo": "CustomPaginationActionsTable.js", "bg": true}}
 
-## Sticky header
+## Липкий заголовок <meta data-oversett="" data-original-text="Sticky header">
 
-Here is an example of a table with scrollable rows and fixed column headers.
-It leverages the `stickyHeader` prop.
-(⚠️ no IE 11 support)
+Вот пример таблицы с прокручиваемыми строками и фиксированными заголовками столбцов. В нем используется свойство `stickyHeader`. (⚠️ нет поддержки IE 11)
 
 {{"demo": "StickyHeadTable.js", "bg": true}}
 
-## Column grouping
+## Группировка столбцов <meta data-oversett="" data-original-text="Column grouping">
 
-You can group column headers by rendering multiple table rows inside a table head:
+Вы можете группировать заголовки столбцов, отображая несколько строк таблицы внутри заголовка таблицы:
 
 ```jsx
 <TableHead>
@@ -100,38 +95,34 @@ You can group column headers by rendering multiple table rows inside a table hea
 
 {{"demo": "ColumnGroupingTable.js", "bg": true}}
 
-## Collapsible table
+## Складная таблица <meta data-oversett="" data-original-text="Collapsible table">
 
-An example of a table with expandable rows, revealing more information.
-It utilizes the [`Collapse`](/material-ui/api/collapse/) component.
+Пример таблицы с расширяемыми строками, раскрывающими дополнительную информацию. В ней используется компонент [`Collapse`](/material-ui/api/collapse/) компонент.
 
 {{"demo": "CollapsibleTable.js", "bg": true}}
 
-## Spanning table
+## Растягивающаяся таблица <meta data-oversett="" data-original-text="Spanning table">
 
-A simple example with spanning rows & columns.
+Простой пример с разделяющимися строками и столбцами.
 
 {{"demo": "SpanningTable.js", "bg": true}}
 
-## Virtualized table
+## Виртуализированная таблица <meta data-oversett="" data-original-text="Virtualized table">
 
-In the following example, we demonstrate how to use [react-virtualized](https://github.com/bvaughn/react-virtualized) with the `Table` component.
-It renders 200 rows and can easily handle more.
-Virtualization helps with performance issues.
+В следующем примере мы демонстрируем, как использовать [react-virtualized](https://github.com/bvaughn/react-virtualized) с компонентом `Table`. Он отображает 200 строк и может легко обрабатывать больше. Виртуализация помогает решить проблемы производительности.
 
 {{"demo": "ReactVirtualizedTable.js", "bg": true}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-(WAI tutorial: <https://www.w3.org/WAI/tutorials/tables/>)
+(Учебник WAI: [https://www.w3.org/WAI/tutorials/tables/)](https://www.w3.org/WAI/tutorials/tables/)
 
-### Caption
+### Надпись <meta data-oversett="" data-original-text="Caption">
 
-A caption functions like a heading for a table. Most screen readers announce the content of captions. Captions help users to find a table and understand what it's about and decide if they want to read it.
+Надпись функционирует как заголовок для таблицы. Большинство программ чтения с экрана объявляют содержание подписей. Подписи помогают пользователям найти таблицу, понять, о чем она, и решить, хотят ли они ее читать.
 
 {{"demo": "AcccessibleTable.js", "bg": true}}
 
-## Unstyled
+## Нестилизованный <meta data-oversett="" data-original-text="Unstyled">
 
-If you would like to use an unstyled Table, you can use the primitive HTML elements and enhance the table with the TablePaginationUnstyled component.
-See the demos in the [unstyled table pagination docs](/base/react-table-pagination/)
+Если вы хотите использовать нестилизованную таблицу, вы можете использовать примитивные элементы HTML и расширить таблицу с помощью компонента TablePaginationUnstyled. Смотрите демонстрационные примеры в [документации по нестилизованной пагинации таблиц](/base/react-table-pagination/)

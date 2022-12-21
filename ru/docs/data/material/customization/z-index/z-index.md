@@ -1,21 +1,20 @@
-# z-index
 
-<p class="description">z-index is the CSS property that helps control layout by providing a third axis to arrange content.</p>
 
-Several MUI components utilize `z-index`, employing a default z-index scale in MUI
-that has been designed to properly layer drawers, modals, snackbars, tooltips, and more.
+# z-index <meta data-oversett="" data-original-text="z-index">
 
-The `z-index` values start at an arbitrary number, high and specific enough to ideally avoid conflicts:
+<p class="description">z-index - это свойство CSS, которое помогает управлять макетом, предоставляя третью ось для расположения содержимого.</p>
 
-- mobile stepper: 1000
-- fab: 1050
-- speed dial: 1050
-- app bar: 1100
-- drawer: 1200
-- modal: 1300
-- snackbar: 1400
-- tooltip: 1500
+Некоторые компоненты MUI используют `z-index`, применяя шкалу z-index по умолчанию в MUI, которая была разработана для правильного расположения ящиков, модалов, закусочных панелей, всплывающих подсказок и многого другого.
 
-These values can always be customized.
-You will find them in the theme under the [`zIndex`](/material-ui/customization/default-theme/?expand-path=$.zIndex) key of the theme.
-Customization of individual values is discouraged; should you change one, you likely need to change them all.
+Значения `z-index` начинаются с произвольного числа, достаточно высокого и определенного, чтобы в идеале избежать конфликтов:
+
+-   мобильный степпер: 1000
+-   фаб: 1050
+-   быстрый набор: 1050
+-   панель приложений: 1100
+-   ящик: 1200
+-   модал: 1300
+-   закусочная панель: 1400
+-   всплывающая подсказка: 1500
+
+Эти значения всегда можно настроить. Вы найдете их в теме под ключом [`zIndex`](/material-ui/customization/default-theme/?expand-path=$.zIndex) Не рекомендуется настраивать отдельные значения; если вы измените одно из них, вам, скорее всего, придется изменить их все.

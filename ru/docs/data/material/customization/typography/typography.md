@@ -1,12 +1,14 @@
-# Typography
 
-<p class="description">The theme provides a set of type sizes that work well together, and also with the layout grid.</p>
 
-## Font family
+# Типографика <meta data-oversett="" data-original-text="Typography">
 
-You can change the font family with the `theme.typography.fontFamily` property.
+<p class="description">Тема предоставляет набор шрифтов, которые хорошо сочетаются друг с другом, а также с сеткой макета.</p>
 
-For instance, this example uses the system font instead of the default Roboto font:
+## Семейство шрифтов <meta data-oversett="" data-original-text="Font family">
+
+Вы можете изменить семейство шрифтов с помощью свойства `theme.typography.fontFamily`.
+
+Например, в этом примере используется системный шрифт вместо шрифта Roboto по умолчанию:
 
 ```js
 const theme = createTheme({
@@ -27,20 +29,17 @@ const theme = createTheme({
 });
 ```
 
-### Self-hosted fonts
+### Самостоятельно размещаемые шрифты <meta data-oversett="" data-original-text="Self-hosted fonts">
 
-To self-host fonts, download the font files in `ttf`, `woff`, and/or `woff2` formats and import them into your code.
+Чтобы самостоятельно разместить шрифты, загрузите файлы шрифтов в форматах `ttf`, `woff`, и/или `woff2` и импортируйте их в свой код.
 
-⚠️ This requires that you have a plugin or loader in your build process that can handle loading `ttf`, `woff`, and
-`woff2` files. Fonts will _not_ be embedded within your bundle. They will be loaded from your webserver instead of a
-CDN.
+⚠️ Это требует наличия в процессе сборки плагина или загрузчика, который может обрабатывать загрузку файлов `ttf`, `woff` и`woff2`. Шрифты _не_ будут встроены в ваш пакет. Они будут загружены с вашего веб-сервера, а не из CDN.
 
 ```js
 import RalewayWoff2 from './fonts/Raleway-Regular.woff2';
 ```
 
-Next, you need to change the theme to use this new font.
-In order to globally define Raleway as a font face, the [`CssBaseline`](/material-ui/react-css-baseline/) component can be used (or any other CSS solution of your choice).
+Далее необходимо изменить тему для использования нового шрифта. Для того чтобы глобально определить Raleway как шрифт, можно использовать компонент [`CssBaseline`](/material-ui/react-css-baseline/) (или любое другое CSS-решение на ваш выбор).
 
 ```jsx
 import RalewayWoff2 from './fonts/Raleway-Regular.woff2';
@@ -80,18 +79,13 @@ return (
 );
 ```
 
-Note that if you want to add additional `@font-face` declarations, you need to use the string CSS template syntax for adding style overrides, so that the previosly defined `@font-face` declarations won't be replaced.
+Обратите внимание, что если вы хотите добавить дополнительные объявления `@font-face`, вам нужно использовать синтаксис шаблона строкового CSS для добавления переопределений стиля, чтобы не заменять ранее определенные объявления `@font-face`.
 
-## Font size
+## Размер шрифта <meta data-oversett="" data-original-text="Font size">
 
-MUI uses `rem` units for the font size.
-The browser `<html>` element default font size is `16px`, but browsers have an option to change this value,
-so `rem` units allow us to accommodate the user's settings, resulting in a better accessibility support.
-Users change font size settings for all kinds of reasons, from poor eyesight to choosing optimum settings
-for devices that can be vastly different in size and viewing distance.
+MUI использует единицы `rem` для размера шрифта. Размер шрифта по умолчанию в браузере `<html>` элемента `16px`, но браузеры имеют возможность изменить это значение, поэтому единицы `rem` позволяют нам учитывать настройки пользователя, что приводит к лучшей поддержке доступности. Пользователи изменяют настройки размера шрифта по разным причинам, от плохого зрения до выбора оптимальных настроек для устройств, которые могут сильно отличаться по размеру и расстоянию просмотра.
 
-To change the font-size of MUI you can provide a `fontSize` property.
-The default value is `14px`.
+Для изменения размера шрифта в MUI можно указать свойство `fontSize`. Значение по умолчанию - `14px`.
 
 ```js
 const theme = createTheme({
@@ -103,21 +97,13 @@ const theme = createTheme({
 });
 ```
 
-The computed font size by the browser follows this mathematical equation:
+Размер шрифта, вычисляемый браузером, соответствует этому математическому уравнению:
 
-<div class="only-light-mode">
-  <img alt="font size calculation" style="width: 458px;" src="/static/images/font-size.svg" />
-</div>
-<div class="only-dark-mode">
-  <img alt="font size calculation" style="width: 458px;" src="/static/images/font-size-dark.svg" />
-</div>
+<div class="only-light-mode"><img alt="font size calculation" style="width: 458px;" src="/static/images/font-size.svg"></div><div class="only-dark-mode"><img alt="font size calculation" style="width: 458px;" src="/static/images/font-size-dark.svg"></div>
 
-<!-- https://latex.codecogs.com/svg.latex?\dpi{200}&space;\text{computed}&space;=&space;\text{specification}\cdot\frac{\text{typography.fontSize}}{14}\cdot\frac{\text{html&space;fontsize}}{\text{typography.htmlFontSize}} -->
+### Отзывчивые размеры шрифтов <meta data-oversett="" data-original-text="Responsive font sizes">
 
-### Responsive font sizes
-
-The `theme.typography.*` [variant](#variants) properties map directly to the generated CSS.
-You can use [media queries](/material-ui/customization/breakpoints/#api) inside them:
+Свойства [варианта](#variants) `theme.typography.*` отображаются непосредственно в сгенерированном CSS. Вы можете использовать [медиа-запросы](/material-ui/customization/breakpoints/#api) внутри них:
 
 ```js
 const theme = createTheme();
@@ -135,11 +121,11 @@ theme.typography.h3 = {
 
 {{"demo": "CustomResponsiveFontSizes.js"}}
 
-To automate this setup, you can use the [`responsiveFontSizes()`](/material-ui/customization/theming/#responsivefontsizes-theme-options-theme) helper to make Typography font sizes in the theme responsive.
+Чтобы автоматизировать эту настройку, вы можете использовать [`responsiveFontSizes()`](/material-ui/customization/theming/#responsivefontsizes-theme-options-theme) чтобы сделать размеры шрифтов Typography в теме отзывчивыми.
 
 {{"demo": "ResponsiveFontSizesChart.js", "hideToolbar": true}}
 
-You can see this in action in the example below. Adjust your browser's window size, and notice how the font size changes as the width crosses the different [breakpoints](/material-ui/customization/breakpoints/):
+Вы можете увидеть это в действии в примере ниже. Настройте размер окна вашего браузера и обратите внимание, как изменяется размер шрифта при переходе ширины через различные [точки разрыва](/material-ui/customization/breakpoints/):
 
 ```js
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
@@ -150,21 +136,19 @@ theme = responsiveFontSizes(theme);
 
 {{"demo": "ResponsiveFontSizes.js"}}
 
-### Fluid font sizes
+### Изменение размера шрифта <meta data-oversett="" data-original-text="Fluid font sizes">
 
-To be done: [#15251](https://github.com/mui/material-ui/issues/15251).
+Будет сделано: [#15251](https://github.com/mui/material-ui/issues/15251).
 
-### HTML font size
+### Размер шрифта HTML <meta data-oversett="" data-original-text="HTML font size">
 
-You might want to change the `<html>` element default font size. For instance, when using the [10px simplification](https://www.sitepoint.com/understanding-and-using-rem-units-in-css/).
+Вы можете захотеть изменить размер шрифта по умолчанию элемента `<html>`. Например, при использовании [упрощения 10px](https://www.sitepoint.com/understanding-and-using-rem-units-in-css/).
 
 :::warning
-Changing the font size can harm accessibility ♿️. Most browsers agree on the default size of 16px, but the user can change it. For instance, someone with an impaired vision could set their browser's default font size to something larger.
+Изменение размера шрифта может повредить доступности ♿️. Большинство браузеров согласны с размером шрифта по умолчанию 16px, но пользователь может изменить его. Например, человек с ослабленным зрением может установить в своем браузере размер шрифта по умолчанию на более крупный.
 :::
 
-The `theme.typography.htmlFontSize` property is provided for this use case,
-which tells MUI what the font-size on the `<html>` element is.
-This is used to adjust the `rem` value so the calculated font-size always match the specification.
+Для этого случая предусмотрено свойство `theme.typography.htmlFontSize`, которое сообщает MUI размер шрифта в элементе `<html>`. Оно используется для корректировки значения `rem`, чтобы вычисленный размер шрифта всегда соответствовал спецификации.
 
 ```js
 const theme = createTheme({
@@ -181,29 +165,29 @@ html {
 }
 ```
 
-_You need to apply the above CSS on the html element of this page to see the below demo rendered correctly_
+_Вам нужно применить вышеупомянутый CSS к html-элементу этой страницы, чтобы увидеть корректное отображение приведенной ниже демонстрации._
 
 {{"demo": "FontSizeTheme.js"}}
 
-## Variants
+## Варианты <meta data-oversett="" data-original-text="Variants">
 
-The typography object comes with [13 variants](/material-ui/react-typography/#component) by default:
+По умолчанию объект типографики поставляется с [13 вариантами](/material-ui/react-typography/#component):
 
-- h1
-- h2
-- h3
-- h4
-- h5
-- h6
-- subtitle1
-- subtitle2
-- body1
-- body2
-- button
-- caption
-- overline
+-   h1
+-   h2
+-   h3
+-   h4
+-   h5
+-   h6
+-   субтитр1
+-   субтитр2
+-   тело1
+-   тело2
+-   кнопка
+-   надпись
+-   надпись
 
-Each of these variants can be customized individually:
+Каждый из этих вариантов может быть настроен индивидуально:
 
 ```js
 const theme = createTheme({
@@ -223,11 +207,11 @@ const theme = createTheme({
 
 {{"demo": "TypographyVariants.js"}}
 
-## Adding & disabling variants
+## Добавление и отключение вариантов <meta data-oversett="" data-original-text="Adding &amp; disabling variants">
 
-In addition to using the default typography variants, you can add custom ones, or disable any you don't need. Here is what you need to do:
+Помимо использования вариантов типографики по умолчанию, вы можете добавлять собственные варианты или отключать те, которые вам не нужны. Вот что для этого нужно сделать:
 
-**Step 1. Update the theme's typography object**
+**Шаг 1. Обновите объект типографики темы**
 
 ```js
 const theme = createTheme({
@@ -241,15 +225,13 @@ const theme = createTheme({
 });
 ```
 
-**Step 2. Update the necessary typings (if you are using TypeScript)**
+**Шаг 2. Обновите необходимые варианты типографики (если вы используете TypeScript)**
 
 :::info
-If you aren't using TypeScript you should skip this step.
+Если вы не используете TypeScript, вам следует пропустить этот шаг.
 :::
 
-You need to make sure that the typings for the theme's `typography` variants and the `Typography`'s `variant` prop reflects the new set of variants.
-
-<!-- Tested with packages/mui-material/test/typescript/augmentation/typographyVariants.spec.ts -->
+Вам необходимо убедиться, что типизация вариантов темы `typography` и объекта `Typography`'s `variant` отражает новый набор вариантов.
 
 ```ts
 declare module '@mui/material/styles' {
@@ -272,7 +254,7 @@ declare module '@mui/material/Typography' {
 }
 ```
 
-**Step 3. You can now use the new variant**
+**Шаг 3. Теперь вы можете использовать новый вариант**
 
 {{"demo": "TypographyCustomVariant.js", "hideToolbar": true}}
 
@@ -283,6 +265,6 @@ declare module '@mui/material/Typography' {
 <Typography variant="h3">h3</Typography>;
 ```
 
-## Default values
+## Значения по умолчанию <meta data-oversett="" data-original-text="Default values">
 
-You can explore the default values of the typography using [the theme explorer](/material-ui/customization/default-theme/?expand-path=$.typography) or by opening the dev tools console on this page (`window.theme.typography`).
+Вы можете изучить значения типографики по умолчанию с помощью [проводника тем](/material-ui/customization/default-theme/?expand-path=$.typography) или открыв консоль dev tools на этой странице (`window.theme.typography`).

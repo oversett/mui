@@ -7,105 +7,100 @@ materialDesign: https://m2.material.io/components/selection-controls#radio-butto
 waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/
 ---
 
-# Radio Group
+# Радиогруппа <meta data-oversett="" data-original-text="Radio Group">
 
-<p class="description">The Radio Group allows the user to select one option from a set.</p>
+<p class="description">Радиогруппа позволяет пользователю выбрать один вариант из множества.</p>
 
-Use radio buttons when the user needs to see all available options.
-If available options can be collapsed, consider using a [Select component](/material-ui/react-select/) because it uses less space.
+Используйте радиокнопки, когда пользователю необходимо видеть все доступные варианты. Если доступные варианты можно свернуть, используйте [компонент Select](/material-ui/react-select/), поскольку он занимает меньше места.
 
-Radio buttons should have the most commonly used option selected by default.
+В радиокнопках по умолчанию должен быть выбран наиболее часто используемый вариант.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Radio group
+## Группа радио <meta data-oversett="" data-original-text="Radio group">
 
-`RadioGroup` is a helpful wrapper used to group `Radio` components that provides an easier API, and proper keyboard accessibility to the group.
+`RadioGroup` это полезная обертка, используемая для группировки компонентов `Radio`, которая обеспечивает более простой API и надлежащую доступность группы с клавиатуры.
 
 {{"demo": "RadioButtonsGroup.js"}}
 
-### Direction
+### Направление <meta data-oversett="" data-original-text="Direction">
 
-To lay out the buttons horizontally, set the `row` prop:
+Чтобы расположить кнопки горизонтально, установите параметр `row`:
 
 {{"demo": "RowRadioButtonsGroup.js"}}
 
-### Controlled
+### Controlled . <meta data-oversett="" data-original-text="Controlled">
 
-You can control the radio with the `value` and `onChange` props:
+Вы можете управлять радио с помощью реквизитов `value` и `onChange`:
 
 {{"demo": "ControlledRadioButtonsGroup.js"}}
 
-## Standalone radio buttons
+## Автономные радиокнопки <meta data-oversett="" data-original-text="Standalone radio buttons">
 
-`Radio` can also be used standalone, without the RadioGroup wrapper.
+`Radio` также могут быть использованы отдельно, без обертки RadioGroup.
 
 {{"demo": "RadioButtons.js"}}
 
-## Size
+## Размер <meta data-oversett="" data-original-text="Size">
 
-Use the `size` prop or customize the font size of the svg icons to change the size of the radios.
+Используйте реквизит `size` или настройте размер шрифта иконок svg, чтобы изменить размер радиокнопок.
 
 {{"demo": "SizeRadioButtons.js"}}
 
-## Color
+## Цвет <meta data-oversett="" data-original-text="Color">
 
 {{"demo": "ColorRadioButtons.js"}}
 
-## Label placement
+## Размещение ярлыка <meta data-oversett="" data-original-text="Label placement">
 
-You can change the placement of the label with the `FormControlLabel` component's `labelPlacement` prop:
+Вы можете изменить размещение метки с помощью свойства `labelPlacement` компонента `FormControlLabel`:
 
 {{"demo": "FormControlLabelPlacement.js"}}
 
-## Show error
+## Show error <meta data-oversett="" data-original-text="Show error">
 
-In general, radio buttons should have a value selected by default. If this is not the case, you can display an error if no value is selected when the form is submitted:
+Как правило, радиокнопки должны иметь значение, выбранное по умолчанию. Если это не так, вы можете отобразить ошибку, если при отправке формы значение не выбрано:
 
 {{"demo": "ErrorRadios.js"}}
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here is an example of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведен пример настройки компонента. Вы можете узнать больше об этом на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedRadios.js"}}
 
-## `useRadioGroup`
+## `useRadioGroup` <meta data-oversett="" data-original-text="useRadioGroup">
 
-For advanced customization use cases, a `useRadioGroup()` hook is exposed.
-It returns the context value of the parent radio group.
-The Radio component uses this hook internally.
+Для расширенной настройки используется хук `useRadioGroup()`. Он возвращает контекстное значение родительской группы радио. Компонент Radio использует этот хук внутри компонента.
 
-### API
+### API <meta data-oversett="" data-original-text="API">
 
 ```jsx
 import { useRadioGroup } from '@mui/material/RadioGroup';
 ```
 
-#### Returns
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-`value` (_object_):
+`value` _(объект_):
 
-- `value.name` (_string_ [optional]): The name used to reference the value of the control.
-- `value.onChange` (_func_ [optional]): Callback fired when a radio button is selected.
-- `value.value` (_any_ [optional]): Value of the selected radio button.
+-   `value.name` _(строка_ \[необязательно\]): Имя, используемое для ссылки на значение элемента управления.
+-   `value.onChange` _(func_ \[необязательно\]): Обратный вызов, выполняемый при выборе радиокнопки.
+-   `value.value` _(any_ \[необязательно\]): Значение выбранной радиокнопки.
 
-#### Example
+#### Пример <meta data-oversett="" data-original-text="Example">
 
 {{"demo": "UseRadioGroup.js"}}
 
-## When to use
+## Когда использовать <meta data-oversett="" data-original-text="When to use">
 
-- [Checkboxes vs. Radio Buttons](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/)
+-   [Флажки против радиокнопок](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/)
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-(WAI-ARIA: https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/)
+(WAI-ARIA: [https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/)](https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/)
 
-- All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases, this is done by using the `<label>` element ([FormControlLabel](/material-ui/api/form-control-label/)).
-- When a label can't be used, it's necessary to add an attribute directly to the input component.
-  In this case, you can apply the additional attribute (e.g. `aria-label`, `aria-labelledby`, `title`) via the `inputProps` property.
+-   Все элементы управления формы должны иметь метки, и это относится к радиокнопкам, флажкам и переключателям. В большинстве случаев для этого используется элемент `<label>` [(FormControlLabel](/material-ui/api/form-control-label/)).
+-   Когда метка не может быть использована, необходимо добавить атрибут непосредственно к компоненту ввода. В этом случае вы можете применить дополнительный атрибут (например, `aria-label`, `aria-labelledby`, `title`) через свойство `inputProps`.
 
 ```jsx
 <Radio

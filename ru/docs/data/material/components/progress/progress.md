@@ -6,66 +6,66 @@ githubLabel: 'component: progress'
 materialDesign: https://m2.material.io/components/progress-indicators
 ---
 
-# Progress
+# Прогресс <meta data-oversett="" data-original-text="Progress">
 
-<p class="description">Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process.</p>
+<p class="description">Индикаторы прогресса, обычно известные как спиннеры, выражают неопределенное время ожидания или отображают длительность процесса.</p>
 
-Progress indicators inform users about the status of ongoing processes, such as loading an app, submitting a form, or saving updates.
+Индикаторы прогресса информируют пользователей о состоянии текущих процессов, таких как загрузка приложения, отправка формы или сохранение обновлений.
 
-- **Determinate** indicators display how long an operation will take.
-- **Indeterminate** indicators visualize an unspecified wait time.
+-   **Детерминированные** индикаторы показывают, сколько времени займет операция.
+-   **Неопределенные** индикаторы отображают неопределенное время ожидания.
 
-The animations of the components rely on CSS as much as possible to work even before the JavaScript is loaded.
+Анимация компонентов максимально полагается на CSS, чтобы работать еще до загрузки JavaScript.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Circular
+## Круговой <meta data-oversett="" data-original-text="Circular">
 
-### Circular indeterminate
+### Круговой неопределенный <meta data-oversett="" data-original-text="Circular indeterminate">
 
 {{"demo": "CircularIndeterminate.js"}}
 
-### Circular color
+### Цвет окружности <meta data-oversett="" data-original-text="Circular color">
 
 {{"demo": "CircularColor.js"}}
 
-### Circular determinate
+### Круговой детерминант <meta data-oversett="" data-original-text="Circular determinate">
 
 {{"demo": "CircularDeterminate.js"}}
 
-### Interactive integration
+### Интерактивная интеграция <meta data-oversett="" data-original-text="Interactive integration">
 
 {{"demo": "CircularIntegration.js"}}
 
-### Circular with label
+### Циркулярная с меткой <meta data-oversett="" data-original-text="Circular with label">
 
 {{"demo": "CircularWithValueLabel.js"}}
 
-## Linear
+## Линейный <meta data-oversett="" data-original-text="Linear">
 
-### Linear indeterminate
+### Линейный неопределенный <meta data-oversett="" data-original-text="Linear indeterminate">
 
 {{"demo": "LinearIndeterminate.js"}}
 
-### Linear color
+### Линейный цветной <meta data-oversett="" data-original-text="Linear color">
 
 {{"demo": "LinearColor.js"}}
 
-### Linear determinate
+### Линейный детерминированный <meta data-oversett="" data-original-text="Linear determinate">
 
 {{"demo": "LinearDeterminate.js"}}
 
-### Linear buffer
+### Линейный буферный <meta data-oversett="" data-original-text="Linear buffer">
 
 {{"demo": "LinearBuffer.js"}}
 
-### Linear with label
+### Линейный с этикеткой <meta data-oversett="" data-original-text="Linear with label">
 
 {{"demo": "LinearWithValueLabel.js"}}
 
-## Non-standard ranges
+## Нестандартные диапазоны <meta data-oversett="" data-original-text="Non-standard ranges">
 
-The progress components accept a value in the range 0 - 100. This simplifies things for screen-reader users, where these are the default min / max values. Sometimes, however, you might be working with a data source where the values fall outside this range. Here's how you can easily transform a value in any range to a scale of 0 - 100:
+Компоненты прогресса принимают значения в диапазоне 0 - 100. Это упрощает работу для пользователей экранных читалок, для которых эти значения по умолчанию являются минимальными и максимальными. Иногда, однако, вы можете работать с источником данных, где значения выходят за пределы этого диапазона. Вот как можно легко преобразовать значение в любом диапазоне в шкалу 0 - 100:
 
 ```jsx
 // MIN = Minimum expected value
@@ -84,43 +84,35 @@ function Progress(props) {
 }
 ```
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here are some examples of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Ниже приведены примеры настройки компонента. Более подробно об этом вы можете узнать на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedProgressBars.js", "defaultCodeOpen": false}}
 
-## Delaying appearance
+## Задержка появления <meta data-oversett="" data-original-text="Delaying appearance">
 
-There are [3 important limits](https://www.nngroup.com/articles/response-times-3-important-limits/) to know around response time.
-The ripple effect of the `ButtonBase` component ensures that the user feels that the system is reacting instantaneously.
-Normally, no special feedback is necessary during delays of more than 0.1 but less than 1.0 second.
-After 1.0 second, you can display a loader to keep user's flow of thought uninterrupted.
+Есть [3 важных ограничения](https://www.nngroup.com/articles/response-times-3-important-limits/), которые необходимо знать о времени отклика. Эффект пульсации компонента `ButtonBase` гарантирует, что пользователь чувствует, что система реагирует мгновенно. Обычно не требуется специальной обратной связи при задержках более 0,1, но менее 1,0 секунды. После 1,0 секунды можно отобразить загрузчик, чтобы поток мыслей пользователя не прерывался.
 
 {{"demo": "DelayingAppearance.js"}}
 
-## Limitations
+## Ограничения <meta data-oversett="" data-original-text="Limitations">
 
-### High CPU load
+### Высокая загрузка процессора <meta data-oversett="" data-original-text="High CPU load">
 
-Under heavy load, you might lose the stroke dash animation or see random `CircularProgress` ring widths.
-You should run processor intensive operations in a web worker or by batch in order not to block the main rendering thread.
+При высокой нагрузке может пропасть анимация штрихов или отображаться случайная ширина колец `CircularProgress`. Чтобы не блокировать основной поток рендеринга, необходимо выполнять ресурсоемкие операции в веб-рабочем или пакетно.
 
 ![heavy load](/static/images/progress/heavy-load.gif)
 
-When it's not possible, you can leverage the `disableShrink` prop to mitigate the issue.
-See [this issue](https://github.com/mui/material-ui/issues/10327).
+Если это невозможно, вы можете воспользоваться реквизитом `disableShrink` для смягчения проблемы. См. [этот вопрос](https://github.com/mui/material-ui/issues/10327).
 
 {{"demo": "CircularUnderLoad.js"}}
 
-### High frequency updates
+### Высокочастотные обновления <meta data-oversett="" data-original-text="High frequency updates">
 
-The `LinearProgress` uses a transition on the CSS transform property to provide a smooth update between different values.
-The default transition duration is 200ms.
-In the event a parent component updates the `value` prop too quickly, you will at least experience a 200ms delay between the re-render and the progress bar fully updated.
+`LinearProgress` использует переход для свойства CSS transform, чтобы обеспечить плавное обновление между различными значениями. Длительность перехода по умолчанию составляет 200 мс. Если родительский компонент обновляет свойство `value` слишком быстро, вы, по крайней мере, ощутите задержку в 200 мс между повторным рендерингом и полным обновлением индикатора выполнения.
 
-If you need to perform 30 re-renders per second or more, we recommend disabling the transition:
+Если вам необходимо выполнять 30 повторных рендерингов в секунду или более, мы рекомендуем отключить переход:
 
 ```css
 .MuiLinearProgress-bar {
@@ -128,11 +120,9 @@ If you need to perform 30 re-renders per second or more, we recommend disabling 
 }
 ```
 
-### IE 11
+### IE 11 <meta data-oversett="" data-original-text="IE 11">
 
-The circular progress component animation on IE 11 is degraded.
-The stroke dash animation is not working (equivalent to `disableShrink`) and the circular animation wobbles.
-You can solve the latter with:
+Анимация кругового компонента прогресса в IE 11 ухудшена. Анимация штриха не работает (эквивалентно `disableShrink`), а круговая анимация шатается. Последнюю проблему можно решить с помощью:
 
 ```css
 .MuiCircularProgress-indeterminate {

@@ -1,121 +1,101 @@
-# Support
 
-<p class="description">From community help to premium critical business support, we're here to help.</p>
 
-## Community help (free)
+# Поддержка <meta data-oversett="" data-original-text="Support">
 
-The community is your first stop for questions and advice about the framework. Welcome to the community!
+<p class="description">От помощи сообщества до первоклассной поддержки критически важного бизнеса - мы здесь, чтобы помочь.</p>
 
-### Stack Overflow
+## Помощь сообщества (бесплатно) <meta data-oversett="" data-original-text="Community help (free)">
 
-For crowdsourced answers from expert MUI developers in our community.
-Stack Overflow is also visited from time to time by the maintainers of MUI.
+Сообщество - это ваша первая остановка для получения вопросов и советов о фреймворке. Добро пожаловать в сообщество!
 
-[Post a question](https://stackoverflow.com/questions/tagged/mui)
+### Stack Overflow <meta data-oversett="" data-original-text="Stack Overflow">
+
+Для получения краудсорсинговых ответов от экспертов-разработчиков MUI в нашем сообществе. Stack Overflow также время от времени посещается сопровождающими MUI.
+
+[Опубликовать вопрос](https://stackoverflow.com/questions/tagged/mui)
 
 :::success
-If you're using an older version and use external resources (such as Stack Overflow) for help with it, you may find answers with links that direct you to content that no longer exists in the latest version of the documentation. To easily access any previous version of the docs, simply add `v[number]` at the beginning of the URL, like so: [v4.mui.com](https://v4.mui.com/).
-
+Если вы используете более старую версию и обращаетесь за помощью к внешним ресурсам (таким как Stack Overflow), вы можете найти ответы со ссылками, которые направляют вас к содержимому, уже не существующему в последней версии документации. Чтобы легко получить доступ к любой предыдущей версии документации, просто добавьте `v[number]` в начало URL, например: [v4.mui.com](https://v4.mui.com/).
 :::
 
-### GitHub
+### GitHub <meta data-oversett="" data-original-text="GitHub">
 
-MUI uses GitHub issues as a bug and feature request tracker.
-If you think you have found a bug, or have a new feature idea, please start by making sure it hasn't already been [reported or fixed](https://github.com/mui/material-ui/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aclosed). You can search through existing issues and pull requests to see if someone has reported one similar to yours.
+MUI использует GitHub issues в качестве трекера ошибок и запросов функций. Если вы думаете, что нашли ошибку, или у вас есть идея новой функции, пожалуйста, начните с того, что убедитесь, что об этом еще не [сообщалось или не было исправлено](https://github.com/mui/material-ui/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aclosed). Вы можете поискать в существующих проблемах и запросах на исправление, чтобы узнать, не сообщал ли кто-то о проблеме, похожей на вашу.
 
-- [Open an issue on MUI Core](https://github.com/mui/material-ui/issues/new/choose)
-- [Open an issue on MUI X](https://github.com/mui/mui-x/issues/new/choose)
+-   [Открыть проблему в MUI Core](https://github.com/mui/material-ui/issues/new/choose)
+-   [Открыть проблему на MUI X](https://github.com/mui/mui-x/issues/new/choose)
 
-#### New issue guidelines
+#### Рекомендации по созданию нового вопроса <meta data-oversett="" data-original-text="New issue guidelines">
 
-- Please follow the issue template.
-- Please begin the title with '[ComponentName]' where appropriate, and use a succinct description that helps others find similar issues.
-  - "doesn't work" ❌
-  - "[Button] Add support for <some feature>" ✅
-- Please don't group multiple topics in one issue – each should have its own issue instead.
-- Please don't comment "+1" on an issue. It spams the maintainers and doesn't help move the issue forward. Use GitHub reactions instead (👍).
+-   Пожалуйста, следуйте шаблону проблемы.
+-   Пожалуйста, начинайте заголовок с '\[ComponentName\]', где это уместно, и используйте краткое описание, которое поможет другим найти похожие проблемы.
+    -   "не работает" ❌
+    -   "\[Кнопка\] Добавить поддержку для <some feature="">" ✅</some>
+-   Пожалуйста, не группируйте несколько тем в одном выпуске - каждая тема должна иметь свой собственный выпуск.
+-   Пожалуйста, не комментируйте "+1" к вопросу. Это спамит сопровождающих и не помогает продвижению вопроса. Вместо этого используйте реакции на GitHub (👍).
 
-### Blog 📝
+### Блог 📝 <meta data-oversett="" data-original-text="Blog 📝">
 
-Stay up to date with the development of the library by following the blog.
+Следите за развитием библиотеки в блоге.
 
-[Read the latest posts](https://mui.com/blog/)
+[Прочитать последние записи](https://mui.com/blog/)
 
-### Resources 📖
+### Ресурсы 📖 <meta data-oversett="" data-original-text="Resources 📖">
 
-New to MUI? It's easy to learn if you know where to start!
+Новичок в MUI? Это легко освоить, если знать, с чего начать!
 
-[Learn MUI](/material-ui/getting-started/learn/)
+[Изучайте MUI](/material-ui/getting-started/learn/)
 
-### Twitter
+### Твиттер <meta data-oversett="" data-original-text="Twitter">
 
-Receive the latest news on MUI.
+Получайте последние новости о МУИ.
 
-[Follow us](https://twitter.com/MUI_hq)
+[Следуйте за нами](https://twitter.com/MUI_hq)
 
-### Supported versions
+### Поддерживаемые версии <meta data-oversett="" data-original-text="Supported versions">
 
-Find details on the [supported versions](/versions/#supported-versions).
+Узнайте подробности о [поддерживаемых версиях](/versions/#supported-versions).
 
-## Paid support
+## Платная поддержка <meta data-oversett="" data-original-text="Paid support">
 
-### Pro/Premium plans
+### Планы Pro/Premium <meta data-oversett="" data-original-text="Pro/Premium plans">
 
-MUI X comes in [three plans](https://mui.com/pricing/).
-The support available under the Community plan is made possible thanks to people like you: the community.
-This is described in more detail in the section above.
-MUI X maintainers focus on solving root issues rather than offering direct support to the community at large.
+MUI X поставляется в [трех планах](https://mui.com/pricing/). Поддержка, доступная в рамках плана Community, стала возможной благодаря таким людям, как вы: сообществу. Более подробно это описано в разделе выше. Сопровождающие MUI X сосредоточены на решении коренных проблем, а не на предоставлении прямой поддержки сообществу в целом.
 
-The paid plans offer developers advanced components and extra features that are challenging to find in OSS.
-To provide a similar quality of experience to the one provided by the community for MIT licensed code,
-the developers of MUI X provide support for the advanced components only.
-Technical support for MUI Core components is **not** included.
+Платные планы предлагают разработчикам расширенные компоненты и дополнительные возможности, которые трудно найти в OSS. Чтобы обеспечить качество работы, аналогичное тому, которое предоставляет сообщество для лицензированного кода MIT, разработчики MUI X предоставляют поддержку только для расширенных компонентов. Техническая поддержка для компонентов MUI Core **не** включена.
 
-The Premium plan provides developers with the highest priority for support tickets.
-No SLAs are provided yet; it's coming.
+План Premium предоставляет разработчикам наивысший приоритет для заявок на поддержку. Пока что SLA не предоставляются; они появятся.
 
-Please visit [the MUI X Support page](https://mui.com/x/introduction/support/#technical-support) for more detailed information on technical support.
+Пожалуйста, посетите [страницу поддержки MUI X Support](https://mui.com/x/introduction/support/#technical-support) для получения более подробной информации о технической поддержке.
 
-### Tidelift subscription
+### Подписка на Tidelift <meta data-oversett="" data-original-text="Tidelift subscription">
 
-MUI and the maintainers of thousands of other packages are working with Tidelift to deliver one enterprise subscription that covers all of the open-source you use.
+MUI и сопровождающие тысяч других пакетов работают с Tidelift над созданием единой корпоративной подписки, которая охватывает все используемые вами открытые исходные коды.
 
-If you want the flexibility of open-source and the confidence of commercial-grade software, this is worth looking at.
+Если вы хотите получить гибкость открытого исходного кода и уверенность в коммерческом программном обеспечении, стоит обратить на это внимание.
 
-The Tidelift Subscription manages your dependencies for you:
+Подписка Tidelift управляет вашими зависимостями за вас:
 
-- Get the tools you need to continuously catalog and understand the open-source software that your application depends on.
-- Your subscription helps pay the open-source community maintainers of the packages you use, to ensure they meet the standards you require.
-- Address issues proactively, with tools that scan for new security, licensing, and maintenance issues, and alert participating open-source maintainers so they can resolve them on your behalf.
-- Tidelift helps measure and improve your open-source dependencies' health – which improves your app's health – and gives a shortlist of high-impact steps your team can take to improve them even more.
-- Get commercial assurances that don't come for free with open-source packages, such as intellectual property indemnification and support under a service level agreement. You expect these guarantees from proprietary software, and you can get them when using open-source as well.
+-   Получите инструменты, необходимые для постоянного каталогизирования и понимания программного обеспечения с открытым исходным кодом, от которого зависит ваше приложение.
+-   Ваша подписка помогает платить сообществу разработчиков пакетов с открытым исходным кодом, которые вы используете, чтобы обеспечить их соответствие требуемым стандартам.
+-   Упреждающее решение проблем с помощью инструментов, которые сканируют новые проблемы безопасности, лицензирования и сопровождения и предупреждают участвующих сопровождающих открытого ПО, чтобы они могли решить их от вашего имени.
+-   Tidelift помогает измерить и улучшить здоровье ваших зависимостей с открытым исходным кодом, что улучшает здоровье вашего приложения, и дает список важных шагов, которые ваша команда может предпринять, чтобы улучшить их еще больше.
+-   Получите коммерческие гарантии, которые не предоставляются бесплатно в пакетах с открытым исходным кодом, такие как компенсация интеллектуальной собственности и поддержка в рамках соглашения об уровне обслуживания. Вы ожидаете этих гарантий от несвободного программного обеспечения, и вы можете получить их и при использовании открытого исходного кода.
 
-The end result? All of the capabilities you expect from commercial-grade software, for the full breadth of open-source you use. That means less time grappling with esoteric open-source trivia, and more time building your own applications – and your business.
+Конечный результат? Все возможности, которые вы ожидаете от программного обеспечения коммерческого класса, для всего спектра открытого исходного кода, который вы используете. Это означает, что вы будете меньше времени тратить на изучение эзотерических мелочей, связанных с открытым исходным кодом, и больше времени уделять созданию собственных приложений - и своему бизнесу.
 
-<a
-  data-ga-event-category="support"
-  data-ga-event-action="tidelift"
-  href="https://tidelift.com/subscription/pkg/npm-material-ui?utm_source=npm-material-ui&utm_medium=referral&utm_campaign=enterprise">
-Get more details
-</a>
+<a data-ga-event-category="support" data-ga-event-action="tidelift" href="https://tidelift.com/subscription/pkg/npm-material-ui?utm_source=npm-material-ui&amp;utm_medium=referral&amp;utm_campaign=enterprise">Получить более подробную информацию</a>
 
-<a
-  data-ga-event-category="support"
-  data-ga-event-action="tidelift"
-  href="https://tidelift.com/subscription/request-a-demo?utm_source=npm-material-ui&utm_medium=referral&utm_campaign=enterprise">
-Request a demo
-</a>
+<a data-ga-event-category="support" data-ga-event-action="tidelift" href="https://tidelift.com/subscription/request-a-demo?utm_source=npm-material-ui&amp;utm_medium=referral&amp;utm_campaign=enterprise">Запросить демо-версию</a>
 
-### Custom work 🛠
+### Работа на заказ 🛠 <meta data-oversett="" data-original-text="Custom work 🛠">
 
-Tweak MUI to meet specific requirements. Give us a summary of your needs and we'll help you if we can. We might:
+Настройте MUI в соответствии с конкретными требованиями. Расскажите нам о ваших потребностях, и мы поможем вам, если сможем. Мы можем:
 
-- Give you an estimate of time and price if the work is straightforward
-- Suggest alternatives that might not require MUI
-- Decline the work due to timing or relevancy
+-   Дать вам оценку времени и цены, если работа несложная.
+-   Предложить альтернативные варианты, которые могут не требовать MUI
+-   Отказаться от работы из-за сроков или актуальности.
 
-Note that work must be MUI related.
-We don't accept general React development work.
-Our contracting price is $200/hour or $1,500/day.
+Обратите внимание, что работа должна быть связана с MUI. Мы не принимаем работу по общей разработке React. Наша цена по контракту составляет $200/час или $1,500/день.
 
-[Send us an email](mailto:custom-work@mui.com)
+[Отправьте нам письмо](mailto:custom-work@mui.com)

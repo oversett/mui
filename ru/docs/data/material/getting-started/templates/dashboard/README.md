@@ -1,15 +1,13 @@
-# Dashboard template
 
-## Usage
 
-<!-- #default-branch-switch -->
+# Шаблон приборной панели <meta data-oversett="" data-original-text="Dashboard template">
 
-1. Copy the files into your project, or one of the [example projects](https://github.com/mui/material-ui/tree/master/examples).
-2. Make sure your project has the required dependencies: @mui/material, @mui/icons-material, @emotion/styled, @emotion/react, recharts.
-3. Import and use the `Dashboard` component.
+## Использование <meta data-oversett="" data-original-text="Usage">
 
-## Demo
+1.  Скопируйте файлы в свой проект или в один из [примеров проектов](https://github.com/mui/material-ui/tree/master/examples).
+2.  Убедитесь, что ваш проект имеет необходимые зависимости: @mui/material, @mui/icons-material, @emotion/styled, @emotion/react, recharts.
+3.  Импортируйте и используйте компонент `Dashboard`.
 
-<!-- #default-branch-switch -->
+## Демонстрация <meta data-oversett="" data-original-text="Demo">
 
-View the demo at https://mui.com/getting-started/templates/dashboard/.
+Просмотрите демонстрацию на сайте [https://mui.com/getting-started/templates/dashboard/.](https://mui.com/getting-started/templates/dashboard/)

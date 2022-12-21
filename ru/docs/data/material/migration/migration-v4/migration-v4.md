@@ -1,123 +1,119 @@
-# Migrating to v5: getting started
 
-<p class="description">This guide explains how and why to migrate from Material UI v4 to v5.</p>
 
-## Material UI v5 migration
+# Переход на v5: начало работы <meta data-oversett="" data-original-text="Migrating to v5: getting started">
 
-1. Getting started 👈 _you are here_
-2. [Breaking changes part one: style and theme](/material-ui/migration/v5-style-changes/)
-3. [Breaking changes part two: components](/material-ui/migration/v5-component-changes/)
-4. [Migrating from JSS](/material-ui/migration/migrating-from-jss/)
-5. [Troubleshooting](/material-ui/migration/troubleshooting/)
+<p class="description">Это руководство объясняет, как и зачем переходить с Material UI v4 на v5.</p>
 
-## Introduction
+## Миграция Material UI v5 <meta data-oversett="" data-original-text="Material UI v5 migration">
 
-This is the first document in a multi-part series to walk you through upgrading your app from Material UI v4 to v5.
+1.  Начало работы 👈 _Вы здесь_
+2.  [Изменения, которые необходимо внести, часть первая: стиль и тема](/material-ui/migration/v5-style-changes/)
+3.  [Внесение изменений часть вторая: компоненты](/material-ui/migration/v5-component-changes/)
+4.  [Миграция с JSS](/material-ui/migration/migrating-from-jss/)
+5.  [Устранение неполадок](/material-ui/migration/troubleshooting/)
 
-We highly recommend running our [codemods](#run-codemods) for efficiency—these will automatically address many of the [breaking changes](#address-breaking-changes) introduced in v5.
+## Введение <meta data-oversett="" data-original-text="Introduction">
 
-One of the biggest changes in v5 is the replacement of JSS for [Emotion](https://emotion.sh/docs/introduction) as a default styling solution.
+Это первый документ из серии, состоящей из нескольких частей, в которой мы расскажем вам об обновлении вашего приложения с Material UI v4 до v5.
 
-Note that you may continue to use JSS for adding overrides to the components (e.g. `makeStyles`, `withStyles`) even after migrating to v5.
-Once you've completed the rest of the v5 upgrade, we recommend progressively moving over to the new styling engine.
+Мы настоятельно рекомендуем использовать наши [кодмоды](#run-codemods) для повышения эффективности - они автоматически устранят многие из [изменений](#address-breaking-changes), появившихся в v5.
 
-This process is covered in [Migrating from JSS](/material-ui/migration/migrating-from-jss/).
+Одним из самых больших изменений в v5 является замена JSS на [Emotion](https://emotion.sh/docs/introduction) в качестве решения для стилизации по умолчанию.
+
+Обратите внимание, что вы можете продолжать использовать JSS для добавления переопределений к компонентам (например, `makeStyles`, `withStyles`) даже после перехода на v5. После того, как вы завершите обновление v5, мы рекомендуем постепенно переходить на новый механизм стилизации.
+
+Этот процесс описан в разделе [Миграция с JSS](/material-ui/migration/migrating-from-jss/).
 
 :::info
-Need to refer back to an older version of the docs? Check out [the v4 documentation here](https://v4.mui.com/).
+Вам нужно вернуться к более старой версии документации? Посмотрите [документацию по v4 здесь](https://v4.mui.com/).
 :::
 
 :::info
-If you are using Next.js and you are not sure how to configure SSR to work with both Emotion & JSS, take a look a this [example project](https://github.com/mui/material-ui/tree/master/examples/nextjs-with-typescript-v4-migration).
+Если вы используете Next.js и не уверены, как настроить SSR для работы с Emotion и JSS, посмотрите этот [пример проекта](https://github.com/mui/material-ui/tree/master/examples/nextjs-with-typescript-v4-migration).
 :::
 
-## Why you should migrate
+## Почему вам стоит перейти <meta data-oversett="" data-original-text="Why you should migrate">
 
-Material UI v5 includes many bug fixes and improvements over v4.
+Material UI v5 включает в себя множество исправлений ошибок и улучшений по сравнению с v4.
 
-Chief among these improvements is the new styling engine, which offers significant advancements in performance when it comes to dynamic styles, as well as a more enjoyable developer experience.
+Главным из этих улучшений является новый движок стилей, который обеспечивает значительное повышение производительности при работе с динамическими стилями, а также более приятный опыт разработчика.
 
-Additionally, v5 is the only version that fully supports React 18, so you will need to migrate to take advantage of the latest React features.
+Кроме того, v5 - единственная версия, которая полностью поддерживает React 18, поэтому вам необходимо перейти на нее, чтобы воспользоваться преимуществами последних возможностей React.
 
-To learn more, check out [the blog post about the release of Material UI v5](https://mui.com/blog/mui-core-v5/).
+Чтобы узнать больше, ознакомьтесь с [записью в блоге о выпуске Material UI v5](https://mui.com/blog/mui-core-v5/).
 
 :::success
-Create small commits as you go to ensure a smooth migration.
+Создавайте небольшие коммиты по мере продвижения, чтобы обеспечить плавный переход.
 
-If you encounter any issues along the way, check the [Troubleshooting](/material-ui/migration/troubleshooting/) doc.
+Если вы столкнулись с какими-либо проблемами на этом пути, обратитесь к документу " [Устранение неполадок](/material-ui/migration/troubleshooting/) ".
 
-For problems not addressed there, please [create an issue](https://github.com/mui/material-ui/issues/new?assignees=&labels=status%3A+needs+triage&template=1.bug.yml) with this title format: **[Migration] Summary of your issue**.
+Для проблем, не рассмотренных там, [создайте проблему](https://github.com/mui/material-ui/issues/new?assignees=&labels=status%3A+needs+triage&template=1.bug.yml) с таким названием: **\[Migration\] Краткое описание вашей проблемы**.
 :::
 
-## Supported browsers and Node versions
+## Поддерживаемые браузеры и версии Node <meta data-oversett="" data-original-text="Supported browsers and Node versions">
 
-The targets of the default bundle have changed in v5.
+Цели пакета по умолчанию изменились в v5.
 
-The exact versions will be pinned on release from the browserslist query `"> 0.5%, last 2 versions, Firefox ESR, not dead, not IE 11, maintained node versions"`.
+Точные версии будут выведены в релизе из запроса browserslist `"> 0.5%, last 2 versions, Firefox ESR, not dead, not IE 11, maintained node versions"`.
 
-The default bundle supports the following minimum versions:
+Пакет по умолчанию поддерживает следующие минимальные версии:
 
-<!-- #stable-snapshot -->
+-   Node 12 (по сравнению с 8)
+-   Chrome 90 (по сравнению с 49)
+-   Edge 91 (по сравнению с 14)
+-   Firefox 78 (по сравнению с 52)
+-   Safari 14 (macOS) и 12.5 (iOS) (в сравнении с 10)
+-   и многое другое (см. [.browserslistrc (`stable` entry)](https://github.com/mui/material-ui/blob/HEAD/.browserslistrc#L11)).
 
-- Node 12 (up from 8)
-- Chrome 90 (up from 49)
-- Edge 91 (up from 14)
-- Firefox 78 (up from 52)
-- Safari 14 (macOS) and 12.5 (iOS) (up from 10)
-- and more (see [.browserslistrc (`stable` entry)](https://github.com/mui/material-ui/blob/HEAD/.browserslistrc#L11))
+Material UI больше не поддерживает IE 11. Если вам нужна поддержка IE 11, обратите внимание на наш [пакет для старых](/material-ui/guides/minimizing-bundle-size/#legacy-bundle) версий.
 
-Material UI no longer supports IE 11.
-If you need to support IE 11, check out our [legacy bundle](/material-ui/guides/minimizing-bundle-size/#legacy-bundle).
+## Обновление версии React и TypeScript <meta data-oversett="" data-original-text="Update React &amp; TypeScript version">
 
-## Update React & TypeScript version
+### Обновите React <meta data-oversett="" data-original-text="Update React">
 
-### Update React
+Минимальная поддерживаемая версия React была увеличена с v16.8.0 до v17.0.0.
 
-The minimum supported version of React has been increased from v16.8.0 to v17.0.0.
+Если вы используете версию React ниже 17.0.0, обновите свои пакеты до версии не ниже v4.11.2 для Material UI и v17.0.0 для React.
 
-If you are using a React version below 17.0.0, update your packages to at least v4.11.2 for Material UI and v17.0.0 for React.
-
-With npm:
+С помощью npm:
 
 ```sh
 npm update @material-ui/core@^4.11.2 react@^17.0.0
 ```
 
-With yarn:
+С помощью yarn:
 
 ```sh
 yarn upgrade @material-ui/core@^4.11.2 react@^17.0.0
 ```
 
-### Update TypeScript
+### Обновите TypeScript <meta data-oversett="" data-original-text="Update TypeScript">
 
-The minimum supported version of TypeScript has been increased from v3.2 to v3.5.
+Минимальная поддерживаемая версия TypeScript была увеличена с v3.2 до v3.5.
 
 :::info
-We try to align with types released by [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) (i.e. packages published on npm under the `@types` namespace).
+Мы стараемся соответствовать типам, выпущенным [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) (т.е. пакетам, опубликованным на npm в пространстве имен `@types` ).
 
-We will not change the minimum supported version in a minor version of Material UI.
-However, we generally recommend not to use a TypeScript version older than the lowest supported version of DefinitelyTyped.
+Мы не будем менять минимально поддерживаемую версию в минорной версии Material UI. Однако мы обычно рекомендуем не использовать TypeScript версии старше, чем минимально поддерживаемая версия DefinitelyTyped.
 :::
 
-If your project includes these packages, you'll need to update them:
+Если ваш проект включает эти пакеты, вам необходимо их обновить:
 
-- `react-scripts`
-- `@types/react`
-- `@types/react-dom`
+-   `react-scripts`
+-   `@types/react`
+-   `@types/react-dom`
 
 :::warning
-📝 Make sure that your application is still running without errors, and commit the changes before continuing to the next step.
+📝 Убедитесь, что ваше приложение по-прежнему работает без ошибок, и зафиксируйте изменения, прежде чем переходить к следующему шагу.
 :::
 
-## Set up `ThemeProvider`
+## Настройте `ThemeProvider` <meta data-oversett="" data-original-text="Set up ThemeProvider">
 
-Before upgrading to v5, please make sure that `ThemeProvider` is defined at the root of your application and in tests—even if you are using the default theme—and `useStyles` is _not_ called before `ThemeProvider`.
+Перед переходом на v5 убедитесь, что `ThemeProvider` определен в корне вашего приложения и в тестах - даже если вы используете тему по умолчанию - и что `useStyles` _не_ вызывается раньше `ThemeProvider`.
 
-Eventually you may want to [migrate from JSS to Emotion](/material-ui/migration/migrating-from-jss/), but in the meantime you can continue to use JSS with the `@mui/styles` package.
-This package requires `ThemeProvider`.
+Со временем вы, возможно, захотите [перейти с JSS на Emotion](/material-ui/migration/migrating-from-jss/), но пока вы можете продолжать использовать JSS с пакетом `@mui/styles`. Этот пакет требует `ThemeProvider`.
 
-The root of your application should look something like this:
+Корень вашего приложения должен выглядеть примерно так:
 
 ```js
 import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
@@ -138,129 +134,121 @@ function App() {
 ```
 
 :::warning
-📝 Make sure that your application is still running without errors, and commit the changes before continuing to the next step.
+📝 Убедитесь, что ваше приложение по-прежнему работает без ошибок, и зафиксируйте изменения, прежде чем переходить к следующему шагу.
 :::
 
-## Update MUI packages
+## Обновление пакетов MUI <meta data-oversett="" data-original-text="Update MUI packages">
 
-### Material UI v5 and `@mui/styles`
+### Material UI v5 и `@mui/styles` <meta data-oversett="" data-original-text="Material UI v5 and @mui/styles">
 
-Install the Material UI v5 packages.
+Установите пакеты Material UI v5.
 
-With npm:
+С помощью npm:
 
 ```sh
 npm install @mui/material @mui/styles
 ```
 
-With yarn:
+С помощью yarn:
 
 ```sh
 yarn add @mui/material @mui/styles
 ```
 
-If you're using `@material-ui/lab` or `@material-ui/icons`, you will need to install the new packages.
+Если вы используете `@material-ui/lab` или `@material-ui/icons`, вам необходимо установить новые пакеты.
 
-### `@material-ui/lab`
+### `@material-ui/lab` <meta data-oversett="" data-original-text="@material-ui/lab">
 
-With npm:
+С помощью npm:
 
 ```sh
 npm install @mui/lab
 ```
 
-With yarn:
+С yarn:
 
 ```sh
 yarn add @mui/lab
 ```
 
-### `@material-ui/icons`
+### `@material-ui/icons` <meta data-oversett="" data-original-text="@material-ui/icons">
 
-With npm:
+С npm:
 
 ```sh
 npm install @mui/icons-material
 ```
 
-With yarn:
+С yarn:
 
 ```sh
 yarn add @mui/icons-material
 ```
 
-### Date and time pickers
+### Сборщики даты и времени <meta data-oversett="" data-original-text="Date and time pickers">
 
-The date and time picker components have been moved to MUI X.
-If you are using `@material-ui/date-pickers` or the pickers in the `@mui/lab` package, you will need to migrate to `@mui/x-date-pickers`.
-See [Migration from the lab](https://mui.com/x/react-date-pickers/migration-lab/) for details.
+Компоненты подборщика даты и времени были перенесены в MUI X. Если вы используете `@material-ui/date-pickers` или подборщики из пакета `@mui/lab`, вам необходимо перейти на `@mui/x-date-pickers`. Подробности смотрите в разделе [Миграция из лаборатории](https://mui.com/x/react-date-pickers/migration-lab/).
 
-### Peer dependencies
+### Зависимости от пикеров <meta data-oversett="" data-original-text="Peer dependencies">
 
-Next, add the Emotion packages.
+Далее добавьте пакеты Emotion.
 
-With npm:
+С помощью npm:
 
 ```sh
 npm install @emotion/react @emotion/styled
 ```
 
-With yarn:
+С помощью yarn:
 
 ```sh
 yarn add @emotion/react @emotion/styled
 ```
 
-#### styled-components (optional)
+#### styled-components (необязательно) <meta data-oversett="" data-original-text="styled-components (optional)">
 
-If you want to use Material UI v5 with styled-components instead of Emotion, check out [the Material UI installation guide](/material-ui/getting-started/installation/).
+Если вы хотите использовать Material UI v5 со стилизованными компонентами вместо Emotion, ознакомьтесь с [руководством по установке Material UI](/material-ui/getting-started/installation/).
 
-Note that if your app uses server-side rendering (SSR), there is a [known bug](https://github.com/mui/material-ui/issues/29742) with the Babel plugin for styled-components which prevents `@mui/styled-engine-sc` (the adapter for styled-components) from being used.
+Обратите внимание, что если ваше приложение использует рендеринг на стороне сервера (SSR), существует [известная ошибка](https://github.com/mui/material-ui/issues/29742) в плагине Babel для styled-components, которая не позволяет использовать `@mui/styled-engine-sc` (адаптер для styled-components).
 
-We strongly recommend using the default setup with Emotion instead.
+Мы настоятельно рекомендуем использовать стандартную настройку с Emotion.
 
 :::warning
-📝 Make sure that your application is still running without errors, and commit the changes before continuing to the next step.
+📝 Убедитесь, что ваше приложение по-прежнему работает без ошибок, и зафиксируйте изменения, прежде чем переходить к следующему шагу.
 :::
 
-### Replace all imports
+### Замените все импорты <meta data-oversett="" data-original-text="Replace all imports">
 
-With the release of v5, the names of all related packages were changed from `@material-ui/*` to `@mui/*` as part of our updated branding. See [this blog post](/blog/material-ui-is-now-mui/) for details.
+С выходом v5 имена всех связанных пакетов были изменены с `@material-ui/*` на `@mui/*` в рамках нашего обновленного брендинга. Подробности см. в [этой статье блога](/blog/material-ui-is-now-mui/).
 
-<details>
-<summary>Updated package names</summary>
+<details><summary>Обновленные имена пакетов</summary><pre><code class="language-text">@material-ui/core -&gt; @mui/material
+@material-ui/unstyled -&gt; @mui/base
+@material-ui/icons -&gt; @mui/icons-material
+@material-ui/styles -&gt; @mui/styles
+@material-ui/system -&gt; @mui/system
+@material-ui/lab -&gt; @mui/lab
+@material-ui/types -&gt; @mui/types
+@material-ui/styled-engine -&gt; @mui/styled-engine
+@material-ui/styled-engine-sc -&gt;@mui/styled-engine-sc
+@material-ui/private-theming -&gt; @mui/private-theming
+@material-ui/codemod -&gt; @mui/codemod
+@material-ui/docs -&gt; @mui/docs
+@material-ui/envinfo -&gt; @mui/envinfo
+</code></pre></details>
 
-```text
-@material-ui/core -> @mui/material
-@material-ui/unstyled -> @mui/base
-@material-ui/icons -> @mui/icons-material
-@material-ui/styles -> @mui/styles
-@material-ui/system -> @mui/system
-@material-ui/lab -> @mui/lab
-@material-ui/types -> @mui/types
-@material-ui/styled-engine -> @mui/styled-engine
-@material-ui/styled-engine-sc ->@mui/styled-engine-sc
-@material-ui/private-theming -> @mui/private-theming
-@material-ui/codemod -> @mui/codemod
-@material-ui/docs -> @mui/docs
-@material-ui/envinfo -> @mui/envinfo
-```
+### Удаление старых пакетов <meta data-oversett="" data-original-text="Remove old packages">
 
-</details>
-
-### Remove old packages
-
-Once you've installed all the necessary packages and ensured that your app still runs, you can safely remove the old `@material-ui/*` packages by running `npm uninstall @material-ui/*` or `yarn remove @material-ui/*`.
+После того, как вы установили все необходимые пакеты и убедились, что ваше приложение по-прежнему работает, вы можете безопасно удалить старые пакеты `@material-ui/*`, запустив `npm uninstall @material-ui/*` или `yarn remove @material-ui/*`.
 
 :::success
-The [preset-safe codemod](#preset-safe) (explained in more detail below) handles this automatically.
+[Предварительно безопасный кодмод](#preset-safe) (более подробно описано ниже) делает это автоматически.
 :::
 
-## Fix CSS specificity (optional)
+## Исправить специфику CSS (необязательно) <meta data-oversett="" data-original-text="Fix CSS specificity (optional)">
 
-If you want to apply styles to components by importing a CSS file, you need to bump up the specificity to be able to target the correct components.
+Если вы хотите применить стили к компонентам, импортируя CSS-файл, вам необходимо повысить специфичность, чтобы иметь возможность нацеливать нужные компоненты.
 
-Consider the following example:
+Рассмотрим следующий пример:
 
 ```js
 import './style.css';
@@ -275,7 +263,7 @@ const ChipWithGreenIcon = () => (
 );
 ```
 
-In this example, in order to correctly apply a particular style to the delete icon of `Chip`, one option is to increase the specificity of your CSS classes, as shown below:
+В этом примере, чтобы правильно применить определенный стиль к значку удаления `Chip`, одним из вариантов является увеличение специфичности ваших CSS-классов, как показано ниже:
 
 ```css
 .MuiChip-root .green {
@@ -283,7 +271,7 @@ In this example, in order to correctly apply a particular style to the delete ic
 }
 ```
 
-By contrast, the following CSS snippet will not apply the style to the delete icon:
+В отличие от этого, следующий фрагмент CSS не применит стиль к значку удаления:
 
 ```css
 .green {
@@ -291,30 +279,30 @@ By contrast, the following CSS snippet will not apply the style to the delete ic
 }
 ```
 
-## Run codemods
+## Запустите кодмоды <meta data-oversett="" data-original-text="Run codemods">
 
-The following codemods will automatically adjust the bulk of your code to account for breaking changes in v5.
+Следующие кодовые модули автоматически скорректируют основную часть вашего кода с учетом изменений в v5.
 
-Make sure that your application still runs without errors after running each codemod, and commit the changes before continuing to the next step.
+Убедитесь, что ваше приложение по-прежнему работает без ошибок после выполнения каждого кода, и зафиксируйте изменения, прежде чем переходить к следующему шагу.
 
-### preset-safe
+### preset-safe <meta data-oversett="" data-original-text="preset-safe">
 
-This codemod contains most of the transformers that are necessary for migration. It should be only applied **once per folder.**
+Этот кодмод содержит большинство трансформаторов, необходимых для миграции. Его следует применять только **один раз для каждой папки.**
 
 ```sh
 npx @mui/codemod v5.0.0/preset-safe <path>
 ```
 
 :::info
-If you want to run the transformers one by one, check out the [preset-safe codemod](https://github.com/mui/material-ui/blob/master/packages/mui-codemod/README.md#-preset-safe) for more details.
+Если вы хотите запускать трансформаторы по одному, ознакомьтесь с [кодовым модулем preset-safe](https://github.com/mui/material-ui/blob/master/packages/mui-codemod/README.md#-preset-safe).
 :::
 
-### variant-prop
+### variant-prop <meta data-oversett="" data-original-text="variant-prop">
 
-This codemod transforms the `<TextField/>`, `<FormControl/>`, and `<Select/>` components by applying `variant="standard"` if no variant is defined—the default variant has changed from `"standard"` in v4 to `"outlined"` in v5.
+Этот кодмод преобразует компоненты `<TextField/>`, `<FormControl/>` и `<Select/>`, применяя `variant="standard"`, если вариант не определен - вариант по умолчанию изменился с `"standard"` в v4 на `"outlined"` в v5.
 
 :::error
-You should _not_ use this codemod if you have already defined `variant: "outlined"` as the default in the theme.
+Вы _не_ должны использовать этот кодмод, если вы уже определили `variant: "outlined"` как вариант по умолчанию в теме.
 :::
 
 ```js
@@ -331,20 +319,20 @@ createMuiTheme({
 });
 ```
 
-If you want to keep `variant="standard"` in your components, run this codemod or else configure the corresponding default theme props.
+Если вы хотите сохранить `variant="standard"` в своих компонентах, запустите этот кодмод или настройте соответствующий реквизит темы по умолчанию.
 
 ```sh
 npx @mui/codemod v5.0.0/variant-prop <path>
 ```
 
-For more details, check out the [variant-prop codemod README](https://github.com/mui/material-ui/blob/master/packages/mui-codemod/README.md#variant-prop).
+Более подробную информацию можно найти в [README кодемода variant-prop](https://github.com/mui/material-ui/blob/master/packages/mui-codemod/README.md#variant-prop).
 
-### link-underline-hover
+### link-underline-hover <meta data-oversett="" data-original-text="link-underline-hover">
 
-This codemod transforms the `<Link />` component by applying `underline="hover"` if there is no `underline` prop defined—the default `underline` has changed from `"hover"` in v4 to `"always"` in v5.
+Этот кодмод преобразует компонент `<Link />`, применяя `underline="hover"`, если не определен реквизит `underline` - `underline` по умолчанию изменился с `"hover"` в v4 на `"always"` в v5.
 
 :::error
-You should _not_ use this codemod if you have already defined `underline: "always"` as the default in the theme.
+Вы _не_ должны использовать этот кодмод, если вы уже определили `underline: "always"` как значение по умолчанию в теме.
 :::
 
 ```js
@@ -361,16 +349,16 @@ createMuiTheme({
 });
 ```
 
-If you want to keep `underline="hover"`, run this codemod or else configure the corresponding default theme props.
+Если вы хотите сохранить `underline="hover"`, запустите этот кодмод или настройте соответствующий реквизит темы по умолчанию.
 
 ```sh
 npx @mui/codemod v5.0.0/link-underline-hover <path>
 ```
 
-For more details, check out the [link-underline-hover codemod README](https://github.com/mui/material-ui/blob/master/packages/mui-codemod/README.md#link-underline-hover).
+Для получения более подробной информации ознакомьтесь с [README кодемода link-underline-hover](https://github.com/mui/material-ui/blob/master/packages/mui-codemod/README.md#link-underline-hover).
 
-## Address breaking changes
+## Устранение нежелательных изменений <meta data-oversett="" data-original-text="Address breaking changes">
 
-The codemods handle many of the breaking changes, but others must be addressed manually.
+Комоды справляются со многими изменениями, но другие необходимо устранять вручную.
 
-Whether or not you choose to use the codemods, you are now ready to move on to the first of two [breaking changes](/material-ui/migration/v5-style-changes/) documents.
+Независимо от того, решите вы использовать кодовые модули или нет, теперь вы готовы перейти к первому из двух документов, касающихся [изменений](/material-ui/migration/v5-style-changes/).

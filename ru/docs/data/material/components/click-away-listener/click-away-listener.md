@@ -5,15 +5,14 @@ components: ClickAwayListener
 githubLabel: 'component: ClickAwayListener'
 ---
 
-# Click-Away Listener
+# Слушатель Click-Away <meta data-oversett="" data-original-text="Click-Away Listener">
 
-<p class="description">The Click-Away Listener component detects when a click event happens outside of its child element.</p>
+<p class="description">Компонент Click-Away Listener обнаруживает, когда событие щелчка происходит за пределами его дочернего элемента.</p>
 
-## MUI Base
+## MUI Base <meta data-oversett="" data-original-text="MUI Base">
 
 :::info
-Click-Away Listener is a part of the standalone [MUI Base](/base/getting-started/overview/) component library.
-It is currently re-exported from `@mui/material` for your convenience, but it will be removed from this package in a future major version, after `@mui/base` gets a stable release.
+Click-Away Listener является частью отдельной библиотеки компонентов [MUI Base](/base/getting-started/overview/). В настоящее время он реэкспортирован из `@mui/material` для вашего удобства, но будет удален из этого пакета в будущей основной версии, после того как `@mui/base` получит стабильный релиз.
 
-Please refer to the [Click-Away Listener](/base/react-click-away-listener/) component page in the MUI Base docs for examples and details on usage.
+Пожалуйста, обратитесь к странице компонента [Click-Away Listener](/base/react-click-away-listener/) в документации MUI Base для примеров и подробностей использования.
 :::

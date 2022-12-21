@@ -1,113 +1,91 @@
-# Sponsors & Backers
 
-<p class="description">Support MUI core's development through crowdfunding.</p>
 
-The core of MUI is a crowd-funded open-source project, licensed under the permissive MIT license. Sponsorship increases the rate of bug fixes, documentation improvements, and feature development.
+# Спонсоры и бэкеры <meta data-oversett="" data-original-text="Sponsors &amp; Backers">
 
-## MUI's sponsors
+<p class="description">Поддержите развитие ядра MUI с помощью краудфандинга.</p>
 
-### Diamond 💎
+Ядро MUI - это финансируемый толпой проект с открытым исходным кодом, лицензируемый по разрешительной лицензии MIT. Спонсорство увеличивает скорость исправления ошибок, улучшения документации и разработки функций.
 
-<p style="display: flex; justify-content: start; align-items: center; flex-wrap: wrap;">
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="octopus" href="https://octopus.com/?utm_source=MUI&utm_medium=referral&utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="128" width="128" src="https://i.ibb.co/w0HF0Nz/Logo-Blue-140px-rgb.png" srcset="https://i.ibb.co/w0HF0Nz/Logo-Blue-140px-rgb.png 2x" alt="octopus" title="Repeatable, reliable deployments" loading="lazy" /></a>
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="doit" href="https://www.doit.com/flexsave/?utm_source=MUI&utm_medium=referral&utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 24px;"><img height="128" width="128" src="https://avatars.githubusercontent.com/u/8424863?s=128" srcset="https://avatars.githubusercontent.com/u/8424863?s=256 2x" alt="doit" title="Management Platform for Google Cloud and AWS" loading="lazy" /></a>
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="zesty.io" href="https://www.zesty.io/integrations/mui-nextjs/?utm_source=mui&utm_medium=referral&utm_campaign=sponsor" rel="noopener sponsored" target="_blank"><img height="90" width="90" src="https://brand.zesty.io/zesty-io-logo.svg" alt="zesty.io" title="The only Next.js CMS you need" loading="lazy" /></a>
-</p>
+## Спонсоры MUI <meta data-oversett="" data-original-text="MUI's sponsors">
 
-_0/3 slots available_
+### Бриллиант 💎 <meta data-oversett="" data-original-text="Diamond 💎">
 
-Diamond Sponsors are those who have pledged \$1,500/month or more to MUI.
-Please contact us at diamond@mui.com to subscribe to this tier.
-Even when there are no more slots available, we accept higher bids.
+<a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="octopus" href="https://octopus.com/?utm_source=MUI&amp;utm_medium=referral&amp;utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="128" width="128" src="https://i.ibb.co/w0HF0Nz/Logo-Blue-140px-rgb.png" srcset="https://i.ibb.co/w0HF0Nz/Logo-Blue-140px-rgb.png 2x" alt="octopus" title="Repeatable, reliable deployments" loading="lazy"></a> <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="doit" href="https://www.doit.com/flexsave/?utm_source=MUI&amp;utm_medium=referral&amp;utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 24px;"><img height="128" width="128" src="https://avatars.githubusercontent.com/u/8424863?s=128" srcset="https://avatars.githubusercontent.com/u/8424863?s=256 2x" alt="doit" title="Management Platform for Google Cloud and AWS" loading="lazy"></a> <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="zesty.io" href="https://www.zesty.io/integrations/mui-nextjs/?utm_source=mui&amp;utm_medium=referral&amp;utm_campaign=sponsor" rel="noopener sponsored" target="_blank"><img height="90" width="90" src="https://brand.zesty.io/zesty-io-logo.svg" alt="zesty.io" title="The only Next.js CMS you need" loading="lazy"></a>
 
-### Gold 🏆
+_Доступно 0/3 слотов_
 
-via [OpenCollective](https://opencollective.com/mui) or via [Patreon](https://www.patreon.com/oliviertassinari)
+Бриллиантовые спонсоры - это те, кто обещал MUI $1,500 в месяц или больше. Пожалуйста, свяжитесь с нами по адресу [diamond@mui.com](mailto:diamond@mui.com), чтобы подписаться на этот уровень. Даже если свободных мест больше нет, мы принимаем более высокие ставки.
 
-<p style="display: flex; justify-content: start; align-items: center; flex-wrap: wrap;">
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="tidelift.com" href="https://tidelift.com/subscription/pkg/npm-material-ui?utm_source=npm-material-ui&utm_medium=referral&utm_campaign=homepage" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://avatars.githubusercontent.com/u/30204434?s=96" srcset="https://avatars.githubusercontent.com/u/30204434?s=192 2x" alt="tidelift.com" title="Enterprise-ready open-source software" loading="lazy" /></a>
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="bit.dev" href="https://bit.dev/?utm_source=MUI&utm_medium=referral&utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://avatars.githubusercontent.com/u/24789812?s=96" srcset="https://avatars.githubusercontent.com/u/24789812?s=192 2x" alt="bit.dev" title="The fastest way to share code" loading="lazy" /></a>
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="text-em-all.com" href="https://www.text-em-all.com/?utm_source=MUI&utm_medium=referral&utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img src="https://avatars.githubusercontent.com/u/1262264?s=96" srcset="https://avatars.githubusercontent.com/u/1262264?s=192 2x" alt="text-em-all.com" title="Mass Text Messaging & Automated Calling" height="96" width="96" loading="lazy"></a>
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="laststance.io" href="https://netticasinohex.com/?utm_source=MUI&utm_medium=referral&utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://images.opencollective.com/netticasinohex-com/71d7417/logo/96.png" srcset="https://images.opencollective.com/netticasinohex-com/71d7417/logo/192.png 2x" alt="laststance.io" title="A real giant among casino guides" loading="lazy" /></a>
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="megafamous" href="https://megafamous.com/?utm_source=MUI&utm_medium=referral&utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="/static/sponsors/megafamous.png" alt="megafamous.com" title="The best place to buy Instagram followers & likes" loading="lazy" /></a>
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="dialmycalls" href="https://www.dialmycalls.com/?utm_source=MUI&utm_medium=referral&utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://images.opencollective.com/dialmycalls/f5ae9ab/avatar/96.png" srcset="https://images.opencollective.com/dialmycalls/f5ae9ab/avatar/192.png 2x" alt="dialmycalls.com" title="Send text messages, calls & emails to thousands with ease." loading="lazy" /></a>
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="goread.io" href="https://goread.io/?utm_source=MUI&utm_medium=referral&utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://images.opencollective.com/goread_io/eb6337d/logo/96.png" srcset="https://images.opencollective.com/goread_io/eb6337d/logo/192.png 2x" alt="goread.io" title="Instagram followers, likes, power likes, views, comments, saves in minutes." loading="lazy" /></a>
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="icons8.com" href="https://icons8.com?utm_source=MUI&utm_medium=referral&utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://images.opencollective.com/icons8/7fa1641/logo/96.png" srcset="https://images.opencollective.com/icons8/7fa1641/logo/192.png 2x" alt="Icons8" title="We provide the neat icons, photos, illustrations, and music. Developers, use our API to insert all the content we have into your apps." loading="lazy"></a>
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="ipinfo.ai" href="https://ipinfo.ai?utm_source=MUI&utm_medium=referral&utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://images.opencollective.com/ipinfoai/04f41d5/logo/96.png" srcset="https://images.opencollective.com/ipinfoai/04f41d5/logo/192.png 2x" alt="ipinfo.ai" title="We offer various IP data API services, including IP Geolocation Data, ASN Data, Company Data, IP Ranges Data, Abuse Contacts Data, Anonymous Browsing Detection, etc." loading="lazy"></a>
-  <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="ridicorp.com" href="https://ridicorp.com?utm_source=MUI&utm_medium=referral&utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://images.opencollective.com/ridi-corporation/175dcf3/logo/96.png" srcset="https://images.opencollective.com/ridi-corporation/175dcf3/logo/192.png 2x" alt="RIDI" title="RIDI is a South Korean digital content platform that offers webcomics, webnovels, animations, eBooks, and more." loading="lazy"></a>
-</p>
+### Золото 🏆 <meta data-oversett="" data-original-text="Gold 🏆">
 
-Gold Sponsors are those who have pledged \$500/month or more to MUI.
+через [OpenCollective](https://opencollective.com/mui) или через [Patreon](https://www.patreon.com/oliviertassinari)
 
-### Silver
+<a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="tidelift.com" href="https://tidelift.com/subscription/pkg/npm-material-ui?utm_source=npm-material-ui&amp;utm_medium=referral&amp;utm_campaign=homepage" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://avatars.githubusercontent.com/u/30204434?s=96" srcset="https://avatars.githubusercontent.com/u/30204434?s=192 2x" alt="tidelift.com" title="Enterprise-ready open-source software" loading="lazy"></a> <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="bit.dev" href="https://bit.dev/?utm_source=MUI&amp;utm_medium=referral&amp;utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://avatars.githubusercontent.com/u/24789812?s=96" srcset="https://avatars.githubusercontent.com/u/24789812?s=192 2x" alt="bit.dev" title="The fastest way to share code" loading="lazy"></a> <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="text-em-all.com" href="https://www.text-em-all.com/?utm_source=MUI&amp;utm_medium=referral&amp;utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img src="https://avatars.githubusercontent.com/u/1262264?s=96" srcset="https://avatars.githubusercontent.com/u/1262264?s=192 2x" alt="text-em-all.com" title="Mass Text Messaging &amp; Automated Calling" height="96" width="96" loading="lazy"></a> <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="laststance.io" href="https://netticasinohex.com/?utm_source=MUI&amp;utm_medium=referral&amp;utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://images.opencollective.com/netticasinohex-com/71d7417/logo/96.png" srcset="https://images.opencollective.com/netticasinohex-com/71d7417/logo/192.png 2x" alt="laststance.io" title="A real giant among casino guides" loading="lazy"></a> <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="megafamous" href="https://megafamous.com/?utm_source=MUI&amp;utm_medium=referral&amp;utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="/static/sponsors/megafamous.png" alt="megafamous.com" title="The best place to buy Instagram followers &amp; likes" loading="lazy"></a> <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="dialmycalls" href="https://www.dialmycalls.com/?utm_source=MUI&amp;utm_medium=referral&amp;utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://images.opencollective.com/dialmycalls/f5ae9ab/avatar/96.png" srcset="https://images.opencollective.com/dialmycalls/f5ae9ab/avatar/192.png 2x" alt="dialmycalls.com" title="Send text messages, calls &amp; emails to thousands with ease." loading="lazy"></a> <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="goread.io" href="https://goread.io/?utm_source=MUI&amp;utm_medium=referral&amp;utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://images.opencollective.com/goread_io/eb6337d/logo/96.png" srcset="https://images.opencollective.com/goread_io/eb6337d/logo/192.png 2x" alt="goread.io" title="Instagram followers, likes, power likes, views, comments, saves in minutes." loading="lazy"></a> <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="icons8.com" href="https://icons8.com?utm_source=MUI&amp;utm_medium=referral&amp;utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://images.opencollective.com/icons8/7fa1641/logo/96.png" srcset="https://images.opencollective.com/icons8/7fa1641/logo/192.png 2x" alt="Icons8" title="We provide the neat icons, photos, illustrations, and music. Developers, use our API to insert all the content we have into your apps." loading="lazy"></a> <a data-ga-event-category="sponsor" data-ga-event-action="logo" data-ga-event-label="ridicorp.com" href="https://ridicorp.com?utm_source=MUI&amp;utm_medium=referral&amp;utm_content=backers" rel="noopener sponsored" target="_blank" style="margin-right: 16px;"><img height="96" width="96" src="https://images.opencollective.com/ridi-corporation/175dcf3/logo/96.png" srcset="https://images.opencollective.com/ridi-corporation/175dcf3/logo/192.png 2x" alt="RIDI" title="RIDI is a South Korean digital content platform that offers webcomics, webnovels, animations, eBooks, and more." loading="lazy"></a>
 
-via [OpenCollective](https://opencollective.com/mui)
+Золотые спонсоры - это те, кто пообещал MUI $500/месяц или больше.
 
-<p style="overflow: auto;">
-  <object type="image/svg+xml" data="https://opencollective.com/mui/tiers/silver-sponsor.svg?avatarHeight=70&width=600" style="border-radius: 10px;">Silver Sponsors</object>
-</p>
+### Серебряный <meta data-oversett="" data-original-text="Silver">
 
-Silver Sponsors are those who have pledged $250/month to $500/month to MUI.
+через [OpenCollective](https://opencollective.com/mui)
 
-### Bronze
+<object type="image/svg+xml" data="https://opencollective.com/mui/tiers/silver-sponsor.svg?avatarHeight=70&amp;width=600" style="border-radius: 10px;">Серебряные спонсоры</object>
 
-via [OpenCollective](https://opencollective.com/mui)
+Серебряные спонсоры - это те, кто обещал MUI от $250/месяц до $500/месяц.
 
-<p style="overflow: auto;">
-  <object type="image/svg+xml" data="https://opencollective.com/mui/tiers/bronze-sponsor.svg?avatarHeight=60&width=600" style="border-radius: 10px;">Bronze Sponsors</object>
-</p>
+### Бронзовый <meta data-oversett="" data-original-text="Bronze">
 
-Bronze Sponsors are those who have pledged $100/month to $250/month to MUI.
+через [OpenCollective](https://opencollective.com/mui)
 
-### Backers
+<object type="image/svg+xml" data="https://opencollective.com/mui/tiers/bronze-sponsor.svg?avatarHeight=60&amp;width=600" style="border-radius: 10px;">Бронзовые спонсоры</object>
 
-via [OpenCollective](https://opencollective.com/mui)
+Бронзовые спонсоры - это те, кто обещал MUI от $100/месяц до $250/месяц.
 
-<p style="overflow: auto;">
-  <object type="image/svg+xml" data="https://opencollective.com/mui/tiers/backer.svg?avatarHeight=50&width=600" style="border-radius: 10px;">Backers</object>
-</p>
+### Бакеры <meta data-oversett="" data-original-text="Backers">
 
-## FAQ
+через [OpenCollective](https://opencollective.com/mui)
 
-### Why is MUI a "crowd-funded open-source project"?
+<object type="image/svg+xml" data="https://opencollective.com/mui/tiers/backer.svg?avatarHeight=50&amp;width=600" style="border-radius: 10px;">Бакеры</object>
 
-The core of MUI is open-source to give users great freedom in how they use the software, and to enable the community to have influence over how the project progresses to make it appropriate for a wide range of use-cases. To make MUI a project that users can rely on for years to come, it needs to be well directed and financially sustainable.
+## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ <meta data-oversett="" data-original-text="FAQ">
 
-The absolute best way to support MUI's ongoing development efforts is to become a sponsor. Crowd-sourced funding enables us to spend the most time directly working on improving MUI core, which you and other MUI users then benefit from.
+### Почему MUI является "финансируемым толпой проектом с открытым исходным кодом"? <meta data-oversett="" data-original-text="Why is MUI a &quot;crowd-funded open-source project&quot;?">
 
-### How is sponsorship money spent?
+Основой MUI является открытый исходный код, чтобы дать пользователям большую свободу в использовании программного обеспечения, а сообществу - возможность влиять на развитие проекта, чтобы сделать его подходящим для широкого круга случаев использования. Чтобы сделать MUI проектом, на который пользователи смогут положиться в течение многих лет, он должен быть хорошо управляемым и финансово устойчивым.
 
-Sponsorship money is used to fund software development, testing, documentation, and releases of the MUI software suite.
+Самый лучший способ поддержать усилия по развитию MUI - стать спонсором. Финансирование за счет средств толпы позволяет нам тратить наибольшее количество времени на непосредственную работу по улучшению ядра MUI, от которой потом выигрываете вы и другие пользователи MUI.
 
-### Is sponsorship required to use MUI?
+### Как расходуются спонсорские деньги? <meta data-oversett="" data-original-text="How is sponsorship money spent?">
 
-Users are not legally required to give back to the MUI project, but it is in their interest to do so.
+Спонсорские деньги используются для финансирования разработки программного обеспечения, тестирования, документации и релизов программного пакета MUI.
 
-By significantly reducing the amount of work needed to achieve business goals and reducing running costs, MUI results in huge time and money savings for users. We encourage organizations to contribute a portion of these savings back, enabling the project to advance more rapidly and result in even greater savings for your organization.
+### Требуется ли спонсорская помощь для использования MUI? <meta data-oversett="" data-original-text="Is sponsorship required to use MUI?">
 
-### What's the difference between Patreon and OpenCollective?
+По закону пользователи не обязаны помогать проекту MUI, но это в их интересах.
 
-Funds received via Patreon or other forms, directly support [Olivier Tassinari](https://github.com/oliviertassinari) and the core team mission.
-The funds go to a for-profit entity that employs some of the core team members.
+Благодаря значительному сокращению объема работы, необходимой для достижения бизнес-целей, и снижению текущих расходов, MUI приводит к огромной экономии времени и денег для пользователей. Мы поощряем организации вносить часть этой экономии обратно, что позволяет проекту развиваться быстрее и приводить к еще большей экономии для вашей организации.
 
-Funds donated via OpenCollective are managed transparently and aimed to sustain the MIT core of MUI. MUI benefits from the Open Collective's fiscal sponsorship (hosted as a non-profit), in exchange for 10% of the donations.
+### В чем разница между Patreon и OpenCollective? <meta data-oversett="" data-original-text="What's the difference between Patreon and OpenCollective?">
 
-## Services
+Средства, полученные через Patreon или другие формы, напрямую поддерживают [Оливье Тассинари](https://github.com/oliviertassinari) и миссию основной команды. Средства идут в коммерческую организацию, в которой работают некоторые члены основной команды.
 
-These great services sponsor MUI's core infrastructure:
+Средства, пожертвованные через OpenCollective, управляются прозрачно и направлены на поддержание ядра MIT в MUI. MUI получает выгоду от финансового спонсорства Open Collective (размещается как некоммерческая организация) в обмен на 10% от пожертвований.
+
+## Сервисы <meta data-oversett="" data-original-text="Services">
+
+Эти замечательные сервисы спонсируют основную инфраструктуру MUI:
 
 [<img loading="lazy" alt="GitHub" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png" height="25">](https://github.com/)
 
-GitHub allows us to host the Git repository.
+GitHub позволяет нам размещать Git-репозиторий.
 
 [<img loading="lazy" alt="Netlify" src="https://cdn.netlify.com/15ecf59b59c9d04b88097c6b5d2c7e8a7d1302d0/1b6d6/img/press/logos/full-logo-light.svg" height="30">](https://www.netlify.com/)
 
-Netlify allows us to distribute the documentation.
+Netlify позволяет нам распространять документацию.
 
 [<img loading="lazy" alt="BrowserStack" src="https://www.browserstack.com/images/mail/browserstack-logo-footer.png" height="30">](https://www.browserstack.com/)
 
-BrowserStack allows us to test in real browsers.
+BrowserStack позволяет нам тестировать в реальных браузерах.
 
 [<img loading="lazy" alt="CodeCov" src="https://avatars.githubusercontent.com/u/8226205?s=70" width="35" height="35">](https://about.codecov.io/)
 
-CodeCov allows us to monitor the test coverage.
+CodeCov позволяет нам следить за покрытием тестов.

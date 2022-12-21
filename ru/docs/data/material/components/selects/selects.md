@@ -8,129 +8,119 @@ waiAria: https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-
 unstyled: /base/react-select/
 ---
 
-# Select
+# Select <meta data-oversett="" data-original-text="Select">
 
-<p class="description">Select components are used for collecting user provided information from a list of options.</p>
+<p class="description">Компоненты Select используются для сбора информации, предоставленной пользователем, из списка вариантов.</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic select
+## Базовый выбор <meta data-oversett="" data-original-text="Basic select">
 
-Menus are positioned under their emitting elements, unless they are close to the bottom of the viewport.
+Меню располагаются под своими излучающими элементами, если они не находятся близко к нижней части области просмотра.
 
 {{"demo": "BasicSelect.js"}}
 
-## Advanced features
+## Расширенные возможности <meta data-oversett="" data-original-text="Advanced features">
 
-The Select component is meant to be interchangeable with a native `<select>` element.
+Компонент Select предназначен для взаимозаменяемости с собственным элементом `<select>`.
 
-If you are looking for more advanced features, like combobox, multiselect, autocomplete, async or creatable support, head to the [`Autocomplete` component](/material-ui/react-autocomplete/).
-It's meant to be an improved version of the "react-select" and "downshift" packages.
+Если вам нужны более продвинутые функции, такие как combobox, multiselect, autocomplete, async или creatable, перейдите к [компоненту`Autocomplete`](/material-ui/react-autocomplete/) . Он представляет собой улучшенную версию пакетов "react-select" и "downshift".
 
-## Props
+## Реквизиты <meta data-oversett="" data-original-text="Props">
 
-The Select component is implemented as a custom `<input>` element of the [InputBase](/material-ui/api/input-base/).
-It extends the [text field components](/material-ui/react-text-field/) sub-components, either the [OutlinedInput](/material-ui/api/outlined-input/), [Input](/material-ui/api/input/), or [FilledInput](/material-ui/api/filled-input/), depending on the variant selected.
-It shares the same styles and many of the same props. Refer to the respective component's API page for details.
+Компонент Select реализован как пользовательский `<input>` элемент [InputBase](/material-ui/api/input-base/). Он расширяет подкомпоненты [компонентов текстового поля](/material-ui/react-text-field/), либо [OutlinedInput](/material-ui/api/outlined-input/), [Input](/material-ui/api/input/), либо [FilledInput](/material-ui/api/filled-input/), в зависимости от выбранного варианта. Он использует те же стили и многие из тех же реквизитов. Подробности см. на странице API соответствующего компонента.
 
-### Filled and standard variants
+### Заполненный и стандартный варианты <meta data-oversett="" data-original-text="Filled and standard variants">
 
 {{"demo": "SelectVariants.js"}}
 
-### Labels and helper text
+### Ярлыки и вспомогательный текст <meta data-oversett="" data-original-text="Labels and helper text">
 
 {{"demo": "SelectLabels.js"}}
 
 :::warning
-Note that when using FormControl with the outlined variant of the Select, you need to provide a label in two places: in the InputLabel component and in the `label` prop of the Select component (see the above demo).
+Обратите внимание, что при использовании FormControl с очерченным вариантом Select необходимо указать метку в двух местах: в компоненте InputLabel и в реквизите `label` компонента Select (см. демонстрацию выше).
 :::
 
-### Auto width
+### Автоматическая ширина <meta data-oversett="" data-original-text="Auto width">
 
 {{"demo": "SelectAutoWidth.js"}}
 
-### Small Size
+### Малый размер <meta data-oversett="" data-original-text="Small Size">
 
 {{"demo": "SelectSmall.js"}}
 
-### Other props
+### Другие реквизиты <meta data-oversett="" data-original-text="Other props">
 
 {{"demo": "SelectOtherProps.js"}}
 
-## Native select
+## Родной select <meta data-oversett="" data-original-text="Native select">
 
-As the user experience can be improved on mobile using the native select of the platform,
-we allow such pattern.
+Поскольку пользовательский опыт может быть улучшен на мобильных устройствах с помощью нативного селекта платформы, мы разрешаем такой шаблон.
 
 {{"demo": "NativeSelect.js"}}
 
-## TextField
+## TextField <meta data-oversett="" data-original-text="TextField">
 
-The `TextField` wrapper component is a complete form control including a label, input and help text.
-You can find an example with the select mode [in this section](/material-ui/react-text-field/#select).
+Компонент-обертка `TextField` представляет собой полноценный элемент управления формой, включающий метку, ввод и текст подсказки. Пример с режимом select вы можете найти [в этом разделе](/material-ui/react-text-field/#select).
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here are some examples of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Ниже приведены примеры настройки компонента. Более подробно об этом можно узнать на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
-The first step is to style the `InputBase` component.
-Once it's styled, you can either use it directly as a text field or provide it to the select `input` prop to have a `select` field.
-Notice that the `"standard"` variant is easier to customize, since it does not wrap the contents in a `fieldset`/`legend` markup.
+Первым шагом является стилизация компонента `InputBase`. После стилизации вы можете либо использовать его непосредственно как текстовое поле, либо предоставить его реквизиту select `input`, чтобы получить поле `select`. Обратите внимание, что вариант `"standard"` легче настраивается, поскольку он не оборачивает содержимое в разметку `fieldset`/`legend`.
 
 {{"demo": "CustomizedSelects.js"}}
 
-🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/select/).
+🎨 Если вы ищете вдохновение, вы можете посмотреть [примеры кастомизации MUI Treasury](https://mui-treasury.com/styles/select/).
 
-## Multiple select
+## Множественный выбор <meta data-oversett="" data-original-text="Multiple select">
 
-The `Select` component can handle multiple selections.
-It's enabled with the `multiple` prop.
+Компонент `Select` может работать с множественным выбором. Это включается с помощью реквизита `multiple`.
 
-Like with the single selection, you can pull out the new value by accessing `event.target.value` in the `onChange` callback. It's always an array.
+Как и при одиночном выборе, вы можете извлечь новое значение, обратившись к `event.target.value` в обратном вызове `onChange`. Это всегда массив.
 
-### Default
+### По умолчанию <meta data-oversett="" data-original-text="Default">
 
 {{"demo": "MultipleSelect.js"}}
 
-### Checkmarks
+### Галочки <meta data-oversett="" data-original-text="Checkmarks">
 
 {{"demo": "MultipleSelectCheckmarks.js"}}
 
-### Chip
+### Фишка <meta data-oversett="" data-original-text="Chip">
 
 {{"demo": "MultipleSelectChip.js"}}
 
-### Placeholder
+### Местодержатель <meta data-oversett="" data-original-text="Placeholder">
 
 {{"demo": "MultipleSelectPlaceholder.js"}}
 
-### Native
+### Родной <meta data-oversett="" data-original-text="Native">
 
 {{"demo": "MultipleSelectNative.js"}}
 
-## Controlling the open state
+## Управление открытым состоянием <meta data-oversett="" data-original-text="Controlling the open state">
 
-You can control the open state of the select with the `open` prop. Alternatively, it is also possible to set the initial (uncontrolled) open state of the component with the `defaultOpen` prop.
+Вы можете управлять открытым состоянием селекта с помощью реквизита `open`. Также можно установить начальное (неконтролируемое) открытое состояние компонента с помощью реквизита `defaultOpen`.
 
 {{"demo": "ControlledOpenSelect.js"}}
 
-## With a dialog
+## С помощью диалога <meta data-oversett="" data-original-text="With a dialog">
 
-While it's discouraged by the Material Design guidelines, you can use a select inside a dialog.
+Несмотря на то, что руководство по Material Design не рекомендует это делать, вы можете использовать селект внутри диалога.
 
 {{"demo": "DialogSelect.js"}}
 
-## Grouping
+## Группировка <meta data-oversett="" data-original-text="Grouping">
 
-Display categories with the `ListSubheader` component or the native `<optgroup>` element.
+Отображайте категории с помощью компонента `ListSubheader` или собственного элемента `<optgroup>`.
 
 {{"demo": "GroupedSelect.js"}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-To properly label your `Select` input you need an extra element with an `id` that contains a label.
-That `id` needs to match the `labelId` of the `Select` e.g.
+Для правильной маркировки ввода `Select` необходим дополнительный элемент с `id`, содержащим метку. Этот `id` должен соответствовать `labelId` элемента `Select`, например.
 
 ```jsx
 <InputLabel id="label">Age</InputLabel>
@@ -140,8 +130,7 @@ That `id` needs to match the `labelId` of the `Select` e.g.
 </Select>
 ```
 
-Alternatively a `TextField` with an `id` and `label` creates the proper markup and
-ids for you:
+Альтернативный вариант - `TextField` с `id` и `label`, создающий правильную разметку и идентификаторы:
 
 ```jsx
 <TextField id="select" label="Age" value="20" select>
@@ -150,7 +139,7 @@ ids for you:
 </TextField>
 ```
 
-For a [native select](#native-select), you should mention a label by giving the value of the `id` attribute of the select element to the `InputLabel`'s `htmlFor` attribute:
+Для [собственного select](#native-select) вы должны упомянуть метку, передав значение атрибута `id` элемента select атрибуту `InputLabel`'s `htmlFor`:
 
 ```jsx
 <InputLabel htmlFor="select">Age</InputLabel>

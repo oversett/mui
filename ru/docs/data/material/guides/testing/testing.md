@@ -1,21 +1,17 @@
-# Testing
 
-<p class="description">Write tests to prevent regressions and write better code.</p>
 
-## Userspace
+# Тестирование <meta data-oversett="" data-original-text="Testing">
 
-It's generally recommended to test your application without tying the tests too closely to MUI.
-This is how MUI components are tested internally.
-A library that has a first-class API for this approach is [`@testing-library/react`](https://testing-library.com/docs/react-testing-library/intro/).
+<p class="description">Пишите тесты, чтобы предотвратить регрессии и написать лучший код.</p>
 
-For example, when rendering a `TextField` your test should not need to query for the specific MUI instance of the `TextField` but rather for the `input`, or `[role="textbox"]`.
+## Пользовательское пространство <meta data-oversett="" data-original-text="Userspace">
 
-By not relying on the React component tree you make your test more robust against internal changes in MUI or, if you need snapshot testing, adding additional wrapper components such as context providers.
-We don't recommend snapshot testing though.
-["Effective snapshot testing" by Kent C. Dodds](https://kentcdodds.com/blog/effective-snapshot-testing) goes into more details why snapshot testing might be misleading for React component tests.
+Обычно рекомендуется тестировать приложение, не привязывая тесты слишком тесно к MUI. Таким образом, компоненты MUI тестируются внутри. Библиотека, имеющая первоклассный API для такого подхода, это [`@testing-library/react`](https://testing-library.com/docs/react-testing-library/intro/).
 
-## Internal
+Например, при рендеринге `TextField` ваш тест не должен запрашивать конкретный экземпляр MUI `TextField`, а скорее `input`, или `[role="textbox"]`.
 
-MUI has **a wide range** of tests so we can
-iterate with confidence on the components, for instance, the visual regression tests provided by [Argos-CI](https://app.argos-ci.com/mui/material-ui/builds) have proven to be really helpful.
-To learn more about the internal tests, you can have a look at the [README](https://github.com/mui/material-ui/blob/HEAD/test/README.md).
+Не полагаясь на дерево компонентов React, вы делаете свой тест более устойчивым к внутренним изменениям в MUI или, если вам нужно тестирование моментальных снимков, к добавлению дополнительных компонентов-оберток, таких как провайдеры контекста. Однако мы не рекомендуем тестировать моментальные снимки.["Эффективное тестирование моментальных снимков" Кента Доддса (Kent C. Dodds](https://kentcdodds.com/blog/effective-snapshot-testing) ) более подробно описывает, почему тестирование моментальных снимков может быть ошибочным для тестов компонентов React.
+
+## Внутренний <meta data-oversett="" data-original-text="Internal">
+
+MUI имеет **широкий спектр** тестов, чтобы мы могли с уверенностью проводить итерации компонентов, например, визуальные регрессионные тесты, предоставляемые [Argos-CI](https://app.argos-ci.com/mui/material-ui/builds), оказались действительно полезными. Чтобы узнать больше о внутренних тестах, вы можете заглянуть в [README](https://github.com/mui/material-ui/blob/HEAD/test/README.md).

@@ -6,98 +6,93 @@ githubLabel: 'components: SvgIcon'
 materialDesign: https://m2.material.io/design/iconography/system-icons.html
 ---
 
-# Icons
+# Иконки <meta data-oversett="" data-original-text="Icons">
 
-<p class="description">Guidance and suggestions for using icons with MUI.</p>
+<p class="description">Указания и рекомендации по использованию иконок в MUI.</p>
 
-MUI provides icons support in three ways:
+MUI обеспечивает поддержку иконок тремя способами:
 
-1. Standardized [Material Icons](#material-svg-icons) exported as React components (SVG icons).
-1. With the [SvgIcon](#svgicon) component, a React wrapper for custom SVG icons.
-1. With the [Icon](#icon-font-icons) component, a React wrapper for custom font icons.
+1.  Стандартизированные [иконки материалов](#material-svg-icons), экспортируемые как компоненты React (SVG-иконки).
+2.  С помощью компонента [SvgIcon](#svgicon), React-обертки для пользовательских SVG-иконок.
+3.  С помощью компонента [Icon](#icon-font-icons), React-обертки для пользовательских иконок шрифтов.
 
-## Material SVG icons
+## Материальные SVG-иконки <meta data-oversett="" data-original-text="Material SVG icons">
 
-Google has created over 2,100 official Material icons, each in five different "themes" (see below).
-For each SVG icon, we export the respective React component from the `@mui/icons-material` package.
-You can [search the full list of these icons](/material-ui/material-icons/).
+Google создал более 2 100 официальных иконок Material, каждая в пяти различных "темах" (см. ниже). Для каждой SVG-иконки мы экспортируем соответствующий React-компонент из пакета `@mui/icons-material`. Вы можете [найти полный список этих иконок](/material-ui/material-icons/).
 
-### Installation
+### Установка <meta data-oversett="" data-original-text="Installation">
 
-To install and save in your `package.json` dependencies, run the command below using **npm**:
+Чтобы установить и сохранить в пакете `package.json` зависимости, выполните приведенную ниже команду с помощью **npm**:
 
 ```sh
 npm install @mui/icons-material
 ```
 
-Or **yarn**:
+или **yarn**:
 
 ```sh
 yarn add @mui/icons-material
 ```
 
-These components use the MUI `SvgIcon` component to render the SVG path for each icon, and so have a peer-dependency on `@mui/material`.
+Эти компоненты используют компонент MUI `SvgIcon` для рендеринга SVG-пути для каждой иконки, и поэтому имеют зависимость от `@mui/material`.
 
-If you aren't already using Material UI in your project, you can add it following the [installation guide](/material-ui/getting-started/installation/).
+Если вы еще не используете Material UI в своем проекте, вы можете добавить его, следуя [руководству по установке](/material-ui/getting-started/installation/).
 
-### Usage
+### Использование <meta data-oversett="" data-original-text="Usage">
 
-Import icons using one of these two options:
+Импортируйте иконки, используя один из этих двух вариантов:
 
-- Option 1:
+-   Вариант 1:
+    
+    ```jsx
+    import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
+    import ThreeDRotation from '@mui/icons-material/ThreeDRotation';
+    ```
+    
+-   Вариант 2:
+    
+    ```jsx
+    import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
+    ```
+    
 
-  ```jsx
-  import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
-  import ThreeDRotation from '@mui/icons-material/ThreeDRotation';
-  ```
+Наиболее безопасным для размера пакета является вариант 1, но некоторые разработчики предпочитают вариант 2. Убедитесь, что вы следуете [руководству по минимизации размера пакета](/material-ui/guides/minimizing-bundle-size/#option-two-use-a-babel-plugin) перед использованием второго подхода.
 
-- Option 2:
+Каждый значок материала также имеет "тему": Заполненная (по умолчанию), Очерченная, Закругленная, Двухцветная и Резкая. Чтобы импортировать компонент значка с темой, отличной от темы по умолчанию, добавьте название темы к имени значка. Например, `@mui/icons-material/Delete` icon with:
 
-  ```jsx
-  import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
-  ```
-
-The safest for bundle size is Option 1, but some developers prefer Option 2.
-Make sure you follow the [minimizing bundle size guide](/material-ui/guides/minimizing-bundle-size/#option-two-use-a-babel-plugin) before using the second approach.
-
-Each Material icon also has a "theme": Filled (default), Outlined, Rounded, Two-tone, and Sharp. To import the icon component with a theme other than the default, append the theme name to the icon name. For example `@mui/icons-material/Delete` icon with:
-
-- Filled theme (default) is exported as `@mui/icons-material/Delete`,
-- Outlined theme is exported as `@mui/icons-material/DeleteOutlined`,
-- Rounded theme is exported as `@mui/icons-material/DeleteRounded`,
-- Twotone theme is exported as `@mui/icons-material/DeleteTwoTone`,
-- Sharp theme is exported as `@mui/icons-material/DeleteSharp`.
+-   Заполненная тема (по умолчанию) экспортируется как `@mui/icons-material/Delete`,
+-   Очерченная тема экспортируется как `@mui/icons-material/DeleteOutlined`,
+-   Закругленная тема экспортируется как `@mui/icons-material/DeleteRounded`,
+-   Двухцветная тема экспортируется как `@mui/icons-material/DeleteTwoTone`,
+-   Тема Sharp экспортируется как `@mui/icons-material/DeleteSharp`.
 
 :::warning
-The Material Design guidelines name the icons using "snake_case" naming (for example `delete_forever`, `add_a_photo`), while `@mui/icons-material` exports the respective icons using "PascalCase" naming (for example `DeleteForever`, `AddAPhoto`). There are three exceptions to this naming rule: `3d_rotation` exported as `ThreeDRotation`, `4k` exported as `FourK`, and `360` exported as `ThreeSixty`.
+В руководстве по Material Design иконки именуются "snake\_case" (например, `delete_forever`, `add_a_photo`), в то время как `@mui/icons-material` экспортирует соответствующие иконки, используя именование "PascalCase" (например, `DeleteForever`, `AddAPhoto`). Есть три исключения из этого правила именования: `3d_rotation` экспортируется как `ThreeDRotation`, `4k` экспортируется как `FourK`, а `360` экспортируется как `ThreeSixty`.
 :::
 
 {{"demo": "SvgMaterialIcons.js"}}
 
-### Testing
+### Тестирование <meta data-oversett="" data-original-text="Testing">
 
-For testing purposes, each icon exposed from `@mui/icons-material` has a `data-testid` attribute with the name of the icon. For instance:
+Для целей тестирования каждая иконка, экспортируемая из `@mui/icons-material`, имеет атрибут `data-testid` с именем иконки. Например:
 
 ```jsx
 import DeleteIcon from '@mui/icons-material/Delete';
 ```
 
-has the following attribute once mounted:
+имеет следующий атрибут после установки:
 
 ```html
 <svg data-testid="DeleteIcon"></svg>
 ```
 
-## SvgIcon
+## SvgIcon . <meta data-oversett="" data-original-text="SvgIcon">
 
-If you need a custom SVG icon (not available in the [Material Icons](/material-ui/material-icons/)) you can use the `SvgIcon` wrapper.
-This component extends the native `<svg>` element:
+Если вам нужна пользовательская SVG иконка (недоступная в [Material Icons](/material-ui/material-icons/)), вы можете использовать обертку `SvgIcon`. Этот компонент расширяет родной элемент `<svg>`:
 
-- It comes with built-in accessibility.
-- SVG elements should be scaled for a 24x24px viewport so that the resulting icon can be used as is, or included as a child for other MUI components that use icons.
-  This can be customized with the `viewBox` attribute.
-  To inherit the `viewBox` value from the original image, the `inheritViewBox` prop can be used.
-- By default, the component inherits the current color. Optionally, you can apply one of the theme colors using the `color` prop.
+-   Он поставляется со встроенной доступностью.
+-   SVG-элементы должны быть масштабированы для области просмотра 24x24px, чтобы полученную иконку можно было использовать как есть или включить в качестве дочерней для других компонентов MUI, использующих иконки. Это можно настроить с помощью атрибута `viewBox`. Чтобы унаследовать значение `viewBox` от исходного изображения, можно использовать реквизит `inheritViewBox`.
+-   По умолчанию компонент наследует текущий цвет. По желанию можно применить один из цветов темы с помощью реквизита `color`.
 
 ```jsx
 function HomeIcon(props) {
@@ -109,18 +104,17 @@ function HomeIcon(props) {
 }
 ```
 
-### Color
+### Цвет <meta data-oversett="" data-original-text="Color">
 
 {{"demo": "SvgIconsColor.js"}}
 
-### Size
+### Размер <meta data-oversett="" data-original-text="Size">
 
 {{"demo": "SvgIconsSize.js"}}
 
-### Component prop
+### Свойство компонента <meta data-oversett="" data-original-text="Component prop">
 
-You can use the `SvgIcon` wrapper even if your icons are saved in the `.svg` format.
-[svgr](https://github.com/gregberge/svgr) has loaders to import SVG files and use them as React components. For example, with webpack:
+Вы можете использовать обертку `SvgIcon`, даже если ваши иконки сохранены в формате `.svg`.[svgr](https://github.com/gregberge/svgr) имеет загрузчики для импорта SVG файлов и использования их в качестве компонентов React. Например, с помощью webpack:
 
 ```jsx
 // webpack.config.js
@@ -135,7 +129,7 @@ import StarIcon from './star.svg';
 <SvgIcon component={StarIcon} inheritViewBox />
 ```
 
-It's also possible to use it with "url-loader" or "file-loader". This is the approach used by Create React App.
+Также можно использовать его с "url-loader" или "file-loader". Именно такой подход используется в Create React App.
 
 ```jsx
 // webpack.config.js
@@ -150,9 +144,9 @@ import { ReactComponent as StarIcon } from './star.svg';
 <SvgIcon component={StarIcon} inheritViewBox />
 ```
 
-### createSvgIcon
+### createSvgIcon <meta data-oversett="" data-original-text="createSvgIcon">
 
-The `createSvgIcon` utility component is used to create the [Material Icons](#material-icons). It can be used to wrap an SVG path with an SvgIcon component.
+Компонент `createSvgIcon` используется для создания [материальных иконок](#material-icons). Его можно использовать для обертывания SVG-пути компонентом SvgIcon.
 
 ```jsx
 const HomeIcon = createSvgIcon(
@@ -163,32 +157,27 @@ const HomeIcon = createSvgIcon(
 
 {{"demo": "CreateSvgIcon.js"}}
 
-### Font Awesome
+### Font Awesome <meta data-oversett="" data-original-text="Font Awesome">
 
-If you find that there are layout issues when using FontAwesomeIcon from `@fortawesome/react-fontawesome`, you can try passing the Font Awesome SVG data directly to SvgIcon.
+Если вы обнаружили, что при использовании FontAwesomeIcon из `@fortawesome/react-fontawesome` возникают проблемы с версткой, вы можете попробовать передать данные Font Awesome SVG непосредственно в SvgIcon.
 
-Below is a comparison of the `FontAwesomeIcon` component and a wrapped `SvgIcon` component.
+Ниже приведено сравнение компонента `FontAwesomeIcon` и обернутого компонента `SvgIcon`.
 
 {{"demo": "FontAwesomeSvgIconDemo.js"}}
 
-FontAwesomeIcon's `fullWidth` prop can also be used to approximate the correct dimensions, but it isn't perfect.
+Реквизит FontAwesomeIcon из `fullWidth` также может быть использован для приблизительного определения правильных размеров, но он не идеален.
 
-### Other Libraries
+### Другие библиотеки <meta data-oversett="" data-original-text="Other Libraries">
 
-#### MDI
+#### MDI <meta data-oversett="" data-original-text="MDI">
 
-[materialdesignicons.com](https://materialdesignicons.com/) provides over 2,000 icons.
-For the wanted icon, copy the SVG `path` they provide, and use it as the child of the `SvgIcon` component, or with `createSvgIcon()`.
+[materialdesignicons.com](https://materialdesignicons.com/) предоставляет более 2 000 иконок. Для получения нужной иконки скопируйте SVG `path`, который они предоставляют, и используйте его в качестве дочернего компонента `SvgIcon` или с `createSvgIcon()`.
 
-Note: [mdi-material-ui](https://github.com/TeamWertarbyte/mdi-material-ui) has already wrapped each of these SVG icons with the `SvgIcon` component, so you don't have to do it yourself.
+Примечание: [mdi-material-ui](https://github.com/TeamWertarbyte/mdi-material-ui) уже обернул каждую из этих SVG-иконок компонентом `SvgIcon`, так что вам не придется делать это самостоятельно.
 
-## Icon (Font icons)
+## Иконка (иконки шрифтов) <meta data-oversett="" data-original-text="Icon (Font icons)">
 
-The `Icon` component will display an icon from any icon font that supports ligatures.
-As a prerequisite, you must include one, such as the
-[Material Icons font](https://google.github.io/material-design-icons/#icon-font-for-the-web) in your project.
-To use an icon simply wrap the icon name (font ligature) with the `Icon` component,
-for example:
+Компонент `Icon` отобразит иконку из любого шрифта, поддерживающего лигатуры. В качестве предварительного условия вы должны включить в свой проект такой шрифт, как[Material Icons](https://google.github.io/material-design-icons/#icon-font-for-the-web). Чтобы использовать иконку, просто оберните имя иконки (лигатуру шрифта), например, компонентом `Icon`:
 
 ```jsx
 import Icon from '@mui/material/Icon';
@@ -196,13 +185,11 @@ import Icon from '@mui/material/Icon';
 <Icon>star</Icon>;
 ```
 
-By default, an Icon will inherit the current text color.
-Optionally, you can set the icon color using one of the theme color properties: `primary`, `secondary`, `action`, `error` & `disabled`.
+По умолчанию иконка наследует текущий цвет текста. По желанию вы можете задать цвет иконки, используя одно из свойств цвета темы: `primary`, `secondary`, `action`, `error` И `disabled`.
 
-### Font Material Icons
+### Значки из шрифтового материала <meta data-oversett="" data-original-text="Font Material Icons">
 
-`Icon` will by default set the correct base class name for the Material Icons font (filled variant).
-All you need to do is load the font, for instance, via Google Web Fonts:
+`Icon` по умолчанию установит правильное имя базового класса для шрифта Material Icons (заполненный вариант). Все, что вам нужно сделать, это загрузить шрифт, например, через Google Web Fonts:
 
 ```html
 <link
@@ -213,10 +200,9 @@ All you need to do is load the font, for instance, via Google Web Fonts:
 
 {{"demo": "Icons.js"}}
 
-### Custom font
+### Пользовательский шрифт <meta data-oversett="" data-original-text="Custom font">
 
-For other fonts, you can customize the baseline class name using the `baseClassName` prop.
-For instance, you can display two-tone icons with Material Design:
+Для других шрифтов можно настроить имя базового класса с помощью реквизита `baseClassName`. Например, в Material Design можно отображать двухцветные значки:
 
 ```jsx
 import Icon from '@mui/material/Icon';
@@ -230,10 +216,9 @@ import Icon from '@mui/material/Icon';
 
 {{"demo": "TwoToneIcons.js"}}
 
-#### Global base class name
+#### Глобальное имя базового класса <meta data-oversett="" data-original-text="Global base class name">
 
-Modifying the `baseClassName` prop for each component usage is repetitive.
-You can change the default prop globally with the theme
+Изменение реквизита `baseClassName` для каждого использования компонента повторяется. Вы можете изменить реквизит по умолчанию глобально с помощью темы.
 
 ```js
 const theme = createTheme({
@@ -248,20 +233,19 @@ const theme = createTheme({
 });
 ```
 
-Then, you can use the two-tone font directly:
+Затем вы можете использовать двухцветный шрифт напрямую:
 
 ```jsx
 <Icon>add_circle</Icon>
 ```
 
-### Font Awesome
+### Font Awesome <meta data-oversett="" data-original-text="Font Awesome">
 
-[Font Awesome](https://fontawesome.com/icons) can be used with the `Icon` component as follows:
+[Font Awesome](https://fontawesome.com/icons) можно использовать с компонентом `Icon` следующим образом:
 
 {{"demo": "FontAwesomeIcon.js"}}
 
-Note that the Font Awesome icons weren't designed like the Material Icons (compare the two previous demos).
-The fa icons are cropped to use all the space available. You can adjust for this with a global override:
+Обратите внимание, что иконки Font Awesome были разработаны не так, как иконки Material Icons (сравните две предыдущие демонстрации). Иконки fa обрезаны, чтобы использовать все доступное пространство. Вы можете настроить это с помощью глобального переопределения:
 
 ```js
 const theme = createTheme({
@@ -282,36 +266,30 @@ const theme = createTheme({
 
 {{"demo": "FontAwesomeIconSize.js"}}
 
-## Font vs SVG. Which approach to use?
+## Font vs SVG. Какой подход использовать? <meta data-oversett="" data-original-text="Font vs SVG. Which approach to use?">
 
-Both approaches work fine, however there are some subtle differences, especially in terms of performance and rendering quality.
-Whenever possible SVG is preferred as it allows code splitting, supports more icons, and renders faster and better.
+Оба подхода работают хорошо, однако есть некоторые тонкие различия, особенно в плане производительности и качества рендеринга. При любой возможности SVG предпочтительнее, так как он позволяет разделить код, поддерживает больше иконок и рендерится быстрее и лучше.
 
-For more details, take a look at [why GitHub migrated from font icons to SVG icons](https://github.blog/2016-02-22-delivering-octicons-with-svg/).
+Для получения более подробной информации посмотрите, [почему GitHub перешел от шрифтовых иконок к SVG-иконкам](https://github.blog/2016-02-22-delivering-octicons-with-svg/).
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-Icons can convey all sorts of meaningful information, so it's important to ensure they are accessible where appropriate.
-There are two use cases you'll want to consider:
+Иконки могут передавать различную значимую информацию, поэтому важно обеспечить их доступность там, где это необходимо. Есть два варианта использования, которые вы захотите рассмотреть:
 
-- **Decorative icons** that are only being used for visual or branding reinforcement.
-  If they were removed from the page, users would still understand and be able to use your page.
-- **Semantic icons** are ones that you're using to convey meaning, rather than just pure decoration.
-  This includes icons without text next to them that are used as interactive controls — buttons, form elements, toggles, etc.
+-   **Декоративные иконки**, которые используются только для визуального или брендингового усиления. Если их убрать со страницы, пользователи все равно поймут и смогут пользоваться вашей страницей.
+-   **Семантические иконки** - это те, которые используются для передачи смысла, а не просто для украшения. К ним относятся иконки без текста, которые используются в качестве интерактивных элементов управления - кнопок, элементов формы, переключателей и т.д.
 
-### Decorative icons
+### Декоративные значки <meta data-oversett="" data-original-text="Decorative icons">
 
-If your icons are purely decorative, you're already done!
-The `aria-hidden=true` attribute is added so that your icons are properly accessible (invisible).
+Если ваши иконки чисто декоративные, то вы уже закончили! Атрибут `aria-hidden=true` добавляется для того, чтобы ваши иконки были правильно доступны (невидимы).
 
-### Semantic icons
+### Семантические иконки <meta data-oversett="" data-original-text="Semantic icons">
 
-#### Semantic SVG icons
+#### Семантические SVG иконки <meta data-oversett="" data-original-text="Semantic SVG icons">
 
-You should include the `titleAccess` prop with a meaningful value.
-The `role="img"` attribute and the `<title>` element are added so that your icons are correctly accessible.
+Вы должны включить реквизит `titleAccess` со значимым значением. Атрибут `role="img"` и элемент `<title>` добавляются для того, чтобы ваши иконки были правильно доступны.
 
-In the case of focusable interactive elements, for example when used with an icon button, you can use the `aria-label` prop:
+В случае фокусируемых интерактивных элементов, например, при использовании с кнопкой иконки, вы можете использовать свойство `aria-label`:
 
 ```jsx
 import IconButton from '@mui/material/IconButton';
@@ -326,9 +304,9 @@ import SvgIcon from '@mui/material/SvgIcon';
 </IconButton>;
 ```
 
-#### Semantic font icons
+#### Семантические значки шрифта <meta data-oversett="" data-original-text="Semantic font icons">
 
-You need to provide a text alternative that is only visible to assistive technologies.
+Вам необходимо предоставить текстовую альтернативу, видимую только для вспомогательных технологий.
 
 ```jsx
 import Box from '@mui/material/Box';
@@ -341,6 +319,6 @@ import { visuallyHidden } from '@mui/utils';
 <Box component="span" sx={visuallyHidden}>Create a user</Box>
 ```
 
-#### Reference
+#### Ссылка <meta data-oversett="" data-original-text="Reference">
 
-- https://www.tpgi.com/using-aria-enhance-svg-accessibility/
+-   [https://www.tpgi.com/using-aria-enhance-svg-accessibility/](https://www.tpgi.com/using-aria-enhance-svg-accessibility/)

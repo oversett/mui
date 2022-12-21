@@ -4,15 +4,15 @@ components: CssBaseline, ScopedCssBaseline
 githubLabel: 'component: CssBaseline'
 ---
 
-# CSS Baseline
+# Базовая линия CSS <meta data-oversett="" data-original-text="CSS Baseline">
 
-<p class="description">The CssBaseline component helps to kickstart an elegant, consistent, and simple baseline to build upon.</p>
+<p class="description">Компонент CssBaseline помогает создать элегантный, последовательный и простой базовый уровень, на который можно опираться.</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js", "design": false}}
 
-## Global reset
+## Глобальный сброс <meta data-oversett="" data-original-text="Global reset">
 
-You might be familiar with [normalize.css](https://github.com/necolas/normalize.css), a collection of HTML element and attribute style-normalizations.
+Вы можете быть знакомы с [normalize.css](https://github.com/necolas/normalize.css), коллекцией нормализаций стилей элементов и атрибутов HTML.
 
 ```jsx
 import * as React from 'react';
@@ -28,10 +28,9 @@ export default function MyApp() {
 }
 ```
 
-## Scoping on children
+## Скопинг на дочерние элементы <meta data-oversett="" data-original-text="Scoping on children">
 
-However, you might be progressively migrating a website to MUI, using a global reset might not be an option.
-It's possible to apply the baseline only to the children by using the `ScopedCssBaseline` component.
+Однако, если вы постепенно переводите сайт на MUI, использование глобального сброса может оказаться неприемлемым. Можно применить базовую линию только к дочерним элементам с помощью компонента `ScopedCssBaseline`.
 
 ```jsx
 import * as React from 'react';
@@ -48,34 +47,29 @@ export default function MyApp() {
 }
 ```
 
-⚠️ Make sure you import `ScopedCssBaseline` first to avoid box-sizing conflicts as in the above example.
+⚠️ Убедитесь, что вы сначала импортировали компонент `ScopedCssBaseline`, чтобы избежать конфликтов размеров ящиков, как в приведенном выше примере.
 
-## Approach
+## Подход <meta data-oversett="" data-original-text="Approach">
 
-### Page
+### Страница <meta data-oversett="" data-original-text="Page">
 
-The `<html>` and `<body>` elements are updated to provide better page-wide defaults. More specifically:
+Элементы `<html>` и `<body>` обновлены для обеспечения лучших значений по умолчанию для всей страницы. Более конкретно:
 
-- The margin in all browsers is removed.
-- The default Material Design background color is applied.
-  It's using [`theme.palette.background.default`](/material-ui/customization/default-theme/?expand-path=$.palette.background) for standard devices and a white background for print devices.
-- If `enableColorScheme` is provided to `CssBaseline`, native components color will be set by applying [`color-scheme`](https://web.dev/color-scheme/) on `<html>`.
-  The value used is provided by the theme property `theme.palette.mode`.
+-   Убрана маржа во всех браузерах.
+-   По умолчанию применяется цвет фона Material Design. Он использует [`theme.palette.background.default`](/material-ui/customization/default-theme/?expand-path=$.palette.background) для стандартных устройств и белый фон для устройств печати.
+-   Если `enableColorScheme` указан на `CssBaseline`, родной цвет компонентов будет установлен с помощью применения [`color-scheme`](https://web.dev/color-scheme/) на `<html>`. Используемое значение задается свойством темы `theme.palette.mode`.
 
-### Layout
+### Макет <meta data-oversett="" data-original-text="Layout">
 
-- `box-sizing` is set globally on the `<html>` element to `border-box`.
-  Every element—including `*::before` and `*::after` are declared to inherit this property,
-  which ensures that the declared width of the element is never exceeded due to padding or border.
+-   `box-sizing` устанавливается глобально на элементе `<html>` в `border-box`. Каждый элемент, включая `*::before` и `*::after`, объявляется наследующим это свойство, что гарантирует, что объявленная ширина элемента никогда не будет превышена из-за набивки или границы.
 
-### Scrollbars
+### Полосы прокрутки <meta data-oversett="" data-original-text="Scrollbars">
 
 :::error
-This API is deprecated.
-Consider using [color-scheme](#color-scheme) instead.
+Этот API устарел. Вместо него можно использовать [color-scheme](#color-scheme).
 :::
 
-The colors of the scrollbars can be customized to improve the contrast (especially on Windows). Add this code to your theme (for dark mode).
+Цвета полос прокрутки могут быть настроены для улучшения контраста (особенно в Windows). Добавьте этот код в вашу тему (для темного режима).
 
 ```jsx
 import darkScrollbar from '@mui/material/darkScrollbar';
@@ -91,12 +85,11 @@ const theme = createTheme({
 });
 ```
 
-Be aware, however, that using this utility (and customizing `-webkit-scrollbar`) forces macOS to always show the scrollbar.
+Однако имейте в виду, что использование этой утилиты (и настройка `-webkit-scrollbar`) заставляет macOS всегда показывать полосу прокрутки.
 
-### Color scheme
+### Цветовая схема <meta data-oversett="" data-original-text="Color scheme">
 
-This API is introduced in @mui/material (v5.1.0) for switching between `"light"` and `"dark"` modes of native components such as scrollbar, using the `color-scheme` CSS property.
-To enable it, you can set `enableColorScheme=true` as follows:
+Этот API появился в @mui/material (v5.1.0) для переключения между режимами `"light"` и `"dark"` нативных компонентов, таких как скроллбар, с помощью свойства `color-scheme` CSS. Чтобы включить его, вы можете установить `enableColorScheme=true` следующим образом:
 
 ```jsx
 <CssBaseline enableColorScheme />
@@ -108,14 +101,13 @@ To enable it, you can set `enableColorScheme=true` as follows:
 </ScopedCssBaseline>
 ```
 
-### Typography
+### Типографика <meta data-oversett="" data-original-text="Typography">
 
-- No base font-size is declared on the `<html>`, but 16px is assumed (the browser default).
-  You can learn more about the implications of changing the `<html>` default font size in [the theme documentation](/material-ui/customization/typography/#html-font-size) page.
-- Set the `theme.typography.body1` style on the `<body>` element.
-- Set the font-weight to `theme.typography.fontWeightBold` for the `<b>` and `<strong>` elements.
-- Custom font-smoothing is enabled for better display of the Roboto font.
+-   Базовый размер шрифта на `<html>` не объявлен, но предполагается 16px (браузер по умолчанию). Вы можете узнать больше о последствиях изменения размера шрифта по умолчанию `<html>` на странице [документации темы](/material-ui/customization/typography/#html-font-size).
+-   Установите стиль `theme.typography.body1` для элемента `<body>`.
+-   Установите font-weight на `theme.typography.fontWeightBold` для элементов `<b>` и `<strong>`.
+-   Для лучшего отображения шрифта Roboto включено пользовательское сглаживание шрифта.
 
-## Customization
+## Настройка <meta data-oversett="" data-original-text="Customization">
 
-Head to the [global customization](/material-ui/customization/how-to-customize/#4-global-css-override) section of the documentation to change the output of these components.
+Чтобы изменить вывод этих компонентов, перейдите в раздел документации, посвященный [глобальной настройке](/material-ui/customization/how-to-customize/#4-global-css-override).

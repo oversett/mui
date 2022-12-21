@@ -5,15 +5,14 @@ components: Backdrop
 githubLabel: 'component: backdrop'
 ---
 
-# Backdrop
+# Backdrop <meta data-oversett="" data-original-text="Backdrop">
 
-<p class="description">The backdrop component is used to provide emphasis on a particular element or parts of it.</p>
+<p class="description">Компонент backdrop используется для акцентирования внимания на определенном элементе или его части.</p>
 
-The backdrop signals to the user of a state change within the application and can be used for creating loaders, dialogs, and more.
-In its simplest form, the backdrop component will add a dimmed layer over your application.
+Фон сигнализирует пользователю об изменении состояния приложения и может быть использован для создания загрузчиков, диалогов и т.д. В своей простейшей форме компонент фона добавляет затемненный слой над вашим приложением.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Example
+## Пример <meta data-oversett="" data-original-text="Example">
 
 {{"demo": "SimpleBackdrop.js"}}

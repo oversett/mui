@@ -7,77 +7,69 @@ materialDesign: https://m2.material.io/components/selection-controls#switches
 unstyled: /base/react-switch/
 ---
 
-# Switch
+# Переключатель <meta data-oversett="" data-original-text="Switch">
 
-<p class="description">Switches toggle the state of a single setting on or off.</p>
+<p class="description">Переключатели включают или выключают состояние одного параметра.</p>
 
-Switches are the preferred way to adjust settings on mobile.
-The option that the switch controls, as well as the state it's in,
-should be made clear from the corresponding inline label.
+Переключатели являются предпочтительным способом настройки параметров на мобильных устройствах. Параметр, которым управляет переключатель, а также состояние, в котором он находится, должны быть понятны из соответствующей встроенной метки.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic switches
+## Основные переключатели <meta data-oversett="" data-original-text="Basic switches">
 
 {{"demo": "BasicSwitches.js"}}
 
-## Label
+## Метка <meta data-oversett="" data-original-text="Label">
 
-You can provide a label to the `Switch` thanks to the `FormControlLabel` component.
+Благодаря компоненту `FormControlLabel` вы можете предоставить метку для `Switch`.
 
 {{"demo": "SwitchLabels.js"}}
 
-## Size
+## Размер <meta data-oversett="" data-original-text="Size">
 
-Use the `size` prop to change the size of the switch.
+Используйте компонент `size` для изменения размера переключателя.
 
 {{"demo": "SwitchesSize.js"}}
 
-## Color
+## Цвет <meta data-oversett="" data-original-text="Color">
 
 {{"demo": "ColorSwitches.js"}}
 
-## Controlled
+## Управляемый <meta data-oversett="" data-original-text="Controlled">
 
-You can control the switch with the `checked` and `onChange` props:
+Вы можете управлять переключателем с помощью реквизитов `checked` и `onChange`:
 
 {{"demo": "ControlledSwitches.js"}}
 
-## Switches with FormGroup
+## Переключатели с FormGroup <meta data-oversett="" data-original-text="Switches with FormGroup">
 
-`FormGroup` is a helpful wrapper used to group selection controls components that provides an easier API.
-However, you are encouraged to use [Checkboxes](/material-ui/react-checkbox/) instead if multiple related controls are required. (See: [When to use](#when-to-use)).
+`FormGroup` это полезная обертка, используемая для группировки компонентов элементов управления выбором, которая обеспечивает более простой API. Однако, если требуется несколько связанных элементов управления, рекомендуется использовать вместо них [флажки](/material-ui/react-checkbox/). (См.: [Когда использовать](#when-to-use)).
 
 {{"demo": "SwitchesGroup.js"}}
 
-## Customization
+## Настройка <meta data-oversett="" data-original-text="Customization">
 
-Here are some examples of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Ниже приведены примеры настройки компонента. Подробнее об этом вы можете узнать на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedSwitches.js"}}
 
-🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/switch/).
+🎨 Если вы ищете вдохновение, вы можете посмотреть [примеры кастомизации MUI Treasury](https://mui-treasury.com/styles/switch/).
 
-## Label placement
+## Размещение ярлыка <meta data-oversett="" data-original-text="Label placement">
 
-You can change the placement of the label:
+Вы можете изменить размещение ярлыка:
 
 {{"demo": "FormControlLabelPosition.js"}}
 
-## When to use
+## Когда использовать <meta data-oversett="" data-original-text="When to use">
 
-- [Checkboxes vs. Switches](https://uxplanet.org/checkbox-vs-toggle-switch-7fc6e83f10b8)
+-   [Флажки против переключателей](https://uxplanet.org/checkbox-vs-toggle-switch-7fc6e83f10b8)
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-- It will render an element with the `checkbox` role not `switch` role since this
-  role isn't widely supported yet. Please test first if assistive technology of your
-  target audience supports this role properly. Then you can change the role with
-  `<Switch inputProps={{ role: 'switch' }}>`
-- All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases, this is done by using the `<label>` element ([FormControlLabel](/material-ui/api/form-control-label/)).
-- When a label can't be used, it's necessary to add an attribute directly to the input component.
-  In this case, you can apply the additional attribute (e.g. `aria-label`, `aria-labelledby`, `title`) via the `inputProps` prop.
+-   Элемент будет отображаться с ролью `checkbox`, а не `switch`, поскольку эта роль еще не получила широкой поддержки. Пожалуйста, сначала проверьте, поддерживают ли вспомогательные технологии вашей целевой аудитории эту роль должным образом. Затем вы можете изменить роль с помощью`<Switch inputProps={{ role: 'switch' }}>`
+-   Все элементы управления формы должны иметь метки, включая радиокнопки, флажки и переключатели. В большинстве случаев для этого используется элемент `<label>` [(FormControlLabel](/material-ui/api/form-control-label/)).
+-   Когда метка не может быть использована, необходимо добавить атрибут непосредственно к компоненту ввода. В этом случае вы можете применить дополнительный атрибут (например, `aria-label`, `aria-labelledby`, `title`) через реквизит `inputProps`.
 
 ```jsx
 <Switch value="checkedA" inputProps={{ 'aria-label': 'Switch A' }} />

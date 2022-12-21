@@ -1,14 +1,14 @@
-# TypeScript
 
-<p class="description">You can add static typing to JavaScript to improve developer productivity and code quality thanks to TypeScript.</p>
 
-## Minimum configuration
+# TypeScript <meta data-oversett="" data-original-text="TypeScript">
 
-<!-- #default-branch-switch -->
+<p class="description">Благодаря TypeScript вы можете добавить статическую типизацию в JavaScript для повышения производительности разработчиков и качества кода.</p>
 
-MUI requires a minimum version of TypeScript 3.5. Have a look at the [Create React App with TypeScript](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-typescript) example.
+## Минимальная конфигурация <meta data-oversett="" data-original-text="Minimum configuration">
 
-For types to work, it's recommended that you have at least the following options enabled in your `tsconfig.json`:
+Для работы MUI требуется минимальная версия TypeScript 3.5. Посмотрите пример " [Создание приложения React с TypeScript](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-typescript) ".
+
+Для работы типов рекомендуется, чтобы в вашем `tsconfig.json` были включены как минимум следующие опции:
 
 ```json
 {
@@ -21,43 +21,30 @@ For types to work, it's recommended that you have at least the following options
 }
 ```
 
-The strict mode options are the same that are required for every types package
-published in the `@types/` namespace.
-Using a less strict `tsconfig.json` or omitting some of the libraries might cause errors.
-To get the best type experience with the types we recommend setting `"strict": true`.
+Опции строгого режима - это те же опции, которые требуются для каждого пакета types, опубликованного в пространстве имен `@types/`. Использование менее строгого `tsconfig.json` или пропуск некоторых библиотек может привести к ошибкам. Для получения наилучшего опыта работы с типами мы рекомендуем установить `"strict": true`.
 
-## Handling `value` and event handlers
+## Работа с `value` и обработчиками событий <meta data-oversett="" data-original-text="Handling value and event handlers">
 
-Many components concerned with user input offer a `value` prop or event handlers
-which include the current `value`. In most situations that `value` is only handled
-within React which allows it be of any type, such as objects or arrays.
+Многие компоненты, работающие с пользовательским вводом, предлагают реквизит `value` или обработчики событий, включающие текущий `value`. В большинстве ситуаций этот `value` обрабатывается только в React, который позволяет ему быть любого типа, например, объекты или массивы.
 
-However, that type cannot be verified at compile time in situations where it depends
-on the component's children e.g. for `Select` or `RadioGroup`. This means that
-the soundest option is to type it as `unknown` and let the developer decide
-how they want to narrow that type down. We do not offer the possibility to use a generic
-type in those cases for [the same reasons `event.target` is not generic in React](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/11508#issuecomment-256045682).
+Однако этот тип не может быть проверен во время компиляции в ситуациях, когда он зависит от дочерних компонентов, например, для `Select` или `RadioGroup`. Это означает, что самым разумным вариантом будет ввести его как `unknown` и предоставить разработчику решать, как он хочет сузить этот тип. Мы не предлагаем возможность использовать общий тип в этих случаях по тем [же причинам, по которым `event.target` не является общим в React](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/11508#issuecomment-256045682).
 
-The demos include typed variants that use type casting. It is an acceptable tradeoff
-because the types are all located in a single file and are very basic. You have to decide for yourself
-if the same tradeoff is acceptable for you. The library types are strict
-by default and loose via opt-in.
+Демонстрационные примеры включают типизированные варианты, использующие приведение типов. Это приемлемый компромисс, поскольку все типы находятся в одном файле и являются очень базовыми. Вы должны решить для себя, приемлем ли для вас такой же компромисс. Типы библиотеки строгие по умолчанию и свободные по желанию.
 
-## Customization of `Theme`
+## Настройка `Theme` <meta data-oversett="" data-original-text="Customization of Theme">
 
-Moved to [/customization/theming/#custom-variables](/material-ui/customization/theming/#custom-variables).
+Перемещено в [/customization/theming/#custom-variables](/material-ui/customization/theming/#custom-variables).
 
-## Complications with the `component` prop
+## Сложности с реквизитом `component` <meta data-oversett="" data-original-text="Complications with the component prop">
 
-Because of some TypeScript limitations, using the `component` prop can be problematic if you are creating your custom component based on the Material UI's components.
-For the composition of the components, you will likely need to use one of these two options:
+Из-за некоторых ограничений TypeScript использование реквизита `component` может быть проблематичным, если вы создаете свой собственный компонент на основе компонентов Material UI. Для композиции компонентов вам, скорее всего, придется использовать один из этих двух вариантов:
 
-1. Wrap the Material UI component in order to enhance it
-2. Use the `styled()` utility in order to customize the styles of the component
+1.  Обернуть компонент Material UI, чтобы усилить его.
+2.  Использовать утилиту `styled()` для настройки стилей компонента.
 
-If you are using the first option, take a look at the [composition guide](/material-ui/guides/composition/#with-typescript) for more details.
+Если вы используете первый вариант, ознакомьтесь с [руководством по композиции](/material-ui/guides/composition/#with-typescript) для получения более подробной информации.
 
-If you are using the `styled()` utility (regardless of whether it comes from `@mui/material` or `@emotion/styled`), you will need to cast the resulting component as shown below:
+Если вы используете утилиту `styled()` (независимо от того, откуда она взята - из `@mui/material` или `@emotion/styled`), вам нужно будет оформить полученный компонент, как показано ниже:
 
 ```tsx
 import Button from '@mui/material/Button';

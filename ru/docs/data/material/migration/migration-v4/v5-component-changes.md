@@ -1,57 +1,58 @@
-# Breaking changes in v5, part two: core components
 
-<p class="description">This is a reference guide to all of the breaking changes introduced in Material v5, and how to handle them when migrating from v4. This part covers changes to components.</p>
 
-## Material UI v5 migration
+# Ломающие изменения в v5, часть вторая: основные компоненты <meta data-oversett="" data-original-text="Breaking changes in v5, part two: core components">
 
-1. [Getting started](/material-ui/migration/migration-v4/)
-2. [Breaking changes part one: style and theme](/material-ui/migration/v5-style-changes/)
-3. Breaking changes part two: components 👈 _you are here_
-4. [Migrating from JSS](/material-ui/migration/migrating-from-jss/)
-5. [Troubleshooting](/material-ui/migration/troubleshooting/)
+<p class="description">Это справочное руководство по всем изменениям, внесенным в Material v5, и по тому, как с ними обращаться при переходе с v4. В этой части рассматриваются изменения в компонентах.</p>
 
-## Breaking changes, part two
+## Миграция Material UI v5 <meta data-oversett="" data-original-text="Material UI v5 migration">
 
-Material UI v5 introduces a number of breaking changes from v4.
-Many of these changes can be resolved automatically using [the codemods](/material-ui/migration/migration-v4/#run-codemods) described in the [main migration guide](/material-ui/migration/migration-v4/).
+1.  [Начало работы](/material-ui/migration/migration-v4/)
+2.  [Ломающие изменения, часть первая: стиль и тема](/material-ui/migration/v5-style-changes/)
+3.  Ломающие изменения, часть вторая: компоненты 👈 _Вы здесь_
+4.  [Миграция с JSS](/material-ui/migration/migrating-from-jss/)
+5.  [Устранение неполадок](/material-ui/migration/troubleshooting/)
 
-The following document lists all breaking changes related to components in v5 and how to address them.
+## Разрывные изменения, часть вторая <meta data-oversett="" data-original-text="Breaking changes, part two">
 
-If you haven't already, please be sure to review [Breaking changes in v5 part one: styles and themes](/material-ui/migration/v5-style-changes/) to continue the migration process.
+В Material UI v5 внесен ряд изменений по сравнению с v4. Многие из этих изменений можно устранить автоматически с помощью [кодмодов](/material-ui/migration/migration-v4/#run-codemods), описанных в [главном руководстве по миграции](/material-ui/migration/migration-v4/).
+
+В следующем документе перечислены все изменения, связанные с компонентами в v5, и способы их устранения.
+
+Если вы еще не сделали этого, пожалуйста, обязательно ознакомьтесь с [первой частью "Ломающие изменения в v5: стили и темы](/material-ui/migration/v5-style-changes/) ", чтобы продолжить процесс миграции.
 
 :::warning
-Breaking changes that are handled by the codemods are denoted by a ✅ emoji in the table of contents on the right side of the screen.
+Изменения, которые обрабатываются кодмодами, обозначаются символом ✅ в оглавлении в правой части экрана.
 
-If you have already followed the instructions in the main migration guide and run the codemods, then you should not need to take any further action on these items.
+Если вы уже следовали инструкциям основного руководства по миграции и запустили кодовые модули, то вам не нужно предпринимать никаких дополнительных действий по этим пунктам.
 
-All other changes must be handled manually.
+Все остальные изменения должны быть выполнены вручную.
 :::
 
-As the core components use Emotion as their style engine, the props used by Emotion are not intercepted. The prop `as` in the following code snippet will not be propagated to `SomeOtherComponent`.
+Поскольку основные компоненты используют Emotion в качестве движка стилей, реквизиты, используемые Emotion, не перехватываются. Реквизит `as` в следующем фрагменте кода не будет передан на `SomeOtherComponent`.
 
 ```jsx
 <MuiComponent component={SomeOtherComponent} as="button" />
 ```
 
-## AppBar
+## AppBar <meta data-oversett="" data-original-text="AppBar">
 
-### Fix z-index issues
+### Исправление проблем с z-индексом <meta data-oversett="" data-original-text="Fix z-index issues">
 
-Remove z-index when position static and relative. This avoids the creation of a stacking context and rendering issues.
+Удалите z-индекс при статическом и относительном положении. Это позволяет избежать создания контекста суммирования и проблем с рендерингом.
 
-### Replace color prop for dark mode
+### Замена реквизита цвета для темного режима <meta data-oversett="" data-original-text="Replace color prop for dark mode">
 
-The `color` prop has no longer any effect in dark mode. The app bar uses the background color required by the elevation to follow the [Material Design guidelines](https://m2.material.io/design/color/dark-theme.html). Use `enableColorOnDark` to restore the behavior of v4.
+Реквизит `color` больше не имеет эффекта в темном режиме. Панель приложения использует фоновый цвет, требуемый повышением, чтобы следовать [рекомендациям Material Design](https://m2.material.io/design/color/dark-theme.html). Используйте `enableColorOnDark`, чтобы восстановить поведение v4.
 
 ```jsx
 <AppBar enableColorOnDark />
 ```
 
-## Alert
+## Предупреждение <meta data-oversett="" data-original-text="Alert">
 
-### ✅ Update import
+### ✅ Обновить импорт <meta data-oversett="" data-original-text="✅ Update import">
 
-Move the component from the lab to the core. The component is now stable.
+Переместите компонент из лаборатории в ядро. Компонент теперь стабилен.
 
 ```diff
 -import Alert from '@mui/lab/Alert';
@@ -60,11 +61,11 @@ Move the component from the lab to the core. The component is now stable.
 +import AlertTitle from '@mui/material/AlertTitle';
 ```
 
-## Autocomplete
+## Автозаполнение <meta data-oversett="" data-original-text="Autocomplete">
 
-### ✅ Update import
+### ✅ Обновить импорт <meta data-oversett="" data-original-text="✅ Update import">
 
-Move the component from the lab to the core. The component is now stable.
+Переместите компонент из лаборатории в ядро. Компонент теперь стабилен.
 
 ```diff
 -import Autocomplete from '@mui/lab/Autocomplete';
@@ -73,14 +74,13 @@ Move the component from the lab to the core. The component is now stable.
 +import useAutoComplete from '@mui/material/useAutocomplete';
 ```
 
-### Remove debug prop
+### Удалить реквизит отладки <meta data-oversett="" data-original-text="Remove debug prop">
 
-Remove `debug` prop. There are a couple of simpler alternatives: `open={true}`, Chrome devtools ["Emulate focused"](https://twitter.com/sulco/status/1305841873945272321), or React devtools prop setter.
+Удалите `debug` prop. Есть несколько более простых альтернатив: `open={true}`, Chrome devtools ["Emulate focused"](https://twitter.com/sulco/status/1305841873945272321), или React devtools prop setter.
 
-### Update `renderOption`
+### Обновить `renderOption` <meta data-oversett="" data-original-text="Update renderOption">
 
-`renderOption` should now return the full DOM structure of the option.
-It makes customizations easier. You can recover from the change with:
+`renderOption` теперь должно возвращать полную DOM-структуру опции. Это упрощает настройку. Вы можете восстановить изменение с помощью:
 
 ```diff
  <Autocomplete
@@ -101,33 +101,33 @@ It makes customizations easier. You can recover from the change with:
  />
 ```
 
-### ✅ Rename `closeIcon` to `clearIcon`
+### ✅ Переименуйте `closeIcon` в `clearIcon`. <meta data-oversett="" data-original-text="✅ Rename closeIcon to clearIcon">
 
-Rename `closeIcon` prop to `clearIcon` to avoid confusion.
+Переименуйте `closeIcon` prop в `clearIcon`, чтобы избежать путаницы.
 
 ```diff
 -<Autocomplete closeIcon={defaultClearIcon} />
 +<Autocomplete clearIcon={defaultClearIcon} />
 ```
 
-### Rename reason arguments
+### Переименование аргументов причины <meta data-oversett="" data-original-text="Rename reason arguments">
 
-The following values of the reason argument in `onChange` and `onClose` were renamed for consistency:
+Следующие значения аргумента reason в `onChange` и `onClose` были переименованы для согласованности:
 
-1. `create-option` to `createOption`
-2. `select-option` to `selectOption`
-3. `remove-option` to `removeOption`
+1.  `create-option` на `createOption`
+2.  `select-option` на `selectOption`
+3.  `remove-option` к `removeOption`
 
-Change the CSS rules that use `[data-focus="true"]` to use `.Mui-focused`. The `data-focus` attribute is not set on the focused option anymore; instead, global class names are used.
+Измените правила CSS, использующие `[data-focus="true"]`, на `.Mui-focused`. Атрибут `data-focus` больше не устанавливается на сфокусированной опции; вместо этого используются глобальные имена классов.
 
 ```diff
 -'.MuiAutocomplete-option[data-focus="true"]': {
 +'.MuiAutocomplete-option.Mui-focused': {
 ```
 
-### ✅ Rename getOptionSelected
+### ✅ Переименовать getOptionSelected <meta data-oversett="" data-original-text="✅ Rename getOptionSelected">
 
-Rename `getOptionSelected` to `isOptionEqualToValue` to better describe its purpose.
+Переименуйте `getOptionSelected` в `isOptionEqualToValue`, чтобы лучше описать его назначение.
 
 ```diff
  <Autocomplete
@@ -135,11 +135,11 @@ Rename `getOptionSelected` to `isOptionEqualToValue` to better describe its purp
 +  isOptionEqualToValue={(option, value) => option.title === value.title}
 ```
 
-## Avatar
+## Аватар <meta data-oversett="" data-original-text="Avatar">
 
-### ✅ Rename circle
+### ✅ Переименовать круг <meta data-oversett="" data-original-text="✅ Rename circle">
 
-Rename `circle` to `circular` for consistency:
+Переименуйте `circle` в `circular` для согласованности:
 
 ```diff
 -<Avatar variant="circle">
@@ -148,27 +148,27 @@ Rename `circle` to `circular` for consistency:
 +<Avatar classes={{ circular: 'className' }}>
 ```
 
-Since `circular` is the default value, the variant prop can be deleted:
+Поскольку `circular` является значением по умолчанию, реквизит варианта может быть удален:
 
 ```diff
 -<Avatar variant="circle">
 +<Avatar>
 ```
 
-### ✅ Update AvatarGroup import
+### ✅ Обновить импорт AvatarGroup <meta data-oversett="" data-original-text="✅ Update AvatarGroup import">
 
-Move the AvatarGroup from the lab to the core.
+Переместите AvatarGroup из лаборатории в ядро.
 
 ```diff
 -import AvatarGroup from '@mui/lab/AvatarGroup';
 +import AvatarGroup from '@mui/material/AvatarGroup';
 ```
 
-## Badge
+## Значок <meta data-oversett="" data-original-text="Badge">
 
-### ✅ Rename circle and rectangle
+### ✅ Переименовать круг и прямоугольник <meta data-oversett="" data-original-text="✅ Rename circle and rectangle">
 
-Rename `circle` to `circular` and `rectangle` to `rectangular` for consistency.
+Переименуйте `circle` в `circular` и `rectangle` в `rectangular` для согласованности.
 
 ```diff
 -<Badge overlap="circle">
@@ -196,25 +196,24 @@ Rename `circle` to `circular` and `rectangle` to `rectangular` for consistency.
  }}>
 ```
 
-## BottomNavigation
+## BottomNavigation <meta data-oversett="" data-original-text="BottomNavigation">
 
-### Update event type (TypeScript)
+### Обновление типа события (TypeScript) <meta data-oversett="" data-original-text="Update event type (TypeScript)">
 
-The `event` in `onChange` is now typed as a `React.SyntheticEvent` instead of a `React.ChangeEvent`.
+Событие `event` в `onChange` теперь набирается как `React.SyntheticEvent`, а не как `React.ChangeEvent`.
 
 ```diff
 -<BottomNavigation onChange={(event: React.ChangeEvent<{}>) => {}} />
 +<BottomNavigation onChange={(event: React.SyntheticEvent) => {}} />
 ```
 
-## BottomNavigationAction
+## BottomNavigationAction <meta data-oversett="" data-original-text="BottomNavigationAction">
 
-### Remove span and wrapper
+### Удалить разворот и обертку <meta data-oversett="" data-original-text="Remove span and wrapper">
 
-Remove the `span` element that wraps the children.
-Remove the `wrapper` classKey too.
+Удалите элемент `span`, который обертывает дочерние элементы. Удалите также `wrapper` classKey.
 
-You can find out more details about this change in [this GitHub pull request](https://github.com/mui/material-ui/pull/26923).
+Более подробную информацию об этом изменении вы можете найти в [этом запросе на GitHub](https://github.com/mui/material-ui/pull/26923).
 
 ```diff
  <button class="MuiBottomNavigationAction-root">
@@ -227,15 +226,15 @@ You can find out more details about this change in [this GitHub pull request](ht
  </button>
 ```
 
-## Box
+## Вставка <meta data-oversett="" data-original-text="Box">
 
-### ✅ Update borderRadius prop value
+### ✅ Обновление значения параметра borderRadius <meta data-oversett="" data-original-text="✅ Update borderRadius prop value">
 
-The `borderRadius` system prop value transformation has been changed.
+Преобразование значения реквизита системы `borderRadius` было изменено.
 
-If it receives a number, it multiplies this value with the `theme.shape.borderRadius` value.
+Если оно получает число, оно умножает это значение на значение `theme.shape.borderRadius`.
 
-Use a string to provide an explicit px value.
+Используйте строку, чтобы указать явное значение px.
 
 ```diff
 -<Box borderRadius="borderRadius">
@@ -247,24 +246,24 @@ Use a string to provide an explicit px value.
 +<Box borderRadius="16px">
 ```
 
-### ✅ Apply sx API
+### ✅ Применение API sx <meta data-oversett="" data-original-text="✅ Apply sx API">
 
-The Box system props have an optional alternative API in v5, using the `sx` prop.
+Системные реквизиты Box имеют альтернативный API в v5, использующий реквизит `sx`.
 
-Check out the System docs to learn more about [the tradeoffs of this API](/system/getting-started/usage/#api-tradeoff).
+Обратитесь к документации по системе, чтобы узнать больше о [преимуществах этого API](/system/getting-started/usage/#api-tradeoff).
 
 ```jsx
 <Box border="1px dashed grey" p={[2, 3, 4]} m={2}>
 <Box sx={{ border: "1px dashed grey", p: [2, 3, 4], m: 2 }}>
 ```
 
-### ✅ Rename CSS properties
+### ✅ Переименование свойств CSS <meta data-oversett="" data-original-text="✅ Rename CSS properties">
 
-The following properties have been renamed because they are considered deprecated CSS properties by the CSS specification:
+Следующие свойства были переименованы, поскольку спецификация CSS считает их устаревшими свойствами CSS:
 
-1. `gridGap` to `gap`
-2. `gridColumnGap` to `columnGap`
-3. `gridRowGap` to `rowGap`
+1.  `gridGap` на `gap`
+2.  `gridColumnGap` to `columnGap`
+3.  `gridRowGap` к `rowGap`
 
 ```diff
 -<Box gridGap={1}>
@@ -276,12 +275,12 @@ The following properties have been renamed because they are considered deprecate
 ```
 
 :::info
-The system grid function was not documented in v4.
+Функция системной сетки не была документирована в v4.
 :::
 
-### Remove clone prop
+### Удалить свойство clone <meta data-oversett="" data-original-text="Remove clone prop">
 
-The `clone` prop was removed because its behavior can be obtained by applying the `sx` prop directly to the child if it is a Material UI component.
+Реквизит `clone` был удален, поскольку его поведение может быть получено путем применения реквизита `sx` непосредственно к дочернему компоненту, если это компонент Material UI.
 
 ```diff
 -<Box sx={{ border: '1px dashed grey' }} clone>
@@ -290,9 +289,9 @@ The `clone` prop was removed because its behavior can be obtained by applying th
 +<Button sx={{ border: '1px dashed grey' }}>Save</Button>
 ```
 
-### Replace render prop with `sx`
+### Замените реквизит render на `sx`. <meta data-oversett="" data-original-text="Replace render prop with sx">
 
-The ability to pass a render prop was removed because its behavior can be obtained by applying the `sx` prop directly to the child if it is a Material UI component.
+Возможность передавать render prop была удалена, поскольку ее поведение можно получить, применив `sx` prop непосредственно к дочернему компоненту, если это компонент Material UI.
 
 ```diff
 -<Box sx={{ border: '1px dashed grey' }}>
@@ -301,7 +300,7 @@ The ability to pass a render prop was removed because its behavior can be obtain
 +<Button sx={{ border: '1px dashed grey' }}>Save</Button>
 ```
 
-For non-Material UI components, use the `component` prop.
+Для нематериальных компонентов пользовательского интерфейса используйте реквизит `component`.
 
 ```diff
 -<Box sx={{ border: '1px dashed grey' }}>
@@ -310,12 +309,11 @@ For non-Material UI components, use the `component` prop.
 +<Box component="button" sx={{ border: '1px dashed grey' }}>Save</Box>
 ```
 
-## Button
+## Кнопка <meta data-oversett="" data-original-text="Button">
 
-### ✅ Remove default color prop
+### ✅ Удаление реквизита цвета по умолчанию <meta data-oversett="" data-original-text="✅ Remove default color prop">
 
-The button `color` prop is now "primary" by default, and "default" has been removed.
-This makes the button closer to the Material Design guidelines and simplifies the API.
+Реквизит кнопки `color` теперь "primary" по умолчанию, а "default" был удален. Это приближает кнопку к рекомендациям Material Design и упрощает API.
 
 ```diff
 -<Button color="default">
@@ -323,15 +321,14 @@ This makes the button closer to the Material Design guidelines and simplifies th
 ```
 
 :::info
-If you prefer to use the `default` color in v4, take a look at this [CodeSandbox demo](https://codesandbox.io/s/mimic-v4-button-default-color-bklx8?file=/src/Demo.tsx) to see how to make it work in v5.
+Если вы предпочитаете использовать цвет `default` в v4, посмотрите [демо CodeSandbox](https://codesandbox.io/s/mimic-v4-button-default-color-bklx8?file=/src/Demo.tsx), чтобы увидеть, как это работает в v5.
 :::
 
-### Remove span and label
+### Удалите span и label <meta data-oversett="" data-original-text="Remove span and label">
 
-The `span` element that wraps children has been removed.
-The `label` classKey is also removed.
+Элемент `span`, обертывающий дочерние элементы, был удален. `label` classKey также удален.
 
-You can find out more details about this change in [this GitHub pull request](https://github.com/mui/material-ui/pull/26666), it used to be necessary for iOS.
+Подробнее об этом изменении вы можете узнать в [этом запросе на GitHub](https://github.com/mui/material-ui/pull/26666), оно было необходимо для iOS.
 
 ```diff
  <button class="MuiButton-root">
@@ -341,37 +338,35 @@ You can find out more details about this change in [this GitHub pull request](ht
  </button>
 ```
 
-## Chip
+## Фишка <meta data-oversett="" data-original-text="Chip">
 
-### ✅ Rename default to filled
+### ✅ Переименовать default в filled <meta data-oversett="" data-original-text="✅ Rename default to filled">
 
-Rename `default` variant to `filled` for consistency.
+Переименуйте вариант `default` в `filled` для согласованности.
 
-Since `filled` is the default value, the variant prop can be deleted:
+Поскольку `filled` является значением по умолчанию, параметр variant можно удалить:
 
 ```diff
 -<Chip variant="default">
 +<Chip>
 ```
 
-## Checkbox
+## Флажок <meta data-oversett="" data-original-text="Checkbox">
 
-### Set to "primary" by default
+### По умолчанию установлен на "primary" <meta data-oversett="" data-original-text="Set to &quot;primary&quot; by default">
 
-The checkbox color prop is now "primary" by default.
-To continue using the "secondary" color, you must explicitly indicate `secondary`.
-This brings the checkbox closer to the Material Design guidelines.
+Цвет флажка теперь по умолчанию "первичный". Чтобы продолжать использовать "вторичный" цвет, необходимо явно указать `secondary`. Это приближает флажок к рекомендациям Material Design.
 
 ```diff
 -<Checkbox />
 +<Checkbox color="secondary" />
 ```
 
-### Update CSS class names
+### Обновление имен классов CSS <meta data-oversett="" data-original-text="Update CSS class names">
 
-The component doesn't have `.MuiIconButton-root` and `.MuiIconButton-label` class names anymore.
+Компонент больше не имеет имен классов `.MuiIconButton-root` и `.MuiIconButton-label`.
 
-Target `.MuiButtonBase-root` instead.
+Вместо них используйте `.MuiButtonBase-root`.
 
 ```diff
 -<span class="MuiIconButton-root MuiButtonBase-root MuiCheckbox-root PrivateSwitchBase-root">
@@ -381,13 +376,13 @@ Target `.MuiButtonBase-root` instead.
 +  <span class="PrivateSwitchBase-input">
 ```
 
-## CircularProgress
+## CircularProgress <meta data-oversett="" data-original-text="CircularProgress">
 
-### ✅ Rename static to determinate
+### ✅ Переименовать static в determinate <meta data-oversett="" data-original-text="✅ Rename static to determinate">
 
-The `static` variant has been renamed to `determinate`, and the previous appearance of `determinate` has been replaced by that of `static`.
+Вариант `static` был переименован в `determinate`, а предыдущий вид `determinate` был заменен на `static`.
 
-This was an exception to Material Design, and was removed from the specification.
+Это было исключением из Material Design и было удалено из спецификации.
 
 ```diff
 -<CircularProgress variant="static" classes={{ static: 'className' }} />
@@ -395,36 +390,34 @@ This was an exception to Material Design, and was removed from the specification
 ```
 
 :::error
-If you had previously customized `determinate`, then your customizations are most likely no longer valid.
-Please remove them.
+Если вы ранее настраивали `determinate`, то ваши настройки, скорее всего, больше не действительны. Пожалуйста, удалите их.
 :::
 
-## Collapse
+## Свернуть <meta data-oversett="" data-original-text="Collapse">
 
-### ✅ Rename collapsedHeight prop
+### ✅ Переименование реквизита collapsedHeight <meta data-oversett="" data-original-text="✅ Rename collapsedHeight prop">
 
-The `collapsedHeight` prop was renamed `collapsedSize` to support the horizontal direction.
+Реквизит `collapsedHeight` был переименован в `collapsedSize` для поддержки горизонтального направления.
 
 ```diff
 -<Collapse collapsedHeight={40}>
 +<Collapse collapsedSize={40}>
 ```
 
-The `classes.container` key was changed to match the convention of the other components.
+Ключ `classes.container` был изменен, чтобы соответствовать соглашению других компонентов.
 
 ```diff
 -<Collapse classes={{ container: 'collapse' }}>
 +<Collapse classes={{ root: 'collapse' }}>
 ```
 
-## CssBaseline
+## CssBaseline <meta data-oversett="" data-original-text="CssBaseline">
 
-### Update styled-engine
+### Обновление styled-engine <meta data-oversett="" data-original-text="Update styled-engine">
 
-The component was migrated to use the `@mui/styled-engine` (`emotion` or `styled-components`) instead of `jss`.
+Компонент был переведен на использование `@mui/styled-engine` (`emotion` или `styled-components`) вместо `jss`.
 
-You should remove the `@global` key when defining the style overrides for it.
-You could also start using the CSS template syntax over the JavaScript object syntax.
+Вы должны удалить ключ `@global` при определении переопределений стиля для него. Вы также можете начать использовать синтаксис шаблонов CSS вместо синтаксиса объектов JavaScript.
 
 ```diff
  const theme = createTheme({
@@ -447,10 +440,9 @@ You could also start using the CSS template syntax over the JavaScript object sy
  });
 ```
 
-### Update body font size
+### Обновление размера шрифта тела <meta data-oversett="" data-original-text="Update body font size">
 
-The `body` font size has changed from `theme.typography.body2` (`0.875rem`) to `theme.typography.body1` (`1rem`).
-To return to the previous size, you can override it in the theme:
+Размер шрифта `body` изменился с `theme.typography.body2` (`0.875rem`) на `theme.typography.body1` (`1rem`). Чтобы вернуться к предыдущему размеру, вы можете переопределить его в теме:
 
 ```js
 const theme = createMuiTheme({
@@ -468,12 +460,11 @@ const theme = createMuiTheme({
 });
 ```
 
-## Dialog
+## Dialog <meta data-oversett="" data-original-text="Dialog">
 
-### ✅ Update transition props
+### ✅ Обновление реквизитов перехода <meta data-oversett="" data-original-text="✅ Update transition props">
 
-The `on*` transition props were removed.
-Use `TransitionProps` instead.
+Реквизит перехода `on*` был удален. Вместо него используйте `TransitionProps`.
 
 ```diff
   <Dialog
@@ -494,11 +485,11 @@ Use `TransitionProps` instead.
   >
 ```
 
-### ✅ Remove disableBackdropClick prop
+### ✅ Удалить реквизит disableBackdropClick <meta data-oversett="" data-original-text="✅ Remove disableBackdropClick prop">
 
-Remove the `disableBackdropClick` prop because it is redundant.
+Удалите реквизит `disableBackdropClick`, поскольку он является избыточным.
 
-Ignore close events from `onClose` when `reason === 'backdropClick'` instead.
+Игнорируйте события закрытия из `onClose`, используя вместо этого `reason === 'backdropClick'`.
 
 ```diff
   <Dialog
@@ -512,15 +503,15 @@ Ignore close events from `onClose` when `reason === 'backdropClick'` instead.
   />
 ```
 
-### Remove withMobileDialog component
+### Удалить компонент withMobileDialog <meta data-oversett="" data-original-text="Remove withMobileDialog component">
 
-Remove the `withMobileDialog` higher-order component.
+Удалите компонент высшего порядка `withMobileDialog`.
 
 :::warning
-This is handled in the [preset-safe codemod](#preset-safe) by applying hard-coded function to prevent application crash, but further fixes are required.
+Это обрабатывается в [preset-safe codemod](#preset-safe) путем применения жестко закодированной функции для предотвращения падения приложения, но требуются дополнительные исправления.
 :::
 
-The hook API allows a simpler and more flexible solution:
+API hook позволяет найти более простое и гибкое решение:
 
 ```diff
 -import withMobileDialog from '@mui/material/withMobileDialog';
@@ -538,9 +529,9 @@ The hook API allows a simpler and more flexible solution:
 +export default ResponsiveDialog;
 ```
 
-### ✅ Remove disableTypography prop
+### ✅ Удалите параметр disableTypography. <meta data-oversett="" data-original-text="✅ Remove disableTypography prop">
 
-Flatten DialogTitle DOM structure and remove the `disableTypography` prop.
+Сплющите DOM-структуру DialogTitle и удалите реквизит `disableTypography`.
 
 ```diff
 -<DialogTitle disableTypography>
@@ -551,14 +542,13 @@ Flatten DialogTitle DOM structure and remove the `disableTypography` prop.
    </Typography>
 ```
 
-## Divider
+## Разделитель <meta data-oversett="" data-original-text="Divider">
 
-### Replace background-color with border-color
+### Замените background-color на border-color <meta data-oversett="" data-original-text="Replace background-color with border-color">
 
-Use `border-color` instead of `background-color`.
-This prevents inconsistent height on scaled screens.
+Используйте `border-color` вместо `background-color`. Это предотвратит непостоянство высоты на экранах с измененным масштабом.
 
-If you have customized the color of the border, you will need to update the CSS property override:
+Если вы настроили цвет границы, вам нужно будет обновить переопределение свойства CSS:
 
 ```diff
  .MuiDivider-root {
@@ -567,11 +557,11 @@ If you have customized the color of the border, you will need to update the CSS 
  }
 ```
 
-## ExpansionPanel
+## ExpansionPanel <meta data-oversett="" data-original-text="ExpansionPanel">
 
-### ✅ Rename components
+### ✅ Переименование компонентов <meta data-oversett="" data-original-text="✅ Rename components">
 
-Rename the `ExpansionPanel` components to `Accordion` to use a more common naming convention:
+Переименуйте компоненты `ExpansionPanel` в `Accordion`, чтобы использовать более распространенное соглашение об именовании:
 
 ```diff
 -import ExpansionPanel from '@mui/material/ExpansionPanel';
@@ -608,26 +598,26 @@ Rename the `ExpansionPanel` components to `Accordion` to use a more common namin
 +</Accordion>
 ```
 
-### Update event type (TypeScript)
+### Обновление типа события (TypeScript) <meta data-oversett="" data-original-text="Update event type (TypeScript)">
 
-The `event` in `onChange` is now typed as a `React.SyntheticEvent` instead of a `React.ChangeEvent`.
+Компонент `event` в `onChange` теперь набирается как `React.SyntheticEvent`, а не `React.ChangeEvent`.
 
 ```diff
 -<Accordion onChange={(event: React.ChangeEvent<{}>, expanded: boolean) => {}} />
 +<Accordion onChange={(event: React.SyntheticEvent, expanded: boolean) => {}} />
 ```
 
-## ExpansionPanelDetails
+## ExpansionPanelDetails <meta data-oversett="" data-original-text="ExpansionPanelDetails">
 
-### Remove display: flex
+### Удалить отображение: flex <meta data-oversett="" data-original-text="Remove display: flex">
 
-Remove `display: flex` from `AccordionDetails` (formerly `ExpansionPanelDetails`) as it was too opinionated—most developers expect `display: block`.
+Удалите `display: flex` из `AccordionDetails` (ранее `ExpansionPanelDetails`), так как он был слишком многословен - большинство разработчиков ожидают `display: block`.
 
-## ExpansionPanelSummary
+## ExpansionPanelSummary <meta data-oversett="" data-original-text="ExpansionPanelSummary">
 
-### Rename focused to focusVisible
+### Переименовать focused в focusVisible <meta data-oversett="" data-original-text="Rename focused to focusVisible">
 
-Rename `focused` to `focusVisible` for consistency:
+Переименовать `focused` в `focusVisible` для согласованности:
 
 ```diff
  <AccordionSummary
@@ -638,27 +628,26 @@ Rename `focused` to `focusVisible` for consistency:
  />
 ```
 
-### Remove IconButtonProps prop
+### Удалить реквизит IconButtonProps <meta data-oversett="" data-original-text="Remove IconButtonProps prop">
 
-Remove `IconButtonProps` prop from `AccordionSummary` (formerly `ExpansionPanelSummary`).
+Удалить `IconButtonProps` prop из `AccordionSummary` (ранее `ExpansionPanelSummary`).
 
-The component renders a `<div>` element instead of an `IconButton`, so the prop is no longer necessary.
+Компонент отображает элемент `<div>` вместо `IconButton`, поэтому в этом реквизите больше нет необходимости.
 
-## Fab
+## Fab <meta data-oversett="" data-original-text="Fab">
 
-### ✅ Rename round to circular
+### ✅ Переименовать круглое в круглое <meta data-oversett="" data-original-text="✅ Rename round to circular">
 
 ```diff
 -<Fab variant="round">
 +<Fab variant="circular">
 ```
 
-### Remove span and label
+### Удалить span и label <meta data-oversett="" data-original-text="Remove span and label">
 
-The `span` element that wraps children has been removed.
-The `label` classKey is also removed.
+Элемент `span`, который обволакивает дочерние элементы, был удален. `label` classKey также удален.
 
-You can find out more details about this change in [this GitHub pull request](https://github.com/mui/material-ui/pull/27112), it used to be necessary for iOS.
+Более подробно об этом изменении можно узнать в [этом запросе на GitHub](https://github.com/mui/material-ui/pull/27112), раньше он был необходим для iOS.
 
 ```diff
  <button class="MuiFab-root">
@@ -668,16 +657,16 @@ You can find out more details about this change in [this GitHub pull request](ht
  </button>
 ```
 
-## FormControl
+## FormControl <meta data-oversett="" data-original-text="FormControl">
 
-### ✅ Update default variant
+### ✅ Обновление варианта по умолчанию <meta data-oversett="" data-original-text="✅ Update default variant">
 
-Change the default variant from `standard` to `outlined`.
+Измените вариант по умолчанию с `standard` на `outlined`.
 
-`standard` has been removed from the Material Design guidelines.
+`standard` был удален из руководства по Material Design.
 
 :::warning
-✅ This is handled in [variant-prop codemod](#variant-prop)—read the details before running this codemod.
+✅ Это обрабатывается в [кодовом модуле variant-prop - прочитайте](#variant-prop)подробности перед запуском этого кодового модуля.
 :::
 
 ```diff
@@ -687,38 +676,37 @@ Change the default variant from `standard` to `outlined`.
 +<FormControl value="Outlined" />
 ```
 
-## FormControlLabel
+## FormControlLabel <meta data-oversett="" data-original-text="FormControlLabel">
 
-### Add required label prop
+### Добавьте обязательный реквизит label <meta data-oversett="" data-original-text="Add required label prop">
 
-The `label` prop is now required.
-If you were using a `FormControlLabel` without a `label`, you can replace it with just the value of the `control` prop.
+Реквизит `label` теперь является обязательным. Если вы использовали `FormControlLabel` без `label`, вы можете заменить его значением реквизита `control`.
 
 ```diff
 -<FormControlLabel control={<Checkbox />} />
 +<Checkbox />
 ```
 
-## Grid
+## Сетка <meta data-oversett="" data-original-text="Grid">
 
-### ✅ Rename justify prop
+### ✅ Переименовать реквизит justify <meta data-oversett="" data-original-text="✅ Rename justify prop">
 
-Rename the `justify` prop to `justifyContent` to align with the CSS property name.
+Переименуйте реквизит `justify` в `justifyContent` для согласования с именем свойства CSS.
 
 ```diff
 -<Grid justify="center">
 +<Grid justifyContent="center">
 ```
 
-### ✅ Remove align and justify props and classes
+### ✅ Удалить реквизиты и классы align и justify <meta data-oversett="" data-original-text="✅ Remove align and justify props and classes">
 
-The props `alignItems`, `alignContent`, and `justifyContent`—along with their classes and style overrides keys—have been removed:
+Реквизиты `alignItems`, `alignContent` и `justifyContent`\- вместе с их классами и ключами переопределения стилей - были удалены:
 
-"align-items-xs-center", "align-items-xs-flex-start", "align-items-xs-flex-end", "align-items-xs-baseline", "align-content-xs-center", "align-content-xs-flex-start", "align-content-xs-flex-end", "align-content-xs-space-between", "align-content-xs-space-around", "justify-content-xs-center", "justify-content-xs-flex-end", "justify-content-xs-space-between", "justify-content-xs-space-around" and "justify-content-xs-space-evenly".
+"align-items-xs-center", "align-items-xs-flex-start", "align-items-xs-flex-end", "align-items-xs-baseline", "align-content-xs-center", "align-content-xs-flex-start", "align-content-xs-flex-end", "align-content-xs-space-between", "align-content-xs-space-around", "justify-content-xs-center", "justify-content-xs-flex-end", "justify-content-xs-space-between", "justify-content-xs-space-around" и "justify-content-xs-space-evenly".
 
-These props are now considered part of the System, not the `Grid` component itself.
+Эти реквизиты теперь считаются частью Системы, а не самого компонента `Grid`.
 
-If you still wish to add overrides for them, you can use the [callback as a value in `styleOverrides`](/material-ui/customization/theme-components/#overrides-based-on-props).
+Если вы все еще хотите добавить для них переопределения, вы можете использовать [обратный вызов в качестве значения в `styleOverrides`.](/material-ui/customization/theme-components/#overrides-based-on-props)
 
 ```diff
  const theme = createTheme({
@@ -739,39 +727,37 @@ If you still wish to add overrides for them, you can use the [callback as a valu
  });
 ```
 
-### Change negative margins
+### Изменение отрицательных полей <meta data-oversett="" data-original-text="Change negative margins">
 
-The negative margins apply only to the top and left sides of the grid container.
-If you need negative margins on all sides, we recommend using the new Grid v2 instead:
+Отрицательные поля применяются только к верхней и левой сторонам контейнера сетки. Если вам нужны отрицательные поля со всех сторон, мы рекомендуем использовать новый Grid v2:
 
 ```diff
 - import Grid from '@mui/material/Grid';
 + import Grid from '@mui/material/Unstable_Grid2';
 ```
 
-To learn more about the Grid v2, check out the [demos](/material-ui/react-grid2/#whats-changed) and the [Grid migration guide](/material-ui/migration/migration-grid-v2/).
+Чтобы узнать больше о Grid v2, ознакомьтесь с [демо-версиями](/material-ui/react-grid2/#whats-changed) и [руководством по переходу на Grid](/material-ui/migration/migration-grid-v2/).
 
 :::info
-Grid v2 was introduced in Material UI v5.9.1 and features negative margins on all sides by default.
+Grid v2 был представлен в Material UI v5.9.1 и по умолчанию имеет отрицательные поля со всех сторон.
 :::
 
-## GridList
+## GridList <meta data-oversett="" data-original-text="GridList">
 
-### ✅ Rename GridList component
+### ✅ Переименование компонента GridList <meta data-oversett="" data-original-text="✅ Rename GridList component">
 
-Rename the `GridList` components to `ImageList` to align with the current Material Design naming.
+Переименуйте компоненты `GridList` в `ImageList`, чтобы привести их в соответствие с текущим именованием Material Design.
 
-### Rename GridList props
+### Переименование реквизитов GridList <meta data-oversett="" data-original-text="Rename GridList props">
 
-- Rename the GridList `spacing` prop to `gap` to align with the CSS attribute.
-- Rename the GridList `cellHeight` prop to `rowHeight`.
-- Add the `variant` prop to GridList.
-- Rename the GridListItemBar `actionPosition` prop to `position`. (Note also the related classname changes.)
+-   Переименуйте реквизит GridList `spacing` в `gap`, чтобы привести его в соответствие с атрибутом CSS.
+-   Переименуйте реквизит GridList `cellHeight` в `rowHeight`.
+-   Добавьте реквизит `variant` в GridList.
+-   Переименуйте реквизит GridListItemBar `actionPosition` в `position`. (Обратите внимание также на соответствующие изменения имен классов).
 
-### Use CSS object-fit
+### Используйте CSS object-fit <meta data-oversett="" data-original-text="Use CSS object-fit">
 
-Use CSS `object-fit`. For IE11 support either use a polyfill such as
-[this npm package](https://www.npmjs.com/package/object-fit-images), or else continue to use the v4 component.
+Используйте CSS `object-fit`. Для поддержки IE11 либо используйте полифилл, например,[этот пакет npm](https://www.npmjs.com/package/object-fit-images), либо продолжайте использовать компонент v4.
 
 ```diff
 -import GridList from '@mui/material/GridList';
@@ -797,17 +783,17 @@ Use CSS `object-fit`. For IE11 support either use a polyfill such as
 +</ImageList>
 ```
 
-## Hidden
+## Скрытый <meta data-oversett="" data-original-text="Hidden">
 
-### Replace deprecated component
+### Заменить устаревший компонент <meta data-oversett="" data-original-text="Replace deprecated component">
 
-This component is deprecated because its functionality can be created with the [`sx`](/system/getting-started/the-sx-prop/) prop or the [`useMediaQuery`](/material-ui/react-use-media-query/) hook.
+Этот компонент устарел, поскольку его функциональность может быть создана с помощью функции [`sx`](/system/getting-started/the-sx-prop/) реквизит или [`useMediaQuery`](/material-ui/react-use-media-query/) hook.
 
 :::warning
-This is handled in the [preset-safe codemod](#preset-safe) by applying fake `Hidden` component to prevent application crash, but further fixes are required.
+Это решается в [preset-safe codemod](#preset-safe) путем применения поддельного компонента `Hidden` для предотвращения падения приложения, но требуются дополнительные исправления.
 :::
 
-Use the `sx` prop to replace `implementation="css"`:
+Используйте `sx` prop для замены `implementation="css"`:
 
 ```diff
 -<Hidden implementation="css" xlUp><Paper /></Hidden>
@@ -823,7 +809,7 @@ Use the `sx` prop to replace `implementation="css"`:
 +<Box component="button" sx={{ display: { xs: 'none', md: 'block' } }} />
 ```
 
-Use the `useMediaQuery` hook to replace `implementation="js"`:
+Используйте хук `useMediaQuery` для замены `implementation="js"`:
 
 ```diff
 -<Hidden implementation="js" xlUp><Paper /></Hidden>
@@ -831,39 +817,37 @@ Use the `useMediaQuery` hook to replace `implementation="js"`:
 +return hidden ? null : <Paper />;
 ```
 
-## Icon
+## Иконка <meta data-oversett="" data-original-text="Icon">
 
-### Remove fontSize="default"
+### Удалить fontSize="default" <meta data-oversett="" data-original-text="Remove fontSize=&quot;default&quot;">
 
-The default value of `fontSize` was changed from `default` to `medium` for consistency.
-In the unlikely event that you were using the value `default`, the prop can be removed:
+Значение по умолчанию `fontSize` было изменено с `default` на `medium` для согласованности. В маловероятном случае, если вы использовали значение `default`, реквизит можно удалить:
 
 ```diff
 -<Icon fontSize="default">icon-name</Icon>
 +<Icon>icon-name</Icon>
 ```
 
-## IconButton
+## IconButton <meta data-oversett="" data-original-text="IconButton">
 
-### ✅ Update size prop
+### ✅ Обновление реквизита размера <meta data-oversett="" data-original-text="✅ Update size prop">
 
-Padding for the default size has been reduced to 8px, bringing it down to 40px.
+Отступы для размера по умолчанию были уменьшены до 8px, в результате чего размер уменьшился до 40px.
 
-For the old default size of 48px, use `size="large"`.
+Для старого размера по умолчанию 48px используйте `size="large"`.
 
-The change was made to better match Google's products when Material Design stopped documenting the icon button pattern.
+Это изменение было сделано, чтобы лучше соответствовать продуктам Google, когда Material Design перестал документировать шаблон кнопки-иконки.
 
 ```diff
 - <IconButton>
 + <IconButton size="large">
 ```
 
-### Remove span and label
+### Удалите span и label <meta data-oversett="" data-original-text="Remove span and label">
 
-The `span` element that wraps children has been removed.
-The `label` classKey is also removed.
+Элемент `span`, обволакивающий дочерние элементы, был удален. Также удален элемент `label` classKey.
 
-You can find out more details about this change in [this GitHub pull request](https://github.com/mui/material-ui/pull/26666), it used to be necessary for iOS.
+Подробнее об этом изменении можно узнать в [этом запросе на GitHub](https://github.com/mui/material-ui/pull/26666), оно было необходимо для iOS.
 
 ```diff
  <button class="MuiIconButton-root">
@@ -873,16 +857,16 @@ You can find out more details about this change in [this GitHub pull request](ht
  </button>
 ```
 
-## Link
+## Ссылка <meta data-oversett="" data-original-text="Link">
 
-### ✅ Update default underline prop
+### ✅ Обновление реквизита подчеркивания по умолчанию <meta data-oversett="" data-original-text="✅ Update default underline prop">
 
-The default `underline` prop is changed from `"hover"` to `"always"`.
+Реквизит `underline` по умолчанию изменен с `"hover"` на `"always"`.
 
-To recreate the behavior from v4, apply `defaultProps` in the theme.
+Чтобы воссоздать поведение из v4, примените `defaultProps` в теме.
 
 :::warning
-✅ This is handled in [link-underline-hover codemod](#link-underline-hover)—read the details before running this codemod.
+✅ Это обрабатывается в [кодемоде link-underline-hover - прочитайте](#link-underline-hover)подробности перед запуском этого кодемода.
 :::
 
 ```js
@@ -897,12 +881,11 @@ createTheme({
 });
 ```
 
-## Menu
+## Меню <meta data-oversett="" data-original-text="Menu">
 
-### ✅ Update transition props
+### ✅ Обновление реквизитов перехода <meta data-oversett="" data-original-text="✅ Update transition props">
 
-The `on*` transition props were removed.
-Use `TransitionProps` instead.
+Реквизит перехода `on*` был удален. Вместо него используйте `TransitionProps`.
 
 ```diff
  <Menu
@@ -924,16 +907,16 @@ Use `TransitionProps` instead.
 ```
 
 :::info
-The `selectedMenu` variant will no longer vertically align the selected item with the anchor.
+Вариант `selectedMenu` больше не будет вертикально выравнивать выбранный элемент по якорю.
 :::
 
-### Change default anchorOrigin.vertical value
+### Изменить значение по умолчанию anchorOrigin.vertical <meta data-oversett="" data-original-text="Change default anchorOrigin.vertical value">
 
-Change the default value of `anchorOrigin.vertical` to follow the Material Design guidelines.
+Измените значение по умолчанию `anchorOrigin.vertical`, чтобы следовать рекомендациям Material Design.
 
-The menu is now displayed below the anchor instead of on top of it.
+Теперь меню отображается под якорем, а не поверх него.
 
-You can restore the previous behavior with:
+Вы можете восстановить прежнее поведение с помощью:
 
 ```diff
  <Menu
@@ -943,37 +926,37 @@ You can restore the previous behavior with:
 +  }}
 ```
 
-## MenuItem
+## MenuItem . <meta data-oversett="" data-original-text="MenuItem">
 
-### Update CSS class names
+### Обновление имен классов CSS <meta data-oversett="" data-original-text="Update CSS class names">
 
-The `MenuItem` component inherits the `ButtonBase` component instead of `ListItem`.
+Компонент `MenuItem` наследует компонент `ButtonBase` вместо `ListItem`.
 
-The class names related to "MuiListItem-\*" have been removed, and theming `ListItem` no longer has an effect on `MenuItem`.
+Имена классов, связанные с "MuiListItem-\*", были удалены, а тематизация `ListItem` больше не влияет на `MenuItem`.
 
 ```diff
 -<li className="MuiButtonBase-root MuiMenuItem-root MuiListItem-root">
 +<li className="MuiButtonBase-root MuiMenuItem-root">
 ```
 
-### Replace listItemClasses prop
+### Замените реквизит listItemClasses <meta data-oversett="" data-original-text="Replace listItemClasses prop">
 
-prop `listItemClasses` is removed, use `classes` instead.
+Реквизит `listItemClasses` удален, вместо него используйте `classes`.
 
 ```diff
 -<MenuItem listItemClasses={{...}}>
 +<MenuItem classes={{...}}>
 ```
 
-Read more about the [MenuItem CSS API](/material-ui/api/menu-item/#css).
+Подробнее о [API CSS MenuItem](/material-ui/api/menu-item/#css).
 
-## Modal
+## Модальный <meta data-oversett="" data-original-text="Modal">
 
-### ✅ Remove disableBackdropClick prop
+### ✅ Удалить реквизит disableBackdropClick <meta data-oversett="" data-original-text="✅ Remove disableBackdropClick prop">
 
-Remove the `disableBackdropClick` prop because it is redundant.
+Удалите реквизит `disableBackdropClick`, так как он является избыточным.
 
-Use `onClose` with `reason === 'backdropClick'` instead.
+Вместо него используйте `onClose` и `reason === 'backdropClick'`.
 
 ```diff
  <Modal
@@ -987,11 +970,11 @@ Use `onClose` with `reason === 'backdropClick'` instead.
  />
 ```
 
-### ✅ Remove `onEscapeKeyDown` prop
+### ✅ Удалить `onEscapeKeyDown` prop <meta data-oversett="" data-original-text="✅ Remove onEscapeKeyDown prop">
 
-Remove the `onEscapeKeyDown` prop because it is redundant.
+Удалите реквизит `onEscapeKeyDown`, потому что он избыточен.
 
-Use `onClose` with `reason === "escapeKeyDown"` instead.
+Вместо него используйте `onClose` с `reason === "escapeKeyDown"`.
 
 ```diff
  <Modal
@@ -1004,48 +987,47 @@ Use `onClose` with `reason === "escapeKeyDown"` instead.
  />
 ```
 
-### Remove `onRendered` prop
+### Удалить `onRendered` реквизит <meta data-oversett="" data-original-text="Remove onRendered prop">
 
-Remove the `onRendered` prop.
+Удалите реквизит `onRendered`.
 
-Depending on your use case, you can either use a [callback ref](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs) on the child element, or an effect hook in the child component.
+В зависимости от варианта использования, вы можете использовать либо [обратный вызов](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs) на дочернем элементе, либо крючок эффекта в дочернем компоненте.
 
-## NativeSelect
+## NativeSelect <meta data-oversett="" data-original-text="NativeSelect">
 
-### Remove selectMenu slot
+### Удалить слот selectMenu <meta data-oversett="" data-original-text="Remove selectMenu slot">
 
-Merge the `selectMenu` slot into `select`.
-The `selectMenu` slot was redundant.
+Объедините слот `selectMenu` со слотом `select`. Слот `selectMenu` был лишним.
 
-The `root` slot is no longer applied to the select, but to the root.
+Слот `root` больше не применяется к select, а применяется к корню.
 
 ```diff
 -<NativeSelect classes={{ root: 'class1', select: 'class2', selectMenu: 'class3' }} />
 +<NativeSelect classes={{ select: 'class1 class2 class3' }} />
 ```
 
-## OutlinedInput
+## OutlinedInput <meta data-oversett="" data-original-text="OutlinedInput">
 
-### Replace labelWidth prop
+### Заменить реквизит labelWidth <meta data-oversett="" data-original-text="Replace labelWidth prop">
 
-Remove the `labelWidth` prop.
+Удалите реквизит `labelWidth`.
 
-The `label` prop now fulfills the same purpose, using CSS layout instead of JavaScript measurement to render the gap in the outlined.
+Реквизит `label` теперь выполняет ту же цель, используя CSS-макет вместо JavaScript-измерений для отображения разрыва в контуре.
 
 ```diff
 -<OutlinedInput labelWidth={20} />
 +<OutlinedInput label="First Name" />
 ```
 
-## Paper
+## Бумага <meta data-oversett="" data-original-text="Paper">
 
-### Change dark mode background opacity
+### Изменение непрозрачности фона в темном режиме <meta data-oversett="" data-original-text="Change dark mode background opacity">
 
-Change the background opacity based on the elevation in dark mode.
+Изменение непрозрачности фона в зависимости от высоты в темном режиме.
 
-This change was made to better conform to the Material Design guidelines.
+Это изменение было сделано для лучшего соответствия рекомендациям Material Design.
 
-You can revert it in the theme:
+Вы можете отменить его в теме:
 
 ```diff
  const theme = createTheme({
@@ -1057,13 +1039,13 @@ You can revert it in the theme:
  });
 ```
 
-## Pagination
+## Пагинация <meta data-oversett="" data-original-text="Pagination">
 
-### ✅ Update import
+### ✅ Обновление импорта <meta data-oversett="" data-original-text="✅ Update import">
 
-Move the component from the lab to the core.
+Переместите компонент из лаборатории в ядро.
 
-The component is now stable.
+Компонент теперь стабилен.
 
 ```diff
 -import Pagination from '@mui/lab/Pagination';
@@ -1074,7 +1056,7 @@ The component is now stable.
 +import usePagination from '@mui/material/usePagination';
 ```
 
-### ✅ Rename round to circular
+### ✅ Переименуйте круглое в круглое <meta data-oversett="" data-original-text="✅ Rename round to circular">
 
 ```diff
 -<Pagination shape="round">
@@ -1083,13 +1065,13 @@ The component is now stable.
 +<PaginationItem shape="circular">
 ```
 
-## Popover
+## Popover <meta data-oversett="" data-original-text="Popover">
 
-### ✅ Update transition props
+### ✅ Обновить реквизит перехода <meta data-oversett="" data-original-text="✅ Update transition props">
 
-The `on*` transition props were removed.
+Реквизит перехода `on*` был удален.
 
-Use `TransitionProps` instead.
+Вместо него используйте `TransitionProps`.
 
 ```diff
   <Popover
@@ -1110,17 +1092,17 @@ Use `TransitionProps` instead.
   >
 ```
 
-### Remove getContentAnchorEl prop
+### Удалить реквизит getContentAnchorEl <meta data-oversett="" data-original-text="Remove getContentAnchorEl prop">
 
-The `getContentAnchorEl` prop was removed to simplify the positioning logic.
+Реквизит `getContentAnchorEl` был удален для упрощения логики позиционирования.
 
-## Popper
+## Popper <meta data-oversett="" data-original-text="Popper">
 
-### Upgrade from v1 to v2
+### Обновление с v1 до v2 <meta data-oversett="" data-original-text="Upgrade from v1 to v2">
 
-Upgrade [Popper.js](https://popper.js.org/) from v1 to v2.
+Обновите [Popper.js](https://popper.js.org/) с версии 1 до версии 2.
 
-The CSS prefixes have changed:
+Префиксы CSS изменились:
 
 ```diff
   popper: {
@@ -1129,7 +1111,7 @@ The CSS prefixes have changed:
 +  '&[data-popper-placement*="bottom"] .arrow': {
 ```
 
-Method names have changed:
+Имена методов изменились:
 
 ```diff
 -popperRef.current.scheduleUpdate()
@@ -1141,38 +1123,38 @@ Method names have changed:
 +popperRef.current.forceUpdate()
 ```
 
-The Modifiers API has been changed too significantly to fully cover here.
+API модификаторов был изменен слишком значительно, чтобы описать его здесь.
 
-Read the [Popper.js migration guide](https://popper.js.org/docs/v2/migration-guide/) for complete details.
+Читайте [руководство по миграции Popper.js](https://popper.js.org/docs/v2/migration-guide/) для получения полной информации.
 
-## Portal
+## Портал <meta data-oversett="" data-original-text="Portal">
 
-### Remove onRendered prop
+### Удалите реквизит onRendered <meta data-oversett="" data-original-text="Remove onRendered prop">
 
-Remove the `onRendered` prop.
+Удалите реквизит `onRendered`.
 
-Depending on your use case, you can either use a [callback ref](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs) on the child element, or an effect hook in the child component.
+В зависимости от вашего сценария использования, вы можете использовать либо [обратный вызов](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs) на дочернем элементе, либо хук эффекта в дочернем компоненте.
 
-## Radio
+## Радио <meta data-oversett="" data-original-text="Radio">
 
-### Update default color prop
+### Обновление реквизита цвета по умолчанию <meta data-oversett="" data-original-text="Update default color prop">
 
-The radio color prop is now "primary" by default.
+Цветовой реквизит радио теперь по умолчанию "первичный".
 
-To continue using the "secondary" color, you must explicitly indicate `secondary`.
+Чтобы продолжать использовать "вторичный" цвет, необходимо явно указать `secondary`.
 
-This brings the radio closer to the Material Design guidelines.
+Это приближает радио к рекомендациям Material Design.
 
 ```diff
 -<Radio />
 +<Radio color="secondary" />
 ```
 
-### Update CSS classes
+### Обновление классов CSS <meta data-oversett="" data-original-text="Update CSS classes">
 
-This component no longer has the class names `.MuiIconButton-root` or `.MuiIconButton-label`.
+Этот компонент больше не имеет имен классов `.MuiIconButton-root` или `.MuiIconButton-label`.
 
-Instead, target `.MuiButtonBase-root`.
+Вместо них используйте `.MuiButtonBase-root`.
 
 ```diff
 - <span class="MuiIconButton-root MuiButtonBase-root MuiRadio-root PrivateSwitchBase-root">
@@ -1182,24 +1164,24 @@ Instead, target `.MuiButtonBase-root`.
 +   <span class="PrivateSwitchBase-input">
 ```
 
-## Rating
+## Рейтинг <meta data-oversett="" data-original-text="Rating">
 
-### ✅ Update imports
+### ✅ Обновление импорта <meta data-oversett="" data-original-text="✅ Update imports">
 
-Move the component from the lab to the core.
+Переместите компонент из лаборатории в ядро.
 
-The component is now stable.
+Компонент теперь стабилен.
 
 ```diff
 -import Rating from '@mui/lab/Rating';
 +import Rating from '@mui/material/Rating';
 ```
 
-### Change default empty icon
+### Изменить пустую иконку по умолчанию <meta data-oversett="" data-original-text="Change default empty icon">
 
-Change the default empty icon to improve accessibility.
+Измените пустой значок по умолчанию, чтобы улучшить доступность.
 
-If you have a custom `icon` prop but no `emptyIcon` prop, you can restore the previous behavior with:
+Если у вас есть пользовательский `icon` prop, но нет `emptyIcon` prop, вы можете восстановить прежнее поведение с помощью:
 
 ```diff
  <Rating
@@ -1208,9 +1190,9 @@ If you have a custom `icon` prop but no `emptyIcon` prop, you can restore the pr
  />
 ```
 
-### Rename visuallyhidden
+### Переименовать visuallyhidden <meta data-oversett="" data-original-text="Rename visuallyhidden">
 
-Rename `visuallyhidden` to `visuallyHidden` for consistency:
+Переименуйте `visuallyhidden` в `visuallyHidden` для согласованности:
 
 ```diff
   <Rating
@@ -1221,18 +1203,18 @@ Rename `visuallyhidden` to `visuallyHidden` for consistency:
   />
 ```
 
-## RootRef
+## RootRef <meta data-oversett="" data-original-text="RootRef">
 
-### Remove component
+### Удалить компонент <meta data-oversett="" data-original-text="Remove component">
 
-This component has been removed.
+Этот компонент был удален.
 
-You can get a reference to the underlying DOM node of our components via `ref` prop.
+Вы можете получить ссылку на базовый DOM-узел наших компонентов через `ref` prop.
 
-The component relied on [`ReactDOM.findDOMNode`](https://reactjs.org/docs/react-dom.html#finddomnode) which is [deprecated in `React.StrictMode`](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
+Компонент полагается на [`ReactDOM.findDOMNode`](https://reactjs.org/docs/react-dom.html#finddomnode) который [устарел в `React.StrictMode`.](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 :::warning
-This is handled in the [preset-safe codemod](#preset-safe) by applying fake `RootRef` component to prevent application crash, but further fixes are required.
+Это обработано в [preset-safe codemod](#preset-safe) путем применения поддельного компонента `RootRef` для предотвращения падения приложения, но требуются дополнительные исправления.
 :::
 
 ```diff
@@ -1242,18 +1224,18 @@ This is handled in the [preset-safe codemod](#preset-safe) by applying fake `Roo
 +<Button ref={ref} />
 ```
 
-## Select
+## Выберите <meta data-oversett="" data-original-text="Select">
 
-### ✅ Update default variant
+### ✅ Обновить вариант по умолчанию <meta data-oversett="" data-original-text="✅ Update default variant">
 
-Change the default variant from `standard` to `outlined`.
+Измените вариант по умолчанию с `standard` на `outlined`.
 
-`standard` has been removed from the Material Design guidelines.
+`standard` был удален из руководства по Material Design.
 
-If you are composing the `Select` with a form control component, you only need to update `FormControl`—the select inherits the variant from its context.
+Если вы составляете `Select` с компонентом управления формой, вам нужно обновить только `FormControl`\- селект наследует вариант от своего контекста.
 
 :::success
-✅ This is handled in [variant-prop codemod](#variant-prop)—read the details before running this codemod.
+✅ Это обрабатывается в [кодовом модуле variant-prop - прочитайте](#variant-prop)подробности перед запуском этого кодового модуля.
 :::
 
 ```diff
@@ -1263,58 +1245,59 @@ If you are composing the `Select` with a form control component, you only need t
 +<Select value="Outlined" />
 ```
 
-### Replace labelWidth prop
+### Заменить реквизит labelWidth <meta data-oversett="" data-original-text="Replace labelWidth prop">
 
-Remove the `labelWidth` prop.
+Удалите реквизит `labelWidth`.
 
-The `label` prop now fulfills the same purpose, using the CSS layout instead of JavaScript measurements to render the gap in the `outlined` variant.
+Реквизит `label` теперь выполняет ту же цель, используя макет CSS вместо измерений JavaScript для отображения разрыва в варианте `outlined`.
 
-The `TextField` already handles this by default.
+`TextField` уже обрабатывает это по умолчанию.
 
 ```diff
 -<Select variant="outlined" labelWidth={20} />
 +<Select variant="outlined" label="Gender" />
 ```
 
-### Remove selectMenu slot
+### Удалить слот selectMenu <meta data-oversett="" data-original-text="Remove selectMenu slot">
 
-Merge the `selectMenu` slot into `select`.
-The `selectMenu` slot was redundant.
+Слот `selectMenu` объединен со слотом `select`. Слот `selectMenu` был лишним.
 
-The `root` slot is no longer applied to the select, but to the root.
+Слот `root` больше не применяется к select, а применяется к корню.
 
 ```diff
 -<Select classes={{ root: 'class1', select: 'class2', selectMenu: 'class3' }} />
 +<Select classes={{ select: 'class1 class2 class3' }} />
 ```
 
-### Update event type (TypeScript)
+### Обновление типа события (TypeScript) <meta data-oversett="" data-original-text="Update event type (TypeScript)">
 
-The `event` in `onChange` is now typed as a `React.SyntheticEvent` instead of a `React.ChangeEvent`.
+Событие `event` в `onChange` теперь набирается как `SelectChangeEvent<T>`, а не как `React.ChangeEvent`.
 
 ```diff
++ import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 -<Select onChange={(event: React.SyntheticEvent, value: unknown) => {}} />
-+<Select onChange={(event: Event, value: unknown) => {}} />
++<Select onChange={(event: SelectChangeEvent<T>, child: React.ReactNode) => {}} />
 ```
 
-This was necessary to prevent overriding the `event.target` of the events that caused the change.
+Это было необходимо для предотвращения переопределения `event.target` событий, вызвавших изменение.
 
-## Skeleton
+## Скелет <meta data-oversett="" data-original-text="Skeleton">
 
-### ✅ Update import
+### ✅ Обновление импорта <meta data-oversett="" data-original-text="✅ Update import">
 
-Move the component from the lab to the core.
+Переместите компонент из лаборатории в ядро.
 
-The component is now stable.
+Компонент теперь стабилен.
 
 ```diff
 -import Skeleton from '@mui/lab/Skeleton';
 +import Skeleton from '@mui/material/Skeleton';
 ```
 
-### ✅ Rename circle and rect
+### ✅ Переименовать круг и прямоугольник <meta data-oversett="" data-original-text="✅ Rename circle and rect">
 
-Rename `circle` to `circular` and `rect` to `rectangular` for consistency:
+Переименуйте `circle` в `circular` и `rect` в `rectangular` для согласованности:
 
 ```diff
 -<Skeleton variant="circle" />
@@ -1325,22 +1308,22 @@ Rename `circle` to `circular` and `rect` to `rectangular` for consistency:
 +<Skeleton classes={{ circular: 'custom-circle-classname', rectangular: 'custom-rect-classname',  }} />
 ```
 
-## Slider
+## Слайдер <meta data-oversett="" data-original-text="Slider">
 
-### Update event type (TypeScript)
+### Обновление типа события (TypeScript) <meta data-oversett="" data-original-text="Update event type (TypeScript)">
 
-The `event` in `onChange` is now typed as a `React.SyntheticEvent` instead of a `React.ChangeEvent`.
+Событие `event` в `onChange` теперь набирается как `React.SyntheticEvent`, а не как `React.ChangeEvent`.
 
 ```diff
 -<Slider onChange={(event: React.SyntheticEvent, value: unknown) => {}} />
 +<Slider onChange={(event: Event, value: unknown) => {}} />
 ```
 
-This was necessary to prevent overriding the `event.target` of the events that caused the change.
+Это было необходимо для предотвращения переопределения `event.target` событий, вызвавших изменение.
 
-### Replace ValueLabelComponent and ThumbComponent props
+### Замена реквизитов ValueLabelComponent и ThumbComponent <meta data-oversett="" data-original-text="Replace ValueLabelComponent and ThumbComponent props">
 
-The `ValueLabelComponent` and `ThumbComponent` props are now part of the `components` prop.
+Реквизиты `ValueLabelComponent` и `ThumbComponent` теперь являются частью реквизита `components`.
 
 ```diff
   <Slider
@@ -1353,35 +1336,34 @@ The `ValueLabelComponent` and `ThumbComponent` props are now part of the `compon
   />
 ```
 
-### Refactor CSS
+### Рефакторинг CSS <meta data-oversett="" data-original-text="Refactor CSS">
 
-Rework the CSS to match the latest [Material Design guidelines](https://m2.material.io/components/sliders) and make custom styles more intuitive.
-[See documentation](/material-ui/react-slider/).
+Переработайте CSS в соответствии с последними [рекомендациями Material Design](https://m2.material.io/components/sliders) и сделайте пользовательские стили более интуитивно понятными.[См. документацию](/material-ui/react-slider/).
 
-<a href="/material-ui/react-slider/#continuous-sliders"><img width="247" alt="" src="https://user-images.githubusercontent.com/3165635/121884800-a8808600-cd13-11eb-8cdf-e25de8f1ba73.png" style="margin: auto"></a>
+[<img width="247" alt="" src="https://user-images.githubusercontent.com/3165635/121884800-a8808600-cd13-11eb-8cdf-e25de8f1ba73.png" style="margin: auto">](/material-ui/react-slider/#continuous-sliders)
 
-You can reduce the density of the slider, closer to v4 with the [`size="small"` prop](/material-ui/react-slider/#sizes).
+Вы можете уменьшить плотность слайдера, приблизив ее к v4 с помощью [реквизита`size="small"`](/material-ui/react-slider/#sizes) .
 
-## Snackbar
+## Snackbar <meta data-oversett="" data-original-text="Snackbar">
 
-### Update default positioning
+### Обновление позиционирования по умолчанию <meta data-oversett="" data-original-text="Update default positioning">
 
-The notification now displays at the bottom left on large screens.
+Уведомление теперь отображается слева внизу на больших экранах.
 
-This better matches the behavior of Gmail, Google Keep, material.io, etc.
+Это лучше соответствует поведению Gmail, Google Keep, material.io и т.д.
 
-You can restore the v4 behavior with:
+Вы можете восстановить поведение v4 с помощью:
 
 ```diff
 -<Snackbar />
 +<Snackbar anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} />
 ```
 
-### ✅ Update transition props
+### ✅ Обновить реквизиты перехода <meta data-oversett="" data-original-text="✅ Update transition props">
 
-The `on*` transition props were removed.
+Реквизиты перехода `on*` были удалены.
 
-Use `TransitionProps` instead.
+Вместо него используйте `TransitionProps`.
 
 ```diff
  <Snackbar
@@ -1402,13 +1384,13 @@ Use `TransitionProps` instead.
  >
 ```
 
-## SpeedDial
+## SpeedDial <meta data-oversett="" data-original-text="SpeedDial">
 
-### ✅ Update import
+### ✅ Обновить импорт <meta data-oversett="" data-original-text="✅ Update import">
 
-Move the component from the lab to the core.
+Переместите компонент из лаборатории в ядро.
 
-The component is now stable.
+Компонент теперь стабилен.
 
 ```diff
 -import SpeedDial from '@mui/lab/SpeedDial';
@@ -1419,14 +1401,13 @@ The component is now stable.
 +import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 ```
 
-## Stepper
+## Stepper <meta data-oversett="" data-original-text="Stepper">
 
-### Update component structure
+### Обновить структуру компонента <meta data-oversett="" data-original-text="Update component structure">
 
-The root component `Paper` was replaced with a `<div>`.
+Корневой компонент `Paper` был заменен на `<div>`.
 
-`Stepper` no longer has elevation, and it does not inherit props from `Paper` anymore.
-This change is meant to encourage composition.
+`Stepper` больше не имеет возвышения, и он больше не наследует реквизиты от `Paper`. Это изменение предназначено для поощрения композиции.
 
 ```diff
 +<Paper square elevation={2}>
@@ -1439,11 +1420,11 @@ This change is meant to encourage composition.
 +<Paper>
 ```
 
-### Remove built-in padding
+### Удаление встроенных отступов <meta data-oversett="" data-original-text="Remove built-in padding">
 
-The built-in 24px padding has been removed.
+Встроенный 24px padding был удален.
 
-To keep it intact, add the folllowing:
+Чтобы сохранить его, добавьте следующее:
 
 ```diff
 -<Stepper>
@@ -1454,13 +1435,13 @@ To keep it intact, add the folllowing:
   </Stepper>
 ```
 
-## SvgIcon
+## SvgIcon <meta data-oversett="" data-original-text="SvgIcon">
 
-### Remove fontSize="default"
+### Удалить fontSize="default" <meta data-oversett="" data-original-text="Remove fontSize=&quot;default&quot;">
 
-The default value of `fontSize` was changed from `default` to `medium` for consistency.
+Значение по умолчанию `fontSize` было изменено с `default` на `medium` для единообразия.
 
-In the unlikely event that you were using the value `default`, the prop can be removed:
+В том случае, если вы использовали значение `default`, реквизит можно удалить:
 
 ```diff
 -<SvgIcon fontSize="default">
@@ -1469,13 +1450,13 @@ In the unlikely event that you were using the value `default`, the prop can be r
  </SvgIcon>
 ```
 
-## Switch
+## Переключить . <meta data-oversett="" data-original-text="Switch">
 
-### Remove second onChange argument
+### Удаление второго аргумента onChange <meta data-oversett="" data-original-text="Remove second onChange argument">
 
-The second argument from `onChange` has been deprecated.
+Второй аргумент из `onChange` был устаревшим.
 
-You can pull out the checked state by accessing `event.target.checked`.
+Вы можете извлечь проверенное состояние, обратившись к `event.target.checked`.
 
 ```diff
  function MySwitch() {
@@ -1488,24 +1469,24 @@ You can pull out the checked state by accessing `event.target.checked`.
  }
 ```
 
-### Update default color prop
+### Обновление реквизита цвета по умолчанию <meta data-oversett="" data-original-text="Update default color prop">
 
-The `color` prop is now "primary" by default.
+Реквизит `color` теперь "первичный" по умолчанию.
 
-To continue using the "secondary" color, you must explicitly indicate `secondary`.
+Чтобы продолжать использовать "вторичный" цвет, необходимо явно указать `secondary`.
 
-This brings `Switch` closer to the Material Design guidelines.
+Это приближает `Switch` к рекомендациям Material Design.
 
 ```diff
 -<Switch />
 +<Switch color="secondary" />
 ```
 
-### Update CSS classes
+### Обновление классов CSS <meta data-oversett="" data-original-text="Update CSS classes">
 
-This component no longer has the `.MuiIconButton-root` and `.MuiIconButton-label`.
+У этого компонента больше нет классов `.MuiIconButton-root` и `.MuiIconButton-label`.
 
-Instead, target `.MuiButtonBase-root`.
+Вместо этого укажите `.MuiButtonBase-root`.
 
 ```diff
   <span class="MuiSwitch-root">
@@ -1516,11 +1497,11 @@ Instead, target `.MuiButtonBase-root`.
 +    <span class="MuiSwitch-input PrivateSwitchBase-input">
 ```
 
-## Table
+## Таблица <meta data-oversett="" data-original-text="Table">
 
-### Rename default padding prop value
+### Переименование значения параметра padding по умолчанию <meta data-oversett="" data-original-text="Rename default padding prop value">
 
-Rename the `default` value of the `padding` prop to `normal`.
+Переименуйте значение `default` реквизита `padding` в `normal`.
 
 ```diff
 -<Table padding="default" />
@@ -1529,13 +1510,13 @@ Rename the `default` value of the `padding` prop to `normal`.
 +<TableCell padding="normal" />
 ```
 
-## TablePagination
+## TablePagination <meta data-oversett="" data-original-text="TablePagination">
 
-### Customize labels with getItemAriaLabel prop
+### Настройка меток с помощью реквизита getItemAriaLabel <meta data-oversett="" data-original-text="Customize labels with getItemAriaLabel prop">
 
-The customization of the table pagination's actions labels must be done with the `getItemAriaLabel` prop.
+Настройка меток действий пагинации таблицы должна выполняться с помощью реквизита `getItemAriaLabel`.
 
-This increases consistency with the `Pagination` component.
+Это повышает согласованность с компонентом `Pagination`.
 
 ```diff
   <TablePagination
@@ -1544,9 +1525,9 @@ This increases consistency with the `Pagination` component.
 +  getItemAriaLabel={…}
 ```
 
-### ✅ Rename onChangeRowsPerPage and onChangePage
+### ✅ Переименование onChangeRowsPerPage и onChangePage <meta data-oversett="" data-original-text="✅ Rename onChangeRowsPerPage and onChangePage">
 
-Rename `onChangeRowsPerPage` to `onRowsPerPageChange` and `onChangePage` to `onPageChange` for API consistency.
+Переименуйте `onChangeRowsPerPage` в `onRowsPerPageChange` и `onChangePage` в `onPageChange` для согласованности с API.
 
 ```diff
   <TablePagination
@@ -1556,9 +1537,9 @@ Rename `onChangeRowsPerPage` to `onRowsPerPageChange` and `onChangePage` to `onP
 +  onPageChange={()=>{}}
 ```
 
-### Separate label classes
+### Отдельные классы для меток <meta data-oversett="" data-original-text="Separate label classes">
 
-Separate classes for different table pagination labels.
+Отдельные классы для разных меток пагинации таблиц.
 
 ```diff
   <TablePagination
@@ -1567,11 +1548,11 @@ Separate classes for different table pagination labels.
   />
 ```
 
-### Move custom class on input to select
+### Переместить пользовательский класс на input в select <meta data-oversett="" data-original-text="Move custom class on input to select">
 
-Move the custom class on `input` to `select`.
+Переместите пользовательский класс на `input` на `select`.
 
-The `input` key is applied on another element.
+Ключ `input` применяется к другому элементу.
 
 ```diff
   <TablePagination
@@ -1580,34 +1561,34 @@ The `input` key is applied on another element.
   />
 ```
 
-## Tabs
+## Вкладки <meta data-oversett="" data-original-text="Tabs">
 
-### Update default indicatorColor and textColor prop values
+### Обновление значений реквизитов indicatorColor и textColor по умолчанию <meta data-oversett="" data-original-text="Update default indicatorColor and textColor prop values">
 
-Change the default `indicatorColor` and `textColor` prop values to "primary".
+Измените значения реквизитов по умолчанию `indicatorColor` и `textColor` на "primary".
 
-This is done to match the most common use cases with Material Design.
+Это сделано для соответствия наиболее распространенным вариантам использования Material Design.
 
 ```diff
 -<Tabs />
 +<Tabs indicatorColor="primary" textColor="inherit" />
 ```
 
-### Update event type (TypeScript)
+### Обновление типа события (TypeScript) <meta data-oversett="" data-original-text="Update event type (TypeScript)">
 
-The `event` in `onChange` is now typed as a `React.SyntheticEvent` instead of a `React.ChangeEvent`.
+Событие `event` в `onChange` теперь набирается как `React.SyntheticEvent`, а не как `React.ChangeEvent`.
 
 ```diff
 -<Tabs onChange={(event: React.ChangeEvent<{}>, value: unknown) => {}} />
 +<Tabs onChange={(event: React.SyntheticEvent, value: unknown) => {}} />
 ```
 
-### ✅ Add new scroll button props
+### ✅ Добавление нового реквизита кнопки прокрутки <meta data-oversett="" data-original-text="✅ Add new scroll button props">
 
-The API that controls the scroll buttons has been split into two props.
+API, управляющий кнопками прокрутки, был разделен на два реквизита.
 
-- The `scrollButtons` prop controls when the scroll buttons are displayed depending on the space available.
-- The `allowScrollButtonsMobile` prop removes the CSS media query that systematically hides the scroll buttons on mobile.
+-   Реквизит `scrollButtons` управляет отображением кнопок прокрутки в зависимости от доступного пространства.
+-   Реквизит `allowScrollButtonsMobile` удаляет медиазапрос CSS, который систематически скрывает кнопки прокрутки на мобильных устройствах.
 
 ```diff
 -<Tabs scrollButtons="on" />
@@ -1618,21 +1599,20 @@ The API that controls the scroll buttons has been split into two props.
 +<Tabs scrollButtons={false} />
 ```
 
-## Tab
+## Вкладка <meta data-oversett="" data-original-text="Tab">
 
-### Update default minWidth and maxWidth
+### Обновление значений minWidth и maxWidth по умолчанию <meta data-oversett="" data-original-text="Update default minWidth and maxWidth">
 
-Default minimum and maximum widths have been changed to match the [Material Design specifications](https://m2.material.io/components/tabs#specs):
+Минимальная и максимальная ширина по умолчанию были изменены в соответствии со [спецификациями Material Design](https://m2.material.io/components/tabs#specs):
 
-- `minWidth` was changed from 72px to 90px.
-- `maxWidth` was changed from 264px to 360px.
+-   `minWidth` была изменена с 72px на 90px.
+-   `maxWidth` было изменено с 264px на 360px.
 
-### Remove span and wrapper
+### Удаление span и wrapper <meta data-oversett="" data-original-text="Remove span and wrapper">
 
-The `span` element that wraps children has been removed.
-The `wrapper` classKey is also removed.
+Элемент `span`, который оборачивает дочерние элементы, был удален. Также удален элемент `wrapper` classKey.
 
-You can find out more details about this change in [this GitHub pull request](https://github.com/mui/material-ui/pull/26926).
+Более подробно об этом изменении вы можете узнать в [этом запросе на GitHub](https://github.com/mui/material-ui/pull/26926).
 
 ```diff
   <button class="MuiTab-root">
@@ -1643,16 +1623,16 @@ You can find out more details about this change in [this GitHub pull request](ht
   </button>
 ```
 
-## TextField
+## TextField <meta data-oversett="" data-original-text="TextField">
 
-### ✅ Update default variant
+### ✅ Обновление варианта по умолчанию <meta data-oversett="" data-original-text="✅ Update default variant">
 
-Change the default variant from `standard` to `outlined`.
+Измените вариант по умолчанию с `standard` на `outlined`.
 
-`standard` has been removed from the Material Design guidelines.
+`standard` был удален из руководства по Material Design.
 
 :::success
-✅ This is handled in [variant-prop codemod](#variant-prop)—read the details before running this codemod.
+✅ Это обрабатывается в [кодовом модуле variant-prop - прочитайте](#variant-prop)подробности перед запуском этого кодового модуля.
 :::
 
 ```diff
@@ -1662,31 +1642,31 @@ Change the default variant from `standard` to `outlined`.
 +<TextField value="Outlined" />
 ```
 
-### ✅ Rename rowsMax
+### ✅ Переименование рядовМакс <meta data-oversett="" data-original-text="✅ Rename rowsMax">
 
-Rename `rowsMax` prop to `maxRows` for consistency with HTML attributes.
+Переименуйте реквизит `rowsMax` в `maxRows` для согласованности с атрибутами HTML.
 
 ```diff
 -<TextField rowsMax={6}>
 +<TextField maxRows={6}>
 ```
 
-### ✅ Replace rows with minRows
+### ✅ Замените rows на minRows <meta data-oversett="" data-original-text="✅ Replace rows with minRows">
 
-Rename `rows` prop to `minRows` for dynamic resizing.
+Переименуйте `rows` prop в `minRows` для динамического изменения размера.
 
-You need to use the `minRows` prop in the following case:
+Вам необходимо использовать реквизит `minRows` в следующем случае:
 
 ```diff
 -<TextField rows={2} maxRows={5} />
 +<TextField minRows={2} maxRows={5} />
 ```
 
-### Forward ref instead of inputRef prop
+### Forward ref вместо inputRef prop <meta data-oversett="" data-original-text="Forward ref instead of inputRef prop">
 
-Change ref forwarding expectations on custom `inputComponent`.
+Измените ожидания переадресации ссылок на пользовательском `inputComponent`.
 
-The component should forward the `ref` prop instead of the `inputRef` prop.
+Компонент должен пересылать реквизит `ref` вместо реквизита `inputRef`.
 
 ```diff
 -function NumberFormatCustom(props) {
@@ -1704,21 +1684,20 @@ The component should forward the `ref` prop instead of the `inputRef` prop.
 +     getInputRef={ref}
 ```
 
-### Rename marginDense and inputMarginDense classes
+### Переименование классов marginDense и inputMarginDense <meta data-oversett="" data-original-text="Rename marginDense and inputMarginDense classes">
 
-Rename `marginDense` and `inputMarginDense` classes to `sizeSmall` and `inputSizeSmall` to match the prop.
+Переименуйте классы `marginDense` и `inputMarginDense` в `sizeSmall` и `inputSizeSmall` для соответствия реквизиту.
 
 ```diff
 -<Input margin="dense" />
 +<Input size="small" />
 ```
 
-### Update InputAdornment position prop
+### Обновление реквизита InputAdornment position <meta data-oversett="" data-original-text="Update InputAdornment position prop">
 
-Set the InputAdornment `position` prop to `start` or `end`.
+Установите реквизит InputAdornment `position` в `start` или `end`.
 
-Use `start` if used as the value of the `startAdornment` prop.
-Use `end` if used as the value of the `endAdornment` prop.
+Используйте `start`, если в качестве значения используется реквизит `startAdornment`. Используйте `end`, если в качестве значения используется реквизит `endAdornment`.
 
 ```diff
 -<TextField startAdornment={<InputAdornment>kg</InputAdornment>} />
@@ -1727,44 +1706,44 @@ Use `end` if used as the value of the `endAdornment` prop.
 +<TextField endAdornment={<InputAdornment position="end">kg</InputAdornment>} />
 ```
 
-## TextareaAutosize
+## TextareaAutosize <meta data-oversett="" data-original-text="TextareaAutosize">
 
-### ✅ Replace rows with minRows
+### ✅ Заменить строки на minRows <meta data-oversett="" data-original-text="✅ Replace rows with minRows">
 
-Remove the `rows` prop, use the `minRows` prop instead.
+Удалите реквизит `rows`, вместо него используйте реквизит `minRows`.
 
-This change aims to clarify the behavior of the prop.
+Это изменение направлено на прояснение поведения реквизита.
 
 ```diff
 -<TextareaAutosize rows={2} />
 +<TextareaAutosize minRows={2} />
 ```
 
-### ✅ Rename rowsMax
+### ✅ Переименовать rowsMax <meta data-oversett="" data-original-text="✅ Rename rowsMax">
 
-Rename `rowsMax` prop to `maxRows` for consistency with HTML attributes.
+Переименуйте `rowsMax` в `maxRows` для согласованности с атрибутами HTML.
 
 ```diff
 -<TextareaAutosize rowsMax={6}>
 +<TextareaAutosize maxRows={6}>
 ```
 
-### ✅ Rename rowsMin
+### ✅ Переименовать rowsMin <meta data-oversett="" data-original-text="✅ Rename rowsMin">
 
-Rename `rowsMin` prop with `minRows` for consistency with HTML attributes.
+Переименуйте реквизит `rowsMin` в `minRows` для согласованности с атрибутами HTML.
 
 ```diff
 -<TextareaAutosize rowsMin={1}>
 +<TextareaAutosize minRows={1}>
 ```
 
-## ToggleButton
+## ToggleButton <meta data-oversett="" data-original-text="ToggleButton">
 
-### ✅ Update import
+### ✅ Обновить импорт <meta data-oversett="" data-original-text="✅ Update import">
 
-Move the component from the lab to the core.
+Переместите компонент из лаборатории в ядро.
 
-The component is now stable.
+Теперь компонент стабилен.
 
 ```diff
 -import ToggleButton from '@mui/lab/ToggleButton';
@@ -1773,12 +1752,11 @@ The component is now stable.
 +import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 ```
 
-### Remove span and label
+### Удалить span и label <meta data-oversett="" data-original-text="Remove span and label">
 
-The `span` element that wraps children has been removed.
-The `label` classKey is also removed.
+Элемент `span`, который оборачивает дочерние элементы, был удален. `label` classKey также удален.
 
-You can find out more details about this change in [this GitHub pull request](https://github.com/mui/material-ui/pull/27111).
+Более подробно об этом изменении вы можете узнать в [этом запросе на GitHub](https://github.com/mui/material-ui/pull/27111).
 
 ```diff
   <button class="MuiToggleButton-root">
@@ -1788,17 +1766,17 @@ You can find out more details about this change in [this GitHub pull request](ht
   </button>
 ```
 
-## Tooltip
+## Всплывающая подсказка <meta data-oversett="" data-original-text="Tooltip">
 
-### Interactive by default
+### Интерактивные по умолчанию <meta data-oversett="" data-original-text="Interactive by default">
 
-Tooltips are now interactive by default.
+Теперь всплывающие подсказки по умолчанию интерактивны.
 
-The previous default behavior failed the [success criterion 1.4.3 ("hoverable") in WCAG 2.1](https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus).
+Предыдущее поведение по умолчанию не удовлетворяло [критерию успеха 1.4.3 ("hoverable") в WCAG 2.1](https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus).
 
-To reflect the new default value, the prop was renamed to `disableInteractive`.
+Чтобы отразить новое значение по умолчанию, реквизит был переименован в `disableInteractive`.
 
-If you want to restore the v4 behavior, you can apply the following diff:
+Если вы хотите восстановить поведение v4, вы можете применить следующее отличие:
 
 ```diff
 -<Tooltip>
@@ -1809,13 +1787,13 @@ If you want to restore the v4 behavior, you can apply the following diff:
 +<Tooltip>
 ```
 
-## Typography
+## Типографика <meta data-oversett="" data-original-text="Typography">
 
-### Remove srOnly variant
+### Удалить вариант srOnly <meta data-oversett="" data-original-text="Remove srOnly variant">
 
-Remove the `srOnly` variant.
+Удалите вариант `srOnly`.
 
-You can use the `visuallyHidden` utility in conjunction with the `sx` prop instead.
+Вместо него вы можете использовать утилиту `visuallyHidden` в сочетании с реквизитом `sx`.
 
 ```diff
 +import { visuallyHidden } from '@mui/utils';
@@ -1824,17 +1802,17 @@ You can use the `visuallyHidden` utility in conjunction with the `sx` prop inste
 +<span style={visuallyHidden}>Create a user</span>
 ```
 
-### Remove color and style override keys
+### Удалить ключи переопределения цвета и стиля <meta data-oversett="" data-original-text="Remove color and style override keys">
 
-The following classes and style overrides keys were removed:
+Были удалены следующие классы и ключи переопределения стиля:
 
-"colorInherit", "colorPrimary", "colorSecondary", "colorTextPrimary", "colorTextSecondary", "colorError", "displayInline", and "displayBlock".
+"colorInherit", "colorPrimary", "colorSecondary", "colorTextPrimary", "colorTextSecondary", "colorError", "displayInline" и "displayBlock".
 
-These props are now considered part of the System rather than the `Typography` component itself.
+Эти реквизиты теперь считаются частью системы, а не самого компонента `Typography`.
 
-If you still wish to add overrides for them, you can use the [callback as a value in `styleOverrides`](/material-ui/customization/theme-components/#overrides-based-on-props).
+Если вы все еще хотите добавить для них переопределения, вы можете использовать [обратный вызов в качестве значения в `styleOverrides`.](/material-ui/customization/theme-components/#overrides-based-on-props)
 
-For example:
+Например:
 
 ```diff
  const theme = createTheme({
@@ -1855,27 +1833,27 @@ For example:
  });
 ```
 
-## Theme
+## Тема <meta data-oversett="" data-original-text="Theme">
 
-### Default background colors
+### Цвета фона по умолчанию <meta data-oversett="" data-original-text="Default background colors">
 
-The default background color is now `#fff` in light mode and `#121212` in dark mode.
+Цвет фона по умолчанию теперь `#fff` в светлом режиме и `#121212` в темном режиме.
 
-This matches the Material Design guidelines.
+Это соответствует рекомендациям Material Design.
 
-### ✅ Breakpoint behavior
+### ✅ Поведение точек останова <meta data-oversett="" data-original-text="✅ Breakpoint behavior">
 
-Breakpoints are now treated as values instead of [ranges](https://v4.mui.com/customization/breakpoints/#default-breakpoints).
+Точки останова теперь рассматриваются как значения, а не как [диапазоны](https://v4.mui.com/customization/breakpoints/#default-breakpoints).
 
-The behavior of `down(key)` was changed to define a media query below the value defined by the corresponding breakpoint (exclusive), rather than the breakpoint above.
+Поведение `down(key)` было изменено, чтобы определять медиа-запрос ниже значения, определенного соответствующей точкой останова (эксклюзивной), а не выше точки останова.
 
-`between(start, end)` was also updated to define a media query for the values between the actual start (inclusive) and end (exclusive) values.
+`between(start, end)` также было обновлено, чтобы определять медиа-запрос для значений между фактическими значениями начала (включительно) и конца (исключая).
 
-When using the `down()` breakpoints utility, you need to update the breakpoint key by one step up.
+При использовании утилиты `down()` breakpoints необходимо обновить ключ точки останова на один шаг вверх.
 
-When using `between(start, end)`, the end breakpoint should also be updated by one step up.
+При использовании утилиты `between(start, end)` точку останова конца также необходимо обновить на один шаг вверх.
 
-Here are some examples of the changes required:
+Ниже приведены примеры необходимых изменений:
 
 ```diff
 -theme.breakpoints.down('sm') // '@media (max-width:959.95px)' - [0, sm + 1) => [0, md)
@@ -1892,18 +1870,18 @@ Here are some examples of the changes required:
 +theme.breakpoints.up('sm') // '@media (min-width:600px)'
 ```
 
-The same should be done when using the `Hidden` component:
+То же самое следует сделать при использовании компонента `Hidden`:
 
 ```diff
 -<Hidden smDown>{...}</Hidden> // '@media (min-width:600px)'
 +<Hidden mdDown>{...}</Hidden> // '@media (min-width:600px)'
 ```
 
-### Breakpoint sizes
+### Размеры точек останова <meta data-oversett="" data-original-text="Breakpoint sizes">
 
-The default breakpoints were changed to better match common use cases as well as the Material Design guidelines.
+Точки останова по умолчанию были изменены, чтобы лучше соответствовать распространенным случаям использования, а также рекомендациям Material Design.
 
-You can find out more details about this change in [this GitHub issue](https://github.com/mui/material-ui/issues/21902)
+Более подробно об этом изменении можно узнать в [этом выпуске GitHub](https://github.com/mui/material-ui/issues/21902).
 
 ```diff
  {
@@ -1918,7 +1896,7 @@ You can find out more details about this change in [this GitHub issue](https://g
  }
 ```
 
-If you prefer the old breakpoint values, use the snippet below:
+Если вы предпочитаете старые значения точек останова, используйте приведенный ниже фрагмент:
 
 ```js
 import { createTheme } from '@mui/material/styles';
@@ -1936,31 +1914,31 @@ const theme = createTheme({
 });
 ```
 
-### ✅ Replace theme.breakpoints.width
+### ✅ Replace theme.breakpoints.width <meta data-oversett="" data-original-text="✅ Replace theme.breakpoints.width">
 
-The `theme.breakpoints.width` utility has been removed because it was redundant.
+Утилита `theme.breakpoints.width` была удалена, поскольку она была лишней.
 
-Use `theme.breakpoints.values` to get the same values.
+Используйте `theme.breakpoints.values` для получения тех же значений.
 
 ```diff
 -theme.breakpoints.width('md')
 +theme.breakpoints.values.md
 ```
 
-### Update theme.palette.augmentColor helper
+### Обновление помощника theme.palette.augmentColor <meta data-oversett="" data-original-text="Update theme.palette.augmentColor helper">
 
-The signature of `theme.palette.augmentColor` helper has changed:
+Подпись помощника `theme.palette.augmentColor` была изменена:
 
 ```diff
 -theme.palette.augmentColor(red);
 +theme.palette.augmentColor({ color: red, name: 'brand' });
 ```
 
-### Remove theme.typography.round helper
+### Удалите помощник theme.typography.round <meta data-oversett="" data-original-text="Remove theme.typography.round helper">
 
-The `theme.typography.round` helper was removed because it was no longer used.
+Помощник `theme.typography.round` был удален, потому что он больше не используется.
 
-If you need it, use the function below:
+Если он вам нужен, используйте функцию ниже:
 
 ```js
 function round(value) {
@@ -1968,17 +1946,15 @@ function round(value) {
 }
 ```
 
-## @mui/types
+## @mui/types <meta data-oversett="" data-original-text="@mui/types">
 
-### Rename the exported Omit type
+### Переименуйте экспортируемый тип Omit <meta data-oversett="" data-original-text="Rename the exported Omit type">
 
-The module is now called `DistributiveOmit`.
+Модуль теперь называется `DistributiveOmit`.
 
-This change removes the confusion with the built-in `Omit` helper introduced in TypeScript v3.5.
+Это изменение устраняет путаницу со встроенным помощником `Omit`, представленным в TypeScript v3.5.
 
-The built-in `Omit`, while similar, is non-distributive.
-This leads to differences when applied to union types.
-[See this Stack Overflow answer for further details](https://stackoverflow.com/a/57103940/1009797).
+Встроенный `Omit`, хотя и похож, но не является дистрибутивным. Это приводит к различиям при применении к союзным типам.[Дополнительные подробности см. в ответе на Stack Overflow](https://stackoverflow.com/a/57103940/1009797).
 
 ```diff
 -import { Omit } from '@mui/types';

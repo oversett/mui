@@ -1,69 +1,66 @@
-# Installation
 
-<p class="description">Install Material UI, the world's most popular React UI framework.</p>
 
-## Default installation
+# Установка <meta data-oversett="" data-original-text="Installation">
 
-Run one of the following commands to add Material UI to your project:
+<p class="description">Установите Material UI, самый популярный в мире фреймворк React UI.</p>
 
-### npm
+## Установка по умолчанию <meta data-oversett="" data-original-text="Default installation">
+
+Выполните одну из следующих команд, чтобы добавить Material UI в свой проект:
+
+### npm <meta data-oversett="" data-original-text="npm">
 
 ```sh
 npm install @mui/material @emotion/react @emotion/styled
 ```
 
-### yarn
+### yarn <meta data-oversett="" data-original-text="yarn">
 
 ```sh
 yarn add @mui/material @emotion/react @emotion/styled
 ```
 
-## With styled-components
+## Со стилизованными компонентами <meta data-oversett="" data-original-text="With styled-components">
 
-Material UI uses [Emotion](https://emotion.sh/) as its default styling engine.
-If you want to use [styled-components](https://styled-components.com/) instead, run one of the following commands:
+Material UI использует [Emotion](https://emotion.sh/) в качестве движка стилизации по умолчанию. Если вы хотите использовать вместо него [styled-components](https://styled-components.com/), выполните одну из следующих команд:
 
-### npm
+### npm <meta data-oversett="" data-original-text="npm">
 
 ```sh
 npm install @mui/material @mui/styled-engine-sc styled-components
 ```
 
-### yarn
+### yarn <meta data-oversett="" data-original-text="yarn">
 
 ```sh
 yarn add @mui/material @mui/styled-engine-sc styled-components
 ```
 
 :::warning
-Visit the [Styled engine guide](/material-ui/guides/styled-engine/) for more information about how to configure styled-components.
+Посетите [руководство по движку Styled](/material-ui/guides/styled-engine/) для получения дополнительной информации о том, как настроить styled-components.
 :::
 
-## Peer dependencies
+## Зависимости Peer <meta data-oversett="" data-original-text="Peer dependencies">
 
-<!-- #react-peer-version -->
+[`react`](https://www.npmjs.com/package/react) >= 17.0.0 и [`react-dom`](https://www.npmjs.com/package/react-dom) >= 17.0.0 являются одноранговыми зависимостями.
 
-[`react`](https://www.npmjs.com/package/react) >= 17.0.0 and [`react-dom`](https://www.npmjs.com/package/react-dom) >= 17.0.0 are peer dependencies.
+## Шрифт Roboto <meta data-oversett="" data-original-text="Roboto font">
 
-## Roboto font
+В Material UI по умолчанию используется шрифт [Roboto](https://fonts.google.com/specimen/Roboto). Вы можете добавить его в свой проект с помощью npm или yarn через [Fontsource](https://fontsource.org/), или с помощью Google Fonts CDN.
 
-Material UI is designed to use the [Roboto](https://fonts.google.com/specimen/Roboto)
-font by default.
-You may add it to your project with npm or yarn via [Fontsource](https://fontsource.org/), or with the Google Fonts CDN.
-
-### npm
+### npm <meta data-oversett="" data-original-text="npm">
 
 ```sh
 npm install @fontsource/roboto
 ```
 
-### yarn
+### yarn <meta data-oversett="" data-original-text="yarn">
 
 ```sh
 yarn add @fontsource/roboto
 ```
 
-Then you can import it in your entry point like this:
+Затем вы можете импортировать его в точку входа следующим образом:
 
 ```tsx
 import '@fontsource/roboto/300.css';
@@ -73,12 +70,12 @@ import '@fontsource/roboto/700.css';
 ```
 
 :::info
-Fontsource can be configured to load specific subsets, weights and styles. Material UI's default typography configuration relies only on the 300, 400, 500, and 700 font weights.
+Fontsource можно настроить на загрузку определенных подмножеств, весов и стилей. Конфигурация типографики Material UI по умолчанию использует только шрифты весом 300, 400, 500 и 700.
 :::
 
-### Google Web Fonts
+### Веб-шрифты Google <meta data-oversett="" data-original-text="Google Web Fonts">
 
-To install the Roboto font in your project using the Google Web Fonts CDN, add the following code snippet inside your project's `<head />` tag:
+Чтобы установить шрифт Roboto в свой проект с помощью Google Web Fonts CDN, добавьте следующий фрагмент кода в тег `<head />` вашего проекта:
 
 ```html
 <link
@@ -87,31 +84,27 @@ To install the Roboto font in your project using the Google Web Fonts CDN, add t
 />
 ```
 
-## Icons
+## Icons <meta data-oversett="" data-original-text="Icons">
 
-To use the [font Icon component](/material-ui/icons/#icon-font-icons) or the prebuilt SVG Material Icons (such as those found in the [icon demos](/material-ui/icons/)), you must first install the [Material Icons](https://fonts.google.com/icons?icon.set=Material+Icons) font.
-You can do so with npm or yarn, or with the Google Web Fonts CDN.
+Чтобы использовать [компонент шрифта Icon](/material-ui/icons/#icon-font-icons) или готовые SVG-иконки Material Icons (например, те, что представлены в [демонстрационных версиях иконок](/material-ui/icons/)), необходимо сначала установить шрифт [Material Icons](https://fonts.google.com/icons?icon.set=Material+Icons). Это можно сделать с помощью npm или yarn, а также с помощью Google Web Fonts CDN.
 
-### npm
+### npm <meta data-oversett="" data-original-text="npm">
 
 ```sh
 npm install @mui/icons-material
 ```
 
-### yarn
+### yarn <meta data-oversett="" data-original-text="yarn">
 
 ```sh
 yarn add @mui/icons-material
 ```
 
-### Google Web Fonts
+### Google Web Fonts <meta data-oversett="" data-original-text="Google Web Fonts">
 
-To install the Material Icons font in your project using the Google Web Fonts CDN, add the following code snippet inside your project's `<head />` tag:
+Чтобы установить шрифт Material Icons в свой проект с помощью Google Web Fonts CDN, добавьте следующий фрагмент кода в тег `<head />` вашего проекта:
 
-To use the font `Icon` component, you must first add the [Material Icons](https://fonts.google.com/icons?icon.set=Material+Icons) font.
-Here are [some instructions](/material-ui/icons/#icon-font-icons)
-on how to do so.
-For instance, via Google Web Fonts:
+Чтобы использовать компонент font `Icon`, необходимо сначала добавить шрифт [Material Icons](https://fonts.google.com/icons?icon.set=Material+Icons). Вот [некоторые инструкции](/material-ui/icons/#icon-font-icons)о том, как это сделать. Например, через Google Web Fonts:
 
 ```html
 <link
@@ -120,23 +113,19 @@ For instance, via Google Web Fonts:
 />
 ```
 
-## CDN
+## CDN . <meta data-oversett="" data-original-text="CDN">
 
-You can start using Material UI right away with minimal front-end infrastructure by installing it via CDN, which is a great option for rapid prototyping.
-Follow [this CDN example](https://github.com/mui/material-ui/tree/master/examples/cdn) to get started.
+Вы можете сразу же начать использовать Material UI с минимальной инфраструктурой front-end, установив его через CDN, что является отличным вариантом для быстрого создания прототипов. Чтобы начать работу, следуйте [этому примеру с CDN](https://github.com/mui/material-ui/tree/master/examples/cdn).
 
 :::error
-We do _not_ recommend using this approach in production.
-It requires the client to download the entire library—regardless of which components are actually used—which negatively impacts performance and bandwidth utilization.
+Мы _не_ рекомендуем использовать этот подход в производстве. Он требует от клиента загрузки всей библиотеки - независимо от того, какие компоненты фактически используются - что негативно сказывается на производительности и использовании полосы пропускания.
 :::
 
-Two Universal Module Definition (UMD) files are provided:
+Предоставляются два файла Universal Module Definition (UMD):
 
-- one for development: https://unpkg.com/@mui/material@latest/umd/material-ui.development.js
-- one for production: https://unpkg.com/@mui/material@latest/umd/material-ui.production.min.js
+-   один для разработки: [https://unpkg.com/@mui/material@latest/umd/material-ui.development.js](https://unpkg.com/@mui/material@latest/umd/material-ui.development.js)
+-   один для производства: [https://unpkg.com/@mui/material@latest/umd/material-ui.production.min.js](https://unpkg.com/@mui/material@latest/umd/material-ui.production.min.js)
 
 :::warning
-The UMD links use the `latest` tag to point to the latest version of the library.
-This pointer is _unstable_ and subject to change as we release new versions.
-You should consider pointing to a specific version, such as [v5.0.0](https://unpkg.com/@mui/material@5.0.0/umd/material-ui.development.js).
+Ссылки UMD используют тег `latest` для указания на последнюю версию библиотеки. Этот указатель _нестабилен_ и может изменяться по мере выпуска новых версий. Вам следует рассмотреть возможность указания на конкретную версию, например, [v5.0.0](https://unpkg.com/@mui/material@5.0.0/umd/material-ui.development.js).
 :::

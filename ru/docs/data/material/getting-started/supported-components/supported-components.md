@@ -1,15 +1,11 @@
-# Supported components
 
-<p class="description">The following is a list of Material Design components & features. Those currently supported by Material UI are highlighted ✓.</p>
 
-While we strive to follow the Material Design guidelines where practical (applying
-common sense where guidelines contradict - a more common occurrence than
-one might expect), we do not expect to support every component, nor every
-feature of every component, but rather to provide the building blocks to
-allow developers to create compelling user interfaces and experiences.
+# Поддерживаемые компоненты <meta data-oversett="" data-original-text="Supported components">
 
-If you wish to add support for a component or feature not highlighted
-here, please search for the relevant [GitHub Issue](https://github.com/mui/material-ui/issues), or create a new one
-to discuss the approach before submitting a pull request.
+<p class="description">Ниже приведен список компонентов и функций Material Design. Те из них, которые в настоящее время поддерживаются Material UI, выделены ✓.</p>
+
+Хотя мы стремимся следовать рекомендациям Material Design, где это возможно (применяя здравый смысл там, где рекомендации противоречат друг другу - что случается гораздо чаще, чем можно было бы ожидать), мы не ожидаем поддержки каждого компонента или каждой функции каждого компонента, а скорее предоставляем строительные блоки, позволяющие разработчикам создавать привлекательные пользовательские интерфейсы и опыт.
+
+Если вы хотите добавить поддержку компонента или функции, не отмеченной здесь, пожалуйста, найдите соответствующий [выпуск на GitHub](https://github.com/mui/material-ui/issues) или создайте новый, чтобы обсудить подход перед отправкой запроса на внесение изменений.
 
 {{"demo": "MaterialUIComponents.js", "hideToolbar": true, "bg": true}}

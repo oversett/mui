@@ -2,41 +2,34 @@
 title: Overview
 ---
 
-# Material UI - Overview
+# Material UI - обзор <meta data-oversett="" data-original-text="Material UI - Overview">
 
-<p class="description">Material UI is a library of React UI components that implements Google's Material Design.</p>
+<p class="description">Material UI - это библиотека компонентов React UI, которая реализует Material Design от Google.</p>
 
-## Introduction
+## Введение <meta data-oversett="" data-original-text="Introduction">
 
-Material UI is an open-source React component library that implements Google's [Material Design](https://m2.material.io/).
+Material UI - это библиотека компонентов React с открытым исходным кодом, которая реализует [Material Design](https://m2.material.io/) от Google.
 
-It includes a comprehensive collection of prebuilt components that are ready for use in production right out of the box.
+Она включает в себя обширную коллекцию готовых компонентов, которые готовы к использованию в производстве прямо из коробки.
 
-Material UI is beautiful by design and features a suite of customization options that make it easy to implement your own custom design system on top of our components.
+Material UI красив по дизайну и имеет набор опций настройки, которые позволяют легко реализовать собственную систему дизайна поверх наших компонентов.
 
 :::info
-Material UI v5 supports Material Design v2.
-Adoption of v3 is tentatively planned for Material UI v6—see [the release schedule](https://mui.com/versions/#release-schedule).
-You can follow [this GitHub issue](https://github.com/mui/material-ui/issues/29345) for future updates.
+Material UI v5 поддерживает Material Design v2. Принятие v3 предварительно запланировано в Material UI v6 - см. [график выпуска](https://mui.com/versions/#release-schedule). Вы можете следить за [этим выпуском на GitHub](https://github.com/mui/material-ui/issues/29345) для получения будущих обновлений.
 :::
 
-## Advantages of Material UI
+## Преимущества Material UI <meta data-oversett="" data-original-text="Advantages of Material UI">
 
-- **Ship faster:** Over 2,500 open-source [contributors](https://github.com/mui/material-ui/graphs/contributors) have poured countless hours into these components.
-  Focus on your core business logic instead of reinventing the wheel—we've got your UI covered.
-- **Beautiful by default:** we're meticulous about our implementation of [Material Design](https://m2.material.io/), ensuring that every Material UI component meets the highest standards of form and function,
-  but diverge from the official spec where necessary to provide multiple great options.
-- **Customizability:** the library includes an extensive set of intuitive customizability features. [The templates](https://mui.com/store/) in our store demonstrate how far you can go with customization.
-- **Cross-team collaboration:** Material UI's intuitive developer experience reduces the barrier to entry for back-end developers and less technical designers, empowering teams to collaborate more effectively.
-  The [design kits](https://mui.com/design-kits/) streamline your workflow and boost consistency between designers and developers.
-- **Trusted by thousands of organizations:** Material UI has the largest UI community in the React ecosystem.
-  It's almost as old as React itself—its history stretches back to 2014—and we're in this for the long haul.
-  You can count on community's support for years to come (e.g. [Stack Overflow](https://insights.stackoverflow.com/trends?tags=material-ui)).
+-   **Быстрее:** Более 2500 [авторов](https://github.com/mui/material-ui/graphs/contributors) с открытым исходным кодом вложили бесчисленное количество часов в эти компоненты. Сосредоточьтесь на своей основной бизнес-логике вместо того, чтобы изобретать колесо - мы позаботимся о вашем пользовательском интерфейсе.
+-   **Красивый по умолчанию:** мы тщательно следим за внедрением [Material Design](https://m2.material.io/), гарантируя, что каждый компонент Material UI отвечает самым высоким стандартам формы и функций, но при необходимости отклоняемся от официальной спецификации, чтобы предоставить множество отличных вариантов.
+-   **Настраиваемость:** библиотека включает в себя обширный набор интуитивно понятных функций настройки. [Шаблоны](https://mui.com/store/) в нашем магазине демонстрируют, насколько далеко можно зайти в настройке.
+-   **Межкомандное сотрудничество:** Интуитивно понятный интерфейс Material UI для разработчиков снижает барьер входа для back-end разработчиков и менее технических дизайнеров, позволяя командам сотрудничать более эффективно. [Наборы для дизайна](https://mui.com/design-kits/) упрощают рабочий процесс и повышают согласованность между дизайнерами и разработчиками.
+-   **Доверяют тысячи организаций:** Material UI имеет самое большое сообщество UI в экосистеме React. Оно почти такое же старое, как и сам React - его история начинается в 2014 году - и мы в этом надолго. Вы можете рассчитывать на поддержку сообщества в течение многих лет (например, [Stack Overflow](https://insights.stackoverflow.com/trends?tags=material-ui)).
 
-## Material UI vs. MUI Base
+## Material UI против MUI Base <meta data-oversett="" data-original-text="Material UI vs. MUI Base">
 
-Material UI and [MUI Base](/base/getting-started/overview/) feature many of the same UI components, but MUI Base comes without any default styles or styling solutions.
+Material UI и [MUI Base](/base/getting-started/overview/) имеют много одинаковых компонентов пользовательского интерфейса, но MUI Base поставляется без каких-либо стилей по умолчанию или решений для стилизации.
 
-Material UI is _comprehensive_ in that it comes packaged with default styles, and is optimized to work with [Emotion](https://emotion.sh/) (or [styled-components](https://styled-components.com/)).
+Material UI является _комплексным_, поскольку поставляется со стилями по умолчанию и оптимизирован для работы с [Emotion](https://emotion.sh/) (или [стилизованными компонентами](https://styled-components.com/)).
 
-MUI Base, by contrast, could be considered the "skeletal" or "headless" counterpart to Material UI—in fact, Material UI v6 will use MUI Base components and hooks for its foundational structure.
+MUI Base, напротив, можно считать "скелетным" или "безголовым" аналогом Material UI - фактически, Material UI v6 будет использовать компоненты и крючки MUI Base для своей фундаментальной структуры.

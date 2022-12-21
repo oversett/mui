@@ -1,10 +1,12 @@
-# Dark mode
 
-<p class="description">Material UI comes with two palette modes: light (the default) and dark.</p>
 
-## Dark mode by default
+# Темный режим <meta data-oversett="" data-original-text="Dark mode">
 
-You can make your application use the dark theme as the default—regardless of the user's preference—by adding `mode: 'dark'` to the `createTheme` helper:
+<p class="description">Material UI поставляется с двумя режимами палитры: светлым (по умолчанию) и темным.</p>
+
+## Темный режим по умолчанию <meta data-oversett="" data-original-text="Dark mode by default">
+
+Вы можете заставить свое приложение использовать темную тему по умолчанию - независимо от предпочтений пользователя - добавив `mode: 'dark'` к помощнику `createTheme`:
 
 ```js
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -28,19 +30,19 @@ function App() {
 export default App;
 ```
 
-Adding `mode: 'dark'` to the `createTheme` helper modifies several palette values, as shown in the following demo:
+Добавление `mode: 'dark'` к помощнику `createTheme` изменяет несколько значений палитры, как показано в следующем примере:
 
 {{"demo": "DarkTheme.js", "bg": "inline", "hideToolbar": true}}
 
-Adding `<CssBaseline />` inside of the `<ThemeProvider>` component will also enable dark mode for the app's background.
+Добавление `<CssBaseline />` внутрь компонента `<ThemeProvider>` также включит темный режим для фона приложения.
 
 :::warning
-Setting the dark mode this way only works if you are using [the default palette](/material-ui/customization/default-theme/). If you have a custom palette, make sure that you have the correct values based on the `mode`. The next section explains how to do this.
+Установка темного режима таким образом работает только в том случае, если вы используете [палитру по умолчанию](/material-ui/customization/default-theme/). Если у вас пользовательская палитра, убедитесь, что у вас правильные значения, основанные на `mode`. Следующий раздел объясняет, как это сделать.
 :::
 
-## Dark mode with a custom palette
+## Темный режим с пользовательской палитрой <meta data-oversett="" data-original-text="Dark mode with a custom palette">
 
-To use custom palettes for light and dark modes, you can create a function that will return the correct palette depending on the selected mode, as shown here:
+Чтобы использовать пользовательские палитры для светлого и темного режимов, можно создать функцию, которая будет возвращать правильную палитру в зависимости от выбранного режима, как показано здесь:
 
 ```ts
 const getDesignTokens = (mode: PaletteMode) => ({
@@ -73,7 +75,7 @@ const getDesignTokens = (mode: PaletteMode) => ({
 });
 ```
 
-You can see on the example that there are different colors used based on whether the mode is light or dark. The next step is to use this function when creating the theme.
+На примере видно, что используются разные цвета в зависимости от того, какой режим выбран - светлый или темный. Следующим шагом будет использование этой функции при создании темы.
 
 ```tsx
 export default function App() {
@@ -103,23 +105,23 @@ export default function App() {
 }
 ```
 
-Here is a fully working example:
+Вот полностью рабочий пример:
 
 {{"demo": "DarkThemeWithCustomPalette.js", "defaultCodeOpen": false}}
 
-## Toggling color mode
+## Переключение цветового режима <meta data-oversett="" data-original-text="Toggling color mode">
 
-To give your users a way to toggle between modes, you can add React's context to a button's `onClick` event, as shown in the following demo:
+Чтобы дать пользователям возможность переключать режимы, вы можете добавить контекст React в событие кнопки `onClick`, как показано в следующем примере:
 
 {{"demo": "ToggleColorMode.js", "defaultCodeOpen": false}}
 
-## System preference
+## Системные предпочтения <meta data-oversett="" data-original-text="System preference">
 
-Users might have a preference for light or dark mode that they've set through their operating system—either systemwide, or for a single user agent.
+Пользователи могут иметь предпочтение светлого или темного режима, которое они установили в своей операционной системе - либо в масштабах всей системы, либо для отдельного пользовательского агента.
 
-You can make use of this preference with the [useMediaQuery](/material-ui/react-use-media-query/) hook and the [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) media query.
+Вы можете использовать эти предпочтения с помощью хука [useMediaQuery](/material-ui/react-use-media-query/) и медиазапроса [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
 
-The following demo shows how to enable dark mode automatically by checking for the user's preference in their OS or browser settings:
+Следующая демонстрация показывает, как автоматически включить темный режим, проверяя предпочтения пользователя в настройках его ОС или браузера:
 
 ```jsx
 import * as React from 'react';

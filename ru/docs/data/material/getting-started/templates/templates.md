@@ -3,30 +3,22 @@ product: material-ui
 title: 9+ Free React Templates
 ---
 
-# React Templates
+# Шаблоны React <meta data-oversett="" data-original-text="React Templates">
 
-<p class="description">A selection of free react templates to help you get started building your app. The collection contains react dashboard, react admin, and more.</p>
+<p class="description">Подборка бесплатных шаблонов react, которые помогут вам приступить к созданию приложения. Коллекция содержит react dashboard, react admin и многое другое.</p>
 
-<!-- #default-branch-switch -->
+Шаблоны могут быть объединены с одним из [примеров проектов](https://github.com/mui/material-ui/tree/master/examples) для создания полноценного стартапа.
 
-The templates can be combined with one of the [example projects](https://github.com/mui/material-ui/tree/master/examples) to form a complete starter.
-
-Sections of each layout are clearly defined either by comments or use of separate files,
-making it simple to extract parts of a page (such as a "hero unit", or footer, for example)
-for reuse in other pages.
-For multi-part examples, a table in the README at the linked source code location describes
-the purpose of each file.
+Разделы каждого макета четко определены либо с помощью комментариев, либо с помощью отдельных файлов, что упрощает извлечение частей страницы (например, "блока героя" или нижнего колонтитула) для повторного использования в других страницах. Для примеров, состоящих из нескольких частей, в таблице в README в месте размещения исходного кода описано назначение каждого файла.
 
 {{"demo": "Templates.js", "hideToolbar": true, "bg": true}}
 
-If while using these examples you make changes or enhancements that could improve the
-developer experience, or you would like to contribute an additional example,
-please consider creating a [pull request on GitHub](https://github.com/mui/material-ui/pulls).
+Если в процессе использования этих примеров вы внесете изменения или усовершенствования, которые могут улучшить работу разработчиков, или захотите внести дополнительный пример, пожалуйста, подумайте о создании [запроса на исправление на GitHub](https://github.com/mui/material-ui/pulls).
 
-So far we have demos for a dashboard, sign in page, sign up page, blog page, checkout flow, album page, pricing page, and sticky footer page.
+На данный момент у нас есть демо-примеры для приборной панели, страницы входа, страницы регистрации, страницы блога, потока оформления заказа, страницы альбома, страницы цен и страницы с липким колонтитулом.
 
-## Premium templates
+## Премиум-шаблоны <meta data-oversett="" data-original-text="Premium templates">
 
-Looking for something more? You can find complete templates & themes in the <a href="https://mui.com/store/?utm_source=docs&utm_medium=referral&utm_campaign=templates-store">premium template section</a>.
+Ищете что-то большее? Вы можете найти готовые шаблоны и темы в [разделе премиум-шаблонов](https://mui.com/store/?utm_source=docs&utm_medium=referral&utm_campaign=templates-store).
 
-<a href="https://mui.com/store/?utm_source=docs&utm_medium=referral&utm_campaign=templates-store"><img src="/static/images/themes-light.jpg" alt="react templates" /></a>
+[![react templates](/static/images/themes-light.jpg)](https://mui.com/store/?utm_source=docs&utm_medium=referral&utm_campaign=templates-store)

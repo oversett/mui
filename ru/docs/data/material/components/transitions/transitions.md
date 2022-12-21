@@ -5,71 +5,61 @@ components: Collapse, Fade, Grow, Slide, Zoom
 githubLabel: 'component: transitions'
 ---
 
-# Transitions
+# Переходы <meta data-oversett="" data-original-text="Transitions">
 
-<p class="description">Transitions help to make a UI expressive and easy to use.</p>
+<p class="description">Переходы помогают сделать пользовательский интерфейс выразительным и простым в использовании.</p>
 
-MUI provides transitions that can be used to introduce some basic [motion](https://m2.material.io/design/motion/) to your applications.
+MUI предоставляет переходы, которые можно использовать для придания базовой [динамики](https://m2.material.io/design/motion/) вашим приложениям.
 
 {{"component": "modules/components/ComponentLinkHeader.js", "design": false}}
 
-## Collapse
+## Свернуть <meta data-oversett="" data-original-text="Collapse">
 
-Expand from the start edge of the child element.
-Use the `orientation` prop if you need a horizontal collapse.
-The `collapsedSize` prop can be used to set the minimum width/height when not expanded.
+Разворачивается от начального края дочернего элемента. Используйте реквизит `orientation`, если вам нужно горизонтальное сворачивание. Реквизит `collapsedSize` можно использовать для установки минимальной ширины/высоты, когда он не развернут.
 
 {{"demo": "SimpleCollapse.js", "bg": true}}
 
-## Fade
+## Затухание <meta data-oversett="" data-original-text="Fade">
 
-Fade in from transparent to opaque.
+Переход от прозрачного к непрозрачному.
 
 {{"demo": "SimpleFade.js", "bg": true}}
 
-## Grow
+## Grow <meta data-oversett="" data-original-text="Grow">
 
-Expands outwards from the center of the child element, while also fading in from transparent to opaque.
+Расширяется наружу от центра дочернего элемента, одновременно переходя от прозрачного к непрозрачному.
 
-The second example demonstrates how to change the `transform-origin`, and conditionally applies
-the `timeout` prop to change the entry speed.
+Второй пример демонстрирует, как изменить `transform-origin`, и условно применяет реквизит `timeout` для изменения скорости входа.
 
 {{"demo": "SimpleGrow.js", "bg": true}}
 
-## Slide
+## Слайд <meta data-oversett="" data-original-text="Slide">
 
-Slide in from the edge of the screen.
-The `direction` prop controls which edge of the screen the transition starts from.
+Сдвиг от края экрана. Реквизит `direction` управляет тем, от какого края экрана начинается переход.
 
-The Transition component's `mountOnEnter` prop prevents the child component from being mounted
-until `in` is `true`.
-This prevents the relatively positioned component from scrolling into view
-from its off-screen position.
-Similarly, the `unmountOnExit` prop removes the component from the DOM after it has been transition off-screen.
+Реквизит `mountOnEnter` компонента Transition предотвращает установку дочернего компонента, пока `in` не станет `true`. Это предотвращает прокрутку относительно расположенного компонента из его внеэкранной позиции. Аналогично, реквизит `unmountOnExit` удаляет компонент из DOM после перехода за пределы экрана.
 
 {{"demo": "SimpleSlide.js", "bg": true}}
 
-### Slide relative to a container
+### Сдвиг относительно контейнера <meta data-oversett="" data-original-text="Slide relative to a container">
 
-The Slide component also accepts `container` prop, which is a reference to a DOM node.
-If this prop is set, the Slide component will slide from the edge of that DOM node.
+Компонент Slide также принимает `container` prop, который является ссылкой на узел DOM. Если этот prop установлен, компонент Slide будет скользить от края этого узла DOM.
 
 {{"demo": "SlideFromContainer.js"}}
 
-## Zoom
+## Zoom <meta data-oversett="" data-original-text="Zoom">
 
-Expand outwards from the center of the child element.
+Развернуть наружу от центра дочернего элемента.
 
-This example also demonstrates how to delay the enter transition.
+Этот пример также демонстрирует, как отсрочить переход enter.
 
 {{"demo": "SimpleZoom.js", "bg": true}}
 
-## Child requirement
+## Требование к дочернему элементу <meta data-oversett="" data-original-text="Child requirement">
 
-- **Forward the style**: To better support server rendering, MUI provides a `style` prop to the children of some transition components (Fade, Grow, Zoom, Slide).
-  The `style` prop must be applied to the DOM for the animation to work as expected.
-- **Forward the ref**: The transition components require the first child element to forward its ref to the DOM node. For more details about ref, check out [Caveat with refs](/material-ui/guides/composition/#caveat-with-refs)
-- **Single element**: The transition components require only one child element (`React.Fragment` is not allowed).
+-   **Переслать стиль**: Для лучшей поддержки серверного рендеринга MUI предоставляет дочерним элементам некоторых компонентов перехода (Fade, Grow, Zoom, Slide) реквизит `style`. Чтобы анимация работала, как ожидается, реквизит `style` должен быть применен к DOM.
+-   **Переслать ссылку**: компоненты перехода требуют, чтобы первый дочерний элемент пересылал свою ссылку на узел DOM. Для получения более подробной информации о реферере ознакомьтесь с разделом [Осторожно с реферерами](/material-ui/guides/composition/#caveat-with-refs).
+-   **Один элемент**: Компоненты перехода требуют только один дочерний элемент (`React.Fragment` не допускается).
 
 ```jsx
 // The `props` object contains a `style` prop.
@@ -92,43 +82,34 @@ export default Main() {
 }
 ```
 
-## TransitionGroup
+## TransitionGroup <meta data-oversett="" data-original-text="TransitionGroup">
 
-To animate a component when it is mounted or unmounted, you can use the [`TransitionGroup`](http://reactcommunity.org/react-transition-group/transition-group/) component from _react-transition-group_.
-As components are added or removed, the `in` prop is toggled automatically by `TransitionGroup`.
+Чтобы анимировать компонент, когда он монтируется или размонтируется, вы можете использовать функцию [`TransitionGroup`](http://reactcommunity.org/react-transition-group/transition-group/) компонент из _react-transition-group_. Когда компоненты добавляются или удаляются, `in` prop переключается автоматически `TransitionGroup`.
 
 {{"demo": "TransitionGroupExample.js"}}
 
-## TransitionComponent prop
+## Свойство TransitionComponent <meta data-oversett="" data-original-text="TransitionComponent prop">
 
-Some MUI components use these transitions internally. These accept a `TransitionComponent` prop to customize the default transition.
-You can use any of the above components or your own.
-It should respect the following conditions:
+Некоторые компоненты MUI используют эти переходы внутри. Они принимают реквизит `TransitionComponent` для настройки перехода по умолчанию. Вы можете использовать любой из вышеперечисленных компонентов или свой собственный. Он должен удовлетворять следующим условиям:
 
-- Accepts an `in` prop. This corresponds to the open/close state.
-- Call the `onEnter` callback prop when the enter transition starts.
-- Call the `onExited` callback prop when the exit transition is completed.
-  These two callbacks allow to unmount the children when in a closed state and fully transitioned.
+-   Принимает реквизит `in`. Это соответствует состоянию открытия/закрытия.
+-   Вызывать реквизит обратного вызова `onEnter`, когда начинается переход enter.
+-   Вызов реквизита обратного вызова `onExited` при завершении перехода exit. Эти два обратных вызова позволяют размонтировать дочерние элементы, когда они находятся в закрытом состоянии и полностью перешли.
 
-For more information on creating a custom transition, visit the _react-transition-group_ [`Transition` documentation](http://reactcommunity.org/react-transition-group/transition/).
-You can also visit the dedicated sections of some of the components:
+Для получения дополнительной информации о создании пользовательского перехода посетите [документацию](http://reactcommunity.org/react-transition-group/transition/) _react-transition-group_ [`Transition`](http://reactcommunity.org/react-transition-group/transition/) . Вы также можете посетить специальные разделы некоторых компонентов:
 
-- [Modal](/material-ui/react-modal/#transitions)
-- [Dialog](/material-ui/react-dialog/#transitions)
-- [Popper](/material-ui/react-popper/#transitions)
-- [Snackbar](/material-ui/react-snackbar/#transitions)
-- [Tooltip](/material-ui/react-tooltip/#transitions)
+-   [Модальный](/material-ui/react-modal/#transitions)
+-   [Диалог](/material-ui/react-dialog/#transitions)
+-   [Popper](/material-ui/react-popper/#transitions)
+-   [Snackbar](/material-ui/react-snackbar/#transitions)
+-   [Всплывающая подсказка](/material-ui/react-tooltip/#transitions)
 
-## Performance & SEO
+## Производительность и SEO <meta data-oversett="" data-original-text="Performance &amp; SEO">
 
-The content of transition component is mounted by default even if `in={false}`.
-This default behavior has server-side rendering and SEO in mind.
-If you render expensive component trees inside your transition it might be a good idea to change this default behavior by enabling the
-`unmountOnExit` prop:
+Содержимое компонента перехода монтируется по умолчанию, даже если `in={false}`. Это поведение по умолчанию имеет в виду рендеринг на стороне сервера и SEO. Если вы рендерите дорогие деревья компонентов внутри вашего перехода, может быть хорошей идеей изменить это поведение по умолчанию, включив параметр`unmountOnExit`:
 
 ```jsx
 <Fade in={false} unmountOnExit />
 ```
 
-As with any performance optimization this is not a silver bullet.
-Be sure to identify bottlenecks first and then try out these optimization strategies.
+Как и любая оптимизация производительности, это не серебряная пуля. Убедитесь, что вы сначала определили узкие места, а затем попробуйте эти стратегии оптимизации.

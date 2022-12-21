@@ -5,44 +5,39 @@ components: Grow, Popover
 githubLabel: 'component: Popover'
 ---
 
-# Popover
+# Popover <meta data-oversett="" data-original-text="Popover">
 
-<p class="description">A Popover can be used to display some content on top of another.</p>
+<p class="description">Popover можно использовать для отображения некоторого содержимого поверх другого.</p>
 
-Things to know when using the `Popover` component:
+Что нужно знать при использовании компонента `Popover`:
 
-- The component is built on top of the [`Modal`](/material-ui/react-modal/) component.
-- The scroll and click away are blocked unlike with the [`Popper`](/material-ui/react-popper/) component.
+-   Компонент построен поверх [`Modal`](/material-ui/react-modal/) компонента.
+-   Прокрутка и отклонение клика блокируются в отличие от [`Popper`](/material-ui/react-popper/) компонента.
 
 {{"component": "modules/components/ComponentLinkHeader.js", "design": false}}
 
-## Basic Popover
+## Базовый Popover <meta data-oversett="" data-original-text="Basic Popover">
 
 {{"demo": "BasicPopover.js" }}
 
-## Anchor playground
+## Якорная площадка <meta data-oversett="" data-original-text="Anchor playground">
 
-Use the radio buttons to adjust the `anchorOrigin` and `transformOrigin` positions.
-You can also set the `anchorReference` to `anchorPosition` or `anchorEl`.
-When it is `anchorPosition`, the component will, instead of `anchorEl`,
-refer to the `anchorPosition` prop which you can adjust to set
-the position of the popover.
+Используйте радиокнопки для настройки позиций `anchorOrigin` и `transformOrigin`. Вы также можете установить `anchorReference` на `anchorPosition` или `anchorEl`. Когда это будет `anchorPosition`, компонент вместо `anchorEl` будет ссылаться на реквизит `anchorPosition`, который вы можете настроить для установки позиции попповера.
 
 {{"demo": "AnchorPlayground.js", "hideToolbar": true}}
 
-## Mouse over interaction
+## Взаимодействие при наведении курсора мыши <meta data-oversett="" data-original-text="Mouse over interaction">
 
-This demo demonstrates how to use the `Popover` component and the mouseover event to achieve popover behavior.
+Эта демонстрация показывает, как использовать компонент `Popover` и событие mouseover для достижения поведения всплывающего окна.
 
 {{"demo": "MouseOverPopover.js"}}
 
-## Complementary projects
+## Дополнительные проекты <meta data-oversett="" data-original-text="Complementary projects">
 
-For more advanced use cases, you might be able to take advantage of:
+Для более сложных случаев использования вы можете воспользоваться:
 
-### PopupState helper
+### Помощник PopupState <meta data-oversett="" data-original-text="PopupState helper">
 
-There is a 3rd party package [`material-ui-popup-state`](https://github.com/jcoreio/material-ui-popup-state) that takes care of popover
-state for you in most cases.
+Существует пакет стороннего разработчика [`material-ui-popup-state`](https://github.com/jcoreio/material-ui-popup-state) который в большинстве случаев заботится о состоянии всплывающего окна.
 
 {{"demo": "PopoverPopupState.js"}}

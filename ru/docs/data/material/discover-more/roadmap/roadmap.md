@@ -1,83 +1,77 @@
-# Roadmap
 
-<p class="description">The roadmap is a living document, and it is likely that priorities will change, but the list below should give some indication of our plans for the next major release, and for the future.</p>
 
-## Methodology
+# Дорожная карта <meta data-oversett="" data-original-text="Roadmap">
 
-MUI is community driven – issues that resonate most with the community get the most attention.
-Please **upvote** (👍) on GitHub the issues you are most interested in.
-Thank you for participating [in the developer survey](/blog/2021-developer-survey-results/).
+<p class="description">Дорожная карта - это живой документ, и вполне вероятно, что приоритеты будут меняться, но приведенный ниже список должен дать некоторое представление о наших планах на следующий основной выпуск и на будущее.</p>
 
-## Priorities
+## Методология <meta data-oversett="" data-original-text="Methodology">
 
-Here are the top priorities:
+MUI ориентируется на сообщество - вопросы, которые вызывают наибольший резонанс у сообщества, получают наибольшее внимание. Пожалуйста, **проголосуйте** (👍) на GitHub за вопросы, которые вам наиболее интересны. Благодарим вас за участие [в опросе разработчиков](/blog/2021-developer-survey-results/).
 
-- **More components**. 🧰 We have to strictly prioritize as developing a fully-fledged component takes a considerable amount of time.
-  We apply the following strategy:
-  - Identify frequently needed components. There are many resources we leverage for this: the developer survey answers, GitHub issue upvotes, Algolia search volume, Google search volume, documentation usage, npm downloads, etc.
-  - Prioritize the creation of frequently needed components.
-  - Encourage the usage of third-party components if they already exist and are well maintained.
-- **Design.** 🎀 We are relatively up-to-date, but the Material Design guidelines [are evolving](https://material.io/blog/). So should we. We also plan to implement [a second design](https://github.com/mui/material-ui/issues/22485).
-- **Better customization.** 💅 We want to make component customization intuitive, no matter if you are using global CSS or styled-components:
-- **Better documentation.** 📚 No solution is complete without great documentation.
-- **Performance.** 🚀 React abstraction has a cost. The more components you render, the slower your page will be. You will notice stark differences when rendering a large table or list.
-- **Bundle size.** 📦 You can follow our progress [with bundlephobia.com report](https://bundlephobia.com/package/@mui/material). Please pay special attention to the cost of the individual modules under "Exports Analysis".
-- **TypeScript.** 📏 We are continuously improving the definitions. The codebase is mostly written in JavaScript with manually authored `.d.ts` definitions. While we do not plan a migration effort as a standalone effort, new modules are written in TypeScript.
-- **Accessibility.** ♿️ We have relatively [few accessibility issues](https://darekkay.com/blog/accessible-ui-frameworks/), but we are eager to address them all. We would appreciate the help of accessibility experts.
+## Приоритеты <meta data-oversett="" data-original-text="Priorities">
 
-## Quarterly roadmap
+Вот основные приоритеты:
 
-Our GitHub project's roadmap is where you can learn about what features we're working on, what stage they're at, and when we expect to bring them to you:
+-   **Больше компонентов**. 🧰 Мы должны строго расставлять приоритеты, так как разработка полноценного компонента занимает значительное количество времени. Мы применяем следующую стратегию:
+    -   Определить часто требуемые компоненты. Для этого мы используем множество ресурсов: ответы на вопросы опроса разработчиков, количество голосов за вопросы на GitHub, объем поиска Algolia, объем поиска Google, использование документации, загрузки npm и т.д.
+    -   Приоритет отдавайте созданию часто востребованных компонентов.
+    -   Поощряйте использование сторонних компонентов, если они уже существуют и хорошо поддерживаются.
+-   **Дизайн.** 🎀 Мы относительно современны, но руководство по Material Design [развивается](https://material.io/blog/). И мы тоже должны развиваться. Мы также планируем внедрить [второй дизайн](https://github.com/mui/material-ui/issues/22485).
+-   **Лучшая кастомизация.** 💅 Мы хотим сделать настройку компонентов интуитивно понятной, независимо от того, используете ли вы глобальный CSS или стилизованные компоненты:
+-   **Лучшая документация.** 📚 Ни одно решение не будет полным без отличной документации.
+-   **Производительность.** 🚀 Абстракция React имеет свою цену. Чем больше компонентов вы отображаете, тем медленнее будет работать ваша страница. Вы заметите разительную разницу при рендеринге большой таблицы или списка.
+-   **Размер пакета.** 📦 Вы можете следить за нашим прогрессом [с помощью отчета bundlephobia.com](https://bundlephobia.com/package/@mui/material). Обратите особое внимание на стоимость отдельных модулей в разделе "Анализ экспорта".
+-   **TypeScript.** 📏 Мы постоянно совершенствуем определения. Кодовая база в основном написана на JavaScript с написанными вручную определениями `.d.ts`. Хотя мы не планируем миграцию как самостоятельную работу, новые модули пишутся на TypeScript.
+-   **Доступность.** ♿️ У нас относительно [немного проблем с доступностью](https://darekkay.com/blog/accessible-ui-frameworks/), но мы стремимся решить их все. Мы будем признательны за помощь экспертов по доступности.
 
-- [MUI Core](https://github.com/mui/material-ui/projects/25).
-  This repository focuses on empowering the creation of great design systems with React, as well as providing two ready to use themes (Material Design so far, another one coming in the near future).
-- [MUI X](https://github.com/mui/mui-x/projects/1).
-  This repository focuses on providing advanced React components.
-  Some of the features are MIT licensed, others are available under a commercial license.
-- [MUI Design kits](https://github.com/mui/mui-design-kits/projects/1)
-  This repository focuses on providing the components for designers on Figma and other design tools.
-  It's a great place to leave feedback, feature requests, and ask questions.
+## Ежеквартальная дорожная карта <meta data-oversett="" data-original-text="Quarterly roadmap">
 
-## New components
+Дорожная карта нашего проекта на GitHub - это место, где вы можете узнать о том, над какими функциями мы работаем, на какой стадии они находятся и когда мы ожидаем их появления:
 
-Here are the components we will work on being supported in the MUI ecosystem:
+-   [MUI Core](https://github.com/mui/material-ui/projects/25). Этот репозиторий сосредоточен на создании великолепных систем дизайна с помощью React, а также на предоставлении двух готовых к использованию тем (пока что Material Design, еще одна появится в ближайшем будущем).
+-   [MUI X](https://github.com/mui/mui-x/projects/1). Этот репозиторий фокусируется на предоставлении продвинутых компонентов React. Некоторые из них имеют лицензию MIT, другие доступны по коммерческой лицензии.
+-   [MUI Design kits](https://github.com/mui/mui-design-kits/projects/1)Этот репозиторий фокусируется на предоставлении компонентов для дизайнеров на Figma и других инструментах проектирования. Это отличное место, чтобы оставлять отзывы, запросы на функции и задавать вопросы.
 
-- 🧪 Close to becoming stable, already released as unstable
-- 🛠 Work in progress, will be or already released as unstable
-- ⏳ Planning to build
+## Новые компоненты <meta data-oversett="" data-original-text="New components">
 
-| Name                       | Product  | Status |
-| :------------------------- | -------- | ------ |
-| Advanced Layout            | MUI X    | ⏳     |
-| Carousel                   | MUI X    | ⏳     |
-| Charts                     | MUI X    | ⏳     |
-| Data Grid                  | MUI X    | 🧪     |
-| Date Picker                | MUI X    | 🧪     |
-| Date Range Picker          | MUI X    | 🧪     |
-| Dropdown                   | MUI Core | ⏳     |
-| Dropzone                   | MUI X    | ⏳     |
-| File Upload                | MUI X    | ⏳     |
-| Gantt Chart                | MUI X    | ⏳     |
-| Gauge                      | MUI X    | ⏳     |
-| Image                      | MUI Core | ⏳     |
-| Masonry                    | MUI Core | 🧪     |
-| Navbar                     | MUI Core | ⏳     |
-| Nested Menu                | MUI X    | ⏳     |
-| NProgress                  | MUI Core | ⏳     |
-| Numeric Input              | MUI Core | ⏳     |
-| Rich Text Editor           | MUI X    | ⏳     |
-| Scheduler                  | MUI X    | ⏳     |
-| Scrollspy                  | MUI Core | ⏳     |
-| Sparkline                  | MUI X    | ⏳     |
-| Timeline                   | MUI Core | 🧪     |
-| Tree select                | MUI X    | ⏳     |
-| Tree View                  | MUI X    | 🧪     |
-| Tree View - Checkbox       | MUI X    | ⏳     |
-| Tree View - Drag & Drop    | MUI X    | ⏳     |
-| Tree View - Multiselect    | MUI X    | 🧪     |
-| Tree View - Virtualization | MUI X    | ⏳     |
-| Window Splitter            | MUI X    | ⏳     |
+Вот компоненты, над поддержкой которых мы будем работать в экосистеме MUI:
+
+-   🧪 Близок к тому, чтобы стать стабильным, уже выпущен как нестабильный
+-   🛠 В процессе разработки, будет или уже выпущен как нестабильный
+-   ⏳ Планируется к созданию
+
+| Название | Продукт | Статус |
+| --- | --- | --- |
+| Расширенный макет | MUI X | ⏳   |
+| Карусель | MUI X | ⏳   |
+| Графики | MUI X | ⏳   |
+| Сетка данных | MUI X | 🧪  |
+| Выборка даты | MUI X | 🧪  |
+| Выбор диапазона дат | MUI X | 🧪  |
+| Выпадающий | MUI Core | ⏳   |
+| Дропзона | MUI X | ⏳   |
+| Загрузка файлов | MUI X | ⏳   |
+| Диаграмма Ганта | MUI X | ⏳   |
+| Манометр | MUI X | ⏳   |
+| Изображение | MUI Core | ⏳   |
+| Каменная кладка | MUI Core | 🧪  |
+| Навбар | MUI Core | ⏳   |
+| Вложенное меню | MUI X | ⏳   |
+| NProgress | MUI Core | ⏳   |
+| Числовой ввод | MUI Core | ⏳   |
+| Редактор насыщенного текста | MUI X | ⏳   |
+| Планировщик | MUI X | ⏳   |
+| Scrollspy | MUI Core | ⏳   |
+| Sparkline | MUI X | ⏳   |
+| Временная шкала | MUI Core | 🧪  |
+| Выбор дерева | MUI X | ⏳   |
+| Просмотр дерева | MUI X | 🧪  |
+| Древовидный вид - флажок | MUI X | ⏳   |
+| Древовидный вид - перетаскивание | MUI X | ⏳   |
+| Древовидный вид - мультивыбор | MUI X | 🧪  |
+| Древовидный вид - Виртуализация | MUI X | ⏳   |
+| Разделитель окон | MUI X | ⏳   |
 
 :::warning
-**Disclaimer**: We operate in a dynamic environment, and things are subject to change. The information provided is intended to outline the general framework direction, for informational purposes only. We may decide to add or remove new items at any time, depending on our capability to deliver while meeting our quality standards. The development, releases, and timing of any features or functionality remains at the sole discretion of MUI. The roadmap does not represent a commitment, obligation, or promise to deliver at any time.
+**Отказ от ответственности**: Мы работаем в динамичной среде, и все может измениться. Предоставленная информация предназначена только для ознакомления с общим направлением. Мы можем решить добавить или удалить новые элементы в любое время, в зависимости от наших возможностей по обеспечению соответствия стандартам качества. Разработка, выпуск и сроки реализации любых функций и возможностей остается на усмотрение MUI. Дорожная карта не является обязательством, обязанностью или обещанием выполнить в любое время.
 :::

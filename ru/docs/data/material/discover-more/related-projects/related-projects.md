@@ -1,55 +1,54 @@
-# Related projects
 
-<p class="description">A carefully curated list of third-party tools that expand or build on top of Material UI's component library.</p>
 
-Developers from the MUI community have built some excellent supplemental tools for working with Material UI—this page gathers the best that we've seen.
-Do you have a project that you think should be featured here?
-We would love to see it.
-Feel free to submit a pull request!
+# Смежные проекты <meta data-oversett="" data-original-text="Related projects">
 
-## Design resources
+<p class="description">Тщательно подобранный список инструментов сторонних разработчиков, которые расширяют библиотеку компонентов Material UI или строятся на ее основе.</p>
 
-- [UXPin](https://www.uxpin.com/merge/mui-library): A large UI kit of Material UI components. It renders the components in a web runtime and uses the same React implementation as your production environment.
+Разработчики из сообщества MUI создали несколько отличных дополнительных инструментов для работы с Material UI - на этой странице собрано лучшее из того, что мы видели. У вас есть проект, который, по вашему мнению, должен быть представлен здесь? Мы будем рады увидеть его. Не стесняйтесь отправить запрос!
 
-## IDE tools
+## Ресурсы по дизайну <meta data-oversett="" data-original-text="Design resources">
 
-- [Material UI Snippets](https://marketplace.visualstudio.com/items?itemName=vscodeshift.material-ui-snippets): VSCode extension providing snippets.
-- [Material UI Codemorphs](https://marketplace.visualstudio.com/items?itemName=vscodeshift.material-ui-codemorphs): VSCode extension providing codemods.
-- [eslint: detect unused classes](https://github.com/jens-ox/eslint-plugin-material-ui-unused-classes): ESLint plugin to detect unused styling classes with `@mui/styles`.
+-   [UXPin](https://www.uxpin.com/merge/mui-library): большой набор компонентов пользовательского интерфейса Material UI. Он отображает компоненты в веб-пространстве и использует ту же реализацию React, что и ваша рабочая среда.
 
-## Components
+## Инструменты IDE <meta data-oversett="" data-original-text="IDE tools">
 
-### Layout
+-   [Material UI Snippets](https://marketplace.visualstudio.com/items?itemName=vscodeshift.material-ui-snippets): Расширение VSCode, предоставляющее фрагменты.
+-   [Material UI Codemorphs](https://marketplace.visualstudio.com/items?itemName=vscodeshift.material-ui-codemorphs): Расширение VSCode, предоставляющее кодмоды.
+-   [eslint: обнаружение неиспользуемых классов](https://github.com/jens-ox/eslint-plugin-material-ui-unused-classes): Плагин ESLint для обнаружения неиспользуемых классов стилей с помощью `@mui/styles`.
 
-- [@mui-treasury/layout](https://mui-treasury.com/layout/): Components to handle the overall layout of a page. You can find a couple of examples, e.g. [a reactjs.org clone](https://mui-treasury.com/layout/clones/reactjs/).
+## Компоненты <meta data-oversett="" data-original-text="Components">
 
-### Image
+### Макет <meta data-oversett="" data-original-text="Layout">
 
-- [mui-image](https://mui-image.surge.sh): The only Material UI image component to satisfy the Material Design guidelines for loading images.
-- [material-ui-image](https://mui.wertarbyte.com/#material-ui-image): Adds a "materializing" effect to images so they fade in like [Material's image loading pattern](https://m1.material.io/patterns/loading-images.html) suggests.
+-   [@mui-treasury/layout](https://mui-treasury.com/layout/): Компоненты для работы с общим макетом страницы. Вы можете найти несколько примеров, например, [клон reactjs.org](https://mui-treasury.com/layout/clones/reactjs/).
 
-### Chips
+### Изображение <meta data-oversett="" data-original-text="Image">
 
-- [mui-chips-input](https://viclafouch.github.io/mui-chips-input/): A chips input designed for the React library MUI.
+-   [mui-image](https://mui-image.surge.sh): Единственный компонент изображения Material UI, удовлетворяющий рекомендациям Material Design по загрузке изображений.
+-   [material-ui-image](https://mui.wertarbyte.com/#material-ui-image): Добавляет эффект "материализации" к изображениям, чтобы они исчезали в соответствии с [шаблоном загрузки изображений Material](https://m1.material.io/patterns/loading-images.html).
 
-### Phone Number
+### Фишки <meta data-oversett="" data-original-text="Chips">
 
-- [mui-tel-input](https://viclafouch.github.io/mui-tel-input/): A phone number input designed for the React library MUI built with [libphonenumber-js](https://www.npmjs.com/package/libphonenumber-js).
+-   [mui-chips-input](https://viclafouch.github.io/mui-chips-input/): Вход для чипов, разработанный для React библиотеки MUI.
 
-### Color picker
+### Номер телефона <meta data-oversett="" data-original-text="Phone Number">
 
-- [mui-color-input](https://viclafouch.github.io/mui-color-input/): A color input designed for the React library MUI built with [TinyColor](https://tinycolor.vercel.app/).
-- [material-ui-color](https://github.com/mikbry/material-ui-color): Collections of color components for Material UI. No dependencies, small, highly customizable, and supports theming.
+-   [mui-tel-input](https://viclafouch.github.io/mui-tel-input/): Ввод номера телефона, разработанный для MUI библиотеки React, построенный с помощью [libphonenumber-js](https://www.npmjs.com/package/libphonenumber-js).
 
-### Sparkline
+### Выбор цвета <meta data-oversett="" data-original-text="Color picker">
 
-- [mui-plus](https://mui-plus.vercel.app/components/Sparkline): A sparkline is a tiny chart that can be used to indicate the trend of a value.
+-   [mui-color-input](https://viclafouch.github.io/mui-color-input/): Ввод цвета, разработанный для MUI библиотеки React, построенной с помощью [TinyColor](https://tinycolor.vercel.app/).
+-   [material-ui-color](https://github.com/mikbry/material-ui-color): Коллекции цветовых компонентов для Material UI. Не имеет зависимостей, мал, хорошо настраивается и поддерживает тематику.
 
-## Blocks
+### Sparkline <meta data-oversett="" data-original-text="Sparkline">
 
-- [components-extra](https://github.com/alexandre-lelain/components-extra): Provides a set of "molecule" components built on top of Material UI, such as a `Footer`, a `CookiesBanner`, a `BackToTop` button, and other complex elements.
+-   [mui-plus](https://mui-plus.vercel.app/components/Sparkline): Линия искр - это крошечный график, который можно использовать для отображения тенденции изменения значения.
 
-## Theming
+## Блоки <meta data-oversett="" data-original-text="Blocks">
 
-- [material-ui-theme-editor](https://in-your-saas.github.io/material-ui-theme-editor/): A tool to generate themes for your Material UI applications that features live previewing.
-- [Material palette generator](https://m2.material.io/inline-tools/color/): The official Material Design palette generator can be used to generate a palette for any color you choose.
+-   [components-extra](https://github.com/alexandre-lelain/components-extra): Предоставляет набор "молекулярных" компонентов, построенных поверх Material UI, таких как `Footer`, `CookiesBanner`, кнопка `BackToTop` и другие сложные элементы.
+
+## Теминг <meta data-oversett="" data-original-text="Theming">
+
+-   [material-ui-theme-editor](https://in-your-saas.github.io/material-ui-theme-editor/): Инструмент для создания тем для приложений Material UI с возможностью предварительного просмотра в реальном времени.
+-   [Генератор палитр Material](https://m2.material.io/inline-tools/color/): Официальный генератор палитр Material Design может быть использован для создания палитры для любого выбранного вами цвета.

@@ -1,40 +1,36 @@
-# Breakpoints
 
-<p class="description">API that enables the use of breakpoints in a wide variety of contexts.</p>
 
-For optimal user experience, Material Design interfaces need to be able to adapt their layout at various breakpoints.
-MUI uses a **simplified** implementation of the original [specification](https://m2.material.io/design/layout/responsive-layout-grid.html#breakpoints).
+# Точки останова <meta data-oversett="" data-original-text="Breakpoints">
 
-The breakpoints are used internally in various components to make them responsive,
-but you can also take advantage of them
-for controlling the layout of your application through the [Grid](/material-ui/react-grid/) component.
+<p class="description">API, позволяющий использовать точки останова в самых разных контекстах.</p>
 
-## Default breakpoints
+Для оптимального пользовательского опыта интерфейсы Material Design должны иметь возможность адаптировать свой макет в различных точках останова. MUI использует **упрощенную** реализацию оригинальной [спецификации](https://m2.material.io/design/layout/responsive-layout-grid.html#breakpoints).
 
-Each breakpoint (a key) matches with a _fixed_ screen width (a value):
+Точки останова используются внутри различных компонентов, чтобы сделать их отзывчивыми, но вы также можете воспользоваться ими для управления макетом вашего приложения с помощью компонента [Grid](/material-ui/react-grid/).
 
-<!-- Keep in sync with packages/mui-system/src/createTheme/createBreakpoints.d.ts -->
+## Точки останова по умолчанию <meta data-oversett="" data-original-text="Default breakpoints">
 
-- **xs,** extra-small: 0px
-- **sm,** small: 600px
-- **md,** medium: 900px
-- **lg,** large: 1200px
-- **xl,** extra-large: 1536px
+Каждая точка останова (ключ) соответствует _фиксированной_ ширине экрана (значение):
 
-These values can be [customized](#custom-breakpoints).
+-   **xs,** extra-small: 0px
+-   **sm,** маленький: 600px
+-   **md,** средний: 900px
+-   **lg,** большой: 1200px
+-   **xl,** extra-large: 1536px
 
-## CSS Media Queries
+Эти значения могут быть [настроены](#custom-breakpoints).
 
-CSS media queries are the idiomatic approach to make your UI responsive.
-The theme provides five styles helpers to do so:
+## Медиазапросы CSS <meta data-oversett="" data-original-text="CSS Media Queries">
 
-- [theme.breakpoints.up(key)](#theme-breakpoints-up-key-media-query)
-- [theme.breakpoints.down(key)](#theme-breakpoints-down-key-media-query)
-- [theme.breakpoints.only(key)](#theme-breakpoints-only-key-media-query)
-- [theme.breakpoints.not(key)](#theme-breakpoints-not-key-media-query)
-- [theme.breakpoints.between(start, end)](#theme-breakpoints-between-start-end-media-query)
+Медиа-запросы CSS - это идиоматический подход, позволяющий сделать ваш пользовательский интерфейс отзывчивым. Тема предоставляет пять стилей-помощников для этого:
 
-In the following demo, we change the background color (red, blue & green) based on the screen width.
+-   [theme.breakpoints.up(key)](#theme-breakpoints-up-key-media-query)
+-   [theme.breakpoints.down(key)](#theme-breakpoints-down-key-media-query)
+-   [theme.breakpoints.only(key)](#theme-breakpoints-only-key-media-query)
+-   [theme.breakpoints.not(key)](#theme-breakpoints-not-key-media-query)
+-   [theme.breakpoints.between(start, end)](#theme-breakpoints-between-start-end-media-query)
+
+В следующем демонстрационном примере мы изменяем цвет фона (красный, синий и зеленый) в зависимости от ширины экрана.
 
 ```jsx
 const styles = (theme) => ({
@@ -55,27 +51,23 @@ const styles = (theme) => ({
 
 {{"demo": "MediaQuery.js"}}
 
-## JavaScript Media Queries
+## Медиазапросы JavaScript <meta data-oversett="" data-original-text="JavaScript Media Queries">
 
-Sometimes, using CSS isn't enough.
-You might want to change the React rendering tree based on the breakpoint value, in JavaScript.
+Иногда использования CSS недостаточно. Вы можете захотеть изменить дерево рендеринга React на основе значения точки останова в JavaScript.
 
-### useMediaQuery hook
+### хук useMediaQuery <meta data-oversett="" data-original-text="useMediaQuery hook">
 
-You can learn more on the [useMediaQuery](/material-ui/react-use-media-query/) page.
+Вы можете узнать больше на странице [useMediaQuery](/material-ui/react-use-media-query/).
 
-## Custom breakpoints
+## Пользовательские точки останова <meta data-oversett="" data-original-text="Custom breakpoints">
 
-You define your project's breakpoints in the `theme.breakpoints` section of your theme.
+Вы определяете точки останова вашего проекта в разделе `theme.breakpoints` вашей темы.
 
-<!-- Keep in sync with packages/mui-system/src/createTheme/createBreakpoints.d.ts -->
+-   [`theme.breakpoints.values`](/material-ui/customization/default-theme/?expand-path=$.breakpoints.values): [Значения](#default-breakpoints) по умолчанию. Ключи - это ваши экранные имена, а значения - минимальная ширина, с которой должна начинаться точка останова.
+-   `theme.breakpoints.unit`: По умолчанию `'px'`. Единица измерения, используемая для значений точки останова.
+-   `theme.breakpoints.step`: По умолчанию `5`. Приращение, деленное на 100, используемое для реализации эксклюзивных точек останова. Например, `{ step: 5 }` означает, что `down(500)` приведет к `'(max-width: 499.95px)'`.
 
-- [`theme.breakpoints.values`](/material-ui/customization/default-theme/?expand-path=$.breakpoints.values): Default to the [above values](#default-breakpoints). The keys are your screen names, and the values are the min-width where that breakpoint should start.
-- `theme.breakpoints.unit`: Default to `'px'`. The unit used for the breakpoint's values.
-- `theme.breakpoints.step`: Default to `5`. The increment divided by 100 used to implement exclusive breakpoints.
-  For example, `{ step: 5 }` means that `down(500)` will result in `'(max-width: 499.95px)'`.
-
-If you change the default breakpoints's values, you need to provide them all:
+Если вы измените значения точек останова по умолчанию, вам необходимо указать их все:
 
 ```jsx
 const theme = createTheme({
@@ -91,7 +83,7 @@ const theme = createTheme({
 });
 ```
 
-Feel free to have as few or as many breakpoints as you want, naming them in whatever way you'd prefer for your project.
+Не стесняйтесь иметь столько точек останова, сколько хотите, и называйте их так, как вам удобно для вашего проекта.
 
 ```js
 const theme = createTheme({
@@ -106,9 +98,7 @@ const theme = createTheme({
 });
 ```
 
-If you are using TypeScript, you would also need to use [module augmentation](/material-ui/guides/typescript/#customization-of-theme) for the theme to accept the above values.
-
-<!-- Tested with packages/mui-material/test/typescript/breakpointsOverrides.augmentation.tsconfig.json -->
+Если вы используете TypeScript, вам также необходимо использовать [расширение модуля](/material-ui/guides/typescript/#customization-of-theme), чтобы тема принимала вышеуказанные значения.
 
 ```ts
 declare module '@mui/material/styles' {
@@ -126,21 +116,19 @@ declare module '@mui/material/styles' {
 }
 ```
 
-## API
+## API <meta data-oversett="" data-original-text="API">
 
-### `theme.breakpoints.up(key) => media query`
+### `theme.breakpoints.up(key) => media query` <meta data-oversett="" data-original-text="theme.breakpoints.up(key) => media query">
 
-<!-- Keep in sync with packages/mui-system/src/createTheme/createBreakpoints.d.ts -->
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-#### Arguments
+1.  `key` _(строка_ | _число_): Ключ точки останова (`xs`, `sm` и т. д.) или число ширины экрана в px.
 
-1. `key` (_string_ | _number_): A breakpoint key (`xs`, `sm`, etc.) or a screen width number in px.
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-#### Returns
+`media query`: Строка медиа-запроса, готовая к использованию с большинством решений для стилизации, которая соответствует ширине экрана, превышающей размер экрана, заданный ключом точки останова (включительно).
 
-`media query`: A media query string ready to be used with most styling solutions, which matches screen widths greater than the screen size given by the breakpoint key (inclusive).
-
-#### Examples
+#### Примеры <meta data-oversett="" data-original-text="Examples">
 
 ```js
 const styles = (theme) => ({
@@ -155,19 +143,17 @@ const styles = (theme) => ({
 });
 ```
 
-### `theme.breakpoints.down(key) => media query`
+### `theme.breakpoints.down(key) => media query` <meta data-oversett="" data-original-text="theme.breakpoints.down(key) => media query">
 
-<!-- Keep in sync with packages/mui-system/src/createTheme/createBreakpoints.d.ts -->
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-#### Arguments
+1.  `key` _(строка_ | _число_): Ключ точки останова (`xs`, `sm`, и т.д.) или число ширины экрана в px.
 
-1. `key` (_string_ | _number_): A breakpoint key (`xs`, `sm`, etc.) or a screen width number in px.
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-#### Returns
+`media query`: Строка медиа-запроса, готовая к использованию с большинством решений для стилизации, которая соответствует ширине экрана, меньшей, чем размер экрана, заданный ключом точки останова (эксклюзивный).
 
-`media query`: A media query string ready to be used with most styling solutions, which matches screen widths less than the screen size given by the breakpoint key (exclusive).
-
-#### Examples
+#### Примеры <meta data-oversett="" data-original-text="Examples">
 
 ```js
 const styles = (theme) => ({
@@ -182,19 +168,17 @@ const styles = (theme) => ({
 });
 ```
 
-### `theme.breakpoints.only(key) => media query`
+### `theme.breakpoints.only(key) => media query` <meta data-oversett="" data-original-text="theme.breakpoints.only(key) => media query">
 
-<!-- Keep in sync with packages/mui-system/src/createTheme/createBreakpoints.d.ts -->
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-#### Arguments
+1.  `key` _(строка_): Ключ точки останова (`xs`, `sm` и т.д.).
 
-1. `key` (_string_): A breakpoint key (`xs`, `sm`, etc.).
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-#### Returns
+`media query`: Строка медиазапроса, готовая к использованию с большинством решений для стилизации, которая соответствует ширине экрана, начиная с размера экрана, заданного ключом точки останова (включительно), и заканчивая размером экрана, заданным следующим ключом точки останова (исключая).
 
-`media query`: A media query string ready to be used with most styling solutions, which matches screen widths starting from the screen size given by the breakpoint key (inclusive) and stopping at the screen size given by the next breakpoint key (exclusive).
-
-#### Examples
+#### Примеры <meta data-oversett="" data-original-text="Examples">
 
 ```js
 const styles = (theme) => ({
@@ -210,19 +194,17 @@ const styles = (theme) => ({
 });
 ```
 
-### `theme.breakpoints.not(key) => media query`
+### `theme.breakpoints.not(key) => media query` <meta data-oversett="" data-original-text="theme.breakpoints.not(key) => media query">
 
-<!-- Keep in sync with packages/mui-system/src/createTheme/createBreakpoints.d.ts -->
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-#### Arguments
+1.  `key` _(строка_): Ключ точки останова (`xs`, `sm` и т.д.).
 
-1. `key` (_string_): A breakpoint key (`xs`, `sm`, etc.).
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-#### Returns
+`media query`: Строка медиазапроса, готовая к использованию с большинством решений для стилизации, которая соответствует ширине экрана, останавливаясь на размере экрана, заданном ключом точки останова (исключая), и начиная с размера экрана, заданного следующим ключом точки останова (включая).
 
-`media query`: A media query string ready to be used with most styling solutions, which matches screen widths stopping at the screen size given by the breakpoint key (exclusive) and starting at the screen size given by the next breakpoint key (inclusive).
-
-#### Examples
+#### Примеры <meta data-oversett="" data-original-text="Examples">
 
 ```js
 const styles = (theme) => ({
@@ -238,20 +220,18 @@ const styles = (theme) => ({
 });
 ```
 
-### `theme.breakpoints.between(start, end) => media query`
+### `theme.breakpoints.between(start, end) => media query` <meta data-oversett="" data-original-text="theme.breakpoints.between(start, end) => media query">
 
-<!-- Keep in sync with packages/mui-system/src/createTheme/createBreakpoints.d.ts -->
+#### Аргументы <meta data-oversett="" data-original-text="Arguments">
 
-#### Arguments
+1.  `start` _(строка_): Ключ точки останова (`xs`, `sm`, и т.д.) или номер ширины экрана в пикселях.
+2.  `end` _(строка_): Ключ точки останова (`xs`, `sm`, и т.д.) или номер ширины экрана в пикселях.
 
-1. `start` (_string_): A breakpoint key (`xs`, `sm`, etc.) or a screen width number in px.
-2. `end` (_string_): A breakpoint key (`xs`, `sm`, etc.) or a screen width number in px.
+#### Возвращает <meta data-oversett="" data-original-text="Returns">
 
-#### Returns
+`media query`: Строка медиазапроса, готовая к использованию с большинством решений для стилизации, которая соответствует ширине экрана больше, чем размер экрана, заданный ключом точки останова в первом аргументе (включительно) и меньше, чем размер экрана, заданный ключом точки останова во втором аргументе (исключая).
 
-`media query`: A media query string ready to be used with most styling solutions, which matches screen widths greater than the screen size given by the breakpoint key in the first argument (inclusive) and less than the screen size given by the breakpoint key in the second argument (exclusive).
-
-#### Examples
+#### Примеры <meta data-oversett="" data-original-text="Examples">
 
 ```js
 const styles = (theme) => ({
@@ -266,6 +246,6 @@ const styles = (theme) => ({
 });
 ```
 
-## Default values
+## Значения по умолчанию <meta data-oversett="" data-original-text="Default values">
 
-You can explore the default values of the breakpoints using [the theme explorer](/material-ui/customization/default-theme/?expand-path=$.breakpoints) or by opening the dev tools console on this page (`window.theme.breakpoints`).
+Вы можете изучить значения точек останова по умолчанию с помощью [проводника тем](/material-ui/customization/default-theme/?expand-path=$.breakpoints) или открыв консоль dev tools на этой странице (`window.theme.breakpoints`).

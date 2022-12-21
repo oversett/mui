@@ -7,70 +7,67 @@ materialDesign: https://m2.material.io/components/snackbars
 waiAria: https://www.w3.org/TR/wai-aria-1.1/#alert
 ---
 
-# Snackbar
+# Закусочная <meta data-oversett="" data-original-text="Snackbar">
 
-<p class="description">Snackbars provide brief notifications. The component is also known as a toast.</p>
+<p class="description">Закусочные панели предоставляют краткие уведомления. Этот компонент также известен как тост.</p>
 
-Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn't interrupt the user experience, and they don't require user input to disappear.
+Закусочные панели информируют пользователей о процессе, который приложение выполнило или будет выполнять. Они появляются временно, в нижней части экрана. Они не должны прерывать работу пользователя и не требуют его ввода, чтобы исчезнуть.
 
-Snackbars contain a single line of text directly related to the operation performed.
-They may contain a text action, but no icons. You can use them to display notifications.
+Закусочные панели содержат одну строку текста, непосредственно связанную с выполняемой операцией. Они могут содержать текстовое действие, но без пиктограмм. Их можно использовать для отображения уведомлений.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-**Frequency**: Only one snackbar may be displayed at a time.
+**Частота**: Одновременно может отображаться только одна закусочная панель.
 
-## Simple snackbars
+## Простые закуски <meta data-oversett="" data-original-text="Simple snackbars">
 
-A basic snackbar that aims to reproduce Google Keep's snackbar behavior.
+Базовая закусочная панель, цель которой - воспроизвести поведение закусочной панели Google Keep.
 
 {{"demo": "SimpleSnackbar.js"}}
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here are some examples of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Ниже приведены примеры настройки компонента. Подробнее об этом вы можете узнать на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedSnackbars.js"}}
 
-## Positioned snackbars
+## Расположенные закуски <meta data-oversett="" data-original-text="Positioned snackbars">
 
-In wide layouts, snackbars can be left-aligned or center-aligned if they are consistently placed on the same spot at the bottom of the screen, however there may be circumstances where the placement of the snackbar needs to be more flexible.
-You can control the position of the snackbar by specifying the `anchorOrigin` prop.
+В широких макетах закуски могут быть выровнены по левому краю или по центру, если они последовательно размещаются на одном и том же месте в нижней части экрана, однако могут возникнуть обстоятельства, когда размещение закуски должно быть более гибким. Вы можете управлять положением закуски, указав параметр `anchorOrigin`.
 
 {{"demo": "PositionedSnackbar.js"}}
 
-## Message Length
+## Длина сообщения <meta data-oversett="" data-original-text="Message Length">
 
-Some snackbars with varying message length.
+Некоторые закуски имеют различную длину сообщения.
 
 {{"demo": "LongTextSnackbar.js"}}
 
-## Transitions
+## Переходы <meta data-oversett="" data-original-text="Transitions">
 
-### Consecutive Snackbars
+### Последовательные закуски <meta data-oversett="" data-original-text="Consecutive Snackbars">
 
-When multiple snackbar updates are necessary, they should appear one at a time.
+Когда необходимо несколько обновлений закусочной, они должны появляться по одному.
 
 {{"demo": "ConsecutiveSnackbars.js"}}
 
-### Snackbars and floating action buttons (FABs)
+### Закусочные панели и плавающие кнопки действий (FAB) <meta data-oversett="" data-original-text="Snackbars and floating action buttons (FABs)">
 
-Snackbars should appear above FABs (on mobile).
+Закусочные панели должны появляться над FAB (на мобильных устройствах).
 
 {{"demo": "FabIntegrationSnackbar.js", "iframe": true, "maxWidth": 400}}
 
-### Change transition
+### Изменение перехода <meta data-oversett="" data-original-text="Change transition">
 
-[Grow](/material-ui/transitions/#grow) is the default transition but you can use a different one.
+По умолчанию используется переход[Grow](/material-ui/transitions/#grow), но вы можете использовать другой переход.
 
 {{"demo": "TransitionsSnackbar.js"}}
 
-### Control Slide direction
+### Управление направлением слайда <meta data-oversett="" data-original-text="Control Slide direction">
 
-You can change the direction of the [Slide](/material-ui/transitions/#slide) transition.
+Вы можете изменить направление перехода [слайда](/material-ui/transitions/#slide).
 
-Example of making the slide transition to the left:
+Пример: сделать переход слайда влево:
 
 ```jsx
 import Slide from '@mui/material/Slide';
@@ -84,34 +81,29 @@ export default function MyComponent() {
 }
 ```
 
-Other examples:
+Другие примеры:
 
 {{"demo": "DirectionSnackbar.js"}}
 
-## Complementary projects
+## Взаимодополняющие проекты <meta data-oversett="" data-original-text="Complementary projects">
 
-For more advanced use cases you might be able to take advantage of:
+Для более сложных случаев использования вы можете воспользоваться:
 
-### notistack
+### notistack <meta data-oversett="" data-original-text="notistack">
 
-![stars](https://img.shields.io/github/stars/iamhosseindhv/notistack.svg?style=social&label=Stars)
-![npm downloads](https://img.shields.io/npm/dm/notistack.svg)
+![stars](https://img.shields.io/github/stars/iamhosseindhv/notistack.svg?style=social&label=Stars) ![npm downloads](https://img.shields.io/npm/dm/notistack.svg)
 
-This example demonstrates how to use [notistack](https://github.com/iamhosseindhv/notistack).
-notistack has an **imperative API** that makes it easy to display snackbars, without having to handle their open/close state.
-It also enables you to **stack** them on top of one another (although this is discouraged by the Material Design guidelines).
+Этот пример демонстрирует, как использовать [notistack](https://github.com/iamhosseindhv/notistack). notistack имеет **императивный API**, который позволяет легко отображать закусочные панели без необходимости обрабатывать их состояние открытия/закрытия. Он также позволяет **складывать** их друг на друга (хотя это и не рекомендуется руководством Material Design).
 
 {{"demo": "IntegrationNotistack.js", "defaultCodeOpen": false}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-(WAI-ARIA: https://www.w3.org/TR/wai-aria-1.1/#alert)
+(WAI-ARIA: [https://www.w3.org/TR/wai-aria-1.1/#alert)](https://www.w3.org/TR/wai-aria-1.1/#alert)
 
-By default, the snackbar won't auto-hide. However, if you decide to use the `autoHideDuration` prop, it's recommended to give the user [sufficient time](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html) to respond.
+По умолчанию панель закусок не будет автоматически скрываться. Однако если вы решите использовать реквизит `autoHideDuration`, рекомендуется дать пользователю [достаточно времени](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html) для ответа.
 
-When open, **every** `Snackbar` will be dismissed if <kbd class="key">Escape</kbd> is pressed.
-Unless you don't handle `onClose` with the `"escapeKeyDown"` reason.
-If you want to limit this behavior to only dismiss the oldest currently open Snackbar call `event.preventDefault` in `onClose`.
+При открытии **каждая** `Snackbar` будет уволена, если нажата <kbd class="key">Escape</kbd>. Если только вы не обрабатываете `onClose` с помощью причины `"escapeKeyDown"`. Если вы хотите ограничить это поведение, чтобы уволить только самую старую из открытых в данный момент закусочных, вызовите `event.preventDefault` в `onClose`.
 
 ```jsx
 export default function MyComponent() {

@@ -1,10 +1,12 @@
-# Usage
 
-<p class="description">Learn the basics of working with Material UI components.</p>
 
-## Quickstart
+# Использование <meta data-oversett="" data-original-text="Usage">
 
-The following code snippet demonstrates a simple app that uses the Material UI [Button](/material-ui/react-button/) component:
+<p class="description">Изучите основы работы с компонентами Material UI.</p>
+
+## Быстрый старт <meta data-oversett="" data-original-text="Quickstart">
+
+Следующий фрагмент кода демонстрирует простое приложение, в котором используется компонент Material UI [Button](/material-ui/react-button/):
 
 ```jsx
 import * as React from 'react';
@@ -19,32 +21,28 @@ export default function MyApp() {
 }
 ```
 
-You can play around with this code in the interactive Code Sandbox demo below.
-Try changing the `variant` on the Button to `outlined` to see how the style changes:
+Вы можете поиграть с этим кодом в интерактивной демонстрации Code Sandbox ниже. Попробуйте изменить `variant` на кнопке на `outlined`, чтобы увидеть, как изменится стиль:
 
 {{"demo": "Usage.js", "hideToolbar": true, "bg": true}}
 
-## Globals
+## Globals <meta data-oversett="" data-original-text="Globals">
 
-Since Material UI components are built to function in isolation, they don't require any kind of globally scoped styles.
-For a better user experience and developer experience, we recommend adding the following globals to your app.
+Поскольку компоненты Material UI созданы для изолированного функционирования, они не требуют глобальных стилей. Для улучшения пользовательского опыта и удобства разработчиков мы рекомендуем добавить следующие глобальные стили в ваше приложение.
 
-### Responsive meta tag
+### Отзывчивый метатег <meta data-oversett="" data-original-text="Responsive meta tag">
 
-Material UI is a _mobile-first_ component library—we write code for mobile devices first, and then scale up the components as necessary using CSS media queries.
+Material UI - это библиотека компонентов, ориентированная _на мобильные устройства_: сначала мы пишем код для мобильных устройств, а затем масштабируем компоненты по мере необходимости с помощью медиазапросов CSS.
 
-To ensure proper rendering and touch zooming for all devices, add the responsive viewport meta tag to your `<head>` element:
+Чтобы обеспечить правильное отображение и сенсорное масштабирование для всех устройств, добавьте метатег responsive viewport к элементу `<head>`:
 
 ```html
 <meta name="viewport" content="initial-scale=1, width=device-width" />
 ```
 
-### CssBaseline
+### CssBaseline <meta data-oversett="" data-original-text="CssBaseline">
 
-Material UI provides an optional [CssBaseline](/material-ui/react-css-baseline/) component.
-It fixes some inconsistencies across browsers and devices while providing resets that are better tailored to fit Material UI than alternative global style sheets like [normalize.css](https://github.com/necolas/normalize.css/).
+Material UI предоставляет дополнительный компонент [CssBaseline](/material-ui/react-css-baseline/). Он устраняет некоторые несоответствия в браузерах и устройствах, обеспечивая сброс настроек, которые лучше подходят для Material UI, чем альтернативные глобальные таблицы стилей, такие как [normalize.css](https://github.com/necolas/normalize.css/).
 
-### Default font
+### Шрифт по умолчанию <meta data-oversett="" data-original-text="Default font">
 
-Material UI uses the Roboto font by default.
-See [Installation—Roboto font](/material-ui/getting-started/installation/#roboto-font) for complete details.
+В Material UI по умолчанию используется шрифт Roboto. Подробную информацию см. в разделе [Установка - Шрифт Roboto](/material-ui/getting-started/installation/#roboto-font).

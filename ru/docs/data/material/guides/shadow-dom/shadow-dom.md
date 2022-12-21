@@ -1,15 +1,14 @@
-# Shadow DOM
 
-<p class="description">The shadow DOM lets you encapsulate parts of an app to keep them separate from global styles that target the regular DOM tree.</p>
 
-## How to use the shadow DOM with Material UI
+# Теневой DOM <meta data-oversett="" data-original-text="Shadow DOM">
 
-### 1. Styles
+<p class="description">Теневой DOM позволяет инкапсулировать части приложения, чтобы отделить их от глобальных стилей, нацеленных на обычное дерево DOM.</p>
 
-The shadow DOM is an API that provides a way to attach a hidden separated DOM to an element.
-This is useful when you need to keep the structure, style, and behavior of different components separate from the rest of the code on the page, to prevent conflicts.
-See [the MDN docs on the shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) for more information.
-The following code snippet shows how to apply styles inside of the shadow DOM:
+## Как использовать теневой DOM с Material UI <meta data-oversett="" data-original-text="How to use the shadow DOM with Material UI">
+
+### 1\. Стили <meta data-oversett="" data-original-text="1. Styles">
+
+Теневой DOM - это API, который предоставляет способ прикрепить скрытый разделенный DOM к элементу. Это полезно, когда вам нужно сохранить структуру, стиль и поведение различных компонентов отдельно от остального кода на странице, чтобы предотвратить конфликты. Более подробную информацию смотрите в [документации MDN по теневому DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM). Следующий фрагмент кода показывает, как применять стили внутри теневого DOM:
 
 ```tsx
 const container = document.querySelector('#root');
@@ -32,11 +31,9 @@ ReactDOM.createRoot(shadowRootElement).render(
 );
 ```
 
-### 2. Theme
+### 2\. Тема <meta data-oversett="" data-original-text="2. Theme">
 
-MUI components like `Menu`, `Dialog`, `Popover` and others use [`Portal`](/material-ui/react-portal/) to render a new "subtree" in a container outside of current DOM hierarchy.
-By default, this container is `document.body`.
-But since the styles are applied only inside of the Shadow DOM, we need to render portals inside the Shadow DOM container as well:
+MUI компоненты, такие как `Menu`, `Dialog`, `Popover` и другие, используют [`Portal`](/material-ui/react-portal/) для рендеринга нового "поддерева" в контейнере вне текущей иерархии DOM. По умолчанию таким контейнером является `document.body`. Но поскольку стили применяются только внутри теневого DOM, нам необходимо рендерить порталы и внутри контейнера теневого DOM:
 
 ```tsx
 const theme = createTheme({
@@ -66,8 +63,8 @@ const theme = createTheme({
 </ThemeProvider>;
 ```
 
-## Demo
+## Демо <meta data-oversett="" data-original-text="Demo">
 
-In the example below you can see that the component outside of the shadow DOM is affected by global styles, while the component inside of the shadow DOM is not:
+В приведенном ниже примере видно, что на компонент вне теневого DOM влияют глобальные стили, а на компонент внутри теневого DOM - нет:
 
 {{"demo": "ShadowDOMDemo.js", "hideToolbar": true, "bg": true}}

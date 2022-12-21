@@ -8,150 +8,136 @@ waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/slidertwothumb/
 unstyled: /base/react-slider/
 ---
 
-# Slider
+# Слайдер <meta data-oversett="" data-original-text="Slider">
 
-<p class="description">Sliders allow users to make selections from a range of values.</p>
+<p class="description">Слайдеры позволяют пользователям делать выбор из диапазона значений.</p>
 
-Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.
+Ползунки отражают диапазон значений вдоль полосы, из которого пользователь может выбрать одно значение. Они идеально подходят для регулировки таких параметров, как громкость, яркость или применение фильтров изображения.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Continuous sliders
+## Непрерывные ползунки <meta data-oversett="" data-original-text="Continuous sliders">
 
-Continuous sliders allow users to select a value along a subjective range.
+Непрерывные ползунки позволяют пользователям выбирать значение в субъективном диапазоне.
 
 {{"demo": "ContinuousSlider.js"}}
 
-## Sizes
+## Размеры <meta data-oversett="" data-original-text="Sizes">
 
-For smaller slider, use the prop `size="small"`.
+Для меньшего размера ползунка используйте опору `size="small"`.
 
 {{"demo": "SliderSizes.js"}}
 
-## Discrete sliders
+## Дискретные ползунки <meta data-oversett="" data-original-text="Discrete sliders">
 
-Discrete sliders can be adjusted to a specific value by referencing its value indicator.
-You can generate a mark for each step with `marks={true}`.
+Дискретные ползунки можно настроить на определенное значение, обратившись к индикатору его значения. Для каждого шага можно сгенерировать метку с помощью `marks={true}`.
 
 {{"demo": "DiscreteSlider.js"}}
 
-### Small steps
+### Маленькие шаги <meta data-oversett="" data-original-text="Small steps">
 
-You can change the default step increment.
+Вы можете изменить приращение шага по умолчанию.
 
 {{"demo": "DiscreteSliderSteps.js"}}
 
-### Custom marks
+### Пользовательские метки <meta data-oversett="" data-original-text="Custom marks">
 
-You can have custom marks by providing a rich array to the `marks` prop.
+Вы можете иметь пользовательские метки, предоставив богатый массив реквизиту `marks`.
 
 {{"demo": "DiscreteSliderMarks.js"}}
 
-### Restricted values
+### Ограниченные значения <meta data-oversett="" data-original-text="Restricted values">
 
-You can restrict the selectable values to those provided with the `marks` prop with `step={null}`.
+Вы можете ограничить выбираемые значения теми, которые предоставлены в реквизите `marks` с помощью `step={null}`.
 
 {{"demo": "DiscreteSliderValues.js"}}
 
-### Label always visible
+### Ярлык всегда виден <meta data-oversett="" data-original-text="Label always visible">
 
-You can force the thumb label to be always visible with `valueLabelDisplay="on"`.
+Вы можете заставить ярлык большого пальца быть всегда видимым с помощью `valueLabelDisplay="on"`.
 
 {{"demo": "DiscreteSliderLabel.js"}}
 
-## Range slider
+## Ползунок диапазона <meta data-oversett="" data-original-text="Range slider">
 
-The slider can be used to set the start and end of a range by supplying an array of values to the `value` prop.
+Ползунок можно использовать для установки начала и конца диапазона, предоставив массив значений реквизиту `value`.
 
 {{"demo": "RangeSlider.js"}}
 
-### Minimum distance
+### Минимальное расстояние <meta data-oversett="" data-original-text="Minimum distance">
 
-You can enforce a minimum distance between values in the `onChange` event handler.
-By default, when you move the pointer over a thumb while dragging another thumb, the active thumb will swap to the hovered thumb. You can disable this behavior with the `disableSwap` prop.
-If you want the range to shift when reaching minimum distance, you can utilize the `activeThumb` parameter in `onChange`.
+В обработчике событий `onChange` можно задать минимальное расстояние между значениями. По умолчанию, когда вы наводите указатель на большой палец и одновременно перетаскиваете другой палец, активный палец поменяется на наведенный. Вы можете отключить это поведение с помощью параметра `disableSwap`. Если вы хотите, чтобы диапазон сдвигался при достижении минимального расстояния, вы можете использовать параметр `activeThumb` в `onChange`.
 
 {{"demo": "MinimumDistanceSlider.js"}}
 
-## Slider with input field
+## Слайдер с полем ввода <meta data-oversett="" data-original-text="Slider with input field">
 
-In this example, an input allows a discrete value to be set.
+В этом примере поле ввода позволяет задать дискретное значение.
 
 {{"demo": "InputSlider.js"}}
 
-## Color
+## Цвет <meta data-oversett="" data-original-text="Color">
 
 {{"demo": "ColorSlider.js"}}
 
-## Customization
+## Настройка <meta data-oversett="" data-original-text="Customization">
 
-Here are some examples of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Вот несколько примеров настройки компонента. Подробнее об этом можно узнать на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedSlider.js"}}
 
-### Music player
+### Музыкальный проигрыватель <meta data-oversett="" data-original-text="Music player">
 
 {{"demo": "MusicPlayerSlider.js"}}
 
-## Vertical sliders
+## Вертикальные ползунки <meta data-oversett="" data-original-text="Vertical sliders">
 
 {{"demo": "VerticalSlider.js"}}
 
-**WARNING**: Chrome, Safari and newer Edge versions i.e. any browser based on WebKit exposes `<Slider orientation="vertical" />` as horizontal ([chromium issue #1158217](https://bugs.chromium.org/p/chromium/issues/detail?id=1158217)).
-By applying `-webkit-appearance: slider-vertical;` the slider is exposed as vertical.
+**ВНИМАНИЕ**: Chrome, Safari и более новые версии Edge, т.е. любой браузер, основанный на WebKit, отображает `<Slider orientation="vertical" />` как горизонтальный[(проблема хрома #1158217](https://bugs.chromium.org/p/chromium/issues/detail?id=1158217)). При применении `-webkit-appearance: slider-vertical;` слайдер отображается как вертикальный.
 
-However, by applying `-webkit-appearance: slider-vertical;` keyboard navigation for horizontal keys (<kbd class="key">Arrow Left</kbd>, <kbd class="key">Arrow Right</kbd>) is reversed ([chromium issue #1162640](https://bugs.chromium.org/p/chromium/issues/detail?id=1162640)).
-Usually, up and right should increase and left and down should decrease the value.
-If you apply `-webkit-appearance` you could prevent keyboard navigation for horizontal arrow keys for a truly vertical slider.
-This might be less confusing to users compared to a change in direction.
+Однако при применении `-webkit-appearance: slider-vertical;` клавиатурная навигация для горизонтальных клавиш (<kbd class="key">Arrow Left</kbd>, <kbd class="key">Arrow Right</kbd>) меняется на противоположную[(проблема хрома #1162640](https://bugs.chromium.org/p/chromium/issues/detail?id=1162640)). Обычно кнопки вверх и вправо должны увеличивать, а влево и вниз - уменьшать значение. Если вы примените `-webkit-appearance`, то сможете предотвратить клавиатурную навигацию для горизонтальных клавиш со стрелками для действительно вертикального слайдера. Это может быть менее запутанным для пользователей, чем изменение направления.
 
 {{"demo": "VerticalAccessibleSlider.js"}}
 
-## Track
+## Дорожка <meta data-oversett="" data-original-text="Track">
 
-The track shows the range available for user selection.
+Дорожка показывает диапазон, доступный для выбора пользователем.
 
-### Removed track
+### Убранный трек <meta data-oversett="" data-original-text="Removed track">
 
-The track can be turned off with `track={false}`.
+Трек может быть отключен с помощью `track={false}`.
 
 {{"demo": "TrackFalseSlider.js"}}
 
-### Inverted track
+### Инвертированная дорожка <meta data-oversett="" data-original-text="Inverted track">
 
-The track can be inverted with `track="inverted"`.
+Трек может быть инвертирован с помощью `track="inverted"`.
 
 {{"demo": "TrackInvertedSlider.js"}}
 
-## Non-linear scale
+## Нелинейная шкала <meta data-oversett="" data-original-text="Non-linear scale">
 
-You can use the `scale` prop to represent the `value` on a different scale.
+Вы можете использовать реквизит `scale` для представления `value` в другом масштабе.
 
-In the following demo, the value _x_ represents the value _2^x_.
-Increasing _x_ by one increases the represented value by factor _2_.
+В следующей демонстрации значение _x_ представляет значение _2^x_. Увеличение _x_ на единицу увеличивает представленное значение в _2_ раза.
 
 {{"demo": "NonLinearSlider.js"}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-(WAI-ARIA: https://www.w3.org/WAI/ARIA/apg/patterns/slidertwothumb/)
+(WAI-ARIA: [https://www.w3.org/WAI/ARIA/apg/patterns/slidertwothumb/)](https://www.w3.org/WAI/ARIA/apg/patterns/slidertwothumb/).
 
-The component handles most of the work necessary to make it accessible.
-However, you need to make sure that:
+Компонент выполняет большую часть работы, необходимой для обеспечения доступности. Однако вам необходимо убедиться, что:
 
-- Each thumb has a user-friendly label (`aria-label`, `aria-labelledby` or `getAriaLabel` prop).
-- Each thumb has a user-friendly text for its current value.
-  This is not required if the value matches the semantics of the label.
-  You can change the name with the `getAriaValueText` or `aria-valuetext` prop.
+-   Каждый большой палец имеет удобную для пользователя метку (`aria-label`, `aria-labelledby` или `getAriaLabel` prop).
+-   Каждый палец имеет удобный для пользователя текст для его текущего значения. Это не требуется, если значение соответствует семантике метки. Вы можете изменить имя с помощью `getAriaValueText` или `aria-valuetext`.
 
-## Limitations
+## Ограничения <meta data-oversett="" data-original-text="Limitations">
 
-### IE 11
+### IE 11 <meta data-oversett="" data-original-text="IE 11">
 
-The slider's value label is not centered in IE 11.
-The alignement is not handled to make customizations easier with the lastest browsers.
-You can solve the issue with:
+Метка значения слайдера не центрируется в IE 11. Выравнивание не обрабатывается, чтобы облегчить настройку в последних браузерах. Вы можете решить эту проблему с помощью:
 
 ```css
 .MuiSlider-valueLabel {

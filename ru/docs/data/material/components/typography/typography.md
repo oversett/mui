@@ -6,25 +6,21 @@ githubLabel: 'component: Typography'
 materialDesign: https://m2.material.io/design/typography/the-type-system.html
 ---
 
-# Typography
+# Типографика <meta data-oversett="" data-original-text="Typography">
 
-<p class="description">Use typography to present your design and content as clearly and efficiently as possible.</p>
+<p class="description">Используйте типографику, чтобы представить дизайн и контент как можно более четко и эффективно.</p>
 
-Too many type sizes and styles at once can spoil any layout.
-A [typographic scale](https://m2.material.io/design/typography/#type-scale) has a limited set of type sizes that work well together along with the layout grid.
+Слишком большое количество размеров и стилей шрифта одновременно может испортить любой макет. [Шрифтовая шкала](https://m2.material.io/design/typography/#type-scale) имеет ограниченный набор размеров шрифта, которые хорошо работают вместе с сеткой макета.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## General
+## Общие сведения <meta data-oversett="" data-original-text="General">
 
-The _Roboto_ font will **not** be automatically loaded by MUI.
-You are responsible for loading any fonts used in your application.
-Roboto Font has a few easy ways to get started. For more advanced configuration, check out
-[the theme customization section](/material-ui/customization/typography/).
+Шрифт _Roboto_ **не** будет автоматически загружаться MUI. Вы сами отвечаете за загрузку любых шрифтов, используемых в вашем приложении. Шрифт Roboto имеет несколько простых способов начать работу. Для более продвинутой настройки ознакомьтесь с[разделом настройки темы](/material-ui/customization/typography/).
 
-## Roboto Font CDN
+## CDN Roboto Font <meta data-oversett="" data-original-text="Roboto Font CDN">
 
-Shown below is a sample link markup used to load the Roboto font from a CDN:
+Ниже показан пример разметки ссылки, используемой для загрузки шрифта Roboto из CDN:
 
 ```html
 <link
@@ -33,19 +29,19 @@ Shown below is a sample link markup used to load the Roboto font from a CDN:
 />
 ```
 
-## Install with npm
+## Установить с помощью npm <meta data-oversett="" data-original-text="Install with npm">
 
-You can [install it](https://www.npmjs.com/package/@fontsource/roboto) by running one of the following commands in your terminal:
+Вы можете [установить его](https://www.npmjs.com/package/@fontsource/roboto), выполнив одну из следующих команд в терминале:
 
-With **npm**:
+С помощью **npm**:
 
 `npm install @fontsource/roboto`
 
-Or **yarn**:
+Или **yarn**:
 
 `yarn add @fontsource/roboto`
 
-Then, you can import it in your entry-point.
+Затем вы можете импортировать его в свою точку входа.
 
 ```js
 import '@fontsource/roboto/300.css';
@@ -54,30 +50,27 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 ```
 
-For more info check out [Fontsource](https://github.com/fontsource/fontsource).
+Для получения дополнительной информации ознакомьтесь с [Fontsource](https://github.com/fontsource/fontsource).
 
-Fontsource can be configured to load specific subsets, weights and styles.
-MUI default typography configuration only relies on 300, 400, 500, and 700 font weights.
+Fontsource можно настроить на загрузку определенных подмножеств, весов и стилей. В конфигурации типографики MUI по умолчанию используются только шрифты весом 300, 400, 500 и 700.
 
-## Component
+## Компонент <meta data-oversett="" data-original-text="Component">
 
-The Typography component makes it easy to apply a default set of font weights and sizes in your application.
+Компонент Typography позволяет легко применить набор весов и размеров шрифтов по умолчанию в вашем приложении.
 
 {{"demo": "Types.js"}}
 
-## Theme
+## Тема <meta data-oversett="" data-original-text="Theme">
 
-In some situations you might not be able to use the `Typography` component.
-Hopefully, you might be able to take advantage of the [`typography`](/material-ui/customization/default-theme/?expand-path=$.typography) keys of the theme.
+В некоторых ситуациях вы можете не использовать компонент `Typography`. Надеемся, что вы сможете воспользоваться преимуществами [`typography`](/material-ui/customization/default-theme/?expand-path=$.typography) ключами темы.
 
 {{"demo": "TypographyTheme.js"}}
 
-## Changing the semantic element
+## Изменение семантического элемента <meta data-oversett="" data-original-text="Changing the semantic element">
 
-The Typography component uses the `variantMapping` prop to associate a UI variant with a semantic element.
-It's important to realize that the style of a typography component is independent from the semantic underlying element.
+Компонент Typography использует свойство `variantMapping`, чтобы связать вариант пользовательского интерфейса с семантическим элементом. Важно понимать, что стиль компонента типографики не зависит от семантического базового элемента.
 
-- You can change the underlying element for a one-off situation with the `component` prop:
+-   Вы можете изменить базовый элемент для разовой ситуации с помощью реквизита `component`:
 
 ```jsx
 {
@@ -88,7 +81,7 @@ It's important to realize that the style of a typography component is independen
 </Typography>;
 ```
 
-- You can change the mapping [globally using the theme](/material-ui/customization/theme-components/#default-props):
+-   Вы можете изменить отображение [глобально с помощью темы](/material-ui/customization/theme-components/#default-props):
 
 ```js
 const theme = createTheme({
@@ -113,23 +106,22 @@ const theme = createTheme({
 });
 ```
 
-## Adding & disabling variants
+## Добавление и отключение вариантов <meta data-oversett="" data-original-text="Adding &amp; disabling variants">
 
-In addition to using the default typography variants, you can add custom ones, or disable any you don't need. See the [Adding & disabling variants](/material-ui/customization/typography/#adding-amp-disabling-variants) example for more info.
+Помимо использования вариантов типографики по умолчанию, вы можете добавлять собственные варианты или отключать те, которые вам не нужны. Смотрите пример [добавления и отключения вариантов](/material-ui/customization/typography/#adding-amp-disabling-variants) для получения дополнительной информации.
 
-## System props
+## Системные реквизиты <meta data-oversett="" data-original-text="System props">
 
-As a CSS utility component, the `Typography` supports all [`system`](/system/properties/) properties. You can use them as prop directly on the component.
-For instance, a margin-top:
+Являясь полезным компонентом CSS, `Typography` поддерживает все [`system`](/system/properties/) свойства. Вы можете использовать их как prop непосредственно в компоненте. Например, margin-top:
 
 ```jsx
 <Typography mt={2}>
 ```
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-A few key factors to follow for an accessible typography:
+Несколько ключевых факторов, которые необходимо соблюдать для создания доступной типографики:
 
-- **Color**. Provide enough contrast between text and its background, check out the minimum recommended [WCAG 2.0 color contrast ratio](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) (4.5:1).
-- **Font size**. Use [relative units (rem)](/material-ui/customization/typography/#font-size) to accommodate the user's settings.
-- **Heading hierarchy**. [Don't skip](https://www.w3.org/WAI/tutorials/page-structure/headings/) heading levels. In order to solve this problem, you need to [separate the semantics from the style](#changing-the-semantic-element).
+-   **Цвет**. Обеспечьте достаточный контраст между текстом и его фоном, ознакомьтесь с минимальным рекомендуемым [коэффициентом цветового контраста WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) (4,5:1).
+-   **Размер шрифта**. Используйте [относительные единицы (rem)](/material-ui/customization/typography/#font-size), чтобы приспособиться к настройкам пользователя.
+-   **Иерархия заголовков**. [Не пропускайте](https://www.w3.org/WAI/tutorials/page-structure/headings/) уровни заголовков. Чтобы решить эту проблему, необходимо отделить [семантику от стиля](#changing-the-semantic-element).

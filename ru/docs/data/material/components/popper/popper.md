@@ -6,71 +6,64 @@ githubLabel: 'component: Popper'
 unstyled: /base/react-popper/
 ---
 
-# Popper
+# Поппер <meta data-oversett="" data-original-text="Popper">
 
-<p class="description">A Popper can be used to display some content on top of another. It's an alternative to react-popper.</p>
+<p class="description">Поппер можно использовать для отображения некоторого содержимого поверх другого. Это альтернатива react-popper.</p>
 
-Some important features of the `Popper` component:
+Некоторые важные особенности компонента `Popper`:
 
-- 🕷 Popper relies on the 3rd party library ([Popper.js](https://popper.js.org/)) for perfect positioning.
-- 💄 It's an alternative API to react-popper. It aims for simplicity.
-- 📦 [24.9 kB gzipped](/size-snapshot/).
-- The children is [`Portal`](/material-ui/react-portal/) to the body of the document to avoid rendering problems.
-  You can disable this behavior with `disablePortal`.
-- The scroll isn't blocked like with the [`Popover`](/material-ui/react-popover/) component.
-  The placement of the popper updates with the available area in the viewport.
-- Clicking away does not hide the `Popper` component.
-  If you need this behavior, you can use [`ClickAwayListener`](/material-ui/react-click-away-listener/) - see the example in the [menu documentation section](/material-ui/react-menu/#menulist-composition).
-- The `anchorEl` is passed as the reference object to create a new `Popper.js` instance.
+-   🕷 Popper полагается на стороннюю библиотеку[(Popper.js](https://popper.js.org/)) для идеального позиционирования.
+-   💄 Это альтернативный API к react-popper. Он нацелен на простоту.
+-   📦 [24.9 kB gzipped](/size-snapshot/).
+-   дочерние элементы [`Portal`](/material-ui/react-portal/) в тело документа, чтобы избежать проблем с рендерингом. Вы можете отключить это поведение с помощью `disablePortal`.
+-   Прокрутка не блокируется, как в случае с [`Popover`](/material-ui/react-popover/) Размещение всплывающего окна обновляется в соответствии с доступной областью в области просмотра.
+-   Щелчок не скрывает компонент `Popper`. Если вам нужно такое поведение, вы можете использовать [`ClickAwayListener`](/material-ui/react-click-away-listener/) - см. пример в [разделе документации по меню](/material-ui/react-menu/#menulist-composition).
+-   Объект `anchorEl` передается как объект ссылки для создания нового экземпляра `Popper.js`.
 
 {{"component": "modules/components/ComponentLinkHeader.js", "design": false}}
 
-## Basic popper
+## Базовый поппер <meta data-oversett="" data-original-text="Basic popper">
 
 {{"demo": "SimplePopper.js"}}
 
-## Transitions
+## Переходы <meta data-oversett="" data-original-text="Transitions">
 
-The open/close state of the popper can be animated with a render prop child and a transition component.
-This component should respect the following conditions:
+Состояние открытия/закрытия поппера можно анимировать с помощью дочернего компонента render prop и компонента transition. Этот компонент должен соблюдать следующие условия:
 
-- Be a direct child descendent of the popper.
-- Call the `onEnter` callback prop when the enter transition starts.
-- Call the `onExited` callback prop when the exit transition is completed.
-  These two callbacks allow the popper to unmount the child content when closed and fully transitioned.
+-   Быть прямым дочерним потомком popper.
+-   Вызывать `onEnter` callback prop, когда начинается переход enter.
+-   `onExited` Эти два обратных вызова позволяют попперу размонтировать дочерний контент, когда он закрыт и полностью перешел.
 
-Popper has built-in support for [react-transition-group](https://github.com/reactjs/react-transition-group).
+Popper имеет встроенную поддержку [react-transition-group](https://github.com/reactjs/react-transition-group).
 
 {{"demo": "TransitionsPopper.js"}}
 
-Alternatively, you can use [react-spring](https://github.com/pmndrs/react-spring).
+В качестве альтернативы вы можете использовать [react-spring](https://github.com/pmndrs/react-spring).
 
 {{"demo": "SpringPopper.js"}}
 
-## Positioned popper
+## Позиционированный поппер <meta data-oversett="" data-original-text="Positioned popper">
 
 {{"demo": "PositionedPopper.js"}}
 
-## Scroll playground
+## Игровая площадка прокрутки <meta data-oversett="" data-original-text="Scroll playground">
 
 {{"demo": "ScrollPlayground.js", "hideToolbar": true, "bg": true}}
 
-## Virtual element
+## Виртуальный элемент <meta data-oversett="" data-original-text="Virtual element">
 
-The value of the `anchorEl` prop can be a reference to a fake DOM element.
-You need to create an object shaped like the [`VirtualElement`](https://popper.js.org/docs/v2/virtual-elements/).
+Значением реквизита `anchorEl` может быть ссылка на поддельный элемент DOM. Вам необходимо создать объект, имеющий форму [`VirtualElement`](https://popper.js.org/docs/v2/virtual-elements/).
 
-Highlight part of the text to see the popper:
+Выделите часть текста, чтобы увидеть поппер:
 
 {{"demo": "VirtualElementPopper.js"}}
 
-## Complementary projects
+## Взаимодополняющие проекты <meta data-oversett="" data-original-text="Complementary projects">
 
-For more advanced use cases you might be able to take advantage of:
+Для более сложных случаев использования вы можете воспользоваться:
 
-### PopupState helper
+### Помощник PopupState <meta data-oversett="" data-original-text="PopupState helper">
 
-There is a 3rd party package [`material-ui-popup-state`](https://github.com/jcoreio/material-ui-popup-state) that takes care of popper
-state for you in most cases.
+Существует сторонний пакет [`material-ui-popup-state`](https://github.com/jcoreio/material-ui-popup-state) который в большинстве случаев заботится о состоянии поппера за вас.
 
 {{"demo": "PopperPopupState.js"}}

@@ -1,48 +1,49 @@
-# CSS theme variables
 
-<p class="description">An overview of adopting CSS theme variables in Material UI.</p>
 
-[CSS variables](https://www.w3.org/TR/css-variables-1/) are a modern cross-browser feature that let you declare variables in CSS and reuse them in other properties.
-You can implement them to improve Material UI's theming and customization experience.
+# Переменные темы CSS <meta data-oversett="" data-original-text="CSS theme variables">
+
+<p class="description">Обзор применения переменных тем CSS в Material UI.</p>
+
+[Переменные CSS](https://www.w3.org/TR/css-variables-1/) - это современная кроссбраузерная функция, которая позволяет объявлять переменные в CSS и повторно использовать их в других свойствах. Вы можете использовать их для улучшения тематизации и настройки Material UI.
 
 :::info
-If this is your first time encountering CSS variables, you should check out [the MDN Web Docs on CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) before continuing here.
+Если вы впервые сталкиваетесь с переменными CSS, вам следует ознакомиться с [веб-документами MDN по пользовательским свойствам CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), прежде чем продолжать.
 :::
 
-## Introduction
+## Введение <meta data-oversett="" data-original-text="Introduction">
 
-CSS theme variable support is a new feature in Material UI added in [`v5.6.0`](https://github.com/mui/material-ui/releases/tag/v5.6.0) (but not enabled by default). It tells Material UI components to use the generated CSS theme variables instead of raw values.
+Поддержка переменных тем CSS - это новая функция в Material UI, добавленная в версии [`v5.6.0`](https://github.com/mui/material-ui/releases/tag/v5.6.0) (но не включена по умолчанию). Она указывает компонентам Material UI использовать сгенерированные переменные темы CSS вместо необработанных значений.
 
-## Advantages
+## Преимущества <meta data-oversett="" data-original-text="Advantages">
 
-- It lets you prevent [dark-mode SSR flickering](https://github.com/mui/material-ui/issues/27651).
-- You can create unlimited color schemes beyond `light` and `dark`.
-- It offers a better debugging experience not only for developers but also designers on your team.
-- The color scheme of your website is automatically synced between browser tabs.
-- It simplifies integration with third-party tools because CSS theme variables are available globally.
-- It reduces the need for a nested theme when you want to apply dark styles to a specific part of your application.
+-   Это позволяет предотвратить [мерцание SSR в темном режиме](https://github.com/mui/material-ui/issues/27651).
+-   Вы можете создавать неограниченные цветовые схемы, помимо `light` и `dark`.
+-   Это улучшает отладку не только для разработчиков, но и для дизайнеров вашей команды.
+-   Цветовая схема вашего сайта автоматически синхронизируется между вкладками браузера.
+-   Это упрощает интеграцию со сторонними инструментами, поскольку переменные темы CSS доступны глобально.
+-   Это уменьшает необходимость во вложенной теме, когда вы хотите применить темные стили к определенной части вашего приложения.
 
-## Trade-offs
+## Компромиссы <meta data-oversett="" data-original-text="Trade-offs">
 
-For server-side applications, there are some trade-offs to consider:
+Для приложений на стороне сервера необходимо учитывать некоторые компромиссы:
 
-|                                                      | Compare to the default method | Reason                                                                                                       |
-| ---------------------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| HTML size                                            | Bigger                        | CSS variables are generated for both light and dark mode at build time.                                      |
-| [First Contentful Paint (FCP)](https://web.dev/fcp/) | Larger                        | Since the HTML size is generally bigger, the time to download the HTML before showing the content is longer. |
-| [Time to Interactive (TTI)](https://web.dev/tti/)    | Smaller (for dark mode)       | Stylesheets are not regenerated between light and dark mode, so it takes less time for JavaScript to run.    |
+|     | Сравнение с методом по умолчанию | Причина |
+| --- | --- | --- |
+| Размер HTML | Больше | Переменные CSS генерируются для светлого и темного режима во время сборки. |
+| [First Contentful Paint (FCP)](https://web.dev/fcp/) | Больше | Поскольку размер HTML обычно больше, время загрузки HTML перед показом содержимого больше. |
+| [Время до интерактивности (TTI)](https://web.dev/tti/) | Меньше (для темного режима) | Таблицы стилей не регенерируются между светлым и темным режимом, поэтому для выполнения JavaScript требуется меньше времени. |
 
 :::warning
-The comparison described in the table above may not be applicable to large and complex applications since there are so many factors that can impact performance metrics.
+Сравнение, описанное в таблице выше, может быть неприменимо к большим и сложным приложениям, поскольку существует очень много факторов, которые могут влиять на показатели производительности.
 :::
 
-## Mental model
+## Ментальная модель <meta data-oversett="" data-original-text="Mental model">
 
-Adopting CSS variables requires some shifts in your mental model of theming and customizing user-selected modes.
+Принятие переменных CSS требует некоторых изменений в вашей ментальной модели тематизации и настройки выбранных пользователем режимов.
 
-### Colors
+### Цвета <meta data-oversett="" data-original-text="Colors">
 
-**[Default approach](/material-ui/customization/dark-mode/)**: Light and dark colors are created separately.
+**[Подход по умолчанию](/material-ui/customization/dark-mode/)**: Светлые и темные цвета создаются отдельно.
 
 ```js
 const lightTheme = createTheme();
@@ -54,7 +55,7 @@ const darkTheme = createTheme({
 });
 ```
 
-**CSS theme variables**: Light and dark colors are consolidated into a theme.
+**Переменные темы CSS**: Светлые и темные цвета объединяются в тему.
 
 ```js
 // `extendTheme` is a new API
@@ -70,9 +71,9 @@ const theme = extendTheme({
 })
 ```
 
-### Styling
+### Стилизация <meta data-oversett="" data-original-text="Styling">
 
-**Default approach**: Usually relies on JavaScript to switch the value between modes:
+**Подход по умолчанию**: Обычно полагается на JavaScript для переключения значения между режимами:
 
 ```js
 createTheme({
@@ -89,7 +90,7 @@ createTheme({
 });
 ```
 
-**CSS theme variables**: Styling leans toward cascading and specificity by using the appropriate selector which lets you prevent [dark-mode SSR flickering](https://github.com/mui/material-ui/issues/27651):
+**Переменные темы CSS**: Стилизация склоняется к каскадированию и конкретизации, используя соответствующий селектор, который позволяет предотвратить [мерцание SSR в темном режиме](https://github.com/mui/material-ui/issues/27651):
 
 ```js
 extendTheme({
@@ -110,8 +111,8 @@ extendTheme({
 });
 ```
 
-## What's next
+## Что дальше <meta data-oversett="" data-original-text="What's next">
 
-- To start a new project with CSS theme variables, check out the [basic usage guide](/material-ui/experimental-api/css-theme-variables/usage/).
-- For an existing Material UI project, check out the [migration guide](/material-ui/experimental-api/css-theme-variables/migration/).
-- For theming and customization, check out the [how-to guide](/material-ui/experimental-api/css-theme-variables/customization/).
+-   Чтобы начать новый проект с переменными тем CSS, ознакомьтесь с [руководством по базовому использованию](/material-ui/experimental-api/css-theme-variables/usage/).
+-   Для существующего проекта Material UI ознакомьтесь с [руководством по миграции](/material-ui/experimental-api/css-theme-variables/migration/).
+-   Для создания и настройки тем ознакомьтесь с [руководством](/material-ui/experimental-api/css-theme-variables/customization/) по использованию.

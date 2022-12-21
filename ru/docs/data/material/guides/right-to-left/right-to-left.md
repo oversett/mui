@@ -1,27 +1,28 @@
-# Right-to-left
 
-<p class="description">Right-to-left languages such as Arabic, Persian, or Hebrew are supported. To change the direction of MUI components you must follow the following steps.</p>
 
-## Steps
+# Право-лево <meta data-oversett="" data-original-text="Right-to-left">
 
-### 1. HTML
+<p class="description">Поддерживаются языки с правым направлением, такие как арабский, персидский или иврит. Чтобы изменить направление компонентов MUI, необходимо выполнить следующие шаги.</p>
 
-Make sure the `dir` attribute is set on the `html` tag, otherwise native components will break:
+## Шаги <meta data-oversett="" data-original-text="Steps">
+
+### 1\. HTML <meta data-oversett="" data-original-text="1. HTML">
+
+Убедитесь, что атрибут `dir` установлен на теге `html`, иначе родные компоненты будут сломаны:
 
 ```html
 <html dir="rtl"></html>
 ```
 
-If you need to change the direction of the text at runtime, but React does not control the root HTML element, you may use the JS API:
+Если вам нужно изменить направление текста во время выполнения, но React не управляет корневым элементом HTML, вы можете использовать JS API:
 
 ```js
 document.dir = 'rtl';
 ```
 
-As an alternative to the above, you can also wrap your application (or part of it) in an element with the `dir` attribute.
-This, however, will not work correctly with portaled elements, such as Dialogs, as they will render outside of the element with the `dir` attribute.
+В качестве альтернативы вышеописанному, вы также можете обернуть ваше приложение (или его часть) в элемент с атрибутом `dir`. Однако это не будет корректно работать с портированными элементами, такими как Dialogs, так как они будут отображаться вне элемента с атрибутом `dir`.
 
-To fix the portaled components, add an explicit `dir` attribute to them:
+Чтобы исправить портированные компоненты, добавьте к ним явный атрибут `dir`:
 
 ```jsx
 <Dialog dir="rtl">
@@ -29,9 +30,9 @@ To fix the portaled components, add an explicit `dir` attribute to them:
 </Dialog>
 ```
 
-### 2. Theme
+### 2\. Тема <meta data-oversett="" data-original-text="2. Theme">
 
-Set the direction in your custom theme:
+Установите направление в вашей пользовательской теме:
 
 ```js
 import { createTheme } from '@mui/material/styles';
@@ -41,32 +42,31 @@ const theme = createTheme({
 });
 ```
 
-### 3. Install the rtl plugin
+### 3\. Установите плагин rtl <meta data-oversett="" data-original-text="3. Install the rtl plugin">
 
-When using either `emotion` or `styled-components`, you need [`stylis-plugin-rtl`](https://github.com/styled-components/stylis-plugin-rtl) to flip the styles.
+При использовании `emotion` или `styled-components` необходимо [`stylis-plugin-rtl`](https://github.com/styled-components/stylis-plugin-rtl) перевернуть стили.
 
 ```sh
 npm install stylis stylis-plugin-rtl
 ```
 
 :::warning
-Only Emotion is compatible with version 2 of the plugin. `styled-components` requires version 1. If you are using `styled-components` as a [styled engine](/material-ui/guides/styled-engine/), make sure to install the correct version.
+Только Emotion совместим с версией 2 плагина. `styled-components` требует версии 1. Если вы используете `styled-components` в качестве [стилизованного движка](/material-ui/guides/styled-engine/), убедитесь, что установили правильную версию.
 :::
 
-In case you are using `jss` (up to v4) or with the legacy `@mui/styles` package, you need [`jss-rtl`](https://github.com/alitaheri/jss-rtl) to flip the styles.
+Если вы используете `jss` (до версии 4) или старый пакет `@mui/styles`, вам необходимо [`jss-rtl`](https://github.com/alitaheri/jss-rtl) перевернуть стили.
 
 ```sh
 npm install jss-rtl
 ```
 
-Having installed the plugin in your project, MUI components still require it to be loaded by the style engine instance that you use. Find bellow guides on how you can load it.
+После установки плагина в ваш проект, компоненты MUI все еще требуют, чтобы он был загружен экземпляром движка стилей, который вы используете. Найдите ниже руководства о том, как его загрузить.
 
-### 4. Load the rtl plugin
+### 4\. Загрузка плагина rtl <meta data-oversett="" data-original-text="4. Load the rtl plugin">
 
-#### 4.1 Emotion
+#### 4.1 Emotion <meta data-oversett="" data-original-text="4.1 Emotion">
 
-If you use Emotion as your style engine, you should create a new cache instance that uses the `stylis-plugin-rtl` (the default `prefixer` plugin must also be included in order to retain vendor prefixing) and provide that on the top of your application tree.
-The [CacheProvider](https://emotion.sh/docs/cache-provider) component enables this:
+Если вы используете Emotion в качестве движка стилей, вам следует создать новый экземпляр кэша, использующий `stylis-plugin-rtl` (плагин по умолчанию `prefixer` также должен быть включен, чтобы сохранить префиксацию поставщиков) и разместить его в верхней части дерева вашего приложения. Компонент [CacheProvider](https://emotion.sh/docs/cache-provider) позволяет это сделать:
 
 ```jsx
 import rtlPlugin from 'stylis-plugin-rtl';
@@ -85,9 +85,9 @@ function RTL(props) {
 }
 ```
 
-#### 4.2 styled-components
+#### 4.2 стилизованные компоненты <meta data-oversett="" data-original-text="4.2 styled-components">
 
-If you use `styled-components` as your style engine, you can use the [StyleSheetManager](https://styled-components.com/docs/api#stylesheetmanager) and provide the stylis-plugin-rtl as an item in the `stylisPlugins` property:
+Если вы используете `styled-components` в качестве механизма стилей, вы можете использовать [StyleSheetManager](https://styled-components.com/docs/api#stylesheetmanager) и предоставить stylis-plugin-rtl в качестве элемента в свойстве `stylisPlugins`:
 
 ```jsx
 import { StyleSheetManager } from 'styled-components';
@@ -102,11 +102,9 @@ function RTL(props) {
 }
 ```
 
-#### 4.3 JSS
+#### 4.3 JSS <meta data-oversett="" data-original-text="4.3 JSS">
 
-After installing the plugin in your project, you need to configure the JSS instance to load it.
-The next step is to make the new JSS instance available to all the components in the component tree.
-The [`StylesProvider`](/system/styles/api/#stylesprovider) component enables this:
+После установки плагина в проект необходимо настроить экземпляр JSS для его загрузки. Следующим шагом будет сделать новый экземпляр JSS доступным для всех компонентов в дереве компонентов. [`StylesProvider`](/system/styles/api/#stylesprovider) компонент позволяет это сделать:
 
 ```jsx
 import { create } from 'jss';
@@ -123,20 +121,19 @@ function RTL(props) {
 }
 ```
 
-For more information on the plugin, head to the [plugin README](https://github.com/alitaheri/jss-rtl).
-**Note**: Internally, withStyles is using this JSS plugin when `direction: 'rtl'` is set on the theme.
+Для получения дополнительной информации о плагине, перейдите в [README плагина](https://github.com/alitaheri/jss-rtl).**Примечание**: Внутренне, withStyles использует этот JSS плагин, когда `direction: 'rtl'` установлен в теме.
 
-## Demo
+## Демонстрация <meta data-oversett="" data-original-text="Demo">
 
-_Use the direction toggle button on the top right corner to flip the whole documentation_
+_Используйте кнопку переключения направления в правом верхнем углу, чтобы перевернуть всю документацию_
 
 {{"demo": "Direction.js"}}
 
-## Opting out of rtl transformation
+## Отказ от трансформации rtl <meta data-oversett="" data-original-text="Opting out of rtl transformation">
 
-### Emotion & styled-components
+### Эмоции и стилизованные компоненты <meta data-oversett="" data-original-text="Emotion &amp; styled-components">
 
-You have to use the template literal syntax and add the `/* @noflip */` directive before the rule or property for which you want to disable right-to-left styles.
+Вы должны использовать синтаксис шаблонного литерала и добавить директиву `/* @noflip */` перед правилом или свойством, для которого вы хотите отключить право-левые стили.
 
 ```jsx
 const AffectedText = styled('div')`
@@ -151,9 +148,9 @@ const UnaffectedText = styled('div')`
 
 {{"demo": "RtlOptOutStylis.js", "hideToolbar": true}}
 
-### JSS
+### JSS <meta data-oversett="" data-original-text="JSS">
 
-If you want to prevent a specific rule-set from being affected by the `rtl` transformation you can add `flip: false` at the beginning.
+Если вы хотите предотвратить воздействие трансформации `rtl` на определенный набор правил, вы можете добавить `flip: false` в начале.
 
 ```jsx
 const useStyles = makeStyles(

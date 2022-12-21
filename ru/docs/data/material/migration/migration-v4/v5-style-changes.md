@@ -1,40 +1,40 @@
-# Breaking changes in v5, part one: styles and themes
 
-<p class="description">This is a reference guide to all of the breaking changes introduced in Material v5, and how to handle them when migrating from v4. This part covers changes to styling and theming.</p>
 
-## Material UI v5 migration
+# Ломающие изменения в v5, часть первая: стили и темы <meta data-oversett="" data-original-text="Breaking changes in v5, part one: styles and themes">
 
-1. [Getting started](/material-ui/migration/migration-v4/)
-2. Breaking changes part one: style and theme 👈 _you are here_
-3. [Breaking changes part two: components](/material-ui/migration/v5-component-changes/)
-4. [Migrating from JSS](/material-ui/migration/migrating-from-jss/)
-5. [Troubleshooting](/material-ui/migration/troubleshooting/)
+<p class="description">Это справочное руководство по всем изменениям, внесенным в Material v5, и по тому, как с ними обращаться при переходе с v4. В этой части рассматриваются изменения в стилях и темах.</p>
 
-## Breaking changes, part one
+## Миграция Material UI v5 <meta data-oversett="" data-original-text="Material UI v5 migration">
 
-Material UI v5 introduces a number of breaking changes from v4.
-Many of these changes can be resolved automatically using [the codemods](/material-ui/migration/migration-v4/#run-codemods) described in the [main migration guide](/material-ui/migration/migration-v4/).
+1.  [Начало работы](/material-ui/migration/migration-v4/)
+2.  Ломающие изменения, часть первая: стиль и тема 👈 _Вы здесь_
+3.  [Изменения во второй части: компоненты](/material-ui/migration/v5-component-changes/)
+4.  [Миграция с JSS](/material-ui/migration/migrating-from-jss/)
+5.  [Устранение неполадок](/material-ui/migration/troubleshooting/)
 
-The following document lists all breaking changes related to styles and themes in v5 and how to address them.
+## Ломающие изменения, часть первая <meta data-oversett="" data-original-text="Breaking changes, part one">
 
-After you're finished here, please move on to [Breaking changes in v5 part two: components](/material-ui/migration/v5-component-changes/) to continue the migration process.
+В Material UI v5 внесен ряд изменений по сравнению с v4. Многие из этих изменений могут быть устранены автоматически с помощью [кодовых модулей](/material-ui/migration/migration-v4/#run-codemods), описанных в [главном руководстве по миграции](/material-ui/migration/migration-v4/).
+
+В следующем документе перечислены все изменения, связанные со стилями и темами в v5, и способы их устранения.
+
+После того, как вы закончите с этим документом, перейдите ко [второй части "Нарушающие изменения в v5: компоненты](/material-ui/migration/v5-component-changes/) ", чтобы продолжить процесс миграции.
 
 :::warning
-Breaking changes that are handled by codemods are denoted by a ✅ emoji in the table of contents on the right side of the screen.
+Изменения, которые обрабатываются кодмодами, обозначаются ✅ эмодзи в оглавлении в правой части экрана.
 
-If you have already followed the instructions in the main migration guide and run the codemods, then you should not need to take any further action on these items.
+Если вы уже следовали инструкциям в основном руководстве по миграции и запустили кодмоды, то вам не нужно предпринимать никаких дополнительных действий по этим пунктам.
 
-All other changes must be handled manually.
+Все остальные изменения должны быть выполнены вручную.
 :::
 
-## Migrate theme styleOverrides to Emotion
+## Перенос стилевых переопределений темы в Emotion <meta data-oversett="" data-original-text="Migrate theme styleOverrides to Emotion">
 
-Although your style overrides defined in the theme may partially work, there is an important difference regarding how the nested elements are styled.
+Хотя ваши переопределения стилей, определенные в теме, могут частично работать, есть важное различие в том, как стилизуются вложенные элементы.
 
-The `$` syntax (local rule reference) used with JSS will not work with Emotion.
-You need to replace those selectors with a valid class selector.
+Синтаксис `$` (локальная ссылка на правило), используемый в JSS, не будет работать в Emotion. Вам нужно заменить эти селекторы на действительные селекторы классов.
 
-### Replace state class names
+### Замените имена классов состояния <meta data-oversett="" data-original-text="Replace state class names">
 
 ```diff
  const theme = createTheme({
@@ -53,7 +53,7 @@ You need to replace those selectors with a valid class selector.
  });
 ```
 
-### Replace nested classes selectors with global class names
+### Замените селекторы вложенных классов именами глобальных классов <meta data-oversett="" data-original-text="Replace nested classes selectors with global class names">
 
 ```diff
  const theme = createTheme({
@@ -73,9 +73,9 @@ You need to replace those selectors with a valid class selector.
 ```
 
 :::info
-For each component, we export a `[component]Classes` constant that contains all nested classes for that component.
+Для каждого компонента мы экспортируем константу `[component]Classes`, которая содержит все вложенные классы для этого компонента.
 
-You can rely on this instead of hardcoding the classes.
+Вы можете полагаться на это вместо жесткого кодирования классов.
 :::
 
 ```diff
@@ -97,26 +97,23 @@ You can rely on this instead of hardcoding the classes.
  });
 ```
 
-Take a look at the complete [list of global state classnames](/material-ui/customization/how-to-customize/#state-classes) available.
+Посмотрите на полный [список](/material-ui/customization/how-to-customize/#state-classes) доступных [глобальных имен классов состояний](/material-ui/customization/how-to-customize/#state-classes).
 
-## ref
+## ref <meta data-oversett="" data-original-text="ref">
 
-### Refactor non-ref-forwarding class components
+### Рефакторинг компонентов классов без переадресации по ссылке <meta data-oversett="" data-original-text="Refactor non-ref-forwarding class components">
 
-Support for non-ref-forwarding class components in the `component` prop or as immediate `children` has been dropped.
+Поддержка компонентов классов без переадресации в реквизите `component` или в непосредственном `children` была прекращена.
 
-If you were using `unstable_createStrictModeTheme` or didn't see any warnings related to `findDOMNode` in `React.StrictMode` then you don't need to take any further action.
+Если вы используете `unstable_createStrictModeTheme` или не видели никаких предупреждений, связанных с `findDOMNode` в `React.StrictMode`, то вам не нужно предпринимать никаких дальнейших действий.
 
-Otherwise check out the [Caveat with refs](/material-ui/guides/composition/#caveat-with-refs) section in the Composition guide to find out how to migrate.
-This change affects almost all components where you're using the `component` prop or passing `children` to components that require `children` to be elements (e.g. `<MenuList><CustomMenuItem /></MenuList>`).
+В противном случае ознакомьтесь с разделом [Caveat with refs](/material-ui/guides/composition/#caveat-with-refs) в руководстве по композиции, чтобы узнать, как осуществить миграцию. Это изменение затрагивает почти все компоненты, где вы используете реквизит `component` или передаете `children` компонентам, которые требуют, чтобы `children` был элементом (например, `<MenuList><CustomMenuItem /></MenuList>`).
 
-### Fix ref type specificity
+### Исправление специфичности типов ссылок <meta data-oversett="" data-original-text="Fix ref type specificity">
 
-For some components, you may get a type error when passing `ref`.
-To avoid the error, you should use a specific element type.
-For example, `Card` expects the type of `ref` to be `HTMLDivElement`, and `ListItem` expects its `ref` type to be `HTMLLIElement`.
+Для некоторых компонентов вы можете получить ошибку типа при передаче `ref`. Чтобы избежать ошибки, вы должны использовать конкретный тип элемента. Например, `Card` ожидает, что тип `ref` будет `HTMLDivElement`, а `ListItem` ожидает, что его тип `ref` будет `HTMLLIElement`.
 
-Here is an example:
+Вот пример:
 
 ```diff
  import * as React from 'react';
@@ -138,36 +135,35 @@ Here is an example:
  }
 ```
 
-Here are the specific element types that each component expects:
+Вот конкретные типы элементов, которые ожидает каждый компонент:
 
-#### @mui/material
+#### @mui/material <meta data-oversett="" data-original-text="@mui/material">
 
-- [Accordion](/material-ui/api/accordion/) - `HTMLDivElement`
-- [Alert](/material-ui/api/alert/) - `HTMLDivElement`
-- [Avatar](/material-ui/api/avatar/) - `HTMLDivElement`
-- [ButtonGroup](/material-ui/api/button-group/) - `HTMLDivElement`
-- [Card](/material-ui/api/card/) - `HTMLDivElement`
-- [Dialog](/material-ui/api/dialog/) - `HTMLDivElement`
-- [ImageList](/material-ui/api/image-list/) - `HTMLUListElement`
-- [List](/material-ui/api/list/) - `HTMLUListElement`
-- [Tab](/material-ui/api/tab/) - `HTMLDivElement`
-- [Tabs](/material-ui/api/tabs/) - `HTMLDivElement`
-- [ToggleButton](/material-ui/api/toggle-button/) - `HTMLButtonElement`
+-   [Аккордеон](/material-ui/api/accordion/) - `HTMLDivElement`
+-   [Оповещение](/material-ui/api/alert/) - `HTMLDivElement`
+-   [Аватар](/material-ui/api/avatar/) - `HTMLDivElement`
+-   [ButtonGroup](/material-ui/api/button-group/) - `HTMLDivElement`
+-   [Карточка](/material-ui/api/card/) - `HTMLDivElement`
+-   [Диалог](/material-ui/api/dialog/) - `HTMLDivElement`
+-   [ImageList](/material-ui/api/image-list/) - `HTMLUListElement`
+-   [Список](/material-ui/api/list/) - `HTMLUListElement`
+-   [Tab](/material-ui/api/tab/) - `HTMLDivElement`
+-   [Вкладки](/material-ui/api/tabs/) - `HTMLDivElement`
+-   [ToggleButton](/material-ui/api/toggle-button/) - `HTMLButtonElement`
 
-#### @mui/lab
+#### @mui/lab <meta data-oversett="" data-original-text="@mui/lab">
 
-- [Timeline](/material-ui/api/timeline/) - `HTMLUListElement`
+-   [Временная шкала](/material-ui/api/timeline/) - `HTMLUListElement`
 
-## Style library
+## Библиотека стилей <meta data-oversett="" data-original-text="Style library">
 
-### ✅ Adjust CSS injection order
+### ✅ Настройка порядка введения CSS <meta data-oversett="" data-original-text="✅ Adjust CSS injection order">
 
-The style library used by default in v5 is [Emotion](https://emotion.sh/docs/introduction).
+Библиотека стилей, используемая по умолчанию в v5, - это [Emotion](https://emotion.sh/docs/introduction).
 
-If you were using JSS for the style overrides of Material UI components—for example, those created by `makeStyles`—you will need to take care of the CSS injection order.
-JSS `<style`>' elements need to be injected in the `<head>` after Emotion `<style>`' elements.
+Если вы использовали JSS для переопределения стилей компонентов Material UI - например, созданных с помощью `makeStyles`\- вам нужно будет позаботиться о порядке введения CSS. Элементы JSS `<style`\>' должны быть введены в `<head>` после элементов Emotion `<style>`'.
 
-To do so, you need to have the `StyledEngineProvider` with the `injectFirst` option at the top of your component tree, as shown here:
+Для этого необходимо, чтобы `StyledEngineProvider` с опцией `injectFirst` находился в верхней части дерева компонентов, как показано здесь:
 
 ```jsx
 import * as React from 'react';
@@ -183,11 +179,11 @@ export default function GlobalCssPriority() {
 }
 ```
 
-### ✅ Add prepend to createCache
+### ✅ Добавить prepend в createCache <meta data-oversett="" data-original-text="✅ Add prepend to createCache">
 
-If you have a custom cache and are using Emotion to style your app, it will override the cache provided by Material UI.
+Если у вас есть пользовательский кэш и вы используете Emotion для стилизации вашего приложения, он будет переопределять кэш, предоставляемый Material UI.
 
-To correct the injection order, add the `prepend` option to `createCache`, as shown below:
+Чтобы исправить порядок инъекций, добавьте параметр `prepend` к `createCache`, как показано ниже:
 
 ```diff
  import * as React from 'react';
@@ -209,17 +205,16 @@ To correct the injection order, add the `prepend` option to `createCache`, as sh
 ```
 
 :::warning
-If you are using styled-components and have a `StyleSheetManager` with a custom `target`, make sure that the target is the first element in the HTML `<head>`.
+Если вы используете styled-components и у вас есть `StyleSheetManager` с пользовательским `target`, убедитесь, что target является первым элементом в HTML `<head>`.
 
-To see how it can be done, take a look at the [`StyledEngineProvider` implementation](https://github.com/mui/material-ui/blob/master/packages/mui-styled-engine-sc/src/StyledEngineProvider/StyledEngineProvider.js) in the `@mui/styled-engine-sc` package.
+Чтобы увидеть, как это можно сделать, посмотрите на [реализацию`StyledEngineProvider`](https://github.com/mui/material-ui/blob/master/packages/mui-styled-engine-sc/src/StyledEngineProvider/StyledEngineProvider.js) в пакете `@mui/styled-engine-sc`.
 :::
 
-## Theme structure
+## Структура темы <meta data-oversett="" data-original-text="Theme structure">
 
-### ✅ Add adaptV4Theme helper
+### ✅ Добавление помощника adaptV4Theme <meta data-oversett="" data-original-text="✅ Add adaptV4Theme helper">
 
-The structure of the theme has changed in v5. You need to update its shape.
-For a smoother transition, the `adaptV4Theme` helper allows you to iteratively upgrade some of the theme changes to the new theme structure.
+Структура темы изменилась в v5. Вам необходимо обновить ее форму. Для более плавного перехода помощник `adaptV4Theme` позволяет итеративно обновить некоторые изменения темы до новой структуры темы.
 
 ```diff
 -import { createMuiTheme } from '@mui/material/styles';
@@ -233,15 +228,14 @@ For a smoother transition, the `adaptV4Theme` helper allows you to iteratively u
 ```
 
 :::warning
-This adapter only handles the input arguments of `createTheme`.
-If you modify the shape of the theme after its creation, you need to migrate the structure manually.
+Этот адаптер обрабатывает только входные аргументы `createTheme`. Если вы изменяете форму темы после ее создания, вам необходимо перенести структуру вручную.
 :::
 
-The following changes are supported by the adapter:
+Адаптер поддерживает следующие изменения:
 
-### Remove gutters
+### Удалить желоба <meta data-oversett="" data-original-text="Remove gutters">
 
-The "gutters" abstraction hasn't proven to be used frequently enough to be valuable.
+Абстракция "gutters" используется недостаточно часто, чтобы быть полезной.
 
 ```diff
 -theme.mixins.gutters(),
@@ -253,26 +247,25 @@ The "gutters" abstraction hasn't proven to be used frequently enough to be valua
 +},
 ```
 
-### ✅ Remove px suffix
+### ✅ Убрать суффикс px <meta data-oversett="" data-original-text="✅ Remove px suffix">
 
-`theme.spacing` now returns single values with px units by default.
-This change improves the integration with styled-components & Emotion.
+`theme.spacing` теперь по умолчанию возвращает единичные значения с единицами измерения px. Это изменение улучшает интеграцию со стилизованными компонентами и Emotion.
 
-Before:
+До:
 
 ```js
 theme.spacing(2) => 16
 ```
 
-After:
+После:
 
 ```js
 theme.spacing(2) => '16px'
 ```
 
-### ✅ Rename theme.palette.type
+### ✅ Переименование theme.palette.type <meta data-oversett="" data-original-text="✅ Rename theme.palette.type">
 
-The `theme.palette.type` key was renamed to `theme.palette.mode`, to better follow the "dark mode" terminology that is usually used for describing this feature.
+Ключ `theme.palette.type` был переименован в `theme.palette.mode`, чтобы лучше следовать терминологии "темного режима", которая обычно используется для описания этой функции.
 
 ```diff
  import { createTheme } from '@mui/material/styles';
@@ -280,9 +273,9 @@ The `theme.palette.type` key was renamed to `theme.palette.mode`, to better foll
 +const theme = createTheme({ palette: { mode: 'dark' } }),
 ```
 
-### Change default theme.palette.info colors
+### Изменить цвета по умолчанию theme.palette.info <meta data-oversett="" data-original-text="Change default theme.palette.info colors">
 
-The default `theme.palette.info` colors were changed to pass the AA accessibility standard contrast ratio in both light and dark modes.
+Цвета по умолчанию `theme.palette.info` были изменены таким образом, чтобы коэффициент контрастности соответствовал стандарту доступности AA как в светлом, так и в темном режимах.
 
 ```diff
   info = {
@@ -297,9 +290,9 @@ The default `theme.palette.info` colors were changed to pass the AA accessibilit
   }
 ```
 
-### Change default theme.palette.success colors
+### Изменение цветов по умолчанию theme.palette.success <meta data-oversett="" data-original-text="Change default theme.palette.success colors">
 
-The default `theme.palette.success` colors were changed to pass the AA accessibility standard contrast ratio in both light and dark modes.
+Цвета по умолчанию `theme.palette.success` были изменены для соответствия стандарту доступности AA по коэффициенту контрастности как в светлом, так и в темном режимах.
 
 ```diff
   success = {
@@ -314,9 +307,9 @@ The default `theme.palette.success` colors were changed to pass the AA accessibi
   }
 ```
 
-### Change default theme.palette.warning colors
+### Изменение цветов по умолчанию в палитре theme.palette.warning <meta data-oversett="" data-original-text="Change default theme.palette.warning colors">
 
-The default `theme.palette.warning` colors were changed to pass the AA accesibility standard contrast ratio in both light and dark modes.
+Цвета по умолчанию `theme.palette.warning` были изменены для соответствия стандарту доступности AA по коэффициенту контрастности как в светлом, так и в темном режимах.
 
 ```diff
   warning = {
@@ -331,10 +324,9 @@ The default `theme.palette.warning` colors were changed to pass the AA accesibil
   }
 ```
 
-### Restore theme.palette.text.hint key (if needed)
+### Восстановить ключ theme.palette.text.hint (если необходимо). <meta data-oversett="" data-original-text="Restore theme.palette.text.hint key (if needed)">
 
-The `theme.palette.text.hint` key was unused in Material UI components, and has been removed.
-If you depend on it, you can add it back:
+Ключ `theme.palette.text.hint` не использовался в компонентах Material UI и был удален. Если вы зависите от него, вы можете добавить его обратно:
 
 ```diff
   import { createTheme } from '@mui/material/styles';
@@ -345,11 +337,11 @@ If you depend on it, you can add it back:
 +});
 ```
 
-### Restructure component definitions
+### Перестроить определения компонентов <meta data-oversett="" data-original-text="Restructure component definitions">
 
-The component definitions in the theme were restructured under the `components` key to make them easier to find.
+Определения компонентов в теме были реструктурированы под ключ `components`, чтобы их было легче найти.
 
-#### 1. props
+#### 1\. реквизиты <meta data-oversett="" data-original-text="1. props">
 
 ```diff
  import { createTheme } from '@mui/material/styles';
@@ -370,7 +362,7 @@ The component definitions in the theme were restructured under the `components` 
  });
 ```
 
-#### 2. overrides
+#### 2\. переопределения <meta data-oversett="" data-original-text="2. overrides">
 
 ```diff
  import { createTheme } from '@mui/material/styles';
@@ -391,26 +383,26 @@ The component definitions in the theme were restructured under the `components` 
  });
 ```
 
-## @mui/styles
+## @mui/styles <meta data-oversett="" data-original-text="@mui/styles">
 
-### Update ThemeProvider import
+### Обновление импорта ThemeProvider <meta data-oversett="" data-original-text="Update ThemeProvider import">
 
-If you are using the utilities from `@mui/styles` together with the `@mui/material`, you should replace the use of `ThemeProvider` from `@mui/styles` with the one exported from `@mui/material/styles`.
+Если вы используете утилиты из `@mui/styles` вместе с `@mui/material`, вам следует заменить использование `ThemeProvider` из `@mui/styles` на экспортированное из `@mui/material/styles`.
 
-This way, the `theme` provided in the context will be available in both the styling utilities exported from `@mui/styles`, like `makeStyles`, `withStyles`, etc., along with the Material UI components.
+Таким образом, `theme`, предоставленный в контексте, будет доступен в обеих утилитах стилизации, экспортированных из `@mui/styles`, таких как `makeStyles`, `withStyles` и т.д., вместе с компонентами Material UI.
 
 ```diff
 -import { ThemeProvider } from '@mui/styles';
 +import { ThemeProvider } from '@mui/material/styles';
 ```
 
-Make sure to add a `ThemeProvider` at the root of your application, as the `defaultTheme` is no longer available in the utilities coming from `@mui/styles`.
+Обязательно добавьте `ThemeProvider` в корень вашего приложения, так как `defaultTheme` больше не доступен в утилитах, полученных из `@mui/styles`.
 
-### ✅ Add module augmentation for DefaultTheme (TypeScript)
+### ✅ Добавление модуля дополнения для DefaultTheme (TypeScript). <meta data-oversett="" data-original-text="✅ Add module augmentation for DefaultTheme (TypeScript)">
 
-The `@mui/styles` package is no longer part of `@mui/material/styles`.
+Пакет `@mui/styles` больше не является частью `@mui/material/styles`.
 
-If you are using `@mui/styles` together with `@mui/material` you need to add a module augmentation for the `DefaultTheme`.
+Если вы используете `@mui/styles` вместе с `@mui/material`, вам необходимо добавить модуль дополнения для `DefaultTheme`.
 
 ```ts
 // in the file where you are creating the theme (invoking the function `createTheme()`)
@@ -421,24 +413,24 @@ declare module '@mui/styles' {
 }
 ```
 
-## @mui/material/colors
+## @mui/material/colors <meta data-oversett="" data-original-text="@mui/material/colors">
 
-### ✅ Change color imports
+### ✅ Изменение импорта цветов <meta data-oversett="" data-original-text="✅ Change color imports">
 
-Nested imports of more than one level are private. For example, you can no longer import `red` from `@mui/material/colors/red`.
+Вложенные импорты более чем одного уровня являются частными. Например, вы больше не можете импортировать `red` из `@mui/material/colors/red`.
 
 ```diff
 -import red from '@mui/material/colors/red';
 +import { red } from '@mui/material/colors';
 ```
 
-## @mui/material/styles
+## @mui/material/styles <meta data-oversett="" data-original-text="@mui/material/styles">
 
-### ✅ Rename fade to alpha
+### ✅ Переименовать затухание в альфу <meta data-oversett="" data-original-text="✅ Rename fade to alpha">
 
-`fade` was renamed to `alpha` to better describe its functionality.
+`fade` был переименован в `alpha`, чтобы лучше описать его функциональность.
 
-The previous name caused confusion when the input color already had an alpha value. The helper overrides the alpha value of the color.
+Предыдущее название вызывало путаницу, когда цвет ввода уже имел значение альфа. Помощник переопределяет альфа-значение цвета.
 
 ```diff
 -import { fade } from '@mui/material/styles';
@@ -450,29 +442,29 @@ The previous name caused confusion when the input color already had an alpha val
   }));
 ```
 
-### ✅ Update createStyles import
+### ✅ Обновление импорта createStyles <meta data-oversett="" data-original-text="✅ Update createStyles import">
 
-The `createStyles` function from `@mui/material/styles` was moved to the one exported from `@mui/styles`. It is necessary for removing the dependency on `@mui/styles` in the Material UI npm package.
+Функция `createStyles` из `@mui/material/styles` была перенесена в функцию, экспортируемую из `@mui/styles`. Это необходимо для устранения зависимости от `@mui/styles` в пакете Material UI npm.
 
 ```diff
 -import { createStyles } from '@mui/material/styles';
 +import { createStyles } from '@mui/styles';
 ```
 
-### ✅ Update createGenerateClassName import
+### ✅ Обновление createGenerateClassName import <meta data-oversett="" data-original-text="✅ Update createGenerateClassName import">
 
-The `createGenerateClassName` function is no longer exported from `@mui/material/styles`. You should import it directly from `@mui/styles`.
+Функция `createGenerateClassName` больше не экспортируется из `@mui/material/styles`. Вы должны импортировать ее непосредственно из `@mui/styles`.
 
 ```diff
 -import { createGenerateClassName } from '@mui/material/styles';
 +import { createGenerateClassName } from '@mui/styles';
 ```
 
-To generate custom class names without using `@mui/styles`, check out [ClassName Generator](/material-ui/experimental-api/classname-generator/) for more details.
+Чтобы генерировать пользовательские имена классов без использования `@mui/styles`, ознакомьтесь с более подробной информацией в [ClassName Generator](/material-ui/experimental-api/classname-generator/).
 
-### ✅ Rename createMuiTheme
+### ✅ Переименование createMuiTheme <meta data-oversett="" data-original-text="✅ Rename createMuiTheme">
 
-The function `createMuiTheme` was renamed to `createTheme` to make it more intuitive to use with `ThemeProvider`.
+Функция `createMuiTheme` была переименована в `createTheme`, чтобы сделать ее более интуитивно понятной для использования с `ThemeProvider`.
 
 ```diff
 -import { createMuiTheme } from '@mui/material/styles';
@@ -482,32 +474,31 @@ The function `createMuiTheme` was renamed to `createTheme` to make it more intui
 +const theme = createTheme({
 ```
 
-### ✅ Update MuiThemeProvider import
+### ✅ Обновить импорт MuiThemeProvider <meta data-oversett="" data-original-text="✅ Update MuiThemeProvider import">
 
-The `MuiThemeProvider` component is no longer exported from `@mui/material/styles`. Use `ThemeProvider` instead.
+Компонент `MuiThemeProvider` больше не экспортируется из `@mui/material/styles`. Вместо него используйте `ThemeProvider`.
 
 ```diff
 -import { MuiThemeProvider } from '@mui/material/styles';
 +import { ThemeProvider } from '@mui/material/styles';
 ```
 
-### ✅ Update jssPreset import
+### ✅ Обновление импорта jssPreset <meta data-oversett="" data-original-text="✅ Update jssPreset import">
 
-The `jssPreset` object is no longer exported from `@mui/material/styles`. You should import it directly from `@mui/styles`.
+Объект `jssPreset` больше не экспортируется из `@mui/material/styles`. Вы должны импортировать его непосредственно из `@mui/styles`.
 
 ```diff
 -import { jssPreset } from '@mui/material/styles';
 +import { jssPreset } from '@mui/styles';
 ```
 
-### ✅ Update `makeStyles` import
+### ✅ Обновить импорт `makeStyles` <meta data-oversett="" data-original-text="✅ Update makeStyles import">
 
-The `makeStyles` JSS utility is no longer exported from `@mui/material/styles`.
-You can use `@mui/styles/makeStyles` instead.
+Утилита `makeStyles` JSS больше не экспортируется из `@mui/material/styles`. Вместо нее можно использовать `@mui/styles/makeStyles`.
 
-Make sure to add a `ThemeProvider` at the root of your application, as the `defaultTheme` is no longer available.
+Обязательно добавьте `ThemeProvider` в корень вашего приложения, так как `defaultTheme` больше не доступен.
 
-If you are using this utility together with `@mui/material`, it's recommended that you use the `ThemeProvider` component from `@mui/material/styles` instead.
+Если вы используете эту утилиту вместе с `@mui/material`, рекомендуется вместо нее использовать компонент `ThemeProvider` из `@mui/material/styles`.
 
 ```diff
 -import { makeStyles } from '@mui/material/styles';
@@ -530,22 +521,22 @@ If you are using this utility together with `@mui/material`, it's recommended th
   }
 ```
 
-### ✅ Update ServerStyleSheets import
+### ✅ Обновление импорта ServerStyleSheets <meta data-oversett="" data-original-text="✅ Update ServerStyleSheets import">
 
-The `ServerStyleSheets` component is no longer exported from `@mui/material/styles`. You should import it directly from `@mui/styles`.
+Компонент `ServerStyleSheets` больше не экспортируется из `@mui/material/styles`. Вы должны импортировать его непосредственно из `@mui/styles`.
 
 ```diff
 -import { ServerStyleSheets } from '@mui/material/styles';
 +import { ServerStyleSheets } from '@mui/styles';
 ```
 
-### styled
+### стилизованный <meta data-oversett="" data-original-text="styled">
 
-The `styled` JSS utility is no longer exported from `@mui/material/styles`. You can use the one exported from `@mui/styles` instead.
+Утилита `styled` JSS больше не экспортируется из `@mui/material/styles`. Вместо нее можно использовать ту, что экспортируется из `@mui/styles`.
 
-Make sure to add a `ThemeProvider` at the root of your application, as the `defaultTheme` is no longer available.
+Обязательно добавьте `ThemeProvider` в корень вашего приложения, так как `defaultTheme` больше не доступна.
 
-If you are using this utility together with `@mui/material`, it's recommended you use the `ThemeProvider` component from `@mui/material/styles` instead.
+Если вы используете эту утилиту вместе с `@mui/material`, рекомендуется вместо нее использовать компонент `ThemeProvider` из `@mui/material/styles`.
 
 ```diff
 -import { styled } from '@mui/material/styles';
@@ -561,33 +552,31 @@ If you are using this utility together with `@mui/material`, it's recommended yo
   }
 ```
 
-### ✅ Update StylesProvider import
+### ✅ Обновление импорта StylesProvider <meta data-oversett="" data-original-text="✅ Update StylesProvider import">
 
-The `StylesProvider` component is no longer exported from `@mui/material/styles`. You should import it directly from `@mui/styles`.
+Компонент `StylesProvider` больше не экспортируется из `@mui/material/styles`. Вы должны импортировать его непосредственно из `@mui/styles`.
 
 ```diff
 -import { StylesProvider } from '@mui/material/styles';
 +import { StylesProvider } from '@mui/styles';
 ```
 
-### ✅ Update useThemeVariants import
+### ✅ Обновление импорта UseThemeVariants <meta data-oversett="" data-original-text="✅ Update useThemeVariants import">
 
-The `useThemeVariants` hook is no longer exported from `@mui/material/styles`.
-You should import it directly from `@mui/styles`.
+Хук `useThemeVariants` больше не экспортируется из `@mui/material/styles`. Вы должны импортировать его непосредственно из `@mui/styles`.
 
 ```diff
 -import { useThemeVariants } from '@mui/material/styles';
 +import { useThemeVariants } from '@mui/styles';
 ```
 
-### ✅ Update withStyles import
+### ✅ Обновить импорт withStyles <meta data-oversett="" data-original-text="✅ Update withStyles import">
 
-The `withStyles` JSS utility is no longer exported from `@mui/material/styles`.
-You can use `@mui/styles/withStyles` instead.
+Утилита `withStyles` JSS больше не экспортируется из `@mui/material/styles`. Вы можете использовать `@mui/styles/withStyles` вместо нее.
 
-Make sure to add a `ThemeProvider` at the root of your application, as the `defaultTheme` is no longer available.
+Обязательно добавьте `ThemeProvider` в корень вашего приложения, так как `defaultTheme` больше не доступен.
 
-If you are using this utility together with `@mui/material`, you should use the `ThemeProvider` component from `@mui/material/styles` instead.
+Если вы используете эту утилиту вместе с `@mui/material`, вместо нее следует использовать компонент `ThemeProvider` из `@mui/material/styles`.
 
 ```diff
 -import { withStyles } from '@mui/material/styles';
@@ -606,9 +595,9 @@ If you are using this utility together with `@mui/material`, you should use the 
   }
 ```
 
-### ✅ Replace innerRef with ref
+### ✅ Замените innerRef на ref <meta data-oversett="" data-original-text="✅ Replace innerRef with ref">
 
-Replace the `innerRef` prop with the `ref` prop. Refs are now automatically forwarded to the inner component.
+Замените реквизит `innerRef` на реквизит `ref`. Теперь ссылки автоматически перенаправляются на внутренний компонент.
 
 ```diff
   import * as React from 'react';
@@ -627,13 +616,13 @@ Replace the `innerRef` prop with the `ref` prop. Refs are now automatically forw
   }
 ```
 
-### Update withTheme import
+### Обновление импорта withTheme <meta data-oversett="" data-original-text="Update withTheme import">
 
-The `withTheme` HOC utility has been removed from the `@mui/material/styles` package. You can use `@mui/styles/withTheme` instead.
+Утилита `withTheme` HOC была удалена из пакета `@mui/material/styles`. Вместо нее вы можете использовать `@mui/styles/withTheme`.
 
-Make sure to add a `ThemeProvider` at the root of your application, as the `defaultTheme` is no longer available.
+Обязательно добавьте `ThemeProvider` в корень вашего приложения, так как `defaultTheme` больше не доступен.
 
-If you are using this utility together with `@mui/material`, it's recommended you use the `ThemeProvider` component from `@mui/material/styles` instead.
+Если вы используете эту утилиту вместе с `@mui/material`, рекомендуется вместо нее использовать компонент `ThemeProvider` из пакета `@mui/material/styles`.
 
 ```diff
 -import { withTheme } from '@mui/material/styles';
@@ -649,33 +638,33 @@ If you are using this utility together with `@mui/material`, it's recommended yo
   }
 ```
 
-### ✅ Remove withWidth
+### ✅ Удалить withWidth <meta data-oversett="" data-original-text="✅ Remove withWidth">
 
-This HOC was removed. If you need this feature, you can try [the alternative that uses the `useMediaQuery` hook](/material-ui/react-use-media-query/#migrating-from-withwidth).
+Этот HOC был удален. Если вам нужна эта функция, вы можете попробовать [альтернативу, использующую хук `useMediaQuery`](/material-ui/react-use-media-query/#migrating-from-withwidth) .
 
-## @mui/icons-material
+## @mui/icons-material <meta data-oversett="" data-original-text="@mui/icons-material">
 
-### Reduce GitHub icon size
+### Уменьшить размер значка GitHub <meta data-oversett="" data-original-text="Reduce GitHub icon size">
 
-The GitHub icon was reduced in size from 24px to 22px wide to match the size of the other icons.
+Размер иконки GitHub был уменьшен с 24px до 22px в ширину, чтобы соответствовать размеру других иконок.
 
-## @material-ui/pickers
+## @material-ui/pickers <meta data-oversett="" data-original-text="@material-ui/pickers">
 
-We have a [dedicated page](/material-ui/guides/pickers-migration/) for migrating `@material-ui/pickers` to v5.
+У нас есть [специальная страница](/material-ui/guides/pickers-migration/) для миграции `@material-ui/pickers` на v5.
 
-## System
+## Система <meta data-oversett="" data-original-text="System">
 
-### ✅ Rename gap props
+### ✅ Переименование реквизитов пробелов <meta data-oversett="" data-original-text="✅ Rename gap props">
 
-The following system functions and properties were renamed because they are considered deprecated CSS:
+Следующие системные функции и свойства были переименованы, поскольку они считаются устаревшими CSS:
 
-- `gridGap` becomes `gap`
-- `gridRowGap` becomes `rowGap`
-- `gridColumnGap` becomes `columnGap`
+-   `gridGap` становится `gap`
+-   `gridRowGap` становится `rowGap`
+-   `gridColumnGap` становится `columnGap`
 
-### ✅ Add spacing units to gap props
+### ✅ Добавление единиц интервала к реквизитам пробелов <meta data-oversett="" data-original-text="✅ Add spacing units to gap props">
 
-Use a spacing unit in `gap`, `rowGap`, and `columnGap`. If you were using a number previously, you need to mention the px to bypass the new transformation with `theme.spacing`.
+Используйте единицу интервала в `gap`, `rowGap` и `columnGap`. Если ранее вы использовали число, вам нужно упомянуть px, чтобы обойти новое преобразование в `theme.spacing`.
 
 ```diff
   <Box
@@ -684,7 +673,7 @@ Use a spacing unit in `gap`, `rowGap`, and `columnGap`. If you were using a numb
   >
 ```
 
-Replace `css` prop with `sx` to avoid collision with styled-components and Emotion's `css` prop.
+Замените реквизит `css` на `sx`, чтобы избежать столкновения со стилизованными компонентами и реквизитом `css` от Emotion.
 
 ```diff
 -<Box css={{ color: 'primary.main' }} />
@@ -692,5 +681,5 @@ Replace `css` prop with `sx` to avoid collision with styled-components and Emoti
 ```
 
 :::warning
-The system grid function was not documented in v4.
+Функция системной сетки не была документирована в v4.
 :::

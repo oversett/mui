@@ -1,19 +1,18 @@
-# Composition
 
-<p class="description">MUI tries to make composition as easy as possible.</p>
 
-## Wrapping components
+# Композиция <meta data-oversett="" data-original-text="Composition">
 
-To provide maximum flexibility and performance, MUI needs a way to know the nature of the child elements a component receives.
-To solve this problem, we tag some of the components with a `muiName` static property when needed.
+<p class="description">MUI старается сделать композицию как можно более простой.</p>
 
-You may, however, need to wrap a component in order to enhance it, which can conflict with the `muiName` solution.
-If you wrap a component, verify if that component has this static property set.
+## Обертывание компонентов <meta data-oversett="" data-original-text="Wrapping components">
 
-If you encounter this issue, you need to use the same tag for your wrapping component that is used with the wrapped component.
-In addition, you should forward the props, as the parent component may need to control the wrapped components props.
+Чтобы обеспечить максимальную гибкость и производительность, MUI необходим способ узнать природу дочерних элементов, которые получает компонент. Чтобы решить эту проблему, мы помечаем некоторые компоненты статическим свойством `muiName`, когда это необходимо.
 
-Let's see an example:
+Однако вам может понадобиться обернуть компонент, чтобы улучшить его, что может противоречить решению `muiName`. Если вы оборачиваете компонент, проверьте, установлено ли у него это статическое свойство.
+
+Если вы столкнулись с этой проблемой, вам необходимо использовать для вашего обернутого компонента тот же тег, что и для обернутого компонента. Кроме того, вам следует переслать реквизиты, поскольку родительскому компоненту может понадобиться управлять реквизитами обернутого компонента.
+
+Рассмотрим пример:
 
 ```jsx
 const WrappedIcon = (props) => <Icon {...props} />;
@@ -22,21 +21,19 @@ WrappedIcon.muiName = Icon.muiName;
 
 {{"demo": "Composition.js"}}
 
-## Component prop
+## Реквизит компонента <meta data-oversett="" data-original-text="Component prop">
 
-MUI allows you to change the root element that will be rendered via a prop called `component`.
+MUI позволяет вам изменить корневой элемент, который будет отображаться, с помощью реквизита `component`.
 
-### How does it work?
+### Как это работает? <meta data-oversett="" data-original-text="How does it work?">
 
-The custom component will be rendered by MUI like this:
+Пользовательский компонент будет отображаться MUI следующим образом:
 
 ```js
 return React.createElement(props.component, props);
 ```
 
-For example, by default a `List` component will render a `<ul>` element.
-This can be changed by passing a [React component](https://reactjs.org/docs/components-and-props.html#function-and-class-components) to the `component` prop.
-The following example will render the `List` component with a `<nav>` element as root element instead:
+Например, по умолчанию компонент `List` будет отображать элемент `<ul>`. Это можно изменить, передав [компонент React](https://reactjs.org/docs/components-and-props.html#function-and-class-components) в свойство `component`. В следующем примере компонент `List` будет отображаться с элементом `<nav>` в качестве корневого элемента:
 
 ```jsx
 <List component="nav">
@@ -49,13 +46,11 @@ The following example will render the `List` component with a `<nav>` element as
 </List>
 ```
 
-This pattern is very powerful and allows for great flexibility, as well as a way to interoperate with other libraries, such as your favorite routing or forms library.
-But it also **comes with a small caveat!**
+Этот паттерн очень мощный и позволяет добиться большой гибкости, а также взаимодействовать с другими библиотеками, такими как ваша любимая библиотека маршрутизации или форм. Но он также **поставляется с небольшим предостережением!**
 
-### Inlining & caveat
+### Инлайнинг и предостережение <meta data-oversett="" data-original-text="Inlining &amp; caveat">
 
-Using an inline function as an argument for the `component` prop may result in **unexpected unmounting**, since a new component is passed every time React renders.
-For instance, if you want to create a custom `ListItem` that acts as a link, you could do the following:
+Использование инлайн-функции в качестве аргумента для реквизита `component` может привести к **неожиданному размонтированию**, поскольку при каждом рендеринге React передается новый компонент. Например, если вы хотите создать пользовательскую `ListItem`, которая действует как ссылка, вы можете сделать следующее:
 
 ```jsx
 import { Link } from 'react-router-dom';
@@ -77,11 +72,10 @@ function ListItemLink(props) {
 ```
 
 :::warning
-⚠️ However, since we are using an inline function to change the rendered component, React will remount the link every time `ListItemLink` is rendered. Not only will React update the DOM unnecessarily but the state will be lost, e.g. the ripple effect of the `ListItem` will also not work correctly.
+⚠️ Однако, поскольку мы используем встроенную функцию для изменения рендеринга компонента, React будет перемонтировать ссылку каждый раз при рендеринге `ListItemLink`. React не только излишне обновит DOM, но и потеряет состояние, например, эффект пульсации `ListItem` также не будет работать корректно.
 :::
 
-The solution is simple: **avoid inline functions and pass a static component to the `component` prop** instead.
-Let's change the `ListItemLink` component so `CustomLink` always reference the same component:
+Решение простое: **избегайте инлайн-функций и передавайте статический компонент в проп `component`** . Давайте изменим компонент `ListItemLink` так, чтобы `CustomLink` всегда ссылался на один и тот же компонент:
 
 ```tsx
 import { Link, LinkProps } from 'react-router-dom';
@@ -111,10 +105,9 @@ function ListItemLink(props) {
 }
 ```
 
-### Prop forwarding & caveat
+### Переадресация реквизита и предостережение <meta data-oversett="" data-original-text="Prop forwarding &amp; caveat">
 
-You can take advantage of the prop forwarding to simplify the code.
-In this example, we don't create any intermediary component:
+Вы можете воспользоваться преимуществами переадресации реквизита для упрощения кода. В этом примере мы не создаем никакого промежуточного компонента:
 
 ```jsx
 import { Link } from 'react-router-dom';
@@ -123,15 +116,14 @@ import { Link } from 'react-router-dom';
 ```
 
 :::warning
-⚠️ However, this strategy suffers from a limitation: prop name collisions.
-The component receiving the `component` prop (e.g. ListItem) might intercept the prop (e.g. to) that is destined to the leave element (e.g. Link).
+⚠️ Однако эта стратегия страдает от ограничения: коллизии имен реквизитов. Компонент, получающий реквизит `component` (например, ListItem), может перехватить реквизит (например, to), предназначенный для покидающего элемента (например, Link).
 :::
 
-### With TypeScript
+### С TypeScript <meta data-oversett="" data-original-text="With TypeScript">
 
-To be able to use the `component` prop, the type of the props should be used with type arguments. Otherwise, the `component` prop will not be present.
+Чтобы иметь возможность использовать реквизит `component`, тип реквизита должен использоваться с аргументами типа. В противном случае реквизит `component` не будет присутствовать.
 
-The examples below use `TypographyProps` but the same will work for any component which has props defined with `OverrideProps`.
+В примерах ниже используется `TypographyProps`, но то же самое будет работать для любого компонента, у которого реквизит определен с помощью `OverrideProps`.
 
 ```ts
 import { TypographyProps } from '@mui/material/Typography';
@@ -143,15 +135,13 @@ function CustomComponent(props: TypographyProps<'a', { component: 'a' }>) {
 <CustomComponent component="a" />;
 ```
 
-Now the `CustomComponent` can be used with a `component` prop which should be set to `'a'`.
-In addition, the `CustomComponent` will have all props of a `<a>` HTML element.
-The other props of the `Typography` component will also be present in props of the `CustomComponent`.
+Теперь `CustomComponent` можно использовать с реквизитом `component`, который должен быть установлен в `'a'`. Кроме того, `CustomComponent` будет иметь все реквизиты HTML-элемента `<a>`. Остальные реквизиты компонента `Typography` также будут присутствовать в реквизитах `CustomComponent`.
 
-You can find a code example with the Button and react-router-dom in [these demos](/material-ui/guides/routing/#component-prop).
+Пример кода с Button и react-router-dom вы можете найти в [этих демонстрациях](/material-ui/guides/routing/#component-prop).
 
-#### Generic
+#### Generic <meta data-oversett="" data-original-text="Generic">
 
-It's also is possible to have a generic `CustomComponent` which will accept any React component, and HTML elements.
+Также можно иметь общий `CustomComponent`, который будет принимать любой компонент React и элементы HTML.
 
 ```ts
 function GenericCustomComponent<C extends React.ElementType>(
@@ -161,7 +151,7 @@ function GenericCustomComponent<C extends React.ElementType>(
 }
 ```
 
-If the `GenericCustomComponent` is used with a `component` prop provided, it should also have all props required by the provided component.
+Если `GenericCustomComponent` используется с предоставленным реквизитом `component`, он также должен иметь все реквизиты, требуемые предоставленным компонентом.
 
 ```ts
 function ThirdPartyComponent({ prop1 }: { prop1: string }) {
@@ -171,43 +161,36 @@ function ThirdPartyComponent({ prop1 }: { prop1: string }) {
 <GenericCustomComponent component={ThirdPartyComponent} prop1="some value" />;
 ```
 
-The `prop1` became required for the `GenericCustomComponent` as the `ThirdPartyComponent` has it as a requirement.
+Реквизит `prop1` стал необходимым для `GenericCustomComponent`, так как `ThirdPartyComponent` имеет его в качестве требования.
 
-Not every component fully supports any component type you pass in.
-If you encounter a component that rejects its `component` props in TypeScript, please open an issue.
-There is an ongoing effort to fix this by making component props generic.
+Не каждый компонент полностью поддерживает любой тип компонента, который вы передаете. Если вы столкнулись с компонентом, который отвергает свой реквизит `component` в TypeScript, пожалуйста, откройте проблему. В настоящее время ведется работа по исправлению этого, делая реквизиты компонентов общими.
 
-## Caveat with refs
+## Предостережения при использовании ссылок <meta data-oversett="" data-original-text="Caveat with refs">
 
-This section covers caveats when using a custom component as `children` or for the
-`component` prop.
+В этом разделе рассматриваются предостережения при использовании пользовательского компонента в качестве `children` или для реквизита`component`.
 
-Some of the components need access to the DOM node. This was previously possible
-by using `ReactDOM.findDOMNode`. This function is deprecated in favor of `ref` and
-ref forwarding. However, only the following component types can be given a `ref`:
+Некоторым компонентам необходим доступ к узлу DOM. Ранее это было возможно с помощью `ReactDOM.findDOMNode`. Эта функция устарела в пользу `ref` и переадресации ссылок. Тем не менее, только следующие типы компонентов могут получить `ref`:
 
-- Any MUI component
-- class components i.e. `React.Component` or `React.PureComponent`
-- DOM (or host) components e.g. `div` or `button`
-- [React.forwardRef components](https://reactjs.org/docs/react-api.html#reactforwardref)
-- [React.lazy components](https://reactjs.org/docs/react-api.html#reactlazy)
-- [React.memo components](https://reactjs.org/docs/react-api.html#reactmemo)
+-   любой компонент MUI
+-   компоненты класса, т.е. `React.Component` или `React.PureComponent`
+-   компоненты DOM (или хоста), например, `div` или `button`
+-   [Компоненты React.forwardRef](https://reactjs.org/docs/react-api.html#reactforwardref)
+-   [компоненты React.lazy](https://reactjs.org/docs/react-api.html#reactlazy)
+-   [компоненты React.memo](https://reactjs.org/docs/react-api.html#reactmemo)
 
-If you don't use one of the above types when using your components in conjunction with MUI, you might see a warning from
-React in your console similar to:
+Если вы не используете один из вышеперечисленных типов при использовании ваших компонентов в сочетании с MUI, вы можете увидеть предупреждение от React в вашей консоли, похожее на:
 
 :::warning
-Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+Компонентам функций нельзя давать ссылки. Попытки получить доступ к этой ссылке будут безуспешными. Вы хотели использовать React.forwardRef()?
 :::
 
-Note that you will still get this warning for `lazy` and `memo` components if their wrapped component can't hold a ref.
-In some instances, an additional warning is issued to help with debugging, similar to:
+Обратите внимание, что вы все равно получите это предупреждение для компонентов `lazy` и `memo`, если их обернутый компонент не может содержать ссылку. В некоторых случаях для помощи в отладке выдается дополнительное предупреждение, подобное следующему:
 
 :::warning
 Invalid prop `component` supplied to `ComponentName`. Expected an element type that can hold a ref.
 :::
 
-Only the two most common use cases are covered. For more information see [this section in the official React docs](https://reactjs.org/docs/forwarding-refs.html).
+Здесь рассматриваются только два наиболее распространенных случая использования. Для получения дополнительной информации смотрите [этот раздел в официальной документации React](https://reactjs.org/docs/forwarding-refs.html).
 
 ```diff
 -const MyButton = () => <div role="button" />;
@@ -225,17 +208,11 @@ Only the two most common use cases are covered. For more information see [this s
  <Tooltip title="Hello again."><SomeContent /></Tooltip>;
 ```
 
-To find out if the MUI component you're using has this requirement, check
-out the props API documentation for that component. If you need to forward refs
-the description will link to this section.
+Чтобы узнать, имеет ли используемый вами компонент MUI такое требование, ознакомьтесь с документацией props API для этого компонента. Если вам нужно переслать ссылки, описание будет ссылаться на этот раздел.
 
-### Caveat with StrictMode
+### Предостережение при использовании StrictMode <meta data-oversett="" data-original-text="Caveat with StrictMode">
 
-If you use class components for the cases described above you will still see
-warnings in `React.StrictMode`.
-`ReactDOM.findDOMNode` is used internally for backwards compatibility.
-You can use `React.forwardRef` and a designated prop in your class component to forward the `ref` to a DOM component.
-Doing so should not trigger any more warnings related to the deprecation of `ReactDOM.findDOMNode`.
+Если вы используете компоненты классов для случаев, описанных выше, вы все еще будете видеть предупреждения в `React.StrictMode`.`ReactDOM.findDOMNode` используется внутри для обратной совместимости. Вы можете использовать `React.forwardRef` и указанный prop в компоненте класса для пересылки `ref` в DOM-компонент. Это не должно больше вызывать предупреждений, связанных с устареванием `ReactDOM.findDOMNode`.
 
 ```diff
  class Component extends React.Component {

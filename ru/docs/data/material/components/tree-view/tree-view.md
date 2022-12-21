@@ -7,35 +7,35 @@ waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/treeview/
 packageName: '@mui/lab'
 ---
 
-# Tree view
+# Древовидный вид <meta data-oversett="" data-original-text="Tree view">
 
-<p class="description">A tree view widget presents a hierarchical list.</p>
+<p class="description">Виджет древовидного представления представляет иерархический список.</p>
 
-Tree views can be used to represent a file system navigator displaying folders and files, an item representing a folder can be expanded to reveal the contents of the folder, which may be files, folders, or both.
+Древовидные представления могут быть использованы для представления навигатора файловой системы, отображающего папки и файлы. Элемент, представляющий папку, может быть развернут, чтобы показать содержимое папки, которое может быть файлами, папками или тем и другим.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic tree view
+## Базовое древовидное представление <meta data-oversett="" data-original-text="Basic tree view">
 
 {{"demo": "FileSystemNavigator.js"}}
 
-## Multi-selection
+## Мультивыбор <meta data-oversett="" data-original-text="Multi-selection">
 
-Tree views also support multi-selection.
+Древовидные представления также поддерживают мультивыбор.
 
 {{"demo": "MultiSelectTreeView.js"}}
 
-## Controlled tree view
+## Управляемое представление дерева <meta data-oversett="" data-original-text="Controlled tree view">
 
-The tree view also offers a controlled API.
+Древовидное представление также предлагает управляемый API.
 
 {{"demo": "ControlledTreeView.js"}}
 
-## Rich object
+## Богатый объект <meta data-oversett="" data-original-text="Rich object">
 
-While the `TreeView`/`TreeItem` component API maximizes flexibility, an extra step is needed to handle a rich object.
+Хотя API компонентов `TreeView`/`TreeItem` обеспечивает максимальную гибкость, для работы с богатыми объектами требуется дополнительный шаг.
 
-Let's consider a data variable with the following shape, recursion can be used to handle it.
+Рассмотрим переменную данных со следующей формой, для ее обработки можно использовать рекурсию.
 
 ```js
 const data = {
@@ -53,56 +53,56 @@ const data = {
 
 {{"demo": "RichObjectTreeView.js", "defaultCodeOpen": false}}
 
-## ContentComponent prop
+## ContentComponent prop <meta data-oversett="" data-original-text="ContentComponent prop">
 
-You can use the `ContentComponent` prop and the `useTreeItem` hook to further customize the behavior of the TreeItem.
+Вы можете использовать `ContentComponent` prop и хук `useTreeItem` для дальнейшей настройки поведения TreeItem.
 
-Such as limiting expansion to clicking the icon:
+Например, ограничить расширение щелчком по иконке:
 
 {{"demo": "IconExpansionTreeView.js", "defaultCodeOpen": false}}
 
-Or increasing the width of the state indicator:
+Или увеличить ширину индикатора состояния:
 
 {{"demo": "BarTreeView.js", "defaultCodeOpen": false}}
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-### Custom icons, border and animation
+### Пользовательские иконки, границы и анимация <meta data-oversett="" data-original-text="Custom icons, border and animation">
 
 {{"demo": "CustomizedTreeView.js"}}
 
-### Gmail clone
+### Клон Gmail <meta data-oversett="" data-original-text="Gmail clone">
 
 {{"demo": "GmailTreeView.js"}}
 
-## Disabled tree items
+## Отключенные элементы дерева <meta data-oversett="" data-original-text="Disabled tree items">
 
 {{"demo": "DisabledTreeItems.js"}}
 
-The behavior of disabled tree items depends on the `disabledItemsFocusable` prop.
+Поведение отключенных элементов дерева зависит от параметра `disabledItemsFocusable`.
 
-If it is false:
+Если он равен false:
 
-- Arrow keys will not focus disabled items and, the next non-disabled item will be focused.
-- Typing the first character of a disabled item's label will not focus the item.
-- Mouse or keyboard interaction will not expand/collapse disabled items.
-- Mouse or keyboard interaction will not select disabled items.
-- Shift + arrow keys will skip disabled items and, the next non-disabled item will be selected.
-- Programmatic focus will not focus disabled items.
+-   Клавиши со стрелками не будут фокусировать отключенные элементы, а фокусироваться будет следующий элемент без отключения.
+-   При вводе первого символа метки отключенного элемента этот элемент не будет фокусироваться.
+-   При использовании мыши или клавиатуры отключенные элементы не будут разворачиваться/сворачиваться.
+-   При взаимодействии с мышью или клавиатурой отключенные элементы не выбираются.
+-   Клавиши Shift + стрелки пропустят отключенные элементы и будет выбран следующий элемент без отключения.
+-   Программный фокус не будет фокусировать отключенные элементы.
 
-If it is true:
+Если это так:
 
-- Arrow keys will focus disabled items.
-- Typing the first character of a disabled item's label will focus the item.
-- Mouse or keyboard interaction will not expand/collapse disabled items.
-- Mouse or keyboard interaction will not select disabled items.
-- Shift + arrow keys will not skip disabled items but, the disabled item will not be selected.
-- Programmatic focus will focus disabled items.
+-   Клавиши со стрелками будут фокусировать отключенные элементы.
+-   Ввод первого символа метки отключенного элемента приведет к фокусировке элемента.
+-   При взаимодействии с мышью или клавиатурой отключенные элементы не будут разворачиваться/сворачиваться.
+-   При взаимодействии с мышью или клавиатурой отключенные элементы не выбираются.
+-   Клавиши Shift + стрелки не пропускают отключенные элементы, но отключенный элемент не будет выбран.
+-   Программная фокусировка фокусирует отключенные элементы.
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-(WAI-ARIA: https://www.w3.org/WAI/ARIA/apg/patterns/treeview/)
+(WAI-ARIA: [https://www.w3.org/WAI/ARIA/apg/patterns/treeview/)](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/)
 
-The component follows the WAI-ARIA authoring practices.
+Компонент следует авторской практике WAI-ARIA.
 
-To have an accessible tree view you must use `aria-labelledby` or `aria-label` to reference or provide a label on the TreeView, otherwise screen readers will announce it as "tree", making it hard to understand the context of a specific tree item.
+Чтобы иметь доступное представление дерева, вы должны использовать `aria-labelledby` или `aria-label` для ссылки или предоставления метки на TreeView, иначе программы чтения с экрана будут объявлять его как "дерево", что затруднит понимание контекста конкретного элемента дерева.

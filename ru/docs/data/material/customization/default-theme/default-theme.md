@@ -1,23 +1,21 @@
-# Default theme
 
-<p class="description">Here's what the theme object looks like with the default values.</p>
 
-## Explore
+# Тема по умолчанию <meta data-oversett="" data-original-text="Default theme">
 
-Explore the default theme object:
+<p class="description">Вот как выглядит объект темы со значениями по умолчанию.</p>
+
+## Изучите <meta data-oversett="" data-original-text="Explore">
+
+Исследуйте объект темы по умолчанию:
 
 {{"demo": "DefaultTheme.js", "hideToolbar": true, "bg": "inline"}}
 
 :::success
-You can play with the documentation theme object in your browser console,
-as the `theme` variable is exposed on all the documentation pages.
+Вы можете поиграть с объектом темы документации в консоли браузера, поскольку переменная `theme` отображается на всех страницах документации.
 :::
 
 :::warning
-Please note that **the documentation site is using a custom theme**.
+Обратите внимание, что на **сайте документации используется пользовательская тема**.
 :::
 
-<!-- #default-branch-switch -->
-
-If you want to learn more about how the theme is assembled, take a look at [`material-ui/style/createTheme.js`](https://github.com/mui/material-ui/blob/master/packages/mui-material/src/styles/createTheme.js),
-and the related imports which `createTheme` uses.
+Если вы хотите узнать больше о том, как собирается тема, посмотрите на сайте [`material-ui/style/createTheme.js`](https://github.com/mui/material-ui/blob/master/packages/mui-material/src/styles/createTheme.js)и связанные с ней импорты, которые использует `createTheme`.

@@ -6,24 +6,20 @@ packageName: '@mui/icons-material'
 githubLabel: 'package: icons'
 ---
 
-# Material Icons
+# Материальные иконки <meta data-oversett="" data-original-text="Material Icons">
 
-<p class="description">2,100+ ready-to-use React Material Icons from the official website.</p>
+<p class="description">2 100+ готовых к использованию иконок React Material Icons с официального сайта.</p>
 
-The following npm package,
-[@mui/icons-material](https://www.npmjs.com/package/@mui/icons-material),
-includes the 2,100+ official [Material Icons](https://fonts.google.com/icons?icon.set=Material+Icons) converted to [`SvgIcon`](/material-ui/api/svg-icon/) components.
+Следующий пакет npm,[@mui/icons-material](https://www.npmjs.com/package/@mui/icons-material), включает 2100+ официальных [иконок Material Icons](https://fonts.google.com/icons?icon.set=Material+Icons), преобразованных в [`SvgIcon`](/material-ui/api/svg-icon/) компоненты.
 
 :::info
-The `@mui/icons-material` package depends on `@mui/material`, which requires Emotion packages.
-If you don't use Material UI in your project yet, install the icons package with:
-`npm install @mui/icons-material @mui/material @emotion/styled @emotion/react`.
+Пакет `@mui/icons-material` зависит от `@mui/material`, который требует пакеты Emotion. Если вы еще не используете Material UI в своем проекте, установите пакет иконок с помощью:`npm install @mui/icons-material @mui/material @emotion/styled @emotion/react`.
 
-See the [Installation](/material-ui/getting-started/installation/) page for additional docs about how to make sure everything is set up correctly.
+Смотрите страницу [Установка](/material-ui/getting-started/installation/) для получения дополнительной документации о том, как убедиться, что все установлено правильно.
 :::
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
 {{"demo": "SearchIcons.js", "hideToolbar": true, "bg": true}}
 
-ℹ️ The search supports synonyms. Try searching for "hamburger" or "logout".
+ℹ️ Поиск поддерживает синонимы. Попробуйте поискать "hamburger" или "logout".

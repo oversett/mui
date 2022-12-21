@@ -1,10 +1,12 @@
-# CSS theme variables - Customization
 
-<p class="description">A guide for customizing CSS theme variables in Material UI.</p>
 
-## Theming
+# Переменные темы CSS - Настройка <meta data-oversett="" data-original-text="CSS theme variables - Customization">
 
-`experimental_extendTheme` is an API that extends the default theme. It returns a theme that can only be used by the `Experimental_CssVarsProvider`.
+<p class="description">Руководство по настройке переменных темы CSS в Material UI.</p>
+
+## Тематика <meta data-oversett="" data-original-text="Theming">
+
+`experimental_extendTheme` это API, который расширяет тему по умолчанию. Он возвращает тему, которая может быть использована только `Experimental_CssVarsProvider`.
 
 ```js
 import {
@@ -21,19 +23,17 @@ function App() {
 ```
 
 :::warning
-`extendTheme` is not the same as [`createTheme`](/material-ui/customization/theming/#createtheme-options-args-theme).
-Do not use them interchangeably.
+`extendTheme` это не то же самое, что [`createTheme`](/material-ui/customization/theming/#createtheme-options-args-theme). Не используйте их взаимозаменяемо.
 
-- `createTheme()` returns a theme for `ThemeProvider`.
-- `extendTheme()` returns a theme for `CssVarsProvider`.
-  :::
+-   `createTheme()` возвращает тему для `ThemeProvider`.
+-   `extendTheme()` возвращает тему для `CssVarsProvider`.
+:::
 
-### Color schemes
+### Цветовые схемы <meta data-oversett="" data-original-text="Color schemes">
 
-The major difference from the default approach is in palette customization.
-With the `extendTheme` API, you can specify the palette for all color schemes at once (`light` and `dark` are built in) under the `colorSchemes` node.
+Основное отличие от подхода по умолчанию заключается в настройке палитры. С помощью API `extendTheme` вы можете задать палитру сразу для всех цветовых схем (`light` и `dark` встроены) в узле `colorSchemes`.
 
-Here's an example of how to customize the `primary` palette:
+Вот пример того, как настроить палитру `primary`:
 
 ```js
 import { pink } from '@mui/material/colors';
@@ -58,10 +58,9 @@ const theme = extendTheme({
 });
 ```
 
-### Components
+### Компоненты <meta data-oversett="" data-original-text="Components">
 
-[Component customization](/material-ui/customization/theme-components/) remains the same as the default approach.
-We recommend using the value from `theme.vars.*` whenever possible for a better debugging experience:
+[Настройка компонентов](/material-ui/customization/theme-components/) остается такой же, как и по умолчанию. Мы рекомендуем использовать значение из `theme.vars.*`, когда это возможно, для лучшего опыта отладки:
 
 ```js
 const theme = extendTheme({
@@ -82,11 +81,11 @@ const theme = extendTheme({
 });
 ```
 
-### Channel tokens
+### Канальные маркеры <meta data-oversett="" data-original-text="Channel tokens">
 
-A channel token is a variable that consists of [color space channels](https://www.w3.org/TR/css-color-4/#color-syntax) but without the alpha component. The value of a channel token is separated by a space, e.g. `12 223 31`, which can be combined with the [color functions](https://www.w3.org/TR/css-color-4/#color-functions) to create a translucent color.
+Канальный маркер - это переменная, состоящая из [каналов цветового пространства](https://www.w3.org/TR/css-color-4/#color-syntax), но без альфа-компонента. Значение канального маркера разделяется пробелом, например, `12 223 31`, который можно комбинировать с [цветовыми функциями](https://www.w3.org/TR/css-color-4/#color-functions) для создания полупрозрачного цвета.
 
-The `extendTheme()` automatically generates channel tokens that are likely to be used frequently from the theme palette. Those colors are suffixed with `Channel`, for example:
+`extendTheme()` автоматически генерирует маркеры каналов, которые, вероятно, будут часто использоваться, из палитры тем. Эти цвета имеют суффикс `Channel`, например:
 
 ```js
 const theme = extendTheme();
@@ -96,7 +95,7 @@ console.log(light.palette.primary.mainChannel); // '25 118 210'
 // This token is generated from `theme.colorSchemes.light.palette.primary.main`.
 ```
 
-You can use the channel tokens to create a translucent color like this:
+Вы можете использовать маркеры каналов для создания полупрозрачного цвета следующим образом:
 
 ```js
 const theme = extendTheme({
@@ -116,18 +115,17 @@ const theme = extendTheme({
 ```
 
 :::warning
-Don't use a comma (`,`) as a separator because the channel colors use empty spaces to define [transparency](https://www.w3.org/TR/css-color-4/#transparency):
+Не используйте запятую (`,`) в качестве разделителя, потому что цвета каналов используют пустые пробелы для определения [прозрачности](https://www.w3.org/TR/css-color-4/#transparency):
 
 ```js
 `rgba(${theme.vars.palette.primary.mainChannel}, 0.12)`, // 🚫 this does not work
 `rgba(${theme.vars.palette.primary.mainChannel} / 0.12)`, // ✅ always use `/`
 ```
-
 :::
 
-## Adding new theme tokens
+## Добавление новых маркеров тем <meta data-oversett="" data-original-text="Adding new theme tokens">
 
-You can add other key-value pairs to the theme input which will be generated as a part of the CSS theme variables:
+Вы можете добавить другие пары ключ-значение во входные данные темы, которые будут сгенерированы как часть переменных темы CSS:
 
 ```js
 const theme = extendTheme({
@@ -159,7 +157,7 @@ function App() {
 }
 ```
 
-Then, you can access those variables from the `theme.vars` object:
+Затем вы можете получить доступ к этим переменным из объекта `theme.vars`:
 
 ```js
 const Divider = styled('hr')(({ theme }) => ({
@@ -170,7 +168,7 @@ const Divider = styled('hr')(({ theme }) => ({
 }));
 ```
 
-Or use `var()` to refer to the CSS variable directly:
+Или используйте `var()` для прямого обращения к переменной CSS:
 
 ```css
 /* global.css */
@@ -180,12 +178,12 @@ Or use `var()` to refer to the CSS variable directly:
 ```
 
 :::warning
-If you're using a [custom prefix](/material-ui/experimental-api/css-theme-variables/customization/#changing-variable-prefixes), make sure to replace the default `--mui`.
+Если вы используете [пользовательский префикс](/material-ui/experimental-api/css-theme-variables/customization/#changing-variable-prefixes), не забудьте заменить стандартный `--mui`.
 :::
 
-### TypeScript
+### TypeScript <meta data-oversett="" data-original-text="TypeScript">
 
-You must augment the theme palette to avoid type errors:
+Вы должны дополнить палитру тем, чтобы избежать ошибок типа:
 
 ```ts
 declare module '@mui/material/styles' {
@@ -204,9 +202,9 @@ declare module '@mui/material/styles' {
 }
 ```
 
-## Changing variable prefixes
+## Изменение префиксов переменных <meta data-oversett="" data-original-text="Changing variable prefixes">
 
-To change the default variable prefix (`--mui`), provide a string to `cssVarPrefix` property, as shown below:
+Чтобы изменить префикс переменной по умолчанию (`--mui`), укажите строку в свойстве `cssVarPrefix`, как показано ниже:
 
 ```js
 const theme = extendTheme({ cssVarPrefix: 'any' });
@@ -215,7 +213,7 @@ const theme = extendTheme({ cssVarPrefix: 'any' });
 // --any-palette-primary-main: ...;
 ```
 
-To remove the prefix, use an empty string as a value:
+Чтобы удалить префикс, используйте в качестве значения пустую строку:
 
 ```js
 const theme = extendTheme({ cssVarPrefix: '' });
@@ -224,9 +222,9 @@ const theme = extendTheme({ cssVarPrefix: '' });
 // --palette-primary-main: ...;
 ```
 
-## Custom styles per mode
+## Пользовательские стили для каждого режима <meta data-oversett="" data-original-text="Custom styles per mode">
 
-To customize the style without creating new tokens, you can use the `theme.getColorSchemeSelector` utility:
+Чтобы настроить стиль без создания новых токенов, вы можете воспользоваться утилитой `theme.getColorSchemeSelector`:
 
 ```js
 const Button = styled('button')(({ theme }) => ({
@@ -250,12 +248,12 @@ const Button = styled('button')(({ theme }) => ({
 ```
 
 :::info
-Using this utility is equivalent to writing a plain string `'[data-mui-color-scheme="dark"] &'` if you don't have a custom configuration.
+Использование этой утилиты эквивалентно написанию простой строки `'[data-mui-color-scheme="dark"] &'`, если у вас нет пользовательской конфигурации.
 :::
 
-## Force a specific color scheme
+## Принудительное использование определенной цветовой схемы <meta data-oversett="" data-original-text="Force a specific color scheme">
 
-Specify `data-mui-color-scheme="dark"` to any DOM node to force the children components to appear as if they are in dark mode.
+Укажите `data-mui-color-scheme="dark"` для любого узла DOM, чтобы заставить дочерние компоненты отображаться так, как будто они находятся в темном режиме.
 
 ```js
 <div data-mui-color-scheme="dark">
@@ -267,9 +265,9 @@ Specify `data-mui-color-scheme="dark"` to any DOM node to force the children com
 </div>
 ```
 
-## Dark color scheme application
+## Приложение с темной цветовой схемой <meta data-oversett="" data-original-text="Dark color scheme application">
 
-For an application that only has a dark mode, set the default mode to `dark`:
+Для приложения, которое имеет только темный режим, установите режим по умолчанию `dark`:
 
 ```js
 const theme = extendTheme({
@@ -288,7 +286,7 @@ function App() {
 }
 ```
 
-For a server-side application, provide the same value to [`getInitColorSchemeScript()`](/material-ui/experimental-api/css-theme-variables/usage/#server-side-rendering):
+Для приложения на стороне сервера задайте одинаковое значение для. [`getInitColorSchemeScript()`](/material-ui/experimental-api/css-theme-variables/usage/#server-side-rendering):
 
 ```js
 getInitColorSchemeScript({
@@ -297,5 +295,5 @@ getInitColorSchemeScript({
 ```
 
 :::warning
-In development, make sure to clear local storage and refresh the page after you configure the `defaultMode`.
+При разработке обязательно очистите локальное хранилище и обновите страницу после настройки `defaultMode`.
 :::

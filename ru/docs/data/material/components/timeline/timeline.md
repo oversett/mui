@@ -6,73 +6,72 @@ githubLabel: 'component: timeline'
 packageName: '@mui/lab'
 ---
 
-# Timeline
+# Временная шкала <meta data-oversett="" data-original-text="Timeline">
 
-<p class="description">The timeline displays a list of events in chronological order.</p>
+<p class="description">Временная шкала отображает список событий в хронологическом порядке.</p>
 
-**Note:** This component is not documented in the [Material Design guidelines](https://m2.material.io/), but MUI supports it.
+**Примечание:** Этот компонент не документирован в [руководстве по Material Design](https://m2.material.io/), но MUI поддерживает его.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic timeline
+## Базовая временная шкала <meta data-oversett="" data-original-text="Basic timeline">
 
-A basic timeline showing list of events.
+Базовая временная шкала, отображающая список событий.
 
 {{"demo": "BasicTimeline.js"}}
 
-## Left-positioned timeline
+## Временная шкала с левым расположением <meta data-oversett="" data-original-text="Left-positioned timeline">
 
-The main content of the timeline can be positioned on the left side relative to the time axis.
+Основное содержимое временной шкалы может быть расположено слева относительно оси времени.
 
 {{"demo": "LeftPositionedTimeline.js"}}
 
-## Alternating timeline
+## Чередующаяся временная шкала <meta data-oversett="" data-original-text="Alternating timeline">
 
-The timeline can display the events on alternating sides.
+Временная шкала может отображать события поочередно.
 
 {{"demo": "AlternateTimeline.js"}}
 
-## Color
+## Цвет <meta data-oversett="" data-original-text="Color">
 
-The `TimelineDot` can appear in different colors from theme palette.
+Сайт `TimelineDot` может отображаться в различных цветах из палитры тем.
 
 {{"demo": "ColorsTimeline.js"}}
 
-## Outlined
+## Очерченный <meta data-oversett="" data-original-text="Outlined">
 
 {{"demo": "OutlinedTimeline.js"}}
 
-## Opposite content
+## Противоположное содержание <meta data-oversett="" data-original-text="Opposite content">
 
-The timeline can display content on opposite sides.
+Временная шкала может отображать содержимое на противоположных сторонах.
 
 {{"demo": "OppositeContentTimeline.js"}}
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here is an example of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведен пример настройки компонента. Вы можете узнать больше об этом на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedTimeline.js"}}
 
-## Alignment
+## Выравнивание <meta data-oversett="" data-original-text="Alignment">
 
-There are different ways in which a Timeline can be placed within the container.
+Существуют различные способы размещения временной шкалы в контейнере.
 
-You can do it by overriding the styles.
+Это можно сделать, переопределив стили.
 
-A Timeline centers itself in the container by default.
+По умолчанию временная шкала центрируется в контейнере.
 
-The demos below show how to adjust the relative width of the left and right sides of a Timeline:
+Демонстрации ниже показывают, как настроить относительную ширину левой и правой сторон временной шкалы:
 
-### Left-aligned
+### Выровненная по левому краю <meta data-oversett="" data-original-text="Left-aligned">
 
 {{"demo": "LeftAlignedTimeline.js"}}
 
-### Right-aligned
+### Выровненная по правому краю <meta data-oversett="" data-original-text="Right-aligned">
 
 {{"demo": "RightAlignedTimeline.js"}}
 
-### Left-aligned with no opposite content
+### Выровненная по левому краю без противоположного содержимого <meta data-oversett="" data-original-text="Left-aligned with no opposite content">
 
 {{"demo": "NoOppositeContent.js"}}

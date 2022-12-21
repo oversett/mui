@@ -8,110 +8,102 @@ waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/menubutton/
 unstyled: /base/react-menu/
 ---
 
-# Menu
+# Меню <meta data-oversett="" data-original-text="Menu">
 
-<p class="description">Menus display a list of choices on temporary surfaces.</p>
+<p class="description">Меню отображает список вариантов выбора на временных поверхностях.</p>
 
-A menu displays a list of choices on a temporary surface. It appears when the user interacts with a button, or other control.
+Меню отображает список вариантов выбора на временной поверхности. Оно появляется, когда пользователь взаимодействует с кнопкой или другим элементом управления.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic menu
+## Базовое меню <meta data-oversett="" data-original-text="Basic menu">
 
-A basic menu opens over the anchor element by default (this option can be [changed](#menu-positioning) via props). When close to a screen edge, a basic menu vertically realigns to make sure that all menu items are completely visible.
+По умолчанию базовое меню открывается над якорным элементом (этот параметр можно [изменить](#menu-positioning) с помощью реквизитов). При приближении к краю экрана основное меню выравнивается по вертикали, чтобы все пункты меню были полностью видны.
 
-Choosing an option should immediately ideally commit the option and close the menu.
+Выбор опции должен немедленно зафиксировать опцию и закрыть меню.
 
-**Disambiguation**: In contrast to simple menus, simple dialogs can present additional detail related to the options available for a list item or provide navigational or orthogonal actions related to the primary task. Although they can display the same content, simple menus are preferred over simple dialogs because simple menus are less disruptive to the user's current context.
+**Дискриминация**: В отличие от простых меню, простые диалоги могут представлять дополнительные детали, связанные с опциями, доступными для элемента списка, или предоставлять навигационные или ортогональные действия, связанные с основной задачей. Хотя они могут отображать одно и то же содержимое, простые меню предпочтительнее простых диалогов, поскольку простые меню меньше нарушают текущий контекст пользователя.
 
 {{"demo": "BasicMenu.js"}}
 
-## Icon menu
+## Меню иконок <meta data-oversett="" data-original-text="Icon menu">
 
-In desktop viewport, padding is increased to give more space to the menu.
+В области просмотра рабочего стола отступы увеличиваются, чтобы дать меню больше места.
 
 {{"demo": "IconMenu.js", "bg": true}}
 
-## Dense menu
+## Плотное меню <meta data-oversett="" data-original-text="Dense menu">
 
-For the menu that has long list and long text, you can use the `dense` prop to reduce the padding and text size.
+Для меню с длинным списком и длинным текстом можно использовать реквизит `dense`, чтобы уменьшить размер подкладок и текста.
 
 {{"demo": "DenseMenu.js", "bg": true}}
 
-## Selected menu
+## Выбранное меню <meta data-oversett="" data-original-text="Selected menu">
 
-If used for item selection, when opened, simple menus places the initial focus on the selected menu item.
-The currently selected menu item is set using the `selected` prop (from [ListItem](/material-ui/api/list-item/)).
-To use a selected menu item without impacting the initial focus, set the `variant` prop to "menu".
+Если меню используется для выбора элементов, при открытии простое меню помещает начальный фокус на выбранный элемент меню. Текущий выбранный элемент меню устанавливается с помощью свойства `selected` (из [ListItem](/material-ui/api/list-item/)). Чтобы использовать выбранный элемент меню без изменения начального фокуса, установите для свойства `variant` значение "menu".
 
 {{"demo": "SimpleListMenu.js"}}
 
-## Positioned menu
+## Позиционированное меню <meta data-oversett="" data-original-text="Positioned menu">
 
-Because the `Menu` component uses the `Popover` component to position itself, you can use the same [positioning props](/material-ui/react-popover/#anchor-playground) to position it.
-For instance, you can display the menu on top of the anchor:
+Поскольку компонент `Menu` использует компонент `Popover` для своего позиционирования, вы можете использовать те же [реквизиты позиционирования](/material-ui/react-popover/#anchor-playground) для его позиционирования. Например, вы можете отобразить меню поверх якоря:
 
 {{"demo": "PositionedMenu.js"}}
 
-## MenuList composition
+## Композиция MenuList <meta data-oversett="" data-original-text="MenuList composition">
 
-The `Menu` component uses the `Popover` component internally.
-However, you might want to use a different positioning strategy, or not blocking the scroll.
-For answering those needs, we expose a `MenuList` component that you can compose, with `Popper` in this example.
+Компонент `Menu` внутренне использует компонент `Popover`. Однако вы можете захотеть использовать другую стратегию позиционирования или не блокировать прокрутку. Для удовлетворения этих потребностей мы предоставляем компонент `MenuList`, который вы можете компоновать, в данном примере с `Popper`.
 
-The primary responsibility of the `MenuList` component is to handle the focus.
+Основная обязанность компонента `MenuList` - обрабатывать фокус.
 
 {{"demo": "MenuListComposition.js", "bg": true}}
 
-## Account menu
+## Меню аккаунта <meta data-oversett="" data-original-text="Account menu">
 
-`Menu` content can be mixed with other components like `Avatar`.
+`Menu` можно смешивать с другими компонентами, такими как `Avatar`.
 
 {{"demo": "AccountMenu.js"}}
 
-## Customization
+## Настройка <meta data-oversett="" data-original-text="Customization">
 
-Here is an example of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведен пример настройки компонента. Вы можете узнать больше об этом на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedMenus.js"}}
 
-The `MenuItem` is a wrapper around `ListItem` with some additional styles.
-You can use the same list composition features with the `MenuItem` component:
+Компонент `MenuItem` представляет собой обертку вокруг `ListItem` с некоторыми дополнительными стилями. Вы можете использовать те же возможности композиции списка с компонентом `MenuItem`:
 
-🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/menu/).
+🎨 Если вы ищете вдохновение, вы можете посмотреть [примеры настройки MUI Treasury](https://mui-treasury.com/styles/menu/).
 
-## Max height menu
+## Меню максимальной высоты <meta data-oversett="" data-original-text="Max height menu">
 
-If the height of a menu prevents all menu items from being displayed, the menu can scroll internally.
+Если высота меню не позволяет отобразить все пункты меню, меню может прокручиваться внутри.
 
 {{"demo": "LongMenu.js"}}
 
-## Limitations
+## Ограничения <meta data-oversett="" data-original-text="Limitations">
 
-There is [a flexbox bug](https://bugs.chromium.org/p/chromium/issues/detail?id=327437) that prevents `text-overflow: ellipsis` from working in a flexbox layout.
-You can use the `Typography` component with `noWrap` to workaround this issue:
+Существует [ошибка flexbox](https://bugs.chromium.org/p/chromium/issues/detail?id=327437), которая не позволяет компоненту `text-overflow: ellipsis` работать в макете flexbox. Вы можете использовать компонент `Typography` вместе с `noWrap`, чтобы обойти эту проблему:
 
 {{"demo": "TypographyMenu.js", "bg": true}}
 
-## Change transition
+## Изменить переход <meta data-oversett="" data-original-text="Change transition">
 
-Use a different transition.
+Используйте другой переход.
 
 {{"demo": "FadeMenu.js"}}
 
-## Context menu
+## Контекстное меню <meta data-oversett="" data-original-text="Context menu">
 
-Here is an example of a context menu. (Right click to open.)
+Вот пример контекстного меню. (Щелкните правой кнопкой мыши, чтобы открыть).
 
 {{"demo": "ContextMenu.js"}}
 
-## Complementary projects
+## Дополнительные проекты <meta data-oversett="" data-original-text="Complementary projects">
 
-For more advanced use cases you might be able to take advantage of:
+Для более сложных случаев использования вы можете воспользоваться:
 
-### PopupState helper
+### Помощник PopupState <meta data-oversett="" data-original-text="PopupState helper">
 
-There is a 3rd party package [`material-ui-popup-state`](https://github.com/jcoreio/material-ui-popup-state) that takes care of menu state for you in most cases.
+Существует пакет стороннего разработчика [`material-ui-popup-state`](https://github.com/jcoreio/material-ui-popup-state) который в большинстве случаев заботится о состоянии меню за вас.
 
 {{"demo": "MenuPopupState.js"}}

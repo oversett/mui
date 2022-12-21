@@ -1,32 +1,26 @@
-# Minimizing bundle size
 
-<p class="description">Learn more about the tools you can leverage to reduce the bundle size.</p>
 
-## Bundle size matters
+# Минимизация размера пакета <meta data-oversett="" data-original-text="Minimizing bundle size">
 
-The bundle size of MUI is taken very seriously. Size snapshots are taken
-on every commit for every package and critical parts of those packages ([view the latest snapshot](/size-snapshot/)).
-Combined with [dangerJS](https://danger.systems/js/) we can inspect
-[detailed bundle size changes](https://github.com/mui/material-ui/pull/14638#issuecomment-466658459) on every Pull Request.
+<p class="description">Узнайте больше об инструментах, которые можно использовать для уменьшения размера пакета.</p>
 
-## When and how to use tree-shaking?
+## Размер пакета имеет значение <meta data-oversett="" data-original-text="Bundle size matters">
 
-Tree-shaking of MUI works out of the box in modern frameworks.
-MUI exposes its full API on the top-level `@mui` imports.
-If you're using ES6 modules and a bundler that supports tree-shaking ([`webpack` >= 2.x](https://webpack.js.org/guides/tree-shaking/), [`parcel` with a flag](https://en.parceljs.org/cli.html#enable-experimental-scope-hoisting/tree-shaking-support)) you can safely use named imports and still get an optimized bundle size automatically:
+К размеру пакета в MUI относятся очень серьезно. Снимки размеров делаются на каждом коммите для каждого пакета и критических частей этих пакетов[(посмотреть последний снимок](/size-snapshot/)). В сочетании с [dangerJS](https://danger.systems/js/) мы можем проверять[детальные изменения размера пакета](https://github.com/mui/material-ui/pull/14638#issuecomment-466658459) в каждом Pull Request.
+
+## Когда и как использовать tree-shaking? <meta data-oversett="" data-original-text="When and how to use tree-shaking?">
+
+В современных фреймворках tree-shaking MUI работает из коробки. MUI раскрывает свой полный API на верхнем уровне импорта `@mui`. Если вы используете модули ES6 и бандлер, поддерживающий tree-shaking ([`webpack` >= 2.x](https://webpack.js.org/guides/tree-shaking/), [`parcel` с флагом](https://en.parceljs.org/cli.html#enable-experimental-scope-hoisting/tree-shaking-support)), вы можете смело использовать именованные импорты и получать оптимизированный размер пакета автоматически:
 
 ```js
 import { Button, TextField } from '@mui/material';
 ```
 
-⚠️ The following instructions are only needed if you want to optimize your development startup times or if you are using an older bundler
-that doesn't support tree-shaking.
+⚠️ Следующие инструкции необходимы только в том случае, если вы хотите оптимизировать время запуска разработки или если вы используете старый бандлер, который не поддерживает tree-shaking.
 
-## Development environment
+## Среда разработки <meta data-oversett="" data-original-text="Development environment">
 
-Development bundles can contain the full library which can lead to **slower startup times**.
-This is especially noticeable if you use named imports from `@mui/icons-material`, which can be up to six times slower than the default import.
-For example, between the following two imports, the first (named) can be significantly slower than the second (default):
+Пакеты для разработки могут содержать полную библиотеку, что может привести к **замедлению времени запуска**. Это особенно заметно, если вы используете именованный импорт из `@mui/icons-material`, который может быть в шесть раз медленнее, чем импорт по умолчанию. Например, между следующими двумя импортами, первый (именованный) может быть значительно медленнее, чем второй (по умолчанию):
 
 ```js
 // 🐌 Named
@@ -38,12 +32,11 @@ import { Delete } from '@mui/icons-material';
 import Delete from '@mui/icons-material/Delete';
 ```
 
-If this is an issue for you, you have two options:
+Если для вас это проблема, у вас есть два варианта:
 
-### Option one: use path imports
+### Вариант первый: использовать импорт по пути <meta data-oversett="" data-original-text="Option one: use path imports">
 
-You can use path imports to avoid pulling in unused modules.
-For instance, use:
+Вы можете использовать импорт по пути, чтобы избежать подтягивания неиспользуемых модулей. Например, используйте:
 
 ```js
 // 🚀 Fast
@@ -51,20 +44,17 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 ```
 
-instead of top-level imports (without a Babel plugin):
+вместо импорта верхнего уровня (без плагина Babel):
 
 ```js
 import { Button, TextField } from '@mui/material';
 ```
 
-This is the option we document in all the demos since it requires no configuration.
-It is encouraged for library authors that are extending the components.
-Head to [Option 2](#option-two-use-a-babel-plugin) for the approach that yields the best DX and UX.
+Этот вариант мы документируем во всех демонстрациях, поскольку он не требует настройки. Он рекомендуется для авторов библиотек, которые расширяют компоненты. Перейдите к [варианту 2](#option-two-use-a-babel-plugin) для подхода, который обеспечивает наилучшие DX и UX.
 
-While importing directly in this manner doesn't use the exports in [the main file of `@mui/material`](https://unpkg.com/@mui/material), this file can serve as a handy reference as to which modules are public.
+Хотя импорт напрямую таким образом не использует экспорты в [основном файле `@mui/material`,](https://unpkg.com/@mui/material) этот файл может служить удобным справочником о том, какие модули являются публичными.
 
-Be aware that we only support first and second-level imports.
-Anything deeper is considered private and can cause issues, such as module duplication in your bundle.
+Помните, что мы поддерживаем импорт только первого и второго уровня. Все, что глубже, считается приватным и может вызвать проблемы, например, дублирование модулей в вашем пучке.
 
 ```js
 // ✅ OK
@@ -82,7 +72,7 @@ import TabIndicator from '@mui/material/Tabs/TabIndicator';
 //                                           ^^^^^^^^^^^^ 3rd level
 ```
 
-If you're using `eslint` you can catch problematic imports with the [`no-restricted-imports` rule](https://eslint.org/docs/latest/rules/no-restricted-imports). The following `.eslintrc` configuration will highlight problematic imports from `@mui` packages:
+Если вы используете `eslint`, вы можете отловить проблемный импорт с помощью [правила`no-restricted-imports`](https://eslint.org/docs/latest/rules/no-restricted-imports) . Следующая конфигурация `.eslintrc` выделит проблемный импорт из пакетов `@mui`:
 
 ```json
 {
@@ -97,78 +87,78 @@ If you're using `eslint` you can catch problematic imports with the [`no-restric
 }
 ```
 
-### Option two: use a Babel plugin
+### Вариант второй: использовать плагин Babel <meta data-oversett="" data-original-text="Option two: use a Babel plugin">
 
-This option provides the best user experience and developer experience:
+Этот вариант обеспечивает наилучший пользовательский опыт и удобство для разработчиков:
 
-- UX: The Babel plugin enables top-level tree-shaking even if your bundler doesn't support it.
-- DX: The Babel plugin makes startup time in dev mode as fast as Option 1.
-- DX: This syntax reduces the duplication of code, requiring only a single import for multiple modules.
-  Overall, the code is easier to read, and you are less likely to make a mistake when importing a new module.
+-   UX: Плагин Babel позволяет встряхивать дерево верхнего уровня, даже если ваш бандлер не поддерживает это.
+-   DX: Плагин Babel делает время запуска в режиме разработчика таким же быстрым, как и в варианте 1.
+-   DX: Этот синтаксис уменьшает дублирование кода, требуя только один импорт для нескольких модулей. В целом, код легче читать, и вы с меньшей вероятностью допустите ошибку при импорте нового модуля.
 
 ```js
 import { Button, TextField } from '@mui/material';
 ```
 
-However, you need to apply the two following steps correctly.
+Однако необходимо правильно выполнить два следующих шага.
 
-#### 1. Configure Babel
+#### 1\. Настройте Babel <meta data-oversett="" data-original-text="1. Configure Babel">
 
-Pick one of the following plugins:
+Выберите один из следующих плагинов:
 
-- [babel-plugin-import](https://github.com/umijs/babel-plugin-import) with the following configuration:
+-   [babel-plugin-import](https://github.com/umijs/babel-plugin-import) со следующей конфигурацией:
+    
+    `yarn add -D babel-plugin-import`
+    
+    Создайте файл `.babelrc.js` в корневом каталоге вашего проекта:
+    
+    ```js
+    const plugins = [
+      [
+        'babel-plugin-import',
+        {
+          libraryName: '@mui/material',
+          libraryDirectory: '',
+          camel2DashComponentName: false,
+        },
+        'core',
+      ],
+      [
+        'babel-plugin-import',
+        {
+          libraryName: '@mui/icons-material',
+          libraryDirectory: '',
+          camel2DashComponentName: false,
+        },
+        'icons',
+      ],
+    ];
+    
+    module.exports = { plugins };
+    ```
+    
+-   [babel-plugin-direct-import](https://github.com/umidbekk/babel-plugin-direct-import) со следующей конфигурацией:
+    
+    `yarn add -D babel-plugin-direct-import`
+    
+    Создайте файл `.babelrc.js` в корневом каталоге вашего проекта:
+    
+    ```js
+    const plugins = [
+      [
+        'babel-plugin-direct-import',
+        { modules: ['@mui/material', '@mui/icons-material'] },
+      ],
+    ];
+    
+    module.exports = { plugins };
+    ```
+    
 
-  `yarn add -D babel-plugin-import`
-
-  Create a `.babelrc.js` file in the root directory of your project:
-
-  ```js
-  const plugins = [
-    [
-      'babel-plugin-import',
-      {
-        libraryName: '@mui/material',
-        libraryDirectory: '',
-        camel2DashComponentName: false,
-      },
-      'core',
-    ],
-    [
-      'babel-plugin-import',
-      {
-        libraryName: '@mui/icons-material',
-        libraryDirectory: '',
-        camel2DashComponentName: false,
-      },
-      'icons',
-    ],
-  ];
-
-  module.exports = { plugins };
-  ```
-
-- [babel-plugin-direct-import](https://github.com/umidbekk/babel-plugin-direct-import) with the following configuration:
-
-  `yarn add -D babel-plugin-direct-import`
-
-  Create a `.babelrc.js` file in the root directory of your project:
-
-  ```js
-  const plugins = [
-    [
-      'babel-plugin-direct-import',
-      { modules: ['@mui/material', '@mui/icons-material'] },
-    ],
-  ];
-
-  module.exports = { plugins };
-  ```
-
-If you are using Create React App, you will need to use a couple of projects that let you use `.babelrc` configuration, without ejecting.
+Если вы используете Create React App, вам понадобится пара проектов, которые позволяют использовать конфигурацию `.babelrc` без извлечения.
 
 `yarn add -D react-app-rewired customize-cra`
 
-Create a `config-overrides.js` file in the root directory:
+Создайте файл `config-overrides.js` в корневом каталоге:
 
 ```js
 /* config-overrides.js */
@@ -178,9 +168,9 @@ const { useBabelRc, override } = require('customize-cra');
 module.exports = override(useBabelRc());
 ```
 
-If you wish, `babel-plugin-import` can be configured through `config-overrides.js` instead of `.babelrc` by using this [configuration](https://github.com/arackaf/customize-cra/blob/master/api.md#fixbabelimportslibraryname-options).
+При желании, `babel-plugin-import` можно настроить через `config-overrides.js` вместо `.babelrc`, используя эту [конфигурацию](https://github.com/arackaf/customize-cra/blob/master/api.md#fixbabelimportslibraryname-options).
 
-Modify your `package.json` commands:
+Измените свои команды `package.json`:
 
 ```diff
    "scripts": {
@@ -194,12 +184,11 @@ Modify your `package.json` commands:
   }
 ```
 
-Enjoy significantly faster start times.
+Наслаждайтесь значительно более быстрым временем запуска.
 
-#### 2. Convert all your imports
+#### 2\. Преобразование всех ваших импортов <meta data-oversett="" data-original-text="2. Convert all your imports">
 
-Finally, you can convert your existing codebase to this option with this [top-level-imports codemod](https://www.npmjs.com/package/@mui/codemod#top-level-imports).
-It will perform the following diffs:
+Наконец, вы можете преобразовать вашу существующую базу данных в этот вариант с помощью этого [кодового модуля top-level-imports](https://www.npmjs.com/package/@mui/codemod#top-level-imports). Он выполнит следующие различия:
 
 ```diff
 -import Button from '@mui/material/Button';
@@ -207,13 +196,11 @@ It will perform the following diffs:
 +import { Button, TextField } from '@mui/material';
 ```
 
-## Available bundles
+## Доступные пакеты <meta data-oversett="" data-original-text="Available bundles">
 
-The package published on npm is **transpiled**, with [Babel](https://github.com/babel/babel), to take into account the [supported platforms](/material-ui/getting-started/supported-platforms/).
+Пакет, опубликованный на npm, **транспилируется** с помощью [Babel](https://github.com/babel/babel), чтобы учесть [поддерживаемые платформы](/material-ui/getting-started/supported-platforms/).
 
-⚠️ Developers are **strongly discouraged** to import from any of the other bundles directly.
-Otherwise it's not guaranteed that dependencies used also use legacy or modern bundles.
-Instead, use these bundles at the bundler level with e.g [Webpack's `resolve.alias`](https://webpack.js.org/configuration/resolve/#resolvealias):
+⚠️ Разработчикам **настоятельно не рекомендуется** импортировать из других пакетов напрямую. В противном случае не гарантируется, что используемые зависимости также используют устаревшие или современные пакеты. Вместо этого используйте эти пакеты на уровне бандлера с помощью, например, [Webpack'а `resolve.alias`:](https://webpack.js.org/configuration/resolve/#resolvealias)
 
 ```js
 {
@@ -230,14 +217,10 @@ Instead, use these bundles at the bundler level with e.g [Webpack's `resolve.ali
 }
 ```
 
-### Modern bundle
+### Modern bundle <meta data-oversett="" data-original-text="Modern bundle">
 
-The modern bundle can be found under the [`/modern` folder](https://unpkg.com/@mui/material/modern/).
-It targets the latest released versions of evergreen browsers (Chrome, Firefox, Safari, Edge).
-This can be used to make separate bundles targeting different browsers.
+Современный пакет находится в [папке`/modern`](https://unpkg.com/@mui/material/modern/) . Он ориентирован на последние выпущенные версии вечнозеленых браузеров (Chrome, Firefox, Safari, Edge). Его можно использовать для создания отдельных пакетов, ориентированных на разные браузеры.
 
-### Legacy bundle
+### Устаревший пакет <meta data-oversett="" data-original-text="Legacy bundle">
 
-If you need to support IE 11 you cannot use the default or modern bundle without transpilation.
-However, you can use the legacy bundle found under the [`/legacy` folder](https://unpkg.com/@mui/material/legacy/).
-You don't need any additional polyfills.
+Если вам нужна поддержка IE 11, вы не можете использовать стандартный или современный пакет без транспиляции. Однако вы можете использовать пакет legacy, который находится в [папке`/legacy`](https://unpkg.com/@mui/material/legacy/) . Вам не нужны дополнительные полифиллы.

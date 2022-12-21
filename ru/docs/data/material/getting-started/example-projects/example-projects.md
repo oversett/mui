@@ -1,91 +1,64 @@
-# Example projects
 
-<p class="description">A selection of example projects to get started with.</p>
 
-## Official examples
+# Примеры проектов <meta data-oversett="" data-original-text="Example projects">
 
-You can find some example projects in the [GitHub repository](https://github.com/mui/material-ui) under the [`/examples`](https://github.com/mui/material-ui/tree/master/examples) folder:
+<p class="description">Подборка примеров проектов для начала работы.</p>
 
-<!-- #default-branch-switch -->
+## Официальные примеры <meta data-oversett="" data-original-text="Official examples">
 
-- [Next.js](https://github.com/mui/material-ui/tree/master/examples/nextjs) ([TypeScript version](https://github.com/mui/material-ui/tree/master/examples/nextjs-with-typescript))
-- [Create React App](https://github.com/mui/material-ui/tree/master/examples/create-react-app) ([TypeScript version](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-typescript))
-- [Remix](https://github.com/mui/material-ui/tree/master/examples/remix-with-typescript)
-- [Gatsby](https://github.com/mui/material-ui/tree/master/examples/gatsby)
-- [Preact](https://github.com/mui/material-ui/tree/master/examples/preact)
-- [CDN](https://github.com/mui/material-ui/tree/master/examples/cdn)
-- [Plain server-side](https://github.com/mui/material-ui/tree/master/examples/ssr)
-- [Tailwind CSS](https://github.com/mui/material-ui/tree/master/examples/tailwind-css)
-- [Vite.js](https://github.com/mui/material-ui/tree/master/examples/vitejs)
-- [Use styled-components as style engine](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-styled-components) ([TypeScript version](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-styled-components-typescript))
-- [Next.js + @mui/styles (v4 migration helper)](https://github.com/mui/material-ui/tree/master/examples/nextjs-with-typescript-v4-migration)
+Вы можете найти несколько примеров проектов в [репозитории GitHub](https://github.com/mui/material-ui) в папке [`/examples`](https://github.com/mui/material-ui/tree/master/examples) папке:
 
-Create React App is an awesome project for learning React.
-Have a look at [the alternatives available](https://github.com/facebook/create-react-app/blob/HEAD/README.md#popular-alternatives) to see which project best fits your needs.
+-   [Next.js](https://github.com/mui/material-ui/tree/master/examples/nextjs)[(версия TypeScript](https://github.com/mui/material-ui/tree/master/examples/nextjs-with-typescript))
+-   [Create React App](https://github.com/mui/material-ui/tree/master/examples/create-react-app)[(версия на TypeScript](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-typescript))
+-   [Remix](https://github.com/mui/material-ui/tree/master/examples/remix-with-typescript)
+-   [Gatsby](https://github.com/mui/material-ui/tree/master/examples/gatsby)
+-   [Preact](https://github.com/mui/material-ui/tree/master/examples/preact)
+-   [CDN](https://github.com/mui/material-ui/tree/master/examples/cdn)
+-   [Простой сервер на стороне](https://github.com/mui/material-ui/tree/master/examples/ssr)
+-   [Tailwind CSS](https://github.com/mui/material-ui/tree/master/examples/tailwind-css)
+-   [Vite.js](https://github.com/mui/material-ui/tree/master/examples/vitejs)
+-   [Использование стилизованных компонентов в качестве механизма стилей](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-styled-components)[(версия TypeScript](https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-styled-components-typescript))
+-   [Next.js + @mui/styles (помощник миграции v4)](https://github.com/mui/material-ui/tree/master/examples/nextjs-with-typescript-v4-migration)
 
-The source code for this documentation site is also included in the repository.
-This is a slightly more complex project.
-Check out the [`/docs`](https://github.com/mui/material-ui/tree/master/docs) folder for
-build instructions.
+Create React App - это отличный проект для изучения React. Посмотрите на [доступные альтернативы](https://github.com/facebook/create-react-app/blob/HEAD/README.md#popular-alternatives), чтобы понять, какой проект лучше всего подходит для ваших нужд.
 
-## More advanced example projects
+Исходный код для этого сайта документации также включен в репозиторий. Это немного более сложный проект. Посмотрите в папке [`/docs`](https://github.com/mui/material-ui/tree/master/docs) папку для получения инструкций по сборке.
 
-If you want to start with a more complete and real-world example, you could take a look at the [premium themes & templates](https://mui.com/store/?utm_source=docs&utm_medium=referral&utm_campaign=example-projects-store) or:
+## Более продвинутые примеры проектов <meta data-oversett="" data-original-text="More advanced example projects">
 
-### Free
+Если вы хотите начать с более полного и реального примера, вы можете взглянуть на [премиум-темы и шаблоны](https://mui.com/store/?utm_source=docs&utm_medium=referral&utm_campaign=example-projects-store) или:
 
-- [GraphQL API and Relay Starter Kit](https://github.com/kriasoft/relay-starter-kit):
+### Бесплатные <meta data-oversett="" data-original-text="Free">
 
-  - ![stars](https://img.shields.io/github/stars/kriasoft/graphql-starter.svg?style=social&label=Star)
-  - GraphQL API project using code-first design (TypeScript, OAuth, GraphQL.js, Knex, Cloud SQL)
-  - Web application project pre-configured with Webpack v5, TypeScript, React, Relay, Material UI
-  - Serverless deployment: `api` -> Cloud Functions, `web` -> Cloudflare Workers
-  - Client-side page routing/rendering at CDN edge locations, lazy loading
-  - Optimized for fast CI/CD builds and deployments using Yarn v2 monorepo design
+-   [GraphQL API и Relay Starter Kit](https://github.com/kriasoft/relay-starter-kit):
+    
+    -   ![stars](https://img.shields.io/github/stars/kriasoft/graphql-starter.svg?style=social&label=Star)
+    -   Проект GraphQL API с использованием кода (TypeScript, OAuth, GraphQL.js, Knex, Cloud SQL).
+    -   Проект веб-приложения, предварительно настроенный с Webpack v5, TypeScript, React, Relay, Material UI
+    -   Бессерверное развертывание: `api` -> Cloud Functions, `web` -> Cloudflare Workers
+    -   Маршрутизация/рендеринг страниц на стороне клиента на границах CDN, ленивая загрузка
+    -   Оптимизирован для быстрой CI/CD сборки и развертывания с использованием Yarn v2 monorepo design
+-   [React Most Wanted](https://github.com/TarikHuber/react-most-wanted):
+    
+    -   ![stars](https://img.shields.io/github/stars/TarikHuber/react-most-wanted.svg?style=social&label=Star)
+    -   Создан с помощью Create React App
+    -   Пользовательский скрипт Create React App для запуска нового проекта с помощью всего одной команды CLI
+    -   Сборка для Firebase, включая аутентификацию с помощью официального Firebase Web Auth UI
+    -   Маршрутизация с помощью React Router, включая обработку ошибок (404) и ленивую загрузку.
+    -   Все функции PWA включены (SW, уведомления, отложенный запрос на установку и многое другое)
+    -   Оптимизированная и масштабируемая производительность (все ~100 баллов по Lighthouse)
 
-- [React Most Wanted](https://github.com/TarikHuber/react-most-wanted):
+### Платный <meta data-oversett="" data-original-text="Paid">
 
-  - ![stars](https://img.shields.io/github/stars/TarikHuber/react-most-wanted.svg?style=social&label=Star)
-  - Created with Create React App
-  - Custom Create React App script to start a new project with just a single CLI command
-  - Build for Firebase including Authentication using the official Firebase Web Auth UI
-  - Routing with React Router including error handling (404) and lazy loading
-  - All PWA features included (SW, Notifications, deferred installation prompt and more)
-  - Optimized and scalable performance (all ~100 points on Lighthouse)
-
-<!-- TODO: revert this once it is migrated to v5
-- [React SaaS Template](https://github.com/dunky11/react-saas-template):
-
-  - ![stars](https://img.shields.io/github/stars/dunky11/react-saas-template.svg?style=social&label=Star)
-  - Created with Create React App
-  - Features a landing page, a blog, an area to login/register and an admin-dashboard
-  - Fully routed using react-router
-  - Lazy loads components to boost performance
-  - Components for statistics, text with emoji support, image upload and much more...
--->
-
-<!-- TODO: revert this once it is migrated to v5
-- [Material Sense](https://github.com/alexanmtz/material-sense):
-
-  - ![stars](https://img.shields.io/github/stars/alexanmtz/material-sense.svg?style=social&label=Star)
-  - Graph using recharts
-  - React Router included with a navigation example
-  - A docker container with an Nginx server for production build
-  - Created with Create React App
--->
-
-### Paid
-
-- [ScaffoldHub](https://scaffoldhub.io/?partner=1):
-
-  - Build your complete application with this online tool
-  - Choose your framework and library (React & MUI!)
-  - Choose your database (SQL, MongoDB or Firestore)
-  - Model your database and application with the intuitive GUI
-  - Generate your application, including a complete scaffolded backend
-  - Preview your application online, and download the generated code
-
-- [Divjoy](https://divjoy.com?via=material-ui):
-
-  - Create your MUI app in minutes.
-  - You'll get a nice template, authentication, database integration, subscription payments, and more.
+-   [ScaffoldHub](https://scaffoldhub.io/?partner=1):
+    
+    -   Создайте свое полноценное приложение с помощью этого онлайн-инструмента
+    -   Выберите свой фреймворк и библиотеку (React & MUI!)
+    -   Выберите базу данных (SQL, MongoDB или Firestore).
+    -   Смоделируйте свою базу данных и приложение с помощью интуитивно понятного графического интерфейса.
+    -   Сгенерируйте ваше приложение, включая полный бэкенд с лесами
+    -   Предварительный просмотр приложения онлайн и загрузка сгенерированного кода.
+-   [Divjoy](https://divjoy.com?via=material-ui):
+    
+    -   Создайте свое приложение MUI за несколько минут.
+    -   Вы получите красивый шаблон, аутентификацию, интеграцию с базой данных, оплату подписки и многое другое.

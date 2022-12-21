@@ -5,159 +5,144 @@ githubLabel: 'component: Grid'
 materialDesign: https://m2.material.io/design/layout/understanding-layout.html
 ---
 
-# Grid version 2
+# Сетка версии 2 <meta data-oversett="" data-original-text="Grid version 2">
 
-<p class="description">The responsive layout grid adapts to screen size and orientation, ensuring consistency across layouts.</p>
+<p class="description">Сетка отзывчивого макета адаптируется к размеру и ориентации экрана, обеспечивая согласованность макетов.</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js", "design": false}}
 
-The `Grid` component works well for a layout with a known number of columns.
-The columns can be configured with multiple breakpoints to specify the column span of each child.
+Компонент `Grid` хорошо работает для макета с известным числом колонок. Колонки можно настроить с несколькими точками разрыва, чтобы указать диапазон колонок каждого дочернего элемента.
 
-## What's changed
+## Что изменилось <meta data-oversett="" data-original-text="What's changed">
 
-We built the `Grid` component from scratch in order to:
+Мы создали компонент `Grid` с нуля, чтобы:
 
-- Fix [known issues](https://github.com/mui/material-ui/pull/32746) introduced in Material UI v5.
-- Simplify the logic with CSS variables, removing the unnecessary `item` prop and reducing CSS specificity.
-- Introduce a proper fix for [preventing a scrollbar](#prevent-scrollbar) by switching between negative margin approaches.
-- Set negative margins of equal size on all sides of the grid container by default.
+-   Исправить [известные проблемы](https://github.com/mui/material-ui/pull/32746), появившиеся в Material UI v5.
+-   Упростить логику работы с переменными CSS, удалив ненужный реквизит `item` и уменьшив специфичность CSS.
+-   Ввести правильное исправление для [предотвращения появления полосы прокрутки](#prevent-scrollbar) при переключении между подходами к отрицательным полям.
+-   Установить отрицательные поля одинакового размера со всех сторон контейнера сетки по умолчанию.
 
-Since the new implementation is considered a breaking change, we introduced it as `Unstable_Grid2` to gather feedbacks from the community before making it stable in the next major release of Material UI.
+Поскольку новая реализация считается разрушающим изменением, мы представили ее в качестве `Unstable_Grid2`, чтобы собрать отзывы сообщества, прежде чем сделать ее стабильной в следующем крупном выпуске Material UI.
 
-We encourage everyone to try the new version of the `Grid` by visiting the [Grid v2 migration guide](/material-ui/migration/migration-grid-v2/).
+Мы предлагаем всем попробовать новую версию `Grid`, посетив [руководство по миграции Grid v2](/material-ui/migration/migration-grid-v2/).
 
 :::info
-From now on, the `Grid` v1 and `Grid` v2 refer to the import as:
+С этого момента импорт называется `Grid` v1 и `Grid` v2:
 
 ```js
 import Grid from '@mui/material/Grid'; // Grid version 1
 import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
 ```
-
 :::
 
-## How it works
+## Как это работает <meta data-oversett="" data-original-text="How it works">
 
-The grid system is implemented with the `Grid` component:
+Система сетки реализована с помощью компонента `Grid`:
 
-- It uses [CSS Flexbox](https://www.w3.org/TR/css-flexbox-1/) (rather than CSS Grid) for high flexibility.
-- The grid is always a flex item. Use the `container` prop to add a flex container.
-- Item widths are set in percentages, so they're always fluid and sized relative to their parent element.
-- There are five default grid breakpoints: xs, sm, md, lg, and xl. If you need custom breakpoints, check out [custom breakpoints grid](#custom-breakpoints).
-- You can give integer values for each breakpoint, to indicate how many of the 12 available columns are occupied by the component when the viewport width satisfies the [breakpoint constraints](/material-ui/customization/breakpoints/#default-breakpoints).
-- It uses negative margins and padding to create gaps between children, which behave similarly to [the `gap` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
-- It does _not_ support row spanning. Children elements cannot span multiple rows. We recommend using [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) if you need this functionality.
-- It does _not_ automatically place children. It will try to fit the children one by one, and if there is not enough space, the rest of the children will start on the next line, and so on. If you need auto-placement, we recommend using [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout) instead.
+-   Он использует [CSS Flexbox](https://www.w3.org/TR/css-flexbox-1/) (а не CSS Grid) для высокой гибкости.
+-   Сетка всегда является гибким элементом. Используйте компонент `container`, чтобы добавить гибкий контейнер.
+-   Ширина элементов задается в процентах, поэтому они всегда плавные и имеют размер относительно родительского элемента.
+-   Существует пять точек разрыва сетки по умолчанию: xs, sm, md, lg и xl. Если вам нужны пользовательские точки разрыва, посмотрите раздел " [Пользовательские точки разрыва сетки](#custom-breakpoints)".
+-   Для каждой точки разрыва можно задать целочисленные значения, чтобы указать, сколько из 12 доступных колонок занимает компонент, когда ширина области просмотра удовлетворяет [ограничениям точки разрыва](/material-ui/customization/breakpoints/#default-breakpoints).
+-   Для создания промежутков между дочерними компонентами используются отрицательные поля и подкладки, которые ведут себя аналогично [свойству `gap` CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
+-   _Не_ поддерживает разделение строк. Дочерние элементы не могут охватывать несколько рядов. Мы рекомендуем использовать [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout), если вам нужна эта функциональность.
+-   Он _не_ размещает дочерние элементы автоматически. Он будет пытаться разместить дочерние элементы по одному, и если места не хватит, остальные дочерние элементы будут начинаться со следующей строки, и так далее. Если вам нужно автоматическое размещение, мы рекомендуем использовать [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout).
 
 :::warning
-The `Grid` component is a _layout_ grid, not a _data_ grid.
-If you need a data grid, check out [the MUI X `DataGrid` component](/x/react-data-grid/).
+Компонент `Grid` - это сетка _макетов_, а не сетка _данных_. Если вам нужна сетка данных, обратите внимание на [компонент MUI X `DataGrid`](/x/react-data-grid/) .
 :::
 
-## Fluid grids
+## Жидкие сетки <meta data-oversett="" data-original-text="Fluid grids">
 
-Fluid grids use columns that scale and resize content. A fluid grid's layout can use breakpoints to determine if the layout needs to change dramatically.
+Жидкие сетки используют колонки, которые масштабируют и изменяют размер содержимого. В макете жидкой сетки можно использовать точки останова, чтобы определить, нужно ли кардинально изменить макет.
 
-### Basic grid
+### Базовая сетка <meta data-oversett="" data-original-text="Basic grid">
 
-In order to create a grid layout, you need a container.
-Use the `container` prop to create a grid container that wraps the grid items (the `Grid` is always an item).
+Для создания макета сетки необходим контейнер. Используйте реквизит `container` для создания контейнера сетки, который обертывает элементы сетки ( `Grid` всегда является элементом).
 
-Column widths are integer values between 1 and 12.
-They can be applied at any breakpoint to indicate how many columns are occupied by the component.
+Ширина колонок - это целочисленные значения от 1 до 12. Они могут быть применены в любой точке останова, чтобы указать, сколько колонок занимает компонент.
 
-A value given to a breakpoint applies to all the other wider breakpoints unless overridden—see [Multiple breakpoints](#multiple-breakpoints) for details.
-For example, a component with `xs={12}` occupies the whole viewport width regardless of its size.
+Значение, заданное для точки останова, применяется ко всем другим более широким точкам останова, если оно не переопределено - подробнее см. в разделе " [Множественные точки останова](#multiple-breakpoints) ". Например, компонент с `xs={12}` занимает всю ширину области просмотра независимо от его размера.
 
 {{"demo": "BasicGrid.js", "bg": true}}
 
-### Multiple breakpoints
+### Множественные точки останова <meta data-oversett="" data-original-text="Multiple breakpoints">
 
-Components may have multiple widths defined, causing the layout to change at the defined breakpoint. Width values given to larger breakpoints override those given to smaller breakpoints.
+Компоненты могут иметь несколько значений ширины, что приводит к изменению макета в определенной точке останова. Значения ширины, заданные для больших точек останова, переопределяют значения, заданные для меньших точек останова.
 
-For example, a component with `xs={12} sm={6}` occupies the entire viewport width when the viewport is [less than 600 pixels wide](/material-ui/customization/breakpoints/#default-breakpoints).
-When the viewport grows beyond this size, the component occupies half of the total width—six columns rather than 12.
+Например, компонент с `xs={12} sm={6}` занимает всю ширину области просмотра, если область просмотра имеет [ширину менее 600 пикселей](/material-ui/customization/breakpoints/#default-breakpoints). Когда область просмотра увеличивается сверх этого размера, компонент занимает половину общей ширины - шесть колонок, а не 12.
 
 {{"demo": "FullWidthGrid.js", "bg": true}}
 
-## Spacing
+## Расстановка <meta data-oversett="" data-original-text="Spacing">
 
-Use the `spacing` prop to control the space between children.
-The spacing value can be any positive number (including decimals) or a string.
-The prop is converted into a CSS property using the [`theme.spacing()`](/material-ui/customization/spacing/) helper.
+Используйте реквизит `spacing` для управления пространством между дочерними элементами. Значение интервала может быть любым положительным числом (включая десятичные дроби) или строкой. Реквизит преобразуется в свойство CSS с помощью помощника [`theme.spacing()`](/material-ui/customization/spacing/) помощника.
 
-The following demo illustrates the use of the `spacing` prop:
+Следующий демонстрационный пример иллюстрирует использование свойства `spacing`:
 
 {{"demo": "SpacingGrid.js", "bg": true, "hideToolbar": true}}
 
-### Row and column spacing
+### Расстояние между строками и столбцами <meta data-oversett="" data-original-text="Row and column spacing">
 
-The `rowSpacing` and `columnSpacing` props let you specify row and column gaps independently of one another.
-They behave similarly to the `row-gap` and `column-gap` properties of [CSS Grid](/system/grid/#row-gap-amp-column-gap).
+Реквизиты `rowSpacing` и `columnSpacing` позволяют задать расстояние между строками и столбцами независимо друг от друга. Они ведут себя аналогично свойствам `row-gap` и `column-gap` [CSS Grid](/system/grid/#row-gap-amp-column-gap).
 
 {{"demo": "RowAndColumnSpacing.js", "bg": true}}
 
-## Responsive values
+## Отзывчивые значения <meta data-oversett="" data-original-text="Responsive values">
 
-You can set prop values to change when a given breakpoint is active.
-For instance, we can implement Material Design's [recommended](https://m2.material.io/design/layout/responsive-layout-grid.html) responsive layout grid, as seen in the following demo:
+Вы можете задать значения реквизитов, которые будут меняться при активной точке останова. Например, мы можем реализовать [рекомендуемую](https://m2.material.io/design/layout/responsive-layout-grid.html) Material Design отзывчивую сетку макетов, как показано в следующем примере:
 
 {{"demo": "ResponsiveGrid.js", "bg": true}}
 
-Responsive values are supported by:
+Отзывчивые значения поддерживаются:
 
-- `columns`
-- `columnSpacing`
-- `direction`
-- `rowSpacing`
-- `spacing`
-- all other [MUI System props](#system-props)
+-   `columns`
+-   `columnSpacing`
+-   `direction`
+-   `rowSpacing`
+-   `spacing`
+-   все остальные [реквизиты MUI System](#system-props)
 
-## Auto-layout
+## Авторазметка <meta data-oversett="" data-original-text="Auto-layout">
 
-The auto-layout feature gives equal space to all items present.
-When you set the width of one item, the others will automatically resize to match it.
+Функция авторазметки предоставляет равное пространство всем присутствующим элементам. Когда вы задаете ширину одного элемента, остальные автоматически изменяют размер в соответствии с ней.
 
 {{"demo": "AutoGrid.js", "bg": true}}
 
-### Variable width content
+### Содержимое переменной ширины <meta data-oversett="" data-original-text="Variable width content">
 
-When a breakpoint's value is given as `"auto"` instead of `true` or a number, then a column's size will automatically adjust to match the width of its content.
-The demo below shows how this works:
+Если значение точки останова задано как `"auto"`, а не `true` или число, то размер колонки автоматически изменяется в соответствии с шириной ее содержимого. Демонстрация ниже показывает, как это работает:
 
 {{"demo": "VariableWidthGrid.js", "bg": true}}
 
-## Nested grid
+## Вложенная сетка <meta data-oversett="" data-original-text="Nested grid">
 
-The grid container that renders inside another grid container is a nested grid that inherits its [`columns`](#columns) and [`spacing`](#spacing) from the top level.
-It will also inherit the props of the top-level grid if it receives those props.
+Контейнер сетки, который отображается внутри другого контейнера сетки, является вложенной сеткой, которая наследует его [`columns`](#columns) и [`spacing`](#spacing) Он также наследует реквизиты грида верхнего уровня, если получает их.
 
-Check out the demo below to see what this looks like:
+Посмотрите демонстрацию ниже, чтобы увидеть, как это выглядит:
 
 {{"demo": "NestedGrid.js", "bg": true}}
 
-## Columns
+## Колонки <meta data-oversett="" data-original-text="Columns">
 
-Use the `columns` prop to change the default number of columns (12) in the grid, as shown below:
+Используйте параметр `columns`, чтобы изменить количество колонок по умолчанию (12) в сетке, как показано ниже:
 
 {{"demo": "ColumnsGrid.js", "bg": true}}
 
-## Offset
+## Смещение <meta data-oversett="" data-original-text="Offset">
 
-Offset props (such as `smOffset`, `mdOffset`) push an item to the right side of the grid.
-These props accept:
+Реквизиты смещения (такие как `smOffset`, `mdOffset`) сдвигают элемент в правую часть сетки. Эти реквизиты принимают:
 
-- numbers—for example, `mdOffset={2}` pushes an item two columns to the right when the viewport size is equal to or greater than the `md` breakpoint.
-- `"auto"`—this pushes the item to the far right side of the grid container.
+-   числа - например, `mdOffset={2}` сдвигает элемент на два столбца вправо, если размер области просмотра равен или больше точки останова `md`.
+-   `"auto"`\-это сдвигает элемент в крайний правый столбец контейнера сетки.
 
-The demo below illustrates how to use the offset props:
+Демонстрация ниже показывает, как использовать реквизит смещения:
 
 {{"demo": "OffsetGrid.js", "bg": true}}
 
-## Custom breakpoints
+## Пользовательские точки останова <meta data-oversett="" data-original-text="Custom breakpoints">
 
-If you specify custom breakpoints in the theme, you can use those names as grid item props in responsive values:
+Если вы зададите в теме пользовательские точки останова, вы можете использовать эти имена в качестве реквизитов элементов сетки в отзывчивых значениях:
 
 ```js
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -189,19 +174,17 @@ function Demo() {
 ```
 
 :::info
-Custom breakpoints affect both size and offset props:
+Пользовательские точки останова влияют на реквизиты размера и смещения:
 
 ```diff
 - <Grid xs={6} xsOffset={2}>
 + <Grid mobile={6} mobileOffset={2}>
 ```
-
 :::
 
-### TypeScript
+### TypeScript <meta data-oversett="" data-original-text="TypeScript">
 
-You have to set module augmentation on the theme breakpoints interface.
-Properties set to `true` will appear as `{key}`(size prop) and `{key}Offset`(offset prop).
+Вы должны установить модуль augmentation в интерфейсе theme breakpoints. Свойства, установленные на `true`, будут отображаться как `{key}`(size prop) и `{key}Offset`(offset prop).
 
 ```ts
 declare module '@mui/system' {
@@ -221,49 +204,44 @@ declare module '@mui/system' {
 }
 ```
 
-## Disable the scrollbar
+## Отключите полосу прокрутки <meta data-oversett="" data-original-text="Disable the scrollbar">
 
-If you use grid as a container in a small viewport, you might see a horizontal scrollbar because the negative margin is applied on all sides of the grid container.
+Если вы используете сетку в качестве контейнера в маленьком окне просмотра, вы можете увидеть горизонтальную полосу прокрутки, поскольку отрицательное поле применяется со всех сторон контейнера сетки.
 
-To disable this scrollbar, set the `disableEqualOverflow` prop to `true`.
-This removes the negative margins from the bottom and right sides of the grid to prevent overflow.
+Чтобы отключить эту полосу прокрутки, установите параметр `disableEqualOverflow` в значение `true`. Это уберет отрицательные поля с нижней и правой сторон сетки, чтобы предотвратить переполнение.
 
-The demo below shows how this works:
+Демонстрация ниже показывает, как это работает:
 
 {{"demo": "OverflowGrid.js", "bg": true}}
 
 :::warning
-You should avoid adding borders and backgrounds to the grid when `disableEqualOverflow` is `true` because the negative margin (applied only at the top and left sides) causes the grid to be visually misaligned.
+Вам следует избегать добавления границ и фонов в сетку, когда `disableEqualOverflow` имеет значение `true`, поскольку отрицательные поля (применяемые только к верхней и левой сторонам) вызывают визуальное смещение сетки.
 :::
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-### Centered elements
+### Центрирование элементов <meta data-oversett="" data-original-text="Centered elements">
 
-To center a grid item's content, specify `display="flex"` directly on the item.
-Then use `justifyContent` and/or `alignItems` to adjust the position of the content, as shown below:
+Чтобы отцентрировать содержимое элемента сетки, укажите `display="flex"` непосредственно на элемент. Затем используйте `justifyContent` и/или `alignItems` для настройки положения содержимого, как показано ниже:
 
 {{"demo": "CenteredElementGrid.js", "bg": true}}
 
 :::warning
-Using the `container` prop does not work in this situation because the grid container is designed exclusively to wrap grid items.
-It cannot wrap other elements.
+Использование реквизита `container` в данной ситуации не подходит, поскольку контейнер сетки предназначен исключительно для обертывания элементов сетки. Он не может обертывать другие элементы.
 :::
 
-### Full border
+### Полная граница <meta data-oversett="" data-original-text="Full border">
 
 {{"demo": "FullBorderedGrid.js"}}
 
-### Half border
+### Половина границы <meta data-oversett="" data-original-text="Half border">
 
 {{"demo": "HalfBorderedGrid.js"}}
 
-## Limitations
+## Ограничения <meta data-oversett="" data-original-text="Limitations">
 
-### Column direction and reversing
+### Направление колонок и реверсирование <meta data-oversett="" data-original-text="Column direction and reversing">
 
-The column width (`xs`, ..., `xl`) and offset props are _not_ supported within containers that use `direction="column"` or `direction="column-reverse"`.
+Реквизиты ширина колонки (`xs`, ..., `xl`) и смещение _не_ поддерживаются в контейнерах, использующих `direction="column"` или `direction="column-reverse"`.
 
-Size and offset props define the number of columns the component will use for a given breakpoint.
-They are intended to control the width using `flex-basis` in `row` containers, but they will impact the height in `column` containers.
-If used, these props may have undesirable effects on the height of the `Grid` item elements.
+Реквизиты size и offset определяют количество колонок, которые компонент будет использовать для данной точки разрыва. Они предназначены для управления шириной с помощью `flex-basis` в контейнерах `row`, но они будут влиять на высоту в контейнерах `column`. При использовании эти реквизиты могут оказать нежелательное влияние на высоту элементов `Grid`.

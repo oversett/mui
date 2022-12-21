@@ -6,30 +6,28 @@ githubLabel: 'component: Paper'
 materialDesign: https://m2.material.io/design/environment/elevation.html
 ---
 
-# Paper
+# Бумага <meta data-oversett="" data-original-text="Paper">
 
-<p class="description">In Material Design, the physical properties of paper are translated to the screen. </p>
+<p class="description">В Material Design физические свойства бумаги перенесены на экран.</p>
 
-The background of an application resembles the flat, opaque texture of a sheet of paper, and an application's behavior mimics paper's ability to be re-sized, shuffled, and bound together in multiple sheets.
+Фон приложения напоминает плоскую, непрозрачную текстуру листа бумаги, а поведение приложения имитирует способность бумаги изменять размер, перемешивать и скреплять несколько листов.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic paper
+## Основная бумага <meta data-oversett="" data-original-text="Basic paper">
 
 {{"demo": "SimplePaper.js", "bg": true}}
 
-## Variants
+## Варианты <meta data-oversett="" data-original-text="Variants">
 
-If you need an outlined surface, use the `variant` prop.
+Если вам нужна очерченная поверхность, используйте реквизит `variant`.
 
 {{"demo": "Variants.js", "bg": "inline"}}
 
-## Elevation
+## Возвышение <meta data-oversett="" data-original-text="Elevation">
 
-The elevation can be used to establish a hierarchy between other content. In practical terms, the elevation controls the size of the shadow applied to the surface. In dark mode, raising the elevation also makes the surface lighter.
+Возвышение можно использовать для установления иерархии между другим содержимым. С практической точки зрения, возвышение управляет размером тени, накладываемой на поверхность. В темном режиме повышение высоты также делает поверхность светлее.
 
 {{"demo": "Elevation.js", "bg": "inline"}}
 
-The change of shade in dark mode is done by applying a semi-transparent gradient to the `background-image` property.
-This can lead to confusion when overriding the styles of `Paper`, as setting just the `background-color` property will not affect the elevation-related shading.
-To ignore the shading and set the background color that is not affected by elevation in dark mode, override the `background` property (or both `background-color` and `background-image`).
+Изменение тени в темном режиме происходит путем применения полупрозрачного градиента к свойству `background-image`. Это может привести к путанице при переопределении стилей `Paper`, поскольку установка только свойства `background-color` не повлияет на затенение, связанное с возвышением. Чтобы игнорировать затенение и установить цвет фона, на который не влияет возвышение в темном режиме, переопределите свойство `background` (или оба `background-color` и `background-image`).

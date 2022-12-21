@@ -1,68 +1,56 @@
-# API design approach
 
-<p class="description">We have learned a great deal regarding how MUI is used, and the v1 rewrite allowed us to completely rethink the component API.</p>
+
+# Подход к проектированию API <meta data-oversett="" data-original-text="API design approach">
+
+<p class="description">Мы многое узнали о том, как используется MUI, и переработка версии 1 позволила нам полностью переосмыслить API компонента.</p>
 
 :::info
-API design is hard because you can make it seem simple but it's actually deceptively complex, or make it actually simple but seem complex.
+Проектировать API сложно, потому что можно сделать его простым, но на самом деле обманчиво сложным, или сделать его простым, но кажущимся сложным.
 :::
 
 [@sebmarkbage](https://twitter.com/sebmarkbage/status/728433349337841665)
 
-As Sebastian Markbage [pointed out](https://2014.jsconf.eu/speakers/sebastian-markbage-minimal-api-surface-area-learning-patterns-instead-of-frameworks.html), no abstraction is superior to wrong abstractions.
-We are providing low-level components to maximize composition capabilities.
+Как [отметил](https://2014.jsconf.eu/speakers/sebastian-markbage-minimal-api-surface-area-learning-patterns-instead-of-frameworks.html) Себастьян Маркбадж, никакая абстракция не превосходит неправильные абстракции. Мы предоставляем низкоуровневые компоненты, чтобы максимально расширить возможности композиции.
 
-## Composition
+## Композиция <meta data-oversett="" data-original-text="Composition">
 
-You may have noticed some inconsistency in the API regarding composing components.
-To provide some transparency, we have been using the following rules when designing the API:
+Возможно, вы заметили некоторую непоследовательность в API относительно композиции компонентов. Чтобы обеспечить некоторую прозрачность, мы использовали следующие правила при разработке API:
 
-1. Using the `children` prop is the idiomatic way to do composition with React.
-2. Sometimes we only need limited child composition, for instance when we don't need to allow child order permutations.
-   In this case, providing explicit props makes the implementation simpler and more performant; for example, the `Tab` takes an `icon` and a `label` prop.
-3. API consistency matters.
+1.  Использование реквизита `children` - это идиоматический способ создания композиции в React.
+2.  Иногда нам нужна только ограниченная композиция дочерних компонентов, например, когда нам не нужно разрешать перестановку порядков дочерних компонентов. В этом случае предоставление явных реквизитов упрощает реализацию и повышает производительность; например, `Tab` принимает реквизиты `icon` и `label`.
+3.  Согласованность API имеет значение.
 
-## Rules
+## Правила <meta data-oversett="" data-original-text="Rules">
 
-Aside from the above composition trade-off, we enforce the following rules:
+Помимо вышеупомянутого компромисса между композицией и порядком, мы применяем следующие правила:
 
-### Spread
+### Распространение <meta data-oversett="" data-original-text="Spread">
 
-Props supplied to a component which are not explicitly documented are spread to the root element;
-for instance, the `className` prop is applied to the root.
+Реквизиты, передаваемые компоненту, которые явно не документированы, распространяются на корневой элемент; например, реквизит `className` применяется к корню.
 
-Now, let's say you want to disable the ripples on the `MenuItem`.
-You can take advantage of the spread behavior:
+Теперь, допустим, вы хотите отключить рябь на `MenuItem`. Вы можете воспользоваться поведением распространения:
 
 ```jsx
 <MenuItem disableRipple />
 ```
 
-The `disableRipple` prop will flow this way: [`MenuItem`](/material-ui/api/menu-item/) > [`ListItem`](/material-ui/api/list-item/) > [`ButtonBase`](/material-ui/api/button-base/).
+Реквизит `disableRipple` будет выглядеть следующим образом: [`MenuItem`](/material-ui/api/menu-item/) > [`ListItem`](/material-ui/api/list-item/) > [`ButtonBase`](/material-ui/api/button-base/).
 
-### Native properties
+### Нативные свойства <meta data-oversett="" data-original-text="Native properties">
 
-We avoid documenting native properties supported by the DOM like [`className`](/material-ui/customization/how-to-customize/#overriding-styles-with-class-names).
+Мы избегаем документирования собственных свойств, поддерживаемых DOM, таких как [`className`](/material-ui/customization/how-to-customize/#overriding-styles-with-class-names).
 
-### CSS Classes
+### CSS-классы <meta data-oversett="" data-original-text="CSS Classes">
 
-All components accept a [`classes`](/material-ui/customization/how-to-customize/#overriding-styles-with-class-names) prop to customize the styles.
-The classes design answers two constraints:
-to make the classes structure as simple as possible, while sufficient to implement the Material Design guidelines.
+Все компоненты принимают [`classes`](/material-ui/customization/how-to-customize/#overriding-styles-with-class-names) Дизайн классов отвечает двум ограничениям: сделать структуру классов как можно более простой, но при этом достаточной для реализации рекомендаций Material Design.
 
-- The class applied to the root element is always called `root`.
-- All the default styles are grouped in a single class.
-- The classes applied to non-root elements are prefixed with the name of the element, e.g. `paperWidthXs` in the Dialog component.
-- The variants applied by a boolean prop **aren't** prefixed, e.g. the `rounded` class
-  applied by the `rounded` prop.
-- The variants applied by an enum prop **are** prefixed, e.g. the `colorPrimary` class
-  applied by the `color="primary"` prop.
-- A variant has **one level of specificity**.
-  The `color` and `variant` props are considered a variant.
-  The lower the style specificity is, the simpler it is to override.
-- We increase the specificity for a variant modifier.
-  We already **have to do it** for the pseudo-classes (`:hover`, `:focus`, etc.).
-  It allows much more control at the cost of more boilerplate.
-  Hopefully, it's also more intuitive.
+-   Класс, применяемый к корневому элементу, всегда называется `root`.
+-   Все стили по умолчанию сгруппированы в одном классе.
+-   Классы, применяемые к некорневым элементам, имеют префикс с именем элемента, например, `paperWidthXs` в компоненте Dialog.
+-   Варианты, применяемые булевым реквизитом, **не** имеют префикса, например, класс `rounded`, применяемый реквизитом `rounded`.
+-   Варианты, применяемые реквизитом enum, **имеют** префикс, например, класс `colorPrimary`, применяемый реквизитом `color="primary"`.
+-   Вариант имеет **один уровень специфичности**. Реквизиты `color` и `variant` считаются вариантом. Чем ниже специфичность стиля, тем проще его переопределить.
+-   Мы увеличиваем специфичность для модификатора варианта. Мы уже **сделали это** для псевдоклассов (`:hover`, `:focus`, и т.д.). Это позволяет гораздо больше контроля ценой большего количества шаблонов. Надеюсь, это также более интуитивно понятно.
 
 ```js
 const styles = {
@@ -76,95 +64,83 @@ const styles = {
 };
 ```
 
-### Nested components
+### Вложенные компоненты <meta data-oversett="" data-original-text="Nested components">
 
-Nested components inside a component have:
+Вложенные компоненты внутри компонента имеют:
 
-- their own flattened props when these are key to the top level component abstraction,
-  for instance an `id` prop for the `Input` component.
-- their own `xxxProps` prop when users might need to tweak the internal render method's sub-components,
-  for instance, exposing the `inputProps` and `InputProps` props on components that use `Input` internally.
-- their own `xxxComponent` prop for performing component injection.
-- their own `xxxRef` prop when you might need to perform imperative actions,
-  for instance, exposing an `inputRef` prop to access the native `input` on the `Input` component.
-  This helps answer the question ["How can I access the DOM element?"](/material-ui/getting-started/faq/#how-can-i-access-the-dom-element)
+-   свои собственные уплощенные реквизиты, если они являются ключевыми для абстракции компонента верхнего уровня, например, реквизит `id` для компонента `Input`.
+-   собственный реквизит `xxxProps`, когда пользователям может понадобиться настраивать подкомпоненты внутреннего метода рендеринга, например, раскрывать реквизиты `inputProps` и `InputProps` для компонентов, использующих `Input` внутри компонента.
+-   собственный реквизит `xxxComponent` для выполнения инъекций компонентов.
+-   собственный `xxxRef` prop, когда может потребоваться выполнить императивные действия, например, выставление `inputRef` prop для доступа к собственному `input` на компоненте `Input`. Это помогает ответить на вопрос ["Как я могу получить доступ к элементу DOM?"](/material-ui/getting-started/faq/#how-can-i-access-the-dom-element).
 
-### Prop naming
+### Именование реквизита <meta data-oversett="" data-original-text="Prop naming">
 
-- **Boolean**
+-   **Булево**
+    
+    -   Значение по умолчанию для булевого реквизита должно быть `false`. Это позволяет лучше использовать сокращенное обозначение. Рассмотрим пример ввода, который включен по умолчанию. Как следует назвать реквизит, управляющий этим состоянием? Он должен называться `disabled`:
+        
+        ```jsx
+        ❌ <Input enabled={false} />
+        ✅ <Input disabled />
+        ```
+        
+    -   Если имя реквизита состоит из одного слова, то это должно быть прилагательное или существительное, а не глагол. Это связано с тем, что реквизит описывает _состояния_, а не _действия_. Например, входной реквизит может управляться состоянием, которое не может быть описано глаголом:
+        
+        ```jsx
+        const [disabled, setDisabled] = React.useState(false);
+        
+        ❌ <Input disable={disabled} />
+        ✅ <Input disabled={disabled} />
+        ```
+        
 
-  - The default value of a boolean prop should be `false`. This allows for better shorthand notation. Consider an example of an input that is enabled by default. How should you name the prop that controls this state? It should be called `disabled`:
+### Управляемые компоненты <meta data-oversett="" data-original-text="Controlled components">
 
-    ```jsx
-    ❌ <Input enabled={false} />
-    ✅ <Input disabled />
+Большинство управляемых компонентов управляются через реквизиты `value` и `onChange`, однако для состояния, связанного с отображением, используется комбинация `open` / `onClose` / `onOpen`. В случаях, когда событий больше, мы сначала ставим существительное, а затем глагол, например: `onPageChange`, `onRowsChange`.
+
+### boolean vs. enum <meta data-oversett="" data-original-text="boolean vs. enum">
+
+Есть два варианта разработки API для вариаций компонента: с помощью _булевых значений_ или с помощью _перечисления_. Для примера возьмем кнопку, которая имеет различные типы. У каждого варианта есть свои плюсы и минусы:
+
+-   Вариант 1 _boolean_:
+    
+    ```tsx
+    type Props = {
+      contained: boolean;
+      fab: boolean;
+    };
     ```
-
-  - If the name of the boolean is a single word, it should be an adjective or a noun rather than a verb. This is because props describe _states_ and not _actions_. For example an input prop can be controlled by a state, which wouldn't be described with a verb:
-
-    ```jsx
-    const [disabled, setDisabled] = React.useState(false);
-
-    ❌ <Input disable={disabled} />
-    ✅ <Input disabled={disabled} />
+    
+    Этот API позволяет использовать сокращенную нотацию:`<Button>`, `<Button contained />`, `<Button fab />`.
+    
+-   Вариант 2 _enum_:
+    
+    ```tsx
+    type Props = {
+      variant: 'text' | 'contained' | 'fab';
+    };
     ```
+    
+    Этот API более многословен:`<Button>`, `<Button variant="contained">`, `<Button variant="fab">`.
+    
+    Однако он предотвращает использование недопустимой комбинации, ограничивает количество раскрываемых реквизитов и может легко поддерживать новые значения в будущем.
+    
 
-### Controlled components
+Компоненты MUI используют комбинацию этих двух подходов в соответствии со следующими правилами:
 
-Most of the controlled component are controlled via the `value` and the `onChange` props,
-however, the `open` / `onClose` / `onOpen` combination is used for display related state.
-In the cases where there are more events, we put the noun first, and then the verb, for example: `onPageChange`, `onRowsChange`.
+-   _Булево_ используется, когда требуется **2** возможных значения.
+-   _Перечисление_ используется, когда требуется **более 2** возможных значений, или если есть вероятность, что в будущем потребуются дополнительные возможные значения.
 
-### boolean vs. enum
+Возвращаясь к предыдущему примеру с кнопкой; поскольку для нее требуется 3 возможных значения, мы используем _перечисление_.
 
-There are two options to design the API for the variations of a component: with a _boolean_; or with an _enum_.
-For example, let's take a button that has different types. Each option has its pros and cons:
+### Ссылка <meta data-oversett="" data-original-text="Ref">
 
-- Option 1 _boolean_:
+Ссылка `ref` направляется на корневой элемент. Это означает, что, не изменяя корневой элемент через реквизит `component`, он направляется на самый внешний элемент DOM, который компонент рендерит. Если вы передадите другой компонент через реквизит `component`, ссылка будет присоединена к этому компоненту.
 
-  ```tsx
-  type Props = {
-    contained: boolean;
-    fab: boolean;
-  };
-  ```
+## Глоссарий <meta data-oversett="" data-original-text="Glossary">
 
-  This API enables the shorthand notation:
-  `<Button>`, `<Button contained />`, `<Button fab />`.
-
-- Option 2 _enum_:
-
-  ```tsx
-  type Props = {
-    variant: 'text' | 'contained' | 'fab';
-  };
-  ```
-
-  This API is more verbose:
-  `<Button>`, `<Button variant="contained">`, `<Button variant="fab">`.
-
-  However, it prevents an invalid combination from being used,
-  bounds the number of props exposed,
-  and can easily support new values in the future.
-
-The MUI components use a combination of the two approaches according to the following rules:
-
-- A _boolean_ is used when **2** possible values are required.
-- An _enum_ is used when **> 2** possible values are required, or if there is the possibility that additional possible values may be required in the future.
-
-Going back to the previous button example; since it requires 3 possible values, we use an _enum_.
-
-### Ref
-
-The `ref` is forwarded to the root element. This means that, without changing the rendered root element
-via the `component` prop, it is forwarded to the outermost DOM element which the component
-renders. If you pass a different component via the `component` prop, the ref will be attached
-to that component instead.
-
-## Glossary
-
-- **host component**: a DOM node type in the context of `react-dom`, e.g. a `'div'`. See also [React Implementation Notes](https://reactjs.org/docs/implementation-notes.html#mounting-host-elements).
-- **host element**: a DOM node in the context of `react-dom`, e.g. an instance of `window.HTMLDivElement`.
-- **outermost**: The first component when reading the component tree from top to bottom i.e. breadth-first search.
-- **root component**: the outermost component that renders a host component.
-- **root element**: the outermost element that renders a host component.
+-   **host component**: тип узла DOM в контексте `react-dom`, например, `'div'`. См. также [React Implementation Notes](https://reactjs.org/docs/implementation-notes.html#mounting-host-elements).
+-   **host element**: узел DOM в контексте `react-dom`, например, экземпляр `window.HTMLDivElement`.
+-   **крайний** компонент: первый компонент при чтении дерева компонентов сверху вниз, т.е. при поиске по ширине.
+-   **корневой компонент**: крайний компонент, который отображает основной компонент.
+-   **корневой элемент**: крайний элемент, который отображает основной компонент.

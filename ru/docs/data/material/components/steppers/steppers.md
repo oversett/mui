@@ -6,109 +6,103 @@ githubLabel: 'component: stepper'
 materialDesign: https://m1.material.io/components/steppers.html
 ---
 
-# Stepper
+# Степпер <meta data-oversett="" data-original-text="Stepper">
 
-<p class="description">Steppers convey progress through numbered steps. It provides a wizard-like workflow.</p>
+<p class="description">Степперы передают прогресс через пронумерованные шаги. Это позволяет создать рабочий процесс, подобный мастеру.</p>
 
-Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation.
-Steppers may display a transient feedback message after a step is saved.
+Степперы отображают прогресс через последовательность логических и пронумерованных шагов. Они также могут использоваться для навигации. После сохранения шага степперы могут отображать переходное сообщение обратной связи.
 
-- **Types of Steps**: Editable, Non-editable, Mobile, Optional
-- **Types of Steppers**: Horizontal, Vertical, Linear, Non-linear
+-   **Типы шагов**: Редактируемые, не редактируемые, мобильные, дополнительные.
+-   **Типы степперов**: Горизонтальные, вертикальные, линейные, нелинейные.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
 :::warning
-Steppers are no longer documented in the [Material Design guidelines](https://m2.material.io/), but Material UI will continue to support them.
+Степперы больше не документируются в [руководстве по Material Design](https://m2.material.io/), но Material UI будет продолжать их поддерживать.
 :::
 
-## Horizontal stepper
+## Горизонтальный степпер <meta data-oversett="" data-original-text="Horizontal stepper">
 
-Horizontal steppers are ideal when the contents of one step depend on an earlier step.
+Горизонтальные степперы идеальны, когда содержимое одного шага зависит от предыдущего.
 
-Avoid using long step names in horizontal steppers.
+Избегайте использования длинных имен шагов в горизонтальных степперах.
 
-### Linear
+### Линейный <meta data-oversett="" data-original-text="Linear">
 
-A linear stepper allows the user to complete the steps in sequence.
+Линейный степпер позволяет пользователю выполнять шаги в последовательности.
 
-The `Stepper` can be controlled by passing the current step index (zero-based) as the `activeStep` prop. `Stepper` orientation is set using the `orientation` prop.
+Управление `Stepper` осуществляется путем передачи индекса текущего шага (на основе нуля) в качестве параметра `activeStep`. Ориентация `Stepper` задается с помощью параметра `orientation`.
 
-This example also shows the use of an optional step by placing the `optional` prop on the second `Step` component. Note that it's up to you to manage when an optional step is skipped. Once you've determined this for a particular step you must set `completed={false}` to signify that even though the active step index has gone beyond the optional step, it's not actually complete.
+В этом примере также показано использование дополнительного шага путем размещения реквизита `optional` на втором компоненте `Step`. Обратите внимание, что вы сами решаете, когда необязательный шаг будет пропущен. Как только вы определите это для конкретного шага, вы должны установить `completed={false}`, чтобы обозначить, что, хотя индекс активного шага вышел за пределы необязательного шага, на самом деле он не завершен.
 
 {{"demo": "HorizontalLinearStepper.js"}}
 
-### Non-linear
+### Нелинейные <meta data-oversett="" data-original-text="Non-linear">
 
-Non-linear steppers allow the user to enter a multi-step flow at any point.
+Нелинейные степперы позволяют пользователю войти в многошаговый поток в любой точке.
 
-This example is similar to the regular horizontal stepper, except steps are no longer automatically set to `disabled={true}` based on the `activeStep` prop.
+Этот пример похож на обычный горизонтальный степпер, за исключением того, что шаги больше не устанавливаются автоматически на `disabled={true}` на основе реквизита `activeStep`.
 
-The use of the `StepButton` here demonstrates clickable step labels, as well as setting the `completed`
-flag. However because steps can be accessed in a non-linear fashion, it's up to your own implementation to
-determine when all steps are completed (or even if they need to be completed).
+Использование `StepButton` здесь демонстрирует кликабельные метки шагов, а также установку флага `completed`. Однако, поскольку доступ к шагам может быть нелинейным, определять, когда все шаги завершены (или даже если они должны быть завершены), будет ваша собственная реализация.
 
 {{"demo": "HorizontalNonLinearStepper.js"}}
 
-### Alternative label
+### Альтернативная метка <meta data-oversett="" data-original-text="Alternative label">
 
-Labels can be placed below the step icon by setting the `alternativeLabel` prop on the `Stepper` component.
+Ярлыки можно разместить под иконкой шага, установив флаг `alternativeLabel` на компоненте `Stepper`.
 
 {{"demo": "HorizontalLinearAlternativeLabelStepper.js"}}
 
-### Error step
+### Ошибочный шаг <meta data-oversett="" data-original-text="Error step">
 
 {{"demo": "HorizontalStepperWithError.js"}}
 
-### Customized horizontal stepper
+### Настроенный горизонтальный степпер <meta data-oversett="" data-original-text="Customized horizontal stepper">
 
-Here is an example of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведен пример настройки компонента. Подробнее об этом можно узнать на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedSteppers.js"}}
 
-## Vertical stepper
+## Вертикальный степпер <meta data-oversett="" data-original-text="Vertical stepper">
 
-Vertical steppers are designed for narrow screen sizes. They are ideal for mobile. All the features of the horizontal stepper can be implemented.
+Вертикальные степперы предназначены для узких экранов. Они идеально подходят для мобильных устройств. В них могут быть реализованы все возможности горизонтального степпера.
 
 {{"demo": "VerticalLinearStepper.js"}}
 
-### Performance
+### Производительность <meta data-oversett="" data-original-text="Performance">
 
-The content of a step is unmounted when closed.
-If you need to make the content available to search engines or render expensive component trees inside your modal while optimizing for interaction responsiveness it might be a good idea to keep the step mounted with:
+Если вам необходимо сделать содержимое шага доступным для поисковых систем или отобразить дорогие деревья компонентов внутри модала, оптимизируя при этом отзывчивость взаимодействия, возможно, будет хорошей идеей сохранить шаг смонтированным:
 
 ```jsx
 <StepContent TransitionProps={{ unmountOnExit: false }} />
 ```
 
-## Mobile stepper
+## Мобильный степпер <meta data-oversett="" data-original-text="Mobile stepper">
 
-This component implements a compact stepper suitable for a mobile device. It has more limited functionality than the vertical stepper. See [mobile steps](https://m1.material.io/components/steppers.html#steppers-types-of-steps) for its inspiration.
+Этот компонент реализует компактный степпер, подходящий для мобильного устройства. Он имеет более ограниченную функциональность, чем вертикальный степпер. См. раздел " [Мобильные ступеньки](https://m1.material.io/components/steppers.html#steppers-types-of-steps) ".
 
-The mobile stepper supports three variants to display progress through the available steps: text, dots, and progress.
+Мобильный степпер поддерживает три варианта отображения прогресса по доступным ступеням: текст, точки и прогресс.
 
-### Text
+### Текст <meta data-oversett="" data-original-text="Text">
 
-The current step and total number of steps are displayed as text.
+Текущий шаг и общее количество шагов отображаются в виде текста.
 
 {{"demo": "TextMobileStepper.js", "bg": true}}
 
-### Text with carousel effect
+### Текст с эффектом карусели <meta data-oversett="" data-original-text="Text with carousel effect">
 
-This demo uses
-[react-swipeable-views](https://github.com/oliviertassinari/react-swipeable-views) to create a carousel.
+В этом демо используется[react-swipeable-views](https://github.com/oliviertassinari/react-swipeable-views) для создания карусели.
 
 {{"demo": "SwipeableTextMobileStepper.js", "bg": true}}
 
-### Dots
+### Точки <meta data-oversett="" data-original-text="Dots">
 
-Use dots when the number of steps is small.
+Используйте точки, когда количество шагов невелико.
 
 {{"demo": "DotsMobileStepper.js", "bg": true}}
 
-### Progress
+### Прогресс <meta data-oversett="" data-original-text="Progress">
 
-Use a progress bar when there are many steps, or if there are steps that need to be inserted during the process (based on responses to earlier steps).
+Используйте индикатор прогресса, если шагов много или если есть шаги, которые необходимо вставить в процесс (на основе ответов на предыдущие шаги).
 
 {{"demo": "ProgressMobileStepper.js", "bg": true}}

@@ -1,27 +1,22 @@
-# Routing libraries
 
-<p class="description">By default, the navigation is performed with a native <code>&lt;a&gt;</code> element. You can customize it to use your own router. For instance, using Next.js's Link or react-router.</p>
 
-## Navigation components
+# Библиотеки маршрутизации <meta data-oversett="" data-original-text="Routing libraries">
 
-There are two main components available to perform navigations.
-The most common one is the [`Link`](/material-ui/react-link/) as its name might suggest.
-It renders a native `<a>` element and applies the `href` as an attribute.
+<p class="description">По умолчанию навигация осуществляется с помощью собственного элемента <code>&lt;a&gt;</code>. Вы можете настроить его так, чтобы использовать свой собственный маршрутизатор. Например, используя Link от Next.js или react-router.</p>
+
+## Компоненты навигации <meta data-oversett="" data-original-text="Navigation components">
+
+Есть два основных компонента для выполнения навигации. Наиболее распространенным является компонент [`Link`](/material-ui/react-link/) Он отображает родной элемент `<a>` и применяет `href` в качестве атрибута.
 
 {{"demo": "LinkDemo.js"}}
 
-You can also make a button perform navigation actions.
-If your component is extending [`ButtonBase`](/material-ui/api/button-base/), providing a `href` prop enables the link mode.
-For instance, with a `Button` component:
+Вы также можете сделать кнопку выполняющей навигационные действия. Если ваш компонент расширяемый [`ButtonBase`](/material-ui/api/button-base/)то предоставление реквизита `href` включает режим ссылки. Например, с компонентом `Button`:
 
 {{"demo": "ButtonDemo.js"}}
 
-## Global theme Link
+## Глобальная тема Link <meta data-oversett="" data-original-text="Global theme Link">
 
-In real-life applications, using a native `<a>` element is rarely enough.
-You can improve the user experience by using an enhanced Link component systematically.
-The theme of MUI allows configuring this component once.
-For instance, with react-router:
+В реальных приложениях использования родного элемента `<a>` редко бывает достаточно. Вы можете улучшить пользовательский опыт, систематически используя улучшенный компонент Link. Тема MUI позволяет настроить этот компонент один раз. Например, с помощью react-router:
 
 ```tsx
 import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
@@ -55,31 +50,24 @@ const theme = createTheme({
 {{"demo": "LinkRouterWithTheme.js", "defaultCodeOpen": false}}
 
 :::warning
-This approach has limitations with TypeScript.
-The `href` prop only accepts a string.
-In the event you need to provide a richer structure, see the next section.
+Этот подход имеет ограничения при использовании TypeScript. Реквизит `href` принимает только строку. Если вам нужно предоставить более богатую структуру, см. следующий раздел.
 :::
 
-## `component` prop
+## `component` prop <meta data-oversett="" data-original-text="component prop">
 
-You can achieve the integration with third-party routing libraries with the `component` prop.
-You can learn more about this prop in the [**composition guide**](/material-ui/guides/composition/#component-prop).
+Интеграцию со сторонними библиотеками маршрутизации можно обеспечить с помощью реквизита `component`. Подробнее об этом реквизите можно узнать в [**руководстве по композиции**](/material-ui/guides/composition/#component-prop).
 
-### Link
+### Ссылка <meta data-oversett="" data-original-text="Link">
 
-Here are a few demos with [react-router](https://github.com/remix-run/react-router).
-You can apply the same strategy with all the components: BottomNavigation, Card, etc.
+Вот несколько демонстраций с [react-router](https://github.com/remix-run/react-router). Вы можете применять одну и ту же стратегию со всеми компонентами: BottomNavigation, Card и т.д.
 
 {{"demo": "LinkRouter.js"}}
 
-### Button
+### Кнопка <meta data-oversett="" data-original-text="Button">
 
 {{"demo": "ButtonRouter.js"}}
 
-**Note**: The button base component adds the `role="button"` attribute when it identifies the intent to render a button without a native `<button>` element.
-This can create issues when rendering a link.
-If you are not using one of the `href`, `to`, or `component="a"` props, you need to override the `role` attribute.
-The above demo achieves this by setting `role={undefined}` **after** the spread props.
+**Примечание**: базовый компонент кнопки добавляет атрибут `role="button"`, когда определяет намерение отобразить кнопку без собственного элемента `<button>`. Это может создать проблемы при отображении ссылки. Если вы не используете один из реквизитов `href`, `to` или `component="a"`, вам нужно переопределить атрибут `role`. В приведенном выше примере это достигается установкой `role={undefined}` **после** реквизита spread.
 
 ```jsx
 const LinkBehavior = React.forwardRef((props, ref) => (
@@ -87,67 +75,61 @@ const LinkBehavior = React.forwardRef((props, ref) => (
 ));
 ```
 
-### Tabs
+### Вкладки <meta data-oversett="" data-original-text="Tabs">
 
 {{"demo": "TabsRouter.js", "defaultCodeOpen": false}}
 
-### List
+### Список <meta data-oversett="" data-original-text="List">
 
 {{"demo": "ListRouter.js"}}
 
-## More examples
+## Другие примеры <meta data-oversett="" data-original-text="More examples">
 
-### Next.js
+### Next.js <meta data-oversett="" data-original-text="Next.js">
 
-The [example folder](https://github.com/mui/material-ui/tree/HEAD/examples/nextjs-with-typescript) provides an adapter for the use of [Next.js's Link component](https://nextjs.org/docs/api-reference/next/link) with MUI.
+В [папке с примерами](https://github.com/mui/material-ui/tree/HEAD/examples/nextjs-with-typescript) представлен адаптер для использования [компонента Link из Next.js](https://nextjs.org/docs/api-reference/next/link) с MUI.
 
-- The first version of the adapter is the [`NextLinkComposed`](https://github.com/mui/material-ui/blob/HEAD/examples/nextjs-with-typescript/src/Link.tsx) component.
-  This component is unstyled and only responsible for handling the navigation.
-  The prop `href` was renamed `to` to avoid a naming conflict.
-  This is similar to react-router's Link component.
+-   Первой версией адаптера является [`NextLinkComposed`](https://github.com/mui/material-ui/blob/HEAD/examples/nextjs-with-typescript/src/Link.tsx) компонент. Этот компонент не имеет стиля и отвечает только за обработку навигации. Реквизит `href` был переименован в `to`, чтобы избежать конфликта названий. Это похоже на компонент Link в react-router.
+    
+    ```tsx
+    import Button from '@mui/material/Button';
+    import { NextLinkComposed } from '../src/Link';
+    
+    export default function Index() {
+      return (
+        <Button
+          component={NextLinkComposed}
+          to={{
+            pathname: '/about',
+            query: { name: 'test' },
+          }}
+        >
+          Button link
+        </Button>
+      );
+    }
+    ```
+    
+-   Вторая версия адаптера - компонент `Link`. Этот компонент стилизован. Он использует [компонент Link из MUI](/material-ui/react-link/) с помощью `NextLinkComposed`.
+    
+    ```tsx
+    import Link from '../src/Link';
+    
+    export default function Index() {
+      return (
+        <Link
+          href={{
+            pathname: '/about',
+            query: { name: 'test' },
+          }}
+        >
+          Link
+        </Link>
+      );
+    }
+    ```
+    
 
-  ```tsx
-  import Button from '@mui/material/Button';
-  import { NextLinkComposed } from '../src/Link';
+### Gatsby <meta data-oversett="" data-original-text="Gatsby">
 
-  export default function Index() {
-    return (
-      <Button
-        component={NextLinkComposed}
-        to={{
-          pathname: '/about',
-          query: { name: 'test' },
-        }}
-      >
-        Button link
-      </Button>
-    );
-  }
-  ```
-
-- The second version of the adapter is the `Link` component.
-  This component is styled.
-  It leverages the [link component of MUI](/material-ui/react-link/) with `NextLinkComposed`.
-
-  ```tsx
-  import Link from '../src/Link';
-
-  export default function Index() {
-    return (
-      <Link
-        href={{
-          pathname: '/about',
-          query: { name: 'test' },
-        }}
-      >
-        Link
-      </Link>
-    );
-  }
-  ```
-
-### Gatsby
-
-The [Link](https://www.gatsbyjs.com/docs/linking-between-pages/) component of Gatsby is built on `@reach/router`.
-You can use the same previous documentation for react-router.
-Unlike Next.js, it doesn't require you to create an adapter.
+Компонент [Link](https://www.gatsbyjs.com/docs/linking-between-pages/) в Gatsby построен на `@reach/router`. Вы можете использовать ту же предыдущую документацию для react-router. В отличие от Next.js, он не требует создания адаптера.

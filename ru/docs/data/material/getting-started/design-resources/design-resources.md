@@ -1,28 +1,27 @@
-# Design resources
 
-<p class="description">Check out these prebuilt UI kits to help you design with Material UI using your favorite tools.</p>
 
-<a href="https://mui.com/store/items/figma-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-figma" style="margin-left: 8px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-figma.svg" alt="figma" /></a>
-<a href="https://mui.com/store/items/adobe-xd-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-adobe-xd" style="margin-left: 32px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-adobe-xd.svg" alt="adobe-xd" /></a>
-<a href="https://mui.com/store/items/sketch-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-sketch" style="margin-left: 32px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-sketch.svg" alt="sketch" /></a>
+# Ресурсы для дизайна <meta data-oversett="" data-original-text="Design resources">
 
-## MUI resources
+<p class="description">Ознакомьтесь с этими готовыми наборами пользовательского интерфейса, которые помогут вам разработать дизайн с Material UI с помощью ваших любимых инструментов.</p>
 
-### Figma
+<a href="https://mui.com/store/items/figma-react/?utm_source=docs&amp;utm_medium=referral&amp;utm_campaign=installation-figma" style="margin-left: 8px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-figma.svg" alt="figma"></a> <a href="https://mui.com/store/items/adobe-xd-react/?utm_source=docs&amp;utm_medium=referral&amp;utm_campaign=installation-adobe-xd" style="margin-left: 32px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-adobe-xd.svg" alt="adobe-xd"></a> <a href="https://mui.com/store/items/sketch-react/?utm_source=docs&amp;utm_medium=referral&amp;utm_campaign=installation-sketch" style="margin-left: 32px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-sketch.svg" alt="sketch"></a>
 
-[Material UI for Figma](https://mui.com/store/items/figma-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-figma): a comprehensive component inventory for Figma, including over 1,500 unique elements that cover the full range of states and variations of each component.
+## Ресурсы MUI <meta data-oversett="" data-original-text="MUI resources">
 
-### Adobe XD
+### Figma <meta data-oversett="" data-original-text="Figma">
 
-[Material UI for Adobe XD](https://mui.com/store/items/adobe-xd-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-adobe-xd): a comprehensive component inventory for Adobe XD, including over 1,500 unique elements that cover the full range of states and variations of each component.
+[Material UI для Figma](https://mui.com/store/items/figma-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-figma): полный перечень компонентов для Figma, включающий более 1500 уникальных элементов, которые охватывают полный спектр состояний и вариаций каждого компонента.
 
-### Sketch
+### Adobe XD <meta data-oversett="" data-original-text="Adobe XD">
 
-[Material UI for Sketch](https://mui.com/store/items/sketch-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-sketch): a comprehensive component inventory for Sketch, including over 1,500 unique elements that cover the full range of states and variations of each component, as well as 1,000+ icons in five themes.
+[Material UI для Adobe XD](https://mui.com/store/items/adobe-xd-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-adobe-xd): полный перечень компонентов для Adobe XD, включающий более 1500 уникальных элементов, которые охватывают полный спектр состояний и вариаций каждого компонента.
 
-## Third-party resources
+### Sketch <meta data-oversett="" data-original-text="Sketch">
 
-### UXPin
+[Material UI для Sketch](https://mui.com/store/items/sketch-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-sketch): полный перечень компонентов для Sketch, включающий более 1500 уникальных элементов, охватывающих полный спектр состояний и вариаций каждого компонента, а также 1000+ иконок в пяти темах.
 
-[Material UI for UXPin](https://www.uxpin.com/merge/mui-library): A large UI kit of Material UI components.
-The design tool renders the components in a web runtime. It uses the same React implementation as your production environment.
+## Сторонние ресурсы <meta data-oversett="" data-original-text="Third-party resources">
+
+### UXPin <meta data-oversett="" data-original-text="UXPin">
+
+[Material UI для UXPin](https://www.uxpin.com/merge/mui-library): большой набор компонентов Material UI. Инструмент проектирования рендерит компоненты в веб-режиме. Он использует ту же реализацию React, что и ваша производственная среда.

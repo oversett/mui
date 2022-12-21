@@ -6,68 +6,66 @@ githubLabel: 'component: badge'
 unstyled: /base/react-badge/
 ---
 
-# Badge
+# Значок <meta data-oversett="" data-original-text="Badge">
 
-<p class="description">Badge generates a small badge to the top-right of its child(ren).</p>
+<p class="description">Значок генерирует небольшой значок в правом верхнем углу своего ребенка (детей).</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic badge
+## Основной бейдж <meta data-oversett="" data-original-text="Basic badge">
 
-Examples of badges containing text, using primary and secondary colors. The badge is applied to its children.
+Примеры бейджей, содержащих текст, с использованием основных и дополнительных цветов. Значок применяется к своим дочерним элементам.
 
 {{"demo": "SimpleBadge.js"}}
 
-## Color
+## Цвет <meta data-oversett="" data-original-text="Color">
 
-Use `color` prop to apply theme palette to component.
+Используйте свойство `color`, чтобы применить палитру тем к компоненту.
 
 {{"demo": "ColorBadge.js"}}
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here is an example of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведен пример настройки компонента. Вы можете узнать больше об этом на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedBadges.js"}}
 
-## Badge visibility
+## Видимость бейджей <meta data-oversett="" data-original-text="Badge visibility">
 
-The visibility of badges can be controlled using the `invisible` prop.
+Видимость бейджей можно контролировать с помощью свойства `invisible`.
 
 {{"demo": "BadgeVisibility.js"}}
 
-The badge hides automatically when `badgeContent` is zero. You can override this with the `showZero` prop.
+Бейдж автоматически скрывается, когда `badgeContent` равен нулю. Вы можете переопределить этот параметр с помощью свойства `showZero`.
 
 {{"demo": "ShowZeroBadge.js"}}
 
-## Maximum value
+## Максимальное значение <meta data-oversett="" data-original-text="Maximum value">
 
-You can use the `max` prop to cap the value of the badge content.
+С помощью реквизита `max` можно ограничить значение содержимого бейджа.
 
 {{"demo": "BadgeMax.js"}}
 
-## Dot badge
+## Точечный значок <meta data-oversett="" data-original-text="Dot badge">
 
-The `dot` prop changes a badge into a small dot. This can be used as a notification that something has changed without giving a count.
+Реквизит `dot` меняет значок на маленькую точку. Это можно использовать в качестве уведомления о том, что что-то изменилось, без указания количества.
 
 {{"demo": "DotBadge.js"}}
 
-## Badge overlap
+## Наложение значков <meta data-oversett="" data-original-text="Badge overlap">
 
-You can use the `overlap` prop to place the badge relative to the corner of the wrapped element.
+Реквизит `overlap` можно использовать для размещения бейджа относительно угла обернутого элемента.
 
 {{"demo": "BadgeOverlap.js"}}
 
-## Badge alignment
+## Выравнивание значка <meta data-oversett="" data-original-text="Badge alignment">
 
-You can use the `anchorOrigin` prop to move the badge to any corner of the wrapped element.
+С помощью свойства `anchorOrigin` можно переместить значок в любой угол обернутого элемента.
 
 {{"demo": "BadgeAlignment.js", "hideToolbar": true}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-You can't rely on the content of the badge to be announced correctly.
-You should provide a full description, for instance, with `aria-label`:
+Вы не можете полагаться на то, что содержимое бейджа будет объявлено правильно. Вы должны предоставить полное описание, например, с помощью `aria-label`:
 
 {{"demo": "AccessibleBadges.js"}}

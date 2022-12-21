@@ -6,46 +6,44 @@ githubLabel: 'component: divider'
 materialDesign: https://m2.material.io/components/dividers
 ---
 
-# Divider
+# Разделитель <meta data-oversett="" data-original-text="Divider">
 
-<p class="description">A divider is a thin line that groups content in lists and layouts.</p>
+<p class="description">Разделитель - это тонкая линия, которая группирует содержимое в списках и макетах.</p>
 
-Dividers separate content into clear groups.
+Разделители разделяют содержимое на четкие группы.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## List dividers
+## Разделители списков <meta data-oversett="" data-original-text="List dividers">
 
-The divider renders as an `<hr>` by default.
-You can save rendering this DOM element by using the `divider` prop on the `ListItem` component.
+По умолчанию разделитель отображается как `<hr>`. Вы можете сохранить отображение этого DOM-элемента, используя параметр `divider` для компонента `ListItem`.
 
 {{"demo": "ListDividers.js", "bg": true}}
 
-## HTML5 specification
+## Спецификация HTML5 <meta data-oversett="" data-original-text="HTML5 specification">
 
-In a list, you should ensure the `Divider` is rendered as an `<li>` to match the HTML5 specification.
-The examples below show two ways of achieving this.
+В списке необходимо обеспечить отображение `Divider` в виде `<li>` в соответствии со спецификацией HTML5. В примерах ниже показаны два способа достижения этой цели.
 
-## Inset dividers
+## Вставные разделители <meta data-oversett="" data-original-text="Inset dividers">
 
 {{"demo": "InsetDividers.js", "bg": true}}
 
-## Subheader dividers
+## Подзаголовочные разделители <meta data-oversett="" data-original-text="Subheader dividers">
 
 {{"demo": "SubheaderDividers.js", "bg": true}}
 
-## Middle divider
+## Средний разделитель <meta data-oversett="" data-original-text="Middle divider">
 
 {{"demo": "MiddleDividers.js", "bg": true}}
 
-## Dividers with text
+## Разделители с текстом <meta data-oversett="" data-original-text="Dividers with text">
 
-You can also render a divider with content.
+Вы также можете отобразить разделитель с содержимым.
 
 {{"demo": "DividerText.js"}}
 
 :::warning
-When using the `Divider` component for visual decoration, such as in a heading, explicitly specify `role="presentation"` to the divider to make sure screen readers can announce its content:
+При использовании компонента `Divider` для визуального оформления, например, в заголовке, явно укажите `role="presentation"` для разделителя, чтобы гарантировать, что программы чтения с экрана смогут объявить его содержимое:
 
 ```js
 <Divider component="div" role="presentation">
@@ -53,27 +51,26 @@ When using the `Divider` component for visual decoration, such as in a heading, 
   <Typography variant="h2">My Heading</Typography>
 </Divider>
 ```
-
 :::
 
-## Vertical divider
+## Вертикальный разделитель <meta data-oversett="" data-original-text="Vertical divider">
 
-You can also render a divider vertically using the `orientation` prop.
+Вы также можете отобразить разделитель вертикально, используя компонент `orientation`.
 
 {{"demo": "VerticalDividers.js", "bg": true}}
 
 :::info
-Note the use of the `flexItem` prop to accommodate for the flex container.
+Обратите внимание на использование реквизита `flexItem` для учета гибкого контейнера.
 :::
 
-### Vertical with variant middle
+### Вертикальный с вариантом середины <meta data-oversett="" data-original-text="Vertical with variant middle">
 
-You can also render a vertical divider with `variant="middle"`.
+Вы также можете отобразить вертикальный разделитель с помощью `variant="middle"`.
 
 {{"demo": "VerticalDividerMiddle.js", "bg": true}}
 
-### Vertical with text
+### Вертикальный с текстом <meta data-oversett="" data-original-text="Vertical with text">
 
-You can also render a vertical divider with content.
+Вы также можете отобразить вертикальный разделитель с помощью содержимого.
 
 {{"demo": "VerticalDividerText.js"}}

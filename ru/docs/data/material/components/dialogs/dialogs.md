@@ -7,84 +7,78 @@ materialDesign: https://m2.material.io/components/dialogs
 waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/
 ---
 
-# Dialog
+# Диалог <meta data-oversett="" data-original-text="Dialog">
 
-<p class="description">Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.</p>
+<p class="description">Диалоги информируют пользователей о задаче и могут содержать важную информацию, требовать принятия решения или включать несколько задач.</p>
 
-A Dialog is a type of [modal](/material-ui/react-modal/) window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.
+Диалог - это тип [модального](/material-ui/react-modal/) окна, которое появляется перед содержимым приложения для предоставления важной информации или запроса решения. Диалоги отключают все функции приложения, когда они появляются, и остаются на экране до тех пор, пока не будут подтверждены, отклонены или не будет выполнено необходимое действие.
 
-Dialogs are purposefully interruptive, so they should be used sparingly.
+Диалоговые окна намеренно прерывают работу приложения, поэтому их следует использовать редко.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic dialog
+## Базовый диалог <meta data-oversett="" data-original-text="Basic dialog">
 
-Simple dialogs can provide additional details or actions about a list item.
-For example, they can display avatars, icons, clarifying subtext, or orthogonal actions (such as adding an account).
+Простые диалоги могут предоставлять дополнительные сведения или действия относительно элемента списка. Например, они могут отображать аватары, иконки, уточняющий подтекст или ортогональные действия (такие как добавление аккаунта).
 
-Touch mechanics:
+Механика касания:
 
-- Choosing an option immediately commits the option and closes the menu
-- Touching outside of the dialog, or pressing Back, cancels the action and closes the dialog
+-   Выбор опции немедленно фиксирует опцию и закрывает меню.
+-   Касание за пределами диалога или нажатие кнопки Назад отменяет действие и закрывает диалог.
 
 {{"demo": "SimpleDialog.js"}}
 
-## Alerts
+## Оповещения <meta data-oversett="" data-original-text="Alerts">
 
-Alerts are urgent interruptions, requiring acknowledgement, that inform the user about a situation.
+Оповещения - это срочные прерывания, требующие подтверждения, которые информируют пользователя о ситуации.
 
-Most alerts don't need titles.
-They summarize a decision in a sentence or two by either:
+Большинство предупреждений не нуждаются в заголовках. Они кратко излагают решение в одном-двух предложениях, либо:
 
-- Asking a question (e.g. "Delete this conversation?")
-- Making a statement related to the action buttons
+-   Задавая вопрос (например, "Удалить этот разговор?").
+-   Делают заявление, связанное с кнопками действий.
 
-Use title bar alerts only for high-risk situations, such as the potential loss of connectivity.
-Users should be able to understand the choices based on the title and button text alone.
+Используйте предупреждения с заголовком только для ситуаций высокого риска, таких как потенциальная потеря связи. Пользователи должны быть в состоянии понять выбор, основываясь только на заголовке и тексте кнопки.
 
-If a title is required:
+Если заголовок необходим:
 
-- Use a clear question or statement with an explanation in the content area, such as "Erase USB storage?".
-- Avoid apologies, ambiguity, or questions, such as "Warning!" or "Are you sure?"
+-   Используйте четкий вопрос или утверждение с пояснением в области содержимого, например, "Стереть USB-накопитель?".
+-   Избегайте извинений, двусмысленности или вопросов, таких как "Внимание!" или "Вы уверены?".
 
 {{"demo": "AlertDialog.js"}}
 
-## Transitions
+## Переходы <meta data-oversett="" data-original-text="Transitions">
 
-You can also swap out the transition, the next example uses `Slide`.
+Вы также можете поменять местами переходы, в следующем примере используется `Slide`.
 
 {{"demo": "AlertDialogSlide.js"}}
 
-## Form dialogs
+## Диалоговые окна формы <meta data-oversett="" data-original-text="Form dialogs">
 
-Form dialogs allow users to fill out form fields within a dialog.
-For example, if your site prompts for potential subscribers to fill in their email address, they can fill out the email field and touch 'Submit'.
+Диалоговые формы позволяют пользователям заполнять поля формы внутри диалога. Например, если ваш сайт предлагает потенциальным подписчикам заполнить адрес электронной почты, они могут заполнить поле email и нажать кнопку "Отправить".
 
 {{"demo": "FormDialog.js"}}
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here is an example of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведен пример настройки компонента. Вы можете узнать больше об этом на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
-The dialog has a close button added to aid usability.
+В диалоговое окно добавлена кнопка закрытия для удобства использования.
 
 {{"demo": "CustomizedDialogs.js"}}
 
-## Full-screen dialogs
+## Полноэкранные диалоги <meta data-oversett="" data-original-text="Full-screen dialogs">
 
 {{"demo": "FullScreenDialog.js"}}
 
-## Optional sizes
+## Дополнительные размеры <meta data-oversett="" data-original-text="Optional sizes">
 
-You can set a dialog maximum width by using the `maxWidth` enumerable in combination with the `fullWidth` boolean.
-When the `fullWidth` prop is true, the dialog will adapt based on the `maxWidth` value.
+Вы можете задать максимальную ширину диалога с помощью перечислимого параметра `maxWidth` в сочетании с булевым параметром `fullWidth`. Когда параметр `fullWidth` равен true, диалог будет адаптироваться на основе значения `maxWidth`.
 
 {{"demo": "MaxWidthDialog.js"}}
 
-## Responsive full-screen
+## Отзывчивый полноэкранный <meta data-oversett="" data-original-text="Responsive full-screen">
 
-You may make a dialog responsively full screen using [`useMediaQuery`](/material-ui/react-use-media-query/).
+Вы можете сделать диалог отзывчивым на весь экран, используя [`useMediaQuery`](/material-ui/react-use-media-query/).
 
 ```jsx
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -99,51 +93,47 @@ function MyComponent() {
 
 {{"demo": "ResponsiveDialog.js"}}
 
-## Confirmation dialogs
+## Подтверждающие диалоги <meta data-oversett="" data-original-text="Confirmation dialogs">
 
-Confirmation dialogs require users to explicitly confirm their choice before an option is committed.
-For example, users can listen to multiple ringtones but only make a final selection upon touching "OK".
+Диалоговые окна подтверждения требуют от пользователя явного подтверждения своего выбора до того, как опция будет выполнена. Например, пользователь может прослушать несколько мелодий звонка, но сделать окончательный выбор только после нажатия кнопки "OK".
 
-Touching "Cancel" in a confirmation dialog, or pressing Back, cancels the action, discards any changes, and closes the dialog.
+Нажатие кнопки "Отмена" в диалоге подтверждения или нажатие кнопки Назад отменяет действие, отменяет любые изменения и закрывает диалог.
 
 {{"demo": "ConfirmationDialog.js"}}
 
-## Draggable dialog
+## Перетаскиваемый диалог <meta data-oversett="" data-original-text="Draggable dialog">
 
-You can create a draggable dialog by using [react-draggable](https://github.com/react-grid-layout/react-draggable).
-To do so, you can pass the imported `Draggable` component as the `PaperComponent` of the `Dialog` component.
-This will make the entire dialog draggable.
+С помощью [react-draggable](https://github.com/react-grid-layout/react-draggable) можно создать перетаскиваемый диалог. Для этого вы можете передать импортированный компонент `Draggable` в качестве `PaperComponent` компонента `Dialog`. Это сделает весь диалог перетаскиваемым.
 
 {{"demo": "DraggableDialog.js"}}
 
-## Scrolling long content
+## Прокрутка длинного содержимого <meta data-oversett="" data-original-text="Scrolling long content">
 
-When dialogs become too long for the user's viewport or device, they scroll.
+Когда диалоговые окна становятся слишком длинными для области просмотра или устройства пользователя, они прокручиваются.
 
-- `scroll=paper` the content of the dialog scrolls within the paper element.
-- `scroll=body` the content of the dialog scrolls within the body element.
+-   `scroll=paper` содержимое диалога прокручивается в пределах элемента бумаги.
+-   `scroll=body` содержимое диалога прокручивается в элементе body.
 
-Try the demo below to see what we mean:
+Попробуйте демонстрацию ниже, чтобы понять, что мы имеем в виду:
 
 {{"demo": "ScrollDialog.js"}}
 
-## Performance
+## Производительность <meta data-oversett="" data-original-text="Performance">
 
-Follow the [Modal performance section](/material-ui/react-modal/#performance).
+Следуйте [разделу "Производительность модала](/material-ui/react-modal/#performance)".
 
-## Limitations
+## Ограничения <meta data-oversett="" data-original-text="Limitations">
 
-Follow the [Modal limitations section](/material-ui/react-modal/#limitations).
+Следуйте [разделу "Ограничения Modal](/material-ui/react-modal/#limitations)".
 
-## Complementary projects
+## Дополнительные проекты <meta data-oversett="" data-original-text="Complementary projects">
 
-### Material UI Confirm
+### Material UI Confirm <meta data-oversett="" data-original-text="Material UI Confirm">
 
-![stars](https://img.shields.io/github/stars/jonatanklosko/material-ui-confirm)
-![npm downloads](https://img.shields.io/npm/dm/material-ui-confirm.svg)
+![stars](https://img.shields.io/github/stars/jonatanklosko/material-ui-confirm) ![npm downloads](https://img.shields.io/npm/dm/material-ui-confirm.svg)
 
-This package provides dialogs for confirming user actions without writing boilerplate code.
+Этот пакет предоставляет диалоговые окна для подтверждения действий пользователя без написания шаблонного кода.
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-Follow the [Modal accessibility section](/material-ui/react-modal/#accessibility).
+Следуйте [разделу "Доступность Modal](/material-ui/react-modal/#accessibility)".

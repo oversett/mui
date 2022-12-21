@@ -1,15 +1,16 @@
-# Migrating to CSS theme variables
 
-<p class="description">A step-by-step migration guide to start using CSS theme variables in your project.</p>
 
-This is a guide that shows how to migrate an existing Material UI project to CSS theme variables.
-This migration offers a solution to a longstanding issue in which a user who prefers dark mode will see a flash of light mode when the page first loads.
+# Переход на переменные темы CSS <meta data-oversett="" data-original-text="Migrating to CSS theme variables">
 
-## 1. Add the new provider
+<p class="description">Пошаговое руководство по миграции для начала использования переменных тем CSS в вашем проекте.</p>
 
-### Without a custom theme
+Это руководство показывает, как перевести существующий проект Material UI на переменные темы CSS. Этот переход предлагает решение давней проблемы, когда пользователь, предпочитающий темный режим, видит вспышку светлого режима при первой загрузке страницы.
 
-If you aren't using [`ThemeProvider`](/material-ui/customization/theming/#theme-provider), then all you need to do is wrap your application with the `CssVarsProvider`:
+## 1\. Добавьте новый поставщик <meta data-oversett="" data-original-text="1. Add the new provider">
+
+### Без пользовательской темы <meta data-oversett="" data-original-text="Without a custom theme">
+
+Если вы не используете [`ThemeProvider`](/material-ui/customization/theming/#theme-provider), то все, что вам нужно сделать, это обернуть ваше приложение скриптом `CssVarsProvider`:
 
 ```js
 import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
@@ -19,14 +20,13 @@ function App() {
 }
 ```
 
-You should see the generated CSS theme variables in the stylesheet. Material UI components that render inside the new provider will automatically consume the variables.
+Вы должны увидеть сгенерированные переменные темы CSS в таблице стилей. Компоненты Material UI, которые рендерятся внутри нового провайдера, будут автоматически использовать эти переменные.
 
-### Custom theme
+### Пользовательская тема <meta data-oversett="" data-original-text="Custom theme">
 
-If you have a custom theme, you must replace `createTheme()` with the `extendTheme()` API.
+Если у вас есть пользовательская тема, вы должны заменить `createTheme()` на `extendTheme()` API.
 
-This moves palette customization to within the `colorSchemes` node.
-Other properties can be copied and pasted.
+Это позволит перенести настройку палитры в узел `colorSchemes`. Другие свойства можно скопировать и вставить.
 
 ```diff
 -import { createTheme } from '@mui/material/styles';
@@ -75,7 +75,7 @@ Other properties can be copied and pasted.
 +});
 ```
 
-Then, replace the `ThemeProvider` with the `CssVarsProvider`:
+Затем замените `ThemeProvider` на `CssVarsProvider`:
 
 ```diff
 -import { ThemeProvider } from '@mui/material/styles';
@@ -89,20 +89,19 @@ Then, replace the `ThemeProvider` with the `CssVarsProvider`:
  }
 ```
 
-Save the file and start the development server.
-Your application should be able to run without crashing.
+Сохраните файл и запустите сервер разработки. Ваше приложение должно работать без сбоев.
 
 :::info
-If you encounter any errors, please [open an issue](https://github.com/mui/material-ui/issues/new?assignees=&labels=status%3A+needs+triage&template=1.bug.yml) to share it with us. We'd love to help.
+Если вы столкнулись с какими-либо ошибками, пожалуйста, [откройте проблему](https://github.com/mui/material-ui/issues/new?assignees=&labels=status%3A+needs+triage&template=1.bug.yml), чтобы поделиться ею с нами. Мы будем рады помочь.
 :::
 
-If you inspect the page, you will see the generated CSS variables in the stylesheet. Material UI components that render inside the new provider will automatically use the CSS theme variables.
+Если вы осмотрите страницу, то увидите сгенерированные CSS-переменные в таблице стилей. Компоненты Material UI, которые рендерятся внутри нового провайдера, будут автоматически использовать переменные темы CSS.
 
-## 2. Remove the toggle mode logic
+## 2\. Удалите логику режима переключения <meta data-oversett="" data-original-text="2. Remove the toggle mode logic">
 
-You can remove your existing logic that handles the user-selected mode and replace it with the `useColorScheme` hook.
+Вы можете удалить существующую логику, которая обрабатывает выбранный пользователем режим, и заменить ее хуком `useColorScheme`.
 
-**Before**:
+**До**:
 
 ```jsx
 // This is only a minimal example to demonstrate the migration.
@@ -138,7 +137,7 @@ function App() {
 }
 ```
 
-**After**:
+**После**:
 
 ```js
 import {
@@ -174,17 +173,17 @@ function App() {
 }
 ```
 
-The `useColorScheme` hook provides the user-selected `mode` and a function `setMode` to update the value.
+Хук `useColorScheme` предоставляет выбранный пользователем `mode` и функцию `setMode` для обновления значения.
 
-The `mode` is stored inside `CssVarsProvider` which handles local storage synchronization for you.
+Значение `mode` хранится внутри `CssVarsProvider`, который обрабатывает для вас синхронизацию локального хранилища.
 
-## 3. Prevent dark-mode flickering in server-side applications
+## 3\. Предотвращение мерцания в темном режиме в приложениях на стороне сервера <meta data-oversett="" data-original-text="3. Prevent dark-mode flickering in server-side applications">
 
-The `getInitColorSchemeScript()` API prevents dark-mode flickering by returning a script that must be run before React.
+API `getInitColorSchemeScript()` предотвращает мерцание в темном режиме, возвращая скрипт, который должен быть запущен перед началом работы React.
 
-### Next.js
+### Next.js <meta data-oversett="" data-original-text="Next.js">
 
-Place the script before `<Main />` in your [`pages/_document.js`](https://nextjs.org/docs/advanced-features/custom-document):
+Разместите скрипт перед `<Main />` в вашем каталоге. [`pages/_document.js`](https://nextjs.org/docs/advanced-features/custom-document):
 
 ```jsx
 import Document, { Html, Head, Main, NextScript } from 'next/document';
@@ -206,9 +205,9 @@ export default class MyDocument extends Document {
 }
 ```
 
-### Gatsby
+### Gatsby <meta data-oversett="" data-original-text="Gatsby">
 
-Place the script in your [`gatsby-ssr.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) file:
+Поместите скрипт в ваш [`gatsby-ssr.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) файл:
 
 ```jsx
 import React from 'react';
@@ -219,9 +218,9 @@ export function onRenderBody({ setPreBodyComponents }) {
 }
 ```
 
-## 4. Refactor custom styles to use the attribute selector
+## 4\. Рефакторинг пользовательских стилей для использования селектора атрибутов <meta data-oversett="" data-original-text="4. Refactor custom styles to use the attribute selector">
 
-Users will continue to encounter dark-mode flickering if your custom styles include conditional expressions, as shown below:
+Пользователи будут продолжать сталкиваться с мерцанием в темном режиме, если ваши пользовательские стили включают условные выражения, как показано ниже:
 
 ```js
 // theming example
@@ -247,9 +246,9 @@ const Button = styled('button')(({ theme }) => ({
 }));
 ```
 
-This is because the `theme.palette.mode` is always `light` on the server.
+Это происходит потому, что `theme.palette.mode` всегда `light` на сервере.
 
-To fix this problem, replace conditional expressions with the attribute selector instead:
+Чтобы решить эту проблему, замените условные выражения селектором атрибутов:
 
 ```js
 // theming example
@@ -278,13 +277,13 @@ const Button = styled('button')(({ theme }) => ({
 ```
 
 :::warning
-The `theme.getColorSchemeSelector()` is a utility function that returns an attribute selector `'[data-mui-color-scheme="dark"] &'`.
+`theme.getColorSchemeSelector()` - это служебная функция, которая возвращает селектор атрибутов `'[data-mui-color-scheme="dark"] &'`.
 
-Note that the attribute selector creates higher CSS specificity which could be cumbersome for theming.
+Обратите внимание, что селектор атрибутов создает более высокую специфичность CSS, что может быть обременительным для тематического оформления.
 :::
 
-## 5. Test dark-mode flickering
+## 5\. Проверка мерцания в темном режиме <meta data-oversett="" data-original-text="5. Test dark-mode flickering">
 
-1. Toggle dark mode in your application
-2. Open DevTools and set the [CPU throttling](https://developer.chrome.com/docs/devtools/evaluate-performance/#simulate_a_mobile_cpu) to the lowest value (don't close the DevTools).
-3. Refresh the page. You should see the all components in dark mode at first glance.
+1.  Включите темный режим в вашем приложении
+2.  Откройте DevTools и установите [дросселирование процессора](https://developer.chrome.com/docs/devtools/evaluate-performance/#simulate_a_mobile_cpu) на минимальное значение (не закрывайте DevTools).
+3.  Обновите страницу. На первый взгляд вы должны увидеть все компоненты в темном режиме.

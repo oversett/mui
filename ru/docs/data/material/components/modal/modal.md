@@ -7,72 +7,63 @@ waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/
 unstyled: /base/react-modal/
 ---
 
-# Modal
+# Модальный компонент <meta data-oversett="" data-original-text="Modal">
 
-<p class="description">The modal component provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.</p>
+<p class="description">Компонент modal обеспечивает прочную основу для создания диалоговых окон, всплывающих окон, лайтбоксов или чего-либо еще.</p>
 
-The component renders its `children` node in front of a backdrop component.
-The `Modal` offers important features:
+Компонент отображает свой узел `children` перед фоновым компонентом. `Modal` предлагает важные возможности:
 
-- 💄 Manages modal stacking when one-at-a-time just isn't enough.
-- 🔐 Creates a backdrop, for disabling interaction below the modal.
-- 🔐 It disables scrolling of the page content while open.
-- ♿️ It properly manages focus; moving to the modal content,
-  and keeping it there until the modal is closed.
-- ♿️ Adds the appropriate ARIA roles automatically.
+-   💄 Управляет модальным стекингом, когда одного за раз просто недостаточно.
+-   🔐 Создает фон для отключения взаимодействия под модалом.
+-   🔐 Отключает прокрутку содержимого страницы при открытии.
+-   ♿️ Правильно управляет фокусом; перемещает его на содержимое модала и удерживает его там до закрытия модала.
+-   ♿️ Автоматически добавляет соответствующие роли ARIA.
 
 {{"component": "modules/components/ComponentLinkHeader.js", "design": false}}
 
 :::info
-The term "modal" is sometimes used to mean "dialog", but this is a misnomer.
-A modal window describes parts of a UI.
-An element is considered modal if [it blocks interaction with the rest of the application](https://en.wikipedia.org/wiki/Modal_window).
+Термин "модальный" иногда используется для обозначения "диалога", но это неверное название. Модальное окно описывает части пользовательского интерфейса. Элемент считается модальным, если [он блокирует взаимодействие с остальной частью приложения](https://en.wikipedia.org/wiki/Modal_window).
 :::
 
-If you are creating a modal dialog, you probably want to use the [Dialog](/material-ui/react-dialog/) component rather than directly using Modal.
-Modal is a lower-level construct that is leveraged by the following components:
+Если вы создаете модальный диалог, вам, скорее всего, лучше использовать компонент [Dialog](/material-ui/react-dialog/), а не напрямую Modal. Modal - это конструкция более низкого уровня, которая используется следующими компонентами:
 
-- [Dialog](/material-ui/react-dialog/)
-- [Drawer](/material-ui/react-drawer/)
-- [Menu](/material-ui/react-menu/)
-- [Popover](/material-ui/react-popover/)
+-   [Dialog](/material-ui/react-dialog/)
+-   [Ящик](/material-ui/react-drawer/)
+-   [Меню](/material-ui/react-menu/)
+-   [Всплывающее окно](/material-ui/react-popover/)
 
-## Basic modal
+## Базовый модальный <meta data-oversett="" data-original-text="Basic modal">
 
 {{"demo": "BasicModal.js"}}
 
-Notice that you can disable the outline (often blue or gold) with the `outline: 0` CSS property.
+Обратите внимание, что вы можете отключить контур (часто синий или золотой) с помощью свойства `outline: 0` CSS.
 
-## Nested modal
+## Вложенный модал <meta data-oversett="" data-original-text="Nested modal">
 
-Modals can be nested, for example a select within a dialog, but stacking of more than two modals, or any two modals with a backdrop is discouraged.
+Модалы могут быть вложенными, например, селект внутри диалога, но не рекомендуется вложение более двух модалов или любых двух модалов с фоном.
 
 {{"demo": "NestedModal.js"}}
 
-## Transitions
+## Переходы <meta data-oversett="" data-original-text="Transitions">
 
-The open/close state of the modal can be animated with a transition component.
-This component should respect the following conditions:
+Состояние открытия/закрытия модала может быть анимировано с помощью компонента перехода. Этот компонент должен соблюдать следующие условия:
 
-- Be a direct child descendent of the modal.
-- Have an `in` prop. This corresponds to the open/close state.
-- Call the `onEnter` callback prop when the enter transition starts.
-- Call the `onExited` callback prop when the exit transition is completed.
-  These two callbacks allow the modal to unmount the child content when closed and fully transitioned.
+-   Быть прямым дочерним потомком модала.
+-   Иметь реквизит `in`. Он соответствует состоянию открытия/закрытия.
+-   Вызывать `onEnter` callback prop, когда начинается переход enter.
+-   Вызовите реквизит обратного вызова `onExited`, когда завершится переход exit. Эти два обратных вызова позволяют модалу размонтировать дочернее содержимое после закрытия и полного перехода.
 
-Modal has built-in support for [react-transition-group](https://github.com/reactjs/react-transition-group).
+Modal имеет встроенную поддержку [react-transition-group](https://github.com/reactjs/react-transition-group).
 
 {{"demo": "TransitionsModal.js"}}
 
-Alternatively, you can use [react-spring](https://github.com/pmndrs/react-spring).
+В качестве альтернативы вы можете использовать [react-spring](https://github.com/pmndrs/react-spring).
 
 {{"demo": "SpringModal.js"}}
 
-## Performance
+## Производительность <meta data-oversett="" data-original-text="Performance">
 
-The content of modal is unmounted when closed.
-If you need to make the content available to search engines or render expensive component trees inside your modal while optimizing for interaction responsiveness
-it might be a good idea to change this default behavior by enabling the `keepMounted` prop:
+Содержимое модала размонтируется при закрытии. Если вам нужно сделать содержимое доступным для поисковых систем или отобразить дорогие деревья компонентов внутри модала, оптимизируя при этом отзывчивость взаимодействия, возможно, будет хорошей идеей изменить это поведение по умолчанию, включив параметр `keepMounted`:
 
 ```jsx
 <Modal keepMounted />
@@ -80,42 +71,39 @@ it might be a good idea to change this default behavior by enabling the `keepMou
 
 {{"demo": "KeepMountedModal.js", "defaultCodeOpen": false}}
 
-As with any performance optimization, this is not a silver bullet.
-Be sure to identify bottlenecks first, and then try out these optimization strategies.
+Как и любая оптимизация производительности, это не серебряная пуля. Убедитесь, что вы сначала определили узкие места, а затем попробуйте эти стратегии оптимизации.
 
-## Server-side modal
+## Модал на стороне сервера <meta data-oversett="" data-original-text="Server-side modal">
 
-React [doesn't support](https://github.com/facebook/react/issues/13097) the [`createPortal()`](https://reactjs.org/docs/portals.html) API on the server.
-In order to display the modal, you need to disable the portal feature with the `disablePortal` prop:
+React [не поддерживает](https://github.com/facebook/react/issues/13097) [`createPortal()`](https://reactjs.org/docs/portals.html) API на сервере. Чтобы отобразить модальное окно, необходимо отключить функцию портала с помощью параметра `disablePortal`:
 
 {{"demo": "ServerModal.js"}}
 
-## Limitations
+## Ограничения <meta data-oversett="" data-original-text="Limitations">
 
-### Focus trap
+### Ловушка фокуса <meta data-oversett="" data-original-text="Focus trap">
 
-The modal moves the focus back to the body of the component if the focus tries to escape it.
+Модал перемещает фокус обратно в тело компонента, если фокус пытается его покинуть.
 
-This is done for accessibility purposes. However, it might create issues.
-In the event the users need to interact with another part of the page, e.g. with a chatbot window, you can disable the behavior:
+Это делается в целях доступности. Однако это может создать проблемы. В случае если пользователям необходимо взаимодействовать с другой частью страницы, например, с окном чатбота, вы можете отключить это поведение:
 
 ```jsx
 <Modal disableEnforceFocus />
 ```
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-(WAI-ARIA: https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/)
+(WAI-ARIA: [https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/)](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
 
-- Be sure to add `aria-labelledby="id..."`, referencing the modal title, to the `Modal`.
-  Additionally, you may give a description of your modal with the `aria-describedby="id..."` prop on the `Modal`.
-
-  ```jsx
-  <Modal aria-labelledby="modal-title" aria-describedby="modal-description">
-    <h2 id="modal-title">My Title</h2>
-    <p id="modal-description">My Description</p>
-  </Modal>
-  ```
-
-- The [WAI-ARIA authoring practices](https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/dialog.html) can help you set the initial focus on the most relevant element, based on your modal content.
-- Keep in mind that a "modal window" overlays on either the primary window or another modal window. Windows under a modal are **inert**. That is, users cannot interact with content outside an active modal window. This might create [conflicting behaviors](#focus-trap).
+-   Обязательно добавьте `aria-labelledby="id..."`, ссылающийся на заголовок модала, на страницу `Modal`. Кроме того, вы можете дать описание вашего модала с помощью реквизита `aria-describedby="id..."` на странице `Modal`.
+    
+    ```jsx
+    <Modal aria-labelledby="modal-title" aria-describedby="modal-description">
+      <h2 id="modal-title">My Title</h2>
+      <p id="modal-description">My Description</p>
+    </Modal>
+    ```
+    
+-   [Авторские практики WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/dialog.html) помогут вам установить начальный фокус на наиболее релевантный элемент, основанный на содержимом вашего модала.
+    
+-   Помните, что "модальное окно" накладывается либо на основное окно, либо на другое модальное окно. Окна под модальным окном являются **инертными**. То есть пользователи не могут взаимодействовать с содержимым вне активного модального окна. Это может привести к [противоречивому поведению](#focus-trap).

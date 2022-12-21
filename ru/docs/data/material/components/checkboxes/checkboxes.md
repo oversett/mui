@@ -7,94 +7,87 @@ githubLabel: 'component: checkbox'
 waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/
 ---
 
-# Checkbox
+# Флажок <meta data-oversett="" data-original-text="Checkbox">
 
-<p class="description">Checkboxes allow the user to select one or more items from a set.</p>
+<p class="description">Флажки позволяют пользователю выбрать один или несколько элементов из набора.</p>
 
-Checkboxes can be used to turn an option on or off.
+Флажки можно использовать для включения или выключения опции.
 
-If you have multiple options appearing in a list,
-you can preserve space by using checkboxes instead of on/off switches.
-If you have a single option, avoid using a checkbox and use an on/off switch instead.
+Если в списке отображается несколько опций, вы можете сэкономить место, используя флажки вместо переключателей вкл/выкл. Если у вас одна опция, избегайте флажков и используйте вместо них переключатели вкл/выкл.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic checkboxes
+## Основные флажки <meta data-oversett="" data-original-text="Basic checkboxes">
 
 {{"demo": "Checkboxes.js"}}
 
-## Label
+## Ярлык <meta data-oversett="" data-original-text="Label">
 
-You can provide a label to the `Checkbox` thanks to the `FormControlLabel` component.
+Благодаря компоненту `FormControlLabel` вы можете предоставить метку для `Checkbox`.
 
 {{"demo": "CheckboxLabels.js"}}
 
-## Size
+## Размер <meta data-oversett="" data-original-text="Size">
 
-Use the `size` prop or customize the font size of the svg icons to change the size of the checkboxes.
+Используйте компонент `size` или настройте размер шрифта иконок svg, чтобы изменить размер флажков.
 
 {{"demo": "SizeCheckboxes.js"}}
 
-## Color
+## Цвет <meta data-oversett="" data-original-text="Color">
 
 {{"demo": "ColorCheckboxes.js"}}
 
-## Icon
+## Иконка <meta data-oversett="" data-original-text="Icon">
 
 {{"demo": "IconCheckboxes.js"}}
 
-## Controlled
+## Управляемый <meta data-oversett="" data-original-text="Controlled">
 
-You can control the checkbox with the `checked` and `onChange` props:
+Вы можете управлять флажком с помощью реквизитов `checked` и `onChange`:
 
 {{"demo": "ControlledCheckbox.js"}}
 
-## Indeterminate
+## Неопределенный <meta data-oversett="" data-original-text="Indeterminate">
 
-A checkbox input can only have two states in a form: checked or unchecked.
-It either submits its value or doesn't.
-Visually, there are **three** states a checkbox can be in: checked, unchecked, or indeterminate.
+Ввод флажка может иметь только два состояния в форме: отмечен или не отмечен. Он либо отправляет свое значение, либо нет. Визуально флажок может находиться в **трех** состояниях: отмечен, не отмечен или неопределенный.
 
 {{"demo": "IndeterminateCheckbox.js"}}
 
 :::warning
-When indeterminate is set, the value of the `checked` prop only impacts the form submitted values.
-It has no accessibility or UX implications.
+Когда установлено значение indeterminate, значение реквизита `checked` влияет только на отправленные значения формы. Это не влияет на доступность или UX.
 :::
 
-## FormGroup
+## FormGroup <meta data-oversett="" data-original-text="FormGroup">
 
-`FormGroup` is a helpful wrapper used to group selection control components.
+`FormGroup` это полезная обертка, используемая для группировки компонентов элемента управления выбором.
 
 {{"demo": "CheckboxesGroup.js"}}
 
-## Label placement
+## Размещение ярлыка <meta data-oversett="" data-original-text="Label placement">
 
-You can change the placement of the label:
+Вы можете изменить расположение метки:
 
 {{"demo": "FormControlLabelPosition.js"}}
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here is an example of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведен пример настройки компонента. Вы можете узнать больше об этом на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedCheckbox.js"}}
 
-🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/checkbox/).
+🎨 Если вы ищете вдохновение, вы можете посмотреть [примеры кастомизации MUI Treasury](https://mui-treasury.com/styles/checkbox/).
 
-## When to use
+## Когда использовать <meta data-oversett="" data-original-text="When to use">
 
-- [Checkboxes vs. Radio Buttons](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/)
-- [Checkboxes vs. Switches](https://uxplanet.org/checkbox-vs-toggle-switch-7fc6e83f10b8)
+-   [Флажки против радиокнопок](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/)
+-   [Флажки против переключателей](https://uxplanet.org/checkbox-vs-toggle-switch-7fc6e83f10b8)
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-(WAI-ARIA: https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/)
+(WAI-ARIA: [https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/)](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/)
 
-- All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases, this is done by using the `<label>` element ([FormControlLabel](/material-ui/api/form-control-label/)).
-- When a label can't be used, it's necessary to add an attribute directly to the input component.
-  In this case, you can apply the additional attribute (e.g. `aria-label`, `aria-labelledby`, `title`) via the `inputProps` prop.
+-   Все элементы управления формы должны иметь метки, это касается и радиокнопок, и флажков, и переключателей. В большинстве случаев для этого используется элемент `<label>` [(FormControlLabel](/material-ui/api/form-control-label/)).
+-   Когда метка не может быть использована, необходимо добавить атрибут непосредственно к компоненту ввода. В этом случае вы можете применить дополнительный атрибут (например, `aria-label`, `aria-labelledby`, `title`) через реквизит `inputProps`.
 
 ```jsx
 <Checkbox

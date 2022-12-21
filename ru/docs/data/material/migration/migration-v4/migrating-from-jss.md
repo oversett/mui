@@ -1,48 +1,48 @@
-# Migrating from JSS (optional)
 
-<p class="description">This guide explains how to migrate from JSS to Emotion when updating from Material UI v4 to v5.</p>
 
-## Material UI v5 migration
+# Миграция с JSS (необязательно) <meta data-oversett="" data-original-text="Migrating from JSS (optional)">
 
-1. [Getting started](/material-ui/migration/migration-v4/)
-2. [Breaking changes part one: style and theme](/material-ui/migration/v5-style-changes/)
-3. [Breaking changes part two: components](/material-ui/migration/v5-component-changes/)
-4. Migrating from JSS 👈 _you are here_
-5. [Troubleshooting](/material-ui/migration/troubleshooting/)
+<p class="description">Это руководство объясняет, как перейти с JSS на Emotion при обновлении с Material UI v4 на v5.</p>
 
-## Migrating from JSS to Emotion
+## Миграция Material UI v5 <meta data-oversett="" data-original-text="Material UI v5 migration">
 
-One of the biggest changes in v5 is the replacement of JSS for [Emotion](https://emotion.sh/docs/introduction) (or [styled-components](https://styled-components.com/) as an alternative) as a default styling solution .
+1.  [Начало работы](/material-ui/migration/migration-v4/)
+2.  [Внесение изменений, часть первая: стиль и тема](/material-ui/migration/v5-style-changes/)
+3.  [Внесение изменений, часть вторая: компоненты](/material-ui/migration/v5-component-changes/)
+4.  Миграция с JSS 👈 _Вы здесь_
+5.  [Устранение неполадок](/material-ui/migration/troubleshooting/)
 
-Note that you may continue to use JSS for adding overrides for the components (e.g. `makeStyles`, `withStyles`) even after migrating to v5.
-Then, if at any point you want to move over to the new styling engine, you can refactor your components progressively.
+## Переход с JSS на Emotion <meta data-oversett="" data-original-text="Migrating from JSS to Emotion">
+
+Одним из самых больших изменений в v5 является замена JSS на [Emotion](https://emotion.sh/docs/introduction) (или [styled-components](https://styled-components.com/) в качестве альтернативы) в качестве решения по стилизации по умолчанию.
+
+Обратите внимание, что вы можете продолжать использовать JSS для добавления переопределений для компонентов (например, `makeStyles`, `withStyles`) даже после перехода на v5. Затем, если в какой-то момент вы захотите перейти на новый механизм стилизации, вы можете постепенно рефакторить свои компоненты.
 
 :::info
-If you are using Next.js and you are not sure how to configure SSR to work with both Emotion & JSS, take a look a this [example project](https://github.com/mui/material-ui/tree/master/examples/nextjs-with-typescript-v4-migration).
+Если вы используете Next.js и не уверены, как настроить SSR для работы с Emotion и JSS, посмотрите этот [пример проекта](https://github.com/mui/material-ui/tree/master/examples/nextjs-with-typescript-v4-migration).
 :::
 
-This document reviews all the steps necessary to migrate away from JSS.
+В этом документе рассматриваются все шаги, необходимые для перехода от JSS.
 
-While you can use either of the following two options, the first is considered preferable:
+Хотя вы можете использовать любой из следующих двух вариантов, первый считается предпочтительным:
 
-### 1. Use styled or sx API
+### 1\. Использовать стилизованный или sx API <meta data-oversett="" data-original-text="1. Use styled or sx API">
 
-#### Codemod
+#### Кодмод <meta data-oversett="" data-original-text="Codemod">
 
-We provide [a codemod](https://github.com/mui/material-ui/blob/master/packages/mui-codemod/README.md#jss-to-styled) to help migrate JSS styles to `styled` API, but this approach increases the CSS specificity.
+Мы предоставляем [codemod](https://github.com/mui/material-ui/blob/master/packages/mui-codemod/README.md#jss-to-styled), чтобы помочь перенести стили JSS на `styled` API, но этот подход увеличивает специфичность CSS.
 
 :::info
-Normally you wouldn't write styles like this.
-But this is the best transformation that we could create with a codemod.
+Обычно вы не будете писать стили подобным образом. Но это лучшее преобразование, которое мы смогли создать с помощью кодмода.
 
-If you want to refine them later, you can refer to the examples shown in the sections below.
+Если вы захотите доработать их позже, вы можете обратиться к примерам, показанным в разделах ниже.
 :::
 
 ```sh
 npx @mui/codemod v5.0.0/jss-to-styled <path>
 ```
 
-Example transformation:
+Пример трансформации:
 
 ```diff
  import Typography from '@mui/material/Typography';
@@ -101,13 +101,12 @@ Example transformation:
 ```
 
 :::success
-You should run this codemod on a small chunk of files and then check the changes before continuing, because in some cases you might need to adjust the code after the transformation—this codemod won't cover all cases.
+Вам следует запустить этот кодмод на небольшом участке файлов и затем проверить изменения, прежде чем продолжать, потому что в некоторых случаях вам может понадобиться корректировка кода после трансформации - этот кодмод не охватывает все случаи.
 :::
 
-#### Manual
+#### Руководство <meta data-oversett="" data-original-text="Manual">
 
-We recommend `sx` API over `styled` for creating responsive styles or overriding minor CSS.
-[Read more about `sx` here](/system/getting-started/the-sx-prop/).
+Мы рекомендуем API `sx` вместо `styled` для создания отзывчивых стилей или переопределения второстепенных CSS.[Подробнее о `sx` читайте здесь](/system/getting-started/the-sx-prop/).
 
 ```diff
  import Chip from '@mui/material/Chip';
@@ -138,9 +137,9 @@ We recommend `sx` API over `styled` for creating responsive styles or overriding
  }
 ```
 
-In some cases, you might want to create multiple styled components in a file instead of increasing CSS specificity.
+В некоторых случаях вы можете захотеть создать несколько стилизованных компонентов в одном файле вместо того, чтобы увеличивать специфичность CSS.
 
-For example:
+Например:
 
 ```diff
 -import makeStyles from '@mui/styles/makeStyles';
@@ -184,43 +183,42 @@ For example:
 ```
 
 :::success
-[This jss-to-styled tool](https://siriwatk.dev/tool/jss-to-styled) helps convert JSS to multiple styled components without increasing CSS specificity.
+[Этот инструмент jss-to-styled](https://siriwatk.dev/tool/jss-to-styled) помогает преобразовать JSS в несколько стилизованных компонентов без увеличения специфичности CSS.
 
-This tool is _not_ maintained by MUI.
+Этот инструмент _не_ поддерживается MUI.
 :::
 
-### 2. Use [tss-react](https://github.com/garronej/tss-react)
+### 2\. Используйте [tss-react](https://github.com/garronej/tss-react) <meta data-oversett="" data-original-text="2. Use tss-react">
 
 :::error
-This API will not work if you are [using `styled-components` as the underlying styling engine in place of `@emotion`](/material-ui/guides/interoperability/#styled-components).
+Этот API не будет работать, если вы [используете `styled-components` в качестве базового механизма стилизации вместо `@emotion`.](/material-ui/guides/interoperability/#styled-components)
 :::
 
-The API is similar to JSS `makeStyles`, but under the hood, it uses `@emotion/react`.
-It also features much better TypeScript support than v4's `makeStyles`.
+API похож на JSS `makeStyles`, но под капотом он использует `@emotion/react`. Он также имеет гораздо лучшую поддержку TypeScript, чем `makeStyles` в v4.
 
-In order to use it, you'll need to add it to your project's dependencies:
+Чтобы использовать его, вам нужно добавить его в зависимости вашего проекта:
 
-With npm:
+С помощью npm:
 
 ```sh
 npm install tss-react
 ```
 
-With yarn:
+С yarn:
 
 ```sh
 yarn add tss-react
 ```
 
-#### Codemod
+#### Codemod <meta data-oversett="" data-original-text="Codemod">
 
-We provide [a codemod](https://github.com/mui/material-ui/blob/master/packages/mui-codemod/README.md#jss-to-tss-react) to help migrate JSS styles to the `tss-react` API.
+Мы предоставляем [codemod](https://github.com/mui/material-ui/blob/master/packages/mui-codemod/README.md#jss-to-tss-react), чтобы помочь перенести стили JSS на API `tss-react`.
 
 ```sh
 npx @mui/codemod v5.0.0/jss-to-tss-react <path>
 ```
 
-Example transformation:
+Пример преобразования:
 
 ```diff
  import React from 'react';
@@ -257,8 +255,7 @@ Example transformation:
  export default Apply;
 ```
 
-If you were using the `$` syntax and `clsx` to combine multiple CSS classes,
-the transformation would look like this:
+Если вы используете синтаксис `$` и `clsx` для объединения нескольких классов CSS, преобразование будет выглядеть следующим образом:
 
 ```diff
  import * as React from 'react';
@@ -308,10 +305,10 @@ the transformation would look like this:
 ```
 
 :::error
-When using JavaScript (rather than TypeScript), remove `<void, 'child' | 'small'>`.
+При использовании JavaScript (а не TypeScript) удалите `<void, 'child' | 'small'>`.
 :::
 
-The following is a comprehensive example using the `$` syntax, `useStyles()` parameters, merging in classes from a `classes` prop ([see doc](https://docs.tss-react.dev/your-own-classes-prop)) and [an explicit name for the stylesheet](https://docs.tss-react.dev/api/makestyles#naming-the-stylesheets-useful-for-debugging-and-theme-style-overrides).
+Ниже приведен полный пример с использованием синтаксиса `$`, параметров `useStyles()`, объединением классов из реквизита `classes` [(см. doc](https://docs.tss-react.dev/your-own-classes-prop)) и [явным именем таблицы стилей](https://docs.tss-react.dev/api/makestyles#naming-the-stylesheets-useful-for-debugging-and-theme-style-overrides).
 
 ```diff
 -import clsx from 'clsx';
@@ -372,36 +369,34 @@ The following is a comprehensive example using the `$` syntax, `useStyles()` par
  export default App;
 ```
 
-After running the codemod, search your code for "TODO jss-to-tss-react codemod" to find cases that the codemod could not handle reliably.
+После запуска codemod, поищите в коде "TODO jss-to-tss-react codemod", чтобы найти случаи, которые codemod не смог надежно обработать.
 
-There may be other cases beyond those with TODO comments that are not handled fully by the codemod—particularly if parts of the styles are returned by functions.
+Кроме случаев с комментариями TODO могут быть и другие, которые не полностью обрабатываются кодмодом - в частности, если части стилей возвращаются функциями.
 
-If the styles buried within a function use the `$` syntax or `useStyles` params, then those styles won't be migrated appropriately.
+Если стили, спрятанные в функции, используют синтаксис `$` или параметры `useStyles`, то эти стили не будут перенесены должным образом.
 
 :::error
-You should drop [`clsx`](https://www.npmjs.com/package/clsx) in favor of [`cx`](https://emotion.sh/docs/@emotion/css#cx).
+Вам следует отказаться от [`clsx`](https://www.npmjs.com/package/clsx) в пользу [`cx`](https://emotion.sh/docs/@emotion/css#cx).
 
-The key advantage of `cx` is that it detects Emotion-generated class names to ensure that styles are overwritten in the correct order.
+Ключевое преимущество `cx` заключается в том, что он определяет имена классов, генерируемые Emotion, чтобы гарантировать, что стили будут перезаписаны в правильном порядке.
 
-The default precedence of styles from multiple CSS classes is different between JSS and tss-react and some manual re-ordering of `cx` parameters
-may be necessary—see [this issue comment](https://github.com/mui/material-ui/pull/31802#issuecomment-1093478971) for more details.
+Приоритет стилей из нескольких CSS-классов по умолчанию отличается между JSS и tss-react, поэтому может потребоваться ручная перестановка параметров `cx` - подробнее см. в [этом комментарии](https://github.com/mui/material-ui/pull/31802#issuecomment-1093478971).
 :::
 
-To ensure that your class names always includes the actual name of your components, you can provide the `name` as an implicitly named key (`name: { App }`).
+Чтобы гарантировать, что имена ваших классов всегда включают фактическое имя ваших компонентов, вы можете предоставить `name` как неявно именованный ключ (`name: { App }`).
 
-See [this tss-react doc](https://docs.tss-react.dev/api/makestyles#naming-the-stylesheets-useful-for-debugging-and-theme-style-overrides) for details.
+Подробности см. в [этом документе tss-react doc](https://docs.tss-react.dev/api/makestyles#naming-the-stylesheets-useful-for-debugging-and-theme-style-overrides).
 
-You may end up with eslint warnings [like this one](https://user-images.githubusercontent.com/6702424/148657837-eae48942-fb86-4516-abe4-5dc10f44f0be.png) if you deconstruct more than one item.
+Вы можете получить предупреждения eslint, [подобные этому](https://user-images.githubusercontent.com/6702424/148657837-eae48942-fb86-4516-abe4-5dc10f44f0be.png), если вы деконструируете более одного элемента.
 
-Don't hesitate to disable `eslint(prefer-const)`, [like this](https://github.com/thieryw/gitlanding/blob/b2b0c71d95cfd353979c86dfcfa1646ef1665043/.eslintrc.js#L17) in a regular project, or [like this](https://github.com/InseeFrLab/onyxia-web/blob/a264ec6a6a7110cb1a17b2e22cc0605901db6793/package.json#L133) in a CRA.
+Не стесняйтесь отключить `eslint(prefer-const)`, [как это](https://github.com/thieryw/gitlanding/blob/b2b0c71d95cfd353979c86dfcfa1646ef1665043/.eslintrc.js#L17) сделано в обычном проекте, или [как это сделано](https://github.com/InseeFrLab/onyxia-web/blob/a264ec6a6a7110cb1a17b2e22cc0605901db6793/package.json#L133) в CRA.
 
-#### withStyles()
+#### withStyles() <meta data-oversett="" data-original-text="withStyles()">
 
-`tss-react` also features a [type-safe implementation](https://docs.tss-react.dev/api/withstyles) of [v4's `withStyles()`](https://v4.mui.com/styles/api/#withstyles-styles-options-higher-order-component).
+`tss-react` также имеет [безопасную для типов реализацию](https://docs.tss-react.dev/api/withstyles) [`withStyles()` из v4.](https://v4.mui.com/styles/api/#withstyles-styles-options-higher-order-component)
 
 :::info
-The equivalent of the `$` syntax is also supported in tss's `withStyles()`.
-[See doc](https://docs.tss-react.dev/nested-selectors#withstyles).
+Эквивалент синтаксиса `$` также поддерживается в tss's `withStyles()`.[См. doc](https://docs.tss-react.dev/nested-selectors#withstyles).
 :::
 
 ```diff
@@ -431,43 +426,40 @@ The equivalent of the `$` syntax is also supported in tss's `withStyles()`.
  export default MyCustomButton;
 ```
 
-#### Theme style overrides
+#### Переопределения стилей темы <meta data-oversett="" data-original-text="Theme style overrides">
 
-[Global theme overrides](https://v4.mui.com/customization/components/#global-theme-override) are supported out of the box by TSS.
+[Глобальные переопределения тем](https://v4.mui.com/customization/components/#global-theme-override) поддерживаются TSS из коробки.
 
-Follow the instructions in the relevant section of the [Breaking changes](/material-ui/migration/v5-style-changes/#restructure-component-definitions) doc, and [provide a `name` to `makeStyles`](https://docs.tss-react.dev/api/makestyles#naming-the-stylesheets-useful-for-debugging-and-theme-style-overrides).
+Следуйте инструкциям в соответствующем разделе документа [Breaking changes](/material-ui/migration/v5-style-changes/#restructure-component-definitions) doc и [предоставьте `name` на `makeStyles`.](https://docs.tss-react.dev/api/makestyles#naming-the-stylesheets-useful-for-debugging-and-theme-style-overrides)
 
-In Material UI v5, [style overrides also accept callbacks](https://mui.com/material-ui/customization/theme-components/).
+В Material UI v5 [переопределения стиля также принимают обратные вызовы](https://mui.com/material-ui/customization/theme-components/).
 
-By default, TSS is only able to provide the theme.
-If you want to provide the props and the `ownerState`, [please refer to this documentation](https://docs.tss-react.dev/mui-theme-styleoverrides).
+По умолчанию TSS может предоставить только тему. Если вы хотите предоставить реквизиты и `ownerState`, [пожалуйста, обратитесь к этой документации](https://docs.tss-react.dev/mui-theme-styleoverrides).
 
 :::warning
-tss-react is _not_ maintained by MUI.
+tss-react _не_ поддерживается MUI.
 
-If you have any question about how to setup SSR (Next.js), or if you are wondering
-how to customize the `theme` object, please refer to the tss-react documentation—particularly the [MUI integration section](https://github.com/garronej/tss-react#mui-integration).
+Если у вас есть вопросы по настройке SSR (Next.js), или если вы хотите узнать, как настроить объект `theme`, пожалуйста, обратитесь к документации по tss-react, в частности, к [разделу интеграции с MUI](https://github.com/garronej/tss-react#mui-integration).
 
-You can also [submit an issue](https://github.com/garronej/tss-react/issues/new) for any bug or feature request, and [start a discussion](https://github.com/garronej/tss-react/discussions) if you need help.
+Вы также можете [отправить проблему](https://github.com/garronej/tss-react/issues/new) для любой ошибки или запроса функции, а также [начать обсуждение](https://github.com/garronej/tss-react/discussions), если вам нужна помощь.
 :::
 
-## Complete the migration
+## Завершите миграцию <meta data-oversett="" data-original-text="Complete the migration">
 
-Once you migrate all of the styling, remove unnecessary `@mui/styles` by uninstalling the package.
+После того как вы перенесли все стили, удалите ненужный `@mui/styles`, деинсталлировав пакет.
 
-With npm:
+С помощью npm:
 
 ```sh
 npm uninstall @mui/styles
 ```
 
-With yarn:
+С помощью yarn:
 
 ```sh
 yarn remove @mui/styles
 ```
 
 :::warning
-`@emotion/styled` is a peer dependency of `@mui/material`.
-You must keep it in your dependencies even if you never explicitly use it.
+`@emotion/styled` является одноранговой зависимостью `@mui/material`. Вы должны сохранить его в своих зависимостях, даже если вы никогда явно не используете его.
 :::

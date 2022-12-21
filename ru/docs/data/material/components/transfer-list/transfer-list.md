@@ -5,30 +5,27 @@ components: List, ListItem, Checkbox, Switch
 githubLabel: 'component: transfer list'
 ---
 
-# Transfer List
+# Список переноса <meta data-oversett="" data-original-text="Transfer List">
 
-<p class="description">A Transfer List (or "shuttle") enables the user to move one or more list items between lists.</p>
+<p class="description">Список переноса (или "челнок") позволяет пользователю перемещать один или несколько элементов списка между списками.</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js", "design": false}}
 
-## Basic transfer list
+## Основной список переноса <meta data-oversett="" data-original-text="Basic transfer list">
 
-For completeness, this example includes buttons for "move all", but not every transfer list needs these.
+Для полноты картины в этом примере есть кнопки "переместить все", но они нужны не для каждого списка переноса.
 
 {{"demo": "TransferList.js", "bg": true}}
 
-## Enhanced transfer list
+## Расширенный список переноса <meta data-oversett="" data-original-text="Enhanced transfer list">
 
-This example exchanges the "move all" buttons for a "select all / select none" checkbox, and adds a counter.
+В этом примере кнопки "переместить все" заменены на флажок "выбрать все / не выбрать ни одного", а также добавлен счетчик.
 
 {{"demo": "SelectAllTransferList.js", "bg": true}}
 
-## Limitations
+## Ограничения <meta data-oversett="" data-original-text="Limitations">
 
-The component comes with a couple of limitations:
+Компонент поставляется с парой ограничений:
 
-- It only works on desktop.
-  If you have a limited amount of options to select, prefer the [Autocomplete](/material-ui/react-autocomplete/#multiple-values) component.
-  If mobile support is important for you, have a look at [#27579](https://github.com/mui/material-ui/issues/27579).
-- There are no high-level components exported from npm. The demos are based on composition.
-  If this is important for you, have a look at [#27579](https://github.com/mui/material-ui/issues/27579).
+-   Он работает только на настольном компьютере. Если у вас ограниченное количество вариантов для выбора, предпочтите компонент [Autocomplete](/material-ui/react-autocomplete/#multiple-values). Если для вас важна поддержка мобильных устройств, обратите внимание на [#27579](https://github.com/mui/material-ui/issues/27579).
+-   Не существует высокоуровневых компонентов, экспортируемых из npm. Демонстрации основаны на композиции. Если для вас это важно, обратите внимание на [#27579](https://github.com/mui/material-ui/issues/27579).

@@ -6,58 +6,56 @@ materialDesign: https://m2.material.io/components/image-lists
 githubLabel: 'component: image list'
 ---
 
-# Image List
+# Список изображений <meta data-oversett="" data-original-text="Image List">
 
-<p class="description">The Image List displays a collection of images in an organized grid.</p>
+<p class="description">Список изображений отображает коллекцию изображений в виде упорядоченной сетки.</p>
 
-Image lists represent a collection of items in a repeated pattern. They help improve the visual comprehension of the content they hold.
+Списки изображений представляют собой набор элементов в повторяющемся виде. Они помогают улучшить визуальное восприятие содержимого, которое в них содержится.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Standard image list
+## Стандартный список изображений <meta data-oversett="" data-original-text="Standard image list">
 
-Standard image lists are best for items of equal importance. They have a uniform container size, ratio, and spacing.
+Стандартные списки изображений лучше всего подходят для элементов одинаковой важности. Они имеют единый размер контейнера, соотношение и расстояние между ними.
 
 {{"demo": "StandardImageList.js"}}
 
-## Quilted image list
+## Ватные списки изображений <meta data-oversett="" data-original-text="Quilted image list">
 
-Quilted image lists emphasize certain items over others in a collection. They create hierarchy using varied container sizes and ratios.
+Ватные списки изображений подчеркивают преимущество одних элементов над другими в коллекции. Они создают иерархию, используя различные размеры контейнеров и соотношение между ними.
 
 {{"demo": "QuiltedImageList.js"}}
 
-## Woven image list
+## Плетеный список изображений <meta data-oversett="" data-original-text="Woven image list">
 
-Woven image lists use alternating container ratios to create a rhythmic layout. A woven image list is best for browsing peer content.
+Плетеные списки изображений используют чередование соотношений контейнеров для создания ритмичной компоновки. Плетеный список изображений лучше всего подходит для просмотра однорангового контента.
 
 {{"demo": "WovenImageList.js"}}
 
-## Masonry image list
+## Список изображений с каменной кладкой <meta data-oversett="" data-original-text="Masonry image list">
 
-Masonry image lists use dynamically sized container heights that reflect the aspect ratio of each image. This image list is best used for browsing uncropped peer content.
+В списках изображений Masonry используются динамически изменяемые размеры высоты контейнеров, которые отражают соотношение сторон каждого изображения. Этот список изображений лучше всего подходит для просмотра необрезанного содержимого сверстников.
 
 {{"demo": "MasonryImageList.js"}}
 
-## Image list with title bars
+## Список изображений с полосами заголовков <meta data-oversett="" data-original-text="Image list with title bars">
 
-This example demonstrates the use of the `ImageListItemBar` to add an overlay to each item.
-The overlay can accommodate a `title`, `subtitle` and secondary action - in this example an `IconButton`.
+Этот пример демонстрирует использование `ImageListItemBar` для добавления накладки к каждому элементу. Накладка может содержать `title`, `subtitle` и вторичное действие - в данном примере `IconButton`.
 
 {{"demo": "TitlebarImageList.js"}}
 
-### Title bar below image (standard)
+### Строка заголовка под изображением (стандарт) <meta data-oversett="" data-original-text="Title bar below image (standard)">
 
-The title bar can be placed below the image.
+Строка заголовка может быть размещена под изображением.
 
 {{"demo": "TitlebarBelowImageList.js"}}
 
-### Title bar below image (masonry)
+### Строка заголовка под изображением (кирпичная кладка) <meta data-oversett="" data-original-text="Title bar below image (masonry)">
 
 {{"demo": "TitlebarBelowMasonryImageList.js"}}
 
-## Custom image list
+## Пользовательский список изображений <meta data-oversett="" data-original-text="Custom image list">
 
-In this example the items have a customized titlebar, positioned at the top and with a custom gradient `titleBackground`.
-The secondary action `IconButton` is positioned on the left. The `gap` prop is used to adjust the gap between items.
+В этом примере элементы имеют настроенную панель заголовка, расположенную сверху и с настроенным градиентом `titleBackground`. Вторичное действие `IconButton` расположено слева. Реквизит `gap` используется для настройки промежутка между элементами.
 
 {{"demo": "CustomImageList.js", "defaultCodeOpen": false}}

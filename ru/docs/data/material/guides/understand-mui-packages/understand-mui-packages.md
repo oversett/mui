@@ -1,61 +1,60 @@
-# Understanding MUI packages
 
-<p class="description">An overview of the MUI packages and the relationships between them.</p>
 
-## Overview
+# Понимание пакетов MUI <meta data-oversett="" data-original-text="Understanding MUI packages">
 
-- If you want to build a design system based on Material Design, use `@mui/material`.
-- If you want to build with components that give you complete control over your app's CSS, use `@mui/base`.
-- For CSS utilities to help in laying out custom designs with Material UI or MUI Base, use `@mui/system`.
+<p class="description">Обзор пакетов MUI и связей между ними.</p>
 
-### Glossary
+## Обзор <meta data-oversett="" data-original-text="Overview">
 
-- **install** refers to running `yarn add $module` or `npm install $module`.
-- **import** refers to making a module API available in your code by adding `import ... from '$module'`.
+-   Если вы хотите построить систему дизайна на основе Material Design, используйте `@mui/material`.
+-   Если вы хотите построить систему с использованием компонентов, которые дают вам полный контроль над CSS вашего приложения, используйте `@mui/base`.
+-   Для поиска утилит CSS, помогающих в компоновке пользовательского дизайна с помощью Material UI или MUI Base, используйте `@mui/system`.
 
-## MUI packages
+### Глоссарий <meta data-oversett="" data-original-text="Glossary">
 
-The following is an up-to-date list of `@mui` public packages.
+-   **установить** означает запустить `yarn add $module` или `npm install $module`.
+-   **Импортировать** - сделать API модуля доступным в вашем коде, добавив `import ... from '$module'`.
 
-- `@mui/material`
-- `@mui/base`
-- `@mui/system`
-- `@mui/styled-engine`
-- `@mui/styled-engine-sc`
-- `@mui/styles`
+## Пакеты MUI <meta data-oversett="" data-original-text="MUI packages">
 
-### Understanding MUI's products
+Ниже приведен актуальный список публичных пакетов `@mui`.
 
-As a company, MUI maintains a suite of open-source and open-core React UI projects.
-These projects live within two product lines: MUI Core and MUI X.
+-   `@mui/material`
+-   `@mui/base`
+-   `@mui/system`
+-   `@mui/styled-engine`
+-   `@mui/styled-engine-sc`
+-   `@mui/styles`
 
-The following chart illustrates how MUI's packages are related to one another:
+### Понимание продуктов MUI <meta data-oversett="" data-original-text="Understanding MUI's products">
 
-<img src="/static/images/packages/mui-packages.png" style="width: 796px; margin-top: 4px; margin-bottom: 8px;" alt="The first half of the image shows @mui/material and @mui/base as component libraries, and @mui/system and styled engines as styling solutions, both under the MUI Core umbrella. The second half shows @mui/x-data-grid and @mui/x-date-pickers as components from MUI X."/>
+Компания MUI поддерживает набор проектов React UI с открытым исходным кодом и открытым ядром. Эти проекты входят в две линейки продуктов: MUI Core и MUI X.
 
-In this article, we'll only cover the MUI Core packages.
-Visit the [MUI X Overview](/x/introduction/) for more information about our collection of advanced components.
+На следующей схеме показано, как пакеты MUI связаны друг с другом:
 
-## Component libraries
+<img src="/static/images/packages/mui-packages.png" style="width: 796px; margin-top: 4px; margin-bottom: 8px;" alt="The first half of the image shows @mui/material and @mui/base as component libraries, and @mui/system and styled engines as styling solutions, both under the MUI Core umbrella. The second half shows @mui/x-data-grid and @mui/x-date-pickers as components from MUI X.">
 
-### Material UI
+В этой статье мы рассмотрим только пакеты MUI Core. Посетите [обзор MUI X](/x/introduction/) для получения дополнительной информации о нашей коллекции расширенных компонентов.
 
-Material UI is a comprehensive library of components that features our implementation of Google's Material Design.
+## Библиотеки компонентов <meta data-oversett="" data-original-text="Component libraries">
 
-`@mui/system` is included as dependency, meaning you don't need to install or import it separately—you can import its components and functions directly from `@mui/material`.
+### Material UI <meta data-oversett="" data-original-text="Material UI">
 
-### MUI Base
+Material UI - это обширная библиотека компонентов, в которой представлена наша реализация Material Design от Google.
 
-[MUI Base](/base/getting-started/overview/) is our library of "unstyled" components and hooks.
-With Base, you gain complete control over your app's CSS and accessibility features.
+`@mui/system` Material UI включена в качестве зависимости, что означает, что вам не нужно устанавливать или импортировать ее отдельно - вы можете импортировать ее компоненты и функции непосредственно с сайта `@mui/material`.
 
-The Base package includes prebuilt components with production-ready functionality, along with low-level hooks for transferring that functionality to other components.
+### База MUI <meta data-oversett="" data-original-text="MUI Base">
 
-### Using them together
+[MUI Base](/base/getting-started/overview/) - это наша библиотека "нестилизованных" компонентов и крючков. С помощью Base вы получаете полный контроль над CSS и функциями доступности вашего приложения.
 
-Imagine you're working on an application that uses `@mui/material` with a custom theme, and you need to develop a new switch component that looks very different from the one found in Material Design.
+Пакет Base включает в себя готовые компоненты с функциональностью, готовой к использованию на производстве, а также низкоуровневые крючки для передачи этой функциональности другим компонентам.
 
-In this case, instead of overriding all the styles on the Material UI `Switch` component, you can use the `styled` API to customize the Base `SwitchUnstyled` component from scratch:
+### Совместное использование <meta data-oversett="" data-original-text="Using them together">
+
+Представьте, что вы работаете над приложением, использующим `@mui/material` с пользовательской темой, и вам нужно разработать новый компонент переключателя, который выглядит совсем не так, как в Material Design.
+
+В этом случае, вместо того чтобы переопределять все стили компонента Material UI `Switch`, вы можете использовать API `styled` для настройки компонента Base `SwitchUnstyled` с нуля:
 
 ```js
 import { styled } from '@mui/material/styles';
@@ -83,43 +82,37 @@ export default function CustomSwitch() {
 }
 ```
 
-## Styling
+## Стилизация <meta data-oversett="" data-original-text="Styling">
 
-### Styled engines
+### Движки стилей <meta data-oversett="" data-original-text="Styled engines">
 
-Material UI relies on styling engines to inject CSS into your app.
-These engines come in two packages:
+Material UI полагается на движки стилей для внедрения CSS в ваше приложение. Эти движки поставляются в двух пакетах:
 
-- `@mui/styled-engine`
-- `@mui/styled-engine-sc`
+-   `@mui/styled-engine`
+-   `@mui/styled-engine-sc`
 
-By default, Material UI uses [Emotion](https://emotion.sh/docs/styled) as its styling engine—it's included in the [installation](/material-ui/getting-started/installation/) process.
-If you plan to stick with Emotion, then `@mui/styled-engine` is a dependency in your app, and you don't need to install it separately.
+По умолчанию Material UI использует [Emotion](https://emotion.sh/docs/styled) в качестве движка стилизации - он включен в процесс [установки](/material-ui/getting-started/installation/). Если вы планируете использовать Emotion, то `@mui/styled-engine` является зависимостью в вашем приложении, и вам не нужно устанавливать его отдельно.
 
-If you prefer to use [styled-components](https://styled-components.com/docs/basics#getting-started), then you need to install `@mui/styled-engine-sc` in place of the Emotion packages.
-See the [Styled engine guide](/material-ui/guides/styled-engine/) for more details.
+Если вы предпочитаете использовать [styled-components](https://styled-components.com/docs/basics#getting-started), то вам нужно установить `@mui/styled-engine-sc` вместо пакетов Emotion. Более подробную информацию смотрите в [руководстве по Styled engine](/material-ui/guides/styled-engine/).
 
-In either case, you won't interact much with either of these packages beyond installation—they're used internally in `@mui/system`.
+В любом случае, вы не будете особо взаимодействовать с этими пакетами помимо установки - они используются внутри `@mui/system`.
 
 :::warning
-Prior to v5, Material UI used `@mui/styles` as a JSS wrapper.
-This package is now deprecated and will be removed in the future.
-Check out [the guide to migrating from v4 to v5](/material-ui/migration/migration-v4/) to learn how to upgrade to a newer solution.
+До версии 5 Material UI использовал `@mui/styles` в качестве обертки JSS. Сейчас этот пакет устарел и будет удален в будущем. Ознакомьтесь с [руководством по переходу с версии 4 на версию 5](/material-ui/migration/migration-v4/), чтобы узнать, как перейти на более новое решение.
 :::
 
-### MUI System
+### MUI System <meta data-oversett="" data-original-text="MUI System">
 
-MUI System is a collection of CSS utilities to help you rapidly lay out custom designs.
-It uses the Emotion adapter (`@mui/styled-engine`) as the default style engine to create the CSS utilities.
+MUI System - это набор утилит CSS, которые помогут вам быстро оформить пользовательский дизайн. Для создания утилит CSS он использует адаптер Emotion (`@mui/styled-engine`) в качестве движка стилей по умолчанию.
 
-#### Advantages of MUI System
+#### Преимущества MUI System <meta data-oversett="" data-original-text="Advantages of MUI System">
 
-- You have full control of the `theme` object.
-- You can use `sx` prop normally as the `styled` API supports it by default.
-- You can have themeable components by using `styled` via slots and variants.
+-   Вы имеете полный контроль над объектом `theme`.
+-   Вы можете нормально использовать `sx` prop, так как `styled` API поддерживает его по умолчанию.
+-   Вы можете иметь тематические компоненты, используя `styled` через слоты и варианты.
 
 :::warning
-To use MUI System, you must install either Emotion or styled-components, because the respective `styled-engine` package depends on it.
+Чтобы использовать MUI System, вы должны установить Emotion или styled-components, поскольку соответствующий пакет `styled-engine` зависит от них.
 :::
 
-<img src="/static/images/packages/mui-system.png" style="width: 796px; margin-top: 4px; margin-bottom: 8px;" alt="A diagram showing an arrow going from @mui/system to @mui/styled-engine, with a note that it is the default engine. Then, from @mui/styled-engine a solid arrow points to @emotion/react and @emotion/styled while a dashed arrow points to @mui/styled-engine-sc, which points to styled-components." />
+<img src="/static/images/packages/mui-system.png" style="width: 796px; margin-top: 4px; margin-bottom: 8px;" alt="A diagram showing an arrow going from @mui/system to @mui/styled-engine, with a note that it is the default engine. Then, from @mui/styled-engine a solid arrow points to @emotion/react and @emotion/styled while a dashed arrow points to @mui/styled-engine-sc, which points to styled-components.">

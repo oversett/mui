@@ -6,70 +6,64 @@ githubLabel: 'component: rating'
 waiAria: https://www.w3.org/WAI/tutorials/forms/custom-controls/#a-star-rating
 ---
 
-# Rating
+# Рейтинг <meta data-oversett="" data-original-text="Rating">
 
-<p class="description">Ratings provide insight regarding others' opinions and experiences, and can allow the user to submit a rating of their own.</p>
+<p class="description">Рейтинги дают представление о мнениях и опыте других людей, а также позволяют пользователю выставить собственную оценку.</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic rating
+## Базовый рейтинг <meta data-oversett="" data-original-text="Basic rating">
 
 {{"demo": "BasicRating.js"}}
 
-## Rating precision
+## Точность рейтинга <meta data-oversett="" data-original-text="Rating precision">
 
-The rating can display any float number with the `value` prop.
-Use the `precision` prop to define the minimum increment value change allowed.
+Рейтинг может отображать любое плавающее число с помощью реквизита `value`. Используйте реквизит `precision`, чтобы определить минимально допустимое изменение значения инкремента.
 
 {{"demo": "HalfRating.js"}}
 
-## Hover feedback
+## Обратная связь при наведении <meta data-oversett="" data-original-text="Hover feedback">
 
-You can display a label on hover to help the user pick the correct rating value.
-The demo uses the `onChangeActive` prop.
+Вы можете отображать метку при наведении, чтобы помочь пользователю выбрать правильное значение рейтинга. В демонстрационном примере используется реквизит `onChangeActive`.
 
 {{"demo": "HoverRating.js"}}
 
-## Sizes
+## Размеры <meta data-oversett="" data-original-text="Sizes">
 
-For larger or smaller ratings use the `size` prop.
+Для увеличения или уменьшения размера рейтинга используйте реквизит `size`.
 
 {{"demo": "RatingSize.js"}}
 
-## Customization
+## Персонализация <meta data-oversett="" data-original-text="Customization">
 
-Here are some examples of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Ниже приведены примеры настройки компонента. Более подробно об этом можно узнать на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedRating.js"}}
 
-## Radio group
+## Радиогруппа <meta data-oversett="" data-original-text="Radio group">
 
-The rating is implemented with a radio group, set `highlightSelectedOnly` to restore the natural behavior.
+Рейтинг реализован с помощью радиогруппы, установите `highlightSelectedOnly`, чтобы восстановить естественное поведение.
 
 {{"demo": "RadioGroupRating.js"}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-([WAI tutorial](https://www.w3.org/WAI/tutorials/forms/custom-controls/#a-star-rating))
+[(Учебник WAI](https://www.w3.org/WAI/tutorials/forms/custom-controls/#a-star-rating))
 
-The accessibility of this component relies on:
+Доступность этого компонента зависит от:
 
-- A radio group with its fields visually hidden.
-  It contains six radio buttons, one for each star, and another for 0 stars that is checked by default. Be sure to provide a value for the `name` prop that is unique to the parent form.
-- Labels for the radio buttons containing actual text ("1 Star", "2 Stars", …).
-  Be sure to provide a suitable function to the `getLabelText` prop when the page is in a language other than English. You can use the [included locales](https://mui.com/material-ui/guides/localization/), or provide your own.
-- A visually distinct appearance for the rating icons.
-  By default, the rating component uses both a difference of color and shape (filled and empty icons) to indicate the value. In the event that you are using color as the only means to indicate the value, the information should also be also displayed as text, as in this demo. This is important to match [success Criterion 1.4.1](https://www.w3.org/TR/WCAG21/#use-of-color) of WCAG2.1.
+-   Радиогруппа, поля которой визуально скрыты. Она содержит шесть радиокнопок, по одной для каждой звезды, и еще одну для 0 звезд, которая отмечена по умолчанию. Обязательно укажите значение для параметра `name`, уникальное для родительской формы.
+-   Ярлыки для радиокнопок содержат фактический текст ("1 звезда", "2 звезды", ...). Обязательно предоставьте подходящую функцию для реквизита `getLabelText`, если страница не на английском языке. Вы можете использовать [включенные локали](https://mui.com/material-ui/guides/localization/) или создать свои собственные.
+-   Визуально отличимый внешний вид для иконок рейтинга. По умолчанию компонент рейтинга использует различие цвета и формы (заполненные и пустые иконки) для обозначения значения. В том случае, если вы используете цвет как единственное средство для указания значения, информация должна также отображаться в виде текста, как в этом демо-ролике. Это важно для соответствия [Критерию успеха 1.4.1](https://www.w3.org/TR/WCAG21/#use-of-color) стандарта WCAG2.1.
 
 {{"demo": "TextRating.js"}}
 
-### ARIA
+### ARIA <meta data-oversett="" data-original-text="ARIA">
 
-The read only rating has a role of "img", and an aria-label that describes the displayed rating.
+Рейтинг, доступный только для чтения, имеет роль "img" и метку aria, которая описывает отображаемый рейтинг.
 
-### Keyboard
+### Клавиатура <meta data-oversett="" data-original-text="Keyboard">
 
-Because the rating component uses radio buttons, keyboard interaction follows the native browser behavior. Tab will focus the current rating, and cursor keys control the selected rating.
+Поскольку в компоненте рейтинга используются радиокнопки, взаимодействие с клавиатурой соответствует поведению родного браузера. Клавиша Tab фокусирует текущий рейтинг, а клавиши курсора управляют выбранным рейтингом.
 
-The read only rating is not focusable.
+Рейтинг, доступный только для чтения, не фокусируется.

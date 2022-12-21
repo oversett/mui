@@ -6,39 +6,34 @@ githubLabel: 'component: Fab'
 materialDesign: https://m2.material.io/components/buttons-floating-action-button
 ---
 
-# Floating Action Button
+# Плавающая кнопка действия <meta data-oversett="" data-original-text="Floating Action Button">
 
-<p class="description">A Floating Action Button (FAB) performs the primary, or most common, action on a screen.</p>
+<p class="description">Плавающая кнопка действия (FAB) выполняет основное, или наиболее распространенное, действие на экране.</p>
 
-A floating action button appears in front of all screen content, typically as a circular shape with an icon in its center.
-FABs come in two types: regular, and extended.
+Плавающая кнопка действия появляется перед всем содержимым экрана, обычно в виде круга с пиктограммой в центре. FAB бывают двух типов: обычные и расширенные.
 
-Only use a FAB if it is the most suitable way to present a screen's primary action.
-Only one component is recommended per screen to represent the most common action.
+Используйте FAB только в том случае, если это наиболее подходящий способ представления основного действия на экране. Для представления наиболее распространенного действия на экране рекомендуется использовать только один компонент.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic FAB
+## Базовая ФАБ <meta data-oversett="" data-original-text="Basic FAB">
 
 {{"demo": "FloatingActionButtons.js"}}
 
-## Size
+## Размер <meta data-oversett="" data-original-text="Size">
 
-By default, the size is `large`. Use the `size` prop for smaller floating action buttons.
+По умолчанию размер равен `large`. Для плавающих кнопок действий меньшего размера используйте реквизит `size`.
 
 {{"demo": "FloatingActionButtonSize.js"}}
 
 {{"demo": "FloatingActionButtonExtendedSize.js"}}
 
-## Animation
+## Анимация <meta data-oversett="" data-original-text="Animation">
 
-The floating action button animates onto the screen as an expanding piece of material, by default.
+По умолчанию плавающая кнопка действия анимируется на экране в виде расширяющегося куска материала.
 
-A floating action button that spans multiple lateral screens (such as tabbed screens) should briefly disappear,
-then reappear if its action changes.
+Плавающая кнопка действия, охватывающая несколько боковых экранов (например, экраны с вкладками), должна ненадолго исчезать, а затем появляться снова, если ее действие меняется.
 
-The Zoom transition can be used to achieve this. Note that since both the exiting and entering
-animations are triggered at the same time, we use `enterDelay` to allow the outgoing Floating Action Button's
-animation to finish before the new one enters.
+Для этого можно использовать переход Zoom. Обратите внимание, что поскольку анимации выхода и входа запускаются одновременно, мы используем `enterDelay`, чтобы анимация выходящей плавающей кнопки действия успела завершиться до того, как появится новая.
 
 {{"demo": "FloatingActionButtonZoom.js", "bg": true}}

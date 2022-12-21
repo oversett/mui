@@ -1,30 +1,29 @@
-# Server rendering
 
-<p class="description">The most common use case for server-side rendering is to handle the initial render when a user (or search engine crawler) first requests your app.</p>
 
-When the server receives the request, it renders the required component(s) into an HTML string, and then sends it as a response to the client.
-From that point on, the client takes over rendering duties.
+# Серверный рендеринг <meta data-oversett="" data-original-text="Server rendering">
 
-## MUI on the server
+<p class="description">Наиболее распространенный случай использования рендеринга на стороне сервера - это обработка первоначального рендеринга, когда пользователь (или поисковая машина) впервые запрашивает ваше приложение.</p>
 
-MUI was designed from the ground-up with the constraint of rendering on the server, but it's up to you to make sure it's correctly integrated.
-It's important to provide the page with the required CSS, otherwise the page will render with just the HTML then wait for the CSS to be injected by the client, causing it to flicker (FOUC).
-To inject the style down to the client, we need to:
+Когда сервер получает запрос, он преобразует необходимый компонент(ы) в строку HTML, а затем отправляет ее в качестве ответа клиенту. С этого момента клиент берет на себя обязанности по рендерингу.
 
-1. Create a fresh, new [`emotion cache`](https://emotion.sh/docs/@emotion/cache) instance on every request.
-2. Render the React tree with the server-side collector.
-3. Pull the CSS out.
-4. Pass the CSS along to the client.
+## MUI на сервере <meta data-oversett="" data-original-text="MUI on the server">
 
-On the client-side, the CSS will be injected a second time before removing the server-side injected CSS.
+MUI был разработан с нуля с ограничением рендеринга на сервере, но именно от вас зависит, насколько правильно он будет интегрирован. Важно обеспечить страницу необходимым CSS, иначе страница будет рендерить только HTML, а затем ждать, пока CSS будет внедрен клиентом, что приведет к мерцанию (FOUC). Чтобы внедрить стиль клиенту, нам необходимо:
 
-## Setting up
+1.  Создавайте свежий, новый [`emotion cache`](https://emotion.sh/docs/@emotion/cache) экземпляр при каждом запросе.
+2.  Рендерить дерево React с помощью коллектора на стороне сервера.
+3.  Извлечь CSS.
+4.  Передать CSS клиенту.
 
-In the following recipe, we are going to look at how to set up server-side rendering.
+На стороне клиента CSS будет внедрен второй раз, прежде чем удалить внедренный на стороне сервера CSS.
 
-### The theme
+## Настройка <meta data-oversett="" data-original-text="Setting up">
 
-Create a theme that will be shared between the client and the server:
+В следующем рецепте мы рассмотрим, как настроить рендеринг на стороне сервера.
+
+### Тема <meta data-oversett="" data-original-text="The theme">
+
+Создайте тему, которая будет общей для клиента и сервера:
 
 `theme.js`
 
@@ -50,11 +49,9 @@ const theme = createTheme({
 export default theme;
 ```
 
-### The server-side
+### Серверная сторона <meta data-oversett="" data-original-text="The server-side">
 
-The following is the outline for what the server-side is going to look like.
-We are going to set up an [Express middleware](https://expressjs.com/en/guide/using-middleware.html) using [app.use](https://expressjs.com/en/api.html) to handle all requests that come into the server.
-If you're unfamiliar with Express or middleware, know that the `handleRender` function will be called every time the server receives a request.
+Ниже описано, как будет выглядеть сторона сервера. Мы собираемся установить [промежуточное ПО Express](https://expressjs.com/en/guide/using-middleware.html) с помощью [app.use](https://expressjs.com/en/api.html) для обработки всех запросов, поступающих на сервер. Если вы не знакомы с Express или промежуточным ПО, знайте, что функция `handleRender` будет вызываться каждый раз, когда сервер получает запрос.
 
 `server.js`
 
@@ -79,18 +76,15 @@ const port = 3000;
 app.listen(port);
 ```
 
-### Handling the request
+### Обработка запроса <meta data-oversett="" data-original-text="Handling the request">
 
-The first thing that we need to do on every request is to create a new `emotion cache`.
+Первое, что нам нужно сделать при каждом запросе, это создать новый `emotion cache`.
 
-When rendering, we will wrap `App`, the root component,
-inside a [`CacheProvider`](https://emotion.sh/docs/cache-provider) and [`ThemeProvider`](/system/styles/api/#themeprovider) to make the style configuration and the `theme` available to all components in the component tree.
+При рендеринге мы обернем `App`, корневой компонент, внутрь компонента [`CacheProvider`](https://emotion.sh/docs/cache-provider) и [`ThemeProvider`](/system/styles/api/#themeprovider) чтобы сделать конфигурацию стиля и `theme` доступной для всех компонентов в дереве компонентов.
 
-The key step in server-side rendering is to render the initial HTML of the component **before** we send it to the client-side. To do this, we use [ReactDOMServer.renderToString()](https://reactjs.org/docs/react-dom-server.html).
+Ключевым шагом в рендеринге на стороне сервера является рендеринг исходного HTML компонента **перед** отправкой его на сторону клиента. Для этого мы используем [ReactDOMServer.renderToString()](https://reactjs.org/docs/react-dom-server.html).
 
-MUI is using Emotion as its default styled engine.
-We need to extract the styles from the Emotion instance.
-For this, we need to share the same cache configuration for both the client and server:
+MUI использует Emotion в качестве движка стилей по умолчанию. Нам нужно извлечь стили из экземпляра Emotion. Для этого нам нужно использовать одну и ту же конфигурацию кэша для клиента и сервера:
 
 `createEmotionCache.js`
 
@@ -102,9 +96,9 @@ export default function createEmotionCache() {
 }
 ```
 
-With this we are creating a new Emotion cache instance and using this to extract the critical styles for the html as well.
+Для этого мы создаем новый экземпляр кэша Emotion и используем его для извлечения критических стилей для html.
 
-We will see how this is passed along in the `renderFullPage` function.
+Мы увидим, как это передается в функции `renderFullPage`.
 
 ```jsx
 import express from 'express';
@@ -153,9 +147,9 @@ const port = 3000;
 app.listen(port);
 ```
 
-### Inject initial component HTML and CSS
+### Вставка HTML и CSS начального компонента <meta data-oversett="" data-original-text="Inject initial component HTML and CSS">
 
-The final step on the server-side is to inject the initial component HTML and CSS into a template to be rendered on the client-side.
+Последним шагом на стороне сервера является внедрение HTML и CSS начального компонента в шаблон для отображения на стороне клиента.
 
 ```js
 function renderFullPage(html, css) {
@@ -176,11 +170,9 @@ function renderFullPage(html, css) {
 }
 ```
 
-### The client-side
+### Клиентская сторона <meta data-oversett="" data-original-text="The client-side">
 
-The client-side is straightforward.
-All we need to do is use the same cache configuration as the server-side.
-Let's take a look at the client file:
+Клиентская сторона проста. Все, что нам нужно сделать, это использовать ту же конфигурацию кэша, что и на серверной стороне. Давайте посмотрим на файл клиента:
 
 `client.js`
 
@@ -211,14 +203,14 @@ function Main() {
 ReactDOM.hydrate(<Main />, document.querySelector('#root'));
 ```
 
-## Reference implementations
+## Эталонные реализации <meta data-oversett="" data-original-text="Reference implementations">
 
-We host different reference implementations which you can find in the [GitHub repository](https://github.com/mui/material-ui) under the [`/examples`](https://github.com/mui/material-ui/tree/HEAD/examples) folder:
+Мы разместили различные эталонные реализации, которые вы можете найти в [репозитории GitHub](https://github.com/mui/material-ui) в папке [`/examples`](https://github.com/mui/material-ui/tree/HEAD/examples) папка:
 
-- [The reference implementation of this tutorial](https://github.com/mui/material-ui/tree/HEAD/examples/ssr)
-- [Gatsby](https://github.com/mui/material-ui/tree/HEAD/examples/gatsby)
-- [Next.js](https://github.com/mui/material-ui/tree/HEAD/examples/nextjs) ([TypeScript version](https://github.com/mui/material-ui/tree/HEAD/examples/nextjs-with-typescript))
+-   [Эталонная реализация этого руководства](https://github.com/mui/material-ui/tree/HEAD/examples/ssr)
+-   [Gatsby](https://github.com/mui/material-ui/tree/HEAD/examples/gatsby)
+-   [Next.js](https://github.com/mui/material-ui/tree/HEAD/examples/nextjs)[(версия TypeScript](https://github.com/mui/material-ui/tree/HEAD/examples/nextjs-with-typescript))
 
-## Troubleshooting
+## Устранение неполадок <meta data-oversett="" data-original-text="Troubleshooting">
 
-Check out the FAQ answer: [My App doesn't render correctly on the server](/material-ui/getting-started/faq/#my-app-doesnt-render-correctly-on-the-server).
+Ознакомьтесь с ответом на часто задаваемые вопросы: [Мое приложение некорректно отображается на сервере](/material-ui/getting-started/faq/#my-app-doesnt-render-correctly-on-the-server).

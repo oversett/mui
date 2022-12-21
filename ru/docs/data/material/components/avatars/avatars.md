@@ -5,69 +5,68 @@ components: Avatar, AvatarGroup, Badge
 githubLabel: 'component: avatar'
 ---
 
-# Avatar
+# Аватар <meta data-oversett="" data-original-text="Avatar">
 
-<p class="description">Avatars are found throughout material design with uses in everything from tables to dialog menus.</p>
+<p class="description">Аватары встречаются во всем материальном дизайне, их используют во всем, от таблиц до диалоговых меню.</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Image avatars
+## Аватары изображений <meta data-oversett="" data-original-text="Image avatars">
 
-Image avatars can be created by passing standard `img` props `src` or `srcSet` to the component.
+Аватары изображений можно создать, передав компоненту стандартные реквизиты `img` `src` или `srcSet`.
 
 {{"demo": "ImageAvatars.js"}}
 
-## Letter avatars
+## Буквенные аватары <meta data-oversett="" data-original-text="Letter avatars">
 
-Avatars containing simple characters can be created by passing a string as `children`.
+Аватары, содержащие простые символы, могут быть созданы путем передачи строки `children`.
 
 {{"demo": "LetterAvatars.js"}}
 
-You can use different background colors for the avatar.
-The following demo generates the color based on the name of the person.
+Вы можете использовать различные цвета фона для аватара. Следующий демонстрационный пример генерирует цвет на основе имени человека.
 
 {{"demo": "BackgroundLetterAvatars.js"}}
 
-## Sizes
+## Размеры <meta data-oversett="" data-original-text="Sizes">
 
-You can change the size of the avatar with the `height` and `width` CSS properties.
+Вы можете изменить размер аватара с помощью свойств `height` и `width` CSS.
 
 {{"demo": "SizeAvatars.js"}}
 
-## Icon avatars
+## Аватары-иконки <meta data-oversett="" data-original-text="Icon avatars">
 
-Icon avatars are created by passing an icon as `children`.
+Аватары в виде иконок создаются путем передачи иконки в качестве `children`.
 
 {{"demo": "IconAvatars.js"}}
 
-## Variants
+## Варианты <meta data-oversett="" data-original-text="Variants">
 
-If you need square or rounded avatars, use the `variant` prop.
+Если вам нужны квадратные или округлые аватары, используйте свойство `variant`.
 
 {{"demo": "VariantAvatars.js"}}
 
-## Fallbacks
+## Обратные действия <meta data-oversett="" data-original-text="Fallbacks">
 
-If there is an error loading the avatar image, the component falls back to an alternative in the following order:
+Если при загрузке изображения аватара произошла ошибка, компонент переходит к альтернативному варианту в следующем порядке:
 
-- the provided children
-- the first letter of the `alt` text
-- a generic avatar icon
+-   предоставленные дочерние элементы
+-   первая буква текста `alt`
+-   общий значок аватара
 
 {{"demo": "FallbackAvatars.js"}}
 
-## Grouped
+## Сгруппированный <meta data-oversett="" data-original-text="Grouped">
 
-`AvatarGroup` renders its children as a stack. Use the `max` prop to limit the number of avatars.
+`AvatarGroup` отображает дочерние элементы в виде стопки. Используйте параметр `max`, чтобы ограничить количество аватаров.
 
 {{"demo": "GroupAvatars.js"}}
 
-### Total avatars
+### Общее количество аватаров <meta data-oversett="" data-original-text="Total avatars">
 
-If you need to control the total number of avatars not shown, you can use the `total` prop.
+Если вам нужно контролировать общее количество не показанных аватаров, вы можете использовать реквизит `total`.
 
 {{"demo": "TotalAvatars.js"}}
 
-## With badge
+## Со значком <meta data-oversett="" data-original-text="With badge">
 
 {{"demo": "BadgeAvatars.js"}}

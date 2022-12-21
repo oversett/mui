@@ -5,40 +5,33 @@ components: Box
 githubLabel: 'component: Box'
 ---
 
-# Box
+# Box <meta data-oversett="" data-original-text="Box">
 
-<p class="description">The Box component serves as a wrapper component for most of the CSS utility needs.</p>
+<p class="description">Компонент Box служит в качестве компонента-обертки для большинства потребностей в утилитах CSS.</p>
 
-The Box component packages [all the style functions](/system/properties/) that are exposed in `@mui/system`.
+Компонент Box объединяет [все функции стилей](/system/properties/), которые открыты в `@mui/system`.
 
 {{"component": "modules/components/ComponentLinkHeader.js", "design": false}}
 
-## Example
+## Пример <meta data-oversett="" data-original-text="Example">
 
-[The palette](/system/palette/) style function.
+Функция стиля[палитры](/system/palette/).
 
-## The `sx` prop
+## Реквизит `sx` <meta data-oversett="" data-original-text="The sx prop">
 
-All system properties are available via the [`sx` prop](/system/getting-started/the-sx-prop/).
-In addition, the `sx` prop allows you to specify any other CSS rules you may need. Here's an example of how you can use it:
+Все системные свойства доступны через [реквизит`sx`](/system/getting-started/the-sx-prop/) . Кроме того, реквизит `sx` позволяет задать любые другие правила CSS, которые могут вам понадобиться. Вот пример того, как его можно использовать:
 
 {{"demo": "BoxSx.js", "defaultCodeOpen": true }}
 
-## Overriding MUI components
+## Переопределение компонентов MUI <meta data-oversett="" data-original-text="Overriding MUI components">
 
-The Box component wraps your component.
-It creates a new DOM element, a `<div>` that by default can be changed with the `component` prop.
-Let's say you want to use a `<span>` instead:
+Компонент Box оборачивает ваш компонент. Он создает новый элемент DOM, `<div>`, который по умолчанию можно изменить с помощью свойства `component`. Допустим, вы хотите использовать вместо него `<span>`:
 
 {{"demo": "BoxComponent.js", "defaultCodeOpen": true }}
 
-This works great when the changes can be isolated to a new DOM element.
-For instance, you can change the margin this way.
+Это отлично работает, когда изменения могут быть изолированы в новом элементе DOM. Например, таким образом можно изменить margin.
 
-However, sometimes you have to target the underlying DOM element.
-As an example, you may want to change the border of the Button.
-The Button component defines its own styles. CSS inheritance doesn't help.
-To workaround the problem, you can use the [`sx`](/system/getting-started/the-sx-prop/) prop directly on the child if it is a MUI component.
+Однако иногда вам необходимо указать на базовый элемент DOM. Например, вы можете захотеть изменить границы кнопки Button. Компонент Button определяет свои собственные стили. Наследование CSS не поможет. Чтобы обойти эту проблему, вы можете использовать реквизит [`sx`](/system/getting-started/the-sx-prop/) непосредственно на дочернем компоненте, если это MUI-компонент.
 
 ```diff
 -<Box sx={{ border: '1px dashed grey' }}>
@@ -47,7 +40,7 @@ To workaround the problem, you can use the [`sx`](/system/getting-started/the-sx
 +<Button sx={{ border: '1px dashed grey' }}>Save</Button>
 ```
 
-For non-MUI components, use the `component` prop.
+Для не-MUI компонентов используйте реквизит `component`.
 
 ```diff
 -<Box sx={{ border: '1px dashed grey' }}>
@@ -56,10 +49,9 @@ For non-MUI components, use the `component` prop.
 +<Box component="button" sx={{ border: '1px dashed grey' }}>Save</Box>
 ```
 
-## System props
+## Системные реквизиты <meta data-oversett="" data-original-text="System props">
 
-As a CSS utility component, the `Box` also supports all [`system`](/system/properties/) properties. You can use them as prop directly on the component.
-For instance, a margin-top:
+Как компонент CSS-утилиты, `Box` также поддерживает все [`system`](/system/properties/) свойства. Вы можете использовать их как prop непосредственно на компоненте. Например, margin-top:
 
 ```jsx
 <Box mt={2}>

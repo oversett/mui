@@ -1,27 +1,26 @@
-# Migration from @material-ui/pickers
 
-<p class="description">@material-ui/pickers was moved to the @mui/lab.</p>
+
+# Миграция из @material-ui/pickers <meta data-oversett="" data-original-text="Migration from @material-ui/pickers">
+
+<p class="description">Пакет @material-ui/pickers был перемещен в @mui/lab.</p>
 
 :::info
-**Stable package available**: The pickers are not available in `@mui/lab` after `v5.0.0-alpha.89`.
-They have been moved from `@mui/lab` to the MUI X packages `@mui/x-date-pickers` and `@mui/x-date-pickers-pro`.
-To migrate from `@mui/lab` to `@mui/x-date-pickers` you can follow the dedicated [migration guide](/x/react-date-pickers/migration-lab/).
+**Стабильный пакет доступен**: Пикеры недоступны в `@mui/lab` после `v5.0.0-alpha.89`. Они были перемещены из `@mui/lab` в пакеты MUI X `@mui/x-date-pickers` и `@mui/x-date-pickers-pro`. Для миграции с `@mui/lab` на `@mui/x-date-pickers` вы можете следовать специальному [руководству по миграции](/x/react-date-pickers/migration-lab/).
 :::
 
 :::warning
-**The date picker components were rewritten**. In most places, the logic was rewritten from scratch, so it isn't possible to maintain the whole list of changes. Here's an overview of the most important concepts that were changed. If you are going to upgrade, the easiest way might be to go through each picker usage in your codebase, and rewrite them one at a time. Don't forget to run your tests after each!
+**Компоненты выбора даты были переписаны**. В большинстве мест логика была переписана с нуля, поэтому невозможно сохранить весь список изменений. Вот обзор наиболее важных концепций, которые были изменены. Если вы собираетесь обновить систему, самым простым способом может быть прохождение по каждому использованию picker в вашей кодовой базе и переписывание их по одному. Не забывайте запускать тесты после каждого!
 :::
 
-This guide is an overview of the core concepts that were changed from pickers v3.2.10.
+Это руководство представляет собой обзор основных концепций, которые были изменены в pickers v3.2.10.
 
-## Installation
+## Установка <meta data-oversett="" data-original-text="Installation">
 
-You need to install the `@mui/lab` package if it's not already installed.
-⚠️ Make sure you have installed the latest version, `"@mui/lab": ^5.0.0-alpha.30"` or above.
+Вам необходимо установить пакет `@mui/lab`, если он еще не установлен. ⚠️ Убедитесь, что вы установили последнюю версию, `"@mui/lab": ^5.0.0-alpha.30"` или выше.
 
-## Imports
+## Импортирует <meta data-oversett="" data-original-text="Imports">
 
-The `keyboard` version of pickers is no longer published. All versions of mobile and desktop pickers implement keyboard input for accessibility.
+Версия `keyboard` для пикеров больше не публикуется. Во всех версиях мобильных и настольных пикеров реализован ввод с клавиатуры для доступности.
 
 ```diff
 -import { KeyboardDatePicker } from '@material-ui/pickers';
@@ -31,12 +30,12 @@ The `keyboard` version of pickers is no longer published. All versions of mobile
 +<DatePicker />
 ```
 
-Also, instead of providing a `variant` prop, these were moved to different imports, meaning that your bundle won't include `Dialog` if you are using only the desktop picker.
+Также, вместо того, чтобы предоставлять `variant` реквизит, они были перемещены в разные импорты, что означает, что ваш пакет не будет включать `Dialog`, если вы используете только настольный пикер.
 
-- `<DesktopDatePicker />` – Only desktop view.
-- `<MobileDatePicker />` – Only mobile view.
-- `<DatePicker />` – Mobile or Desktop view according to the user **pointer** preference.
-- `<StaticDatePicker />` – The picker view itself, without input or any other wrapper.
+-   `<DesktopDatePicker />` - Только настольный вид.
+-   `<MobileDatePicker />` - Только мобильный вид.
+-   `<DatePicker />` - Мобильный или настольный вид в зависимости от предпочтений пользователя **.**
+-   `<StaticDatePicker />` - Само представление пикера, без ввода или любой другой обертки.
 
 ```diff
 -import { DatePicker } from '@material-ui/pickers';
@@ -46,20 +45,20 @@ Also, instead of providing a `variant` prop, these were moved to different impor
 +<DesktopDatePicker />
 ```
 
-The same convention applies to `TimePicker` – `<DesktopTimePicker>` and `<MobileTimePicker />`.
+Это же соглашение применяется к `TimePicker` - `<DesktopTimePicker>` и `<MobileTimePicker />`.
 
-## MuiPickersUtilsProvider
+## MuiPickersUtilsProvider . <meta data-oversett="" data-original-text="MuiPickersUtilsProvider">
 
-The `MuiPickersUtilsProvider` was removed in favor of `LocalizationProvider`. Also, pickers do not require you to install date-io adapters manually. Everything is included with the `lab`.
+`MuiPickersUtilsProvider` был удален в пользу `LocalizationProvider`. Кроме того, пикеры не требуют ручной установки адаптеров date-io. Все включено в `lab`.
 
-❌ Before:
+❌ До:
 
 ```js
 import AdapterDateFns from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 ```
 
-✅ After:
+✅ После:
 
 ```jsx
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -75,16 +74,16 @@ function App() {
 );
 ```
 
-## Render input
+## Ввод рендера <meta data-oversett="" data-original-text="Render input">
 
-We introduced a new **required** `renderInput` prop. This simplifies using non-MUI text field input components.
+Мы ввели новый **обязательный** реквизит `renderInput`. Это упрощает использование не-MUI компонентов ввода текстового поля.
 
 ```jsx
 <DatePicker renderInput={(props) => <TextField {...props} />} />
 <TimePicker renderInput={(props) => <TextField {...props} />} />
 ```
 
-Previously, props were spread on the `<TextField />` component. From now on you will need to use the new `renderInput` prop to provide these:
+Ранее реквизит распространялся на компонент `<TextField />`. Теперь для их предоставления вам нужно будет использовать новый реквизит `renderInput`:
 
 ```diff
  <DatePicker
@@ -94,13 +93,13 @@ Previously, props were spread on the `<TextField />` component. From now on you 
  />
 ```
 
-## State management
+## Управление состояниями <meta data-oversett="" data-original-text="State management">
 
-The state/value management logic for pickers was rewritten from scratch. Pickers will now call the `onChange` prop when each view of the date picker ends is completed. The `onError` handler is also completely different. Triple-check your pickers with forms integration, because form-integration issues can be subtle.
+Логика управления состояниями/значениями для пикеров была переписана с нуля. Теперь пикеры будут вызывать реквизит `onChange` при завершении каждого представления даты пикера. Обработчик `onError` также полностью изменился. Тройная проверка ваших пикеров с интеграцией форм, потому что проблемы с интеграцией форм могут быть очень тонкими.
 
-## No required mask
+## Не требуется маска <meta data-oversett="" data-original-text="No required mask">
 
-Mask is no longer required. Also, if your provided mask is not valid, pickers will just ignore the mask, and allow arbitrary input.
+Маска больше не требуется. Также, если предоставленная вами маска не действительна, пикеры будут просто игнорировать маску и разрешать произвольный ввод.
 
 ```jsx
 <DatePicker
@@ -121,15 +120,15 @@ Mask is no longer required. Also, if your provided mask is not valid, pickers wi
 />
 ```
 
-## And many more
+## И многое другое <meta data-oversett="" data-original-text="And many more">
 
-- ```diff
-   <DatePicker
-  -  format="DD-MMM-YYYY"
-  +  inputFormat="DD-MMM-YYYY"
-  ```
+-   ```diff
+     <DatePicker
+    -  format="DD-MMM-YYYY"
+    +  inputFormat="DD-MMM-YYYY"
+    ```
+    
 
-There are many changes, be careful, make sure your tests, and build pass.
-In the event you have an advanced usage of the date picker, it will likely be simpler to rewrite it.
+Изменений много, будьте осторожны, убедитесь, что ваши тесты и сборка прошли. Если вы используете сборщик дат в расширенном виде, скорее всего, будет проще переписать его.
 
-Please open a pull request to improve the guide if you notice an opportunity for doing such.
+Пожалуйста, откройте запрос на исправление руководства, если вы заметили возможность сделать это.

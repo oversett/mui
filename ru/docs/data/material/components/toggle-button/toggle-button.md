@@ -6,51 +6,49 @@ githubLabel: 'component: toggle button'
 materialDesign: https://m2.material.io/components/buttons#toggle-button
 ---
 
-# Toggle Button
+# Кнопка переключения <meta data-oversett="" data-original-text="Toggle Button">
 
-<p class="description">A Toggle Button can be used to group related options.</p>
+<p class="description">Кнопка переключения может использоваться для группировки связанных опций.</p>
 
-To emphasize groups of related Toggle buttons,
-a group should share a common container.
-The `ToggleButtonGroup` controls the selected state of its child buttons when given its own `value` prop.
+Чтобы выделить группы связанных кнопок Toggle, группа должна иметь общий контейнер. `ToggleButtonGroup` управляет выбранным состоянием своих дочерних кнопок, если ему присвоен собственный реквизит `value`.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Exclusive selection
+## Эксклюзивный выбор <meta data-oversett="" data-original-text="Exclusive selection">
 
-With exclusive selection, selecting one option deselects any other.
+При эксклюзивном выборе один параметр отменяет выбор любого другого.
 
-In this example, text justification toggle buttons present options for left, center, right, and fully justified text (disabled), with only one item available for selection at a time.
+В этом примере кнопки переключения обоснования текста представляют варианты для левого, центрального, правого и полностью обоснованного текста (отключено), причем для выбора одновременно доступен только один элемент.
 
-**Note**: Exclusive selection does not enforce that a button must be active. For that effect see [enforce value set](#enforce-value-set).
+**Примечание**: Исключительный выбор не требует, чтобы кнопка была активной. Об этом см. раздел " [Усилить набор значений](#enforce-value-set)".
 
 {{"demo": "ToggleButtons.js"}}
 
-## Multiple selection
+## Множественный выбор <meta data-oversett="" data-original-text="Multiple selection">
 
-Multiple selection allows for logically-grouped options, like bold, italic, and underline, to have multiple options selected.
+Множественный выбор позволяет выбирать несколько вариантов логически сгруппированных опций, таких как полужирный, курсив и подчеркивание.
 
 {{"demo": "ToggleButtonsMultiple.js"}}
 
-## Size
+## Размер <meta data-oversett="" data-original-text="Size">
 
-For larger or smaller buttons, use the `size` prop.
+Для создания кнопок большего или меньшего размера используйте параметр `size`.
 
 {{"demo": "ToggleButtonSizes.js"}}
 
-## Color
+## Цвет <meta data-oversett="" data-original-text="Color">
 
 {{"demo": "ColorToggleButton.js"}}
 
-## Vertical buttons
+## Вертикальные кнопки <meta data-oversett="" data-original-text="Vertical buttons">
 
-The buttons can be stacked vertically with the `orientation` prop set to "vertical".
+Кнопки можно укладывать вертикально, если для параметра `orientation` установить значение "вертикально".
 
 {{"demo": "VerticalToggleButtons.js"}}
 
-## Enforce value set
+## Принудительный набор значений <meta data-oversett="" data-original-text="Enforce value set">
 
-If you want to enforce that at least one button must be active, you can adapt your handleChange function.
+Если вы хотите, чтобы хотя бы одна кнопка была активна, вы можете адаптировать функцию handleChange.
 
 ```jsx
 const handleAlignment = (event, newAlignment) => {
@@ -68,24 +66,23 @@ const handleDevices = (event, newDevices) => {
 
 {{"demo": "ToggleButtonNotEmpty.js"}}
 
-## Standalone toggle button
+## Отдельная кнопка переключения <meta data-oversett="" data-original-text="Standalone toggle button">
 
 {{"demo": "StandaloneToggleButton.js"}}
 
-## Customization
+## Настройка <meta data-oversett="" data-original-text="Customization">
 
-Here is an example of customizing the component.
-You can learn more about this in the [overrides documentation page](/material-ui/customization/how-to-customize/).
+Здесь приведен пример настройки компонента. Вы можете узнать больше об этом на [странице документации по переопределениям](/material-ui/customization/how-to-customize/).
 
 {{"demo": "CustomizedDividers.js", "bg": true}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-### ARIA
+### ARIA <meta data-oversett="" data-original-text="ARIA">
 
-- ToggleButtonGroup has `role="group"`. You should provide an accessible label with `aria-label="label"`, `aria-labelledby="id"` or `<label>`.
-- ToggleButton sets `aria-pressed="<bool>"` according to the button state. You should label each button with `aria-label`.
+-   ToggleButtonGroup имеет `role="group"`. Вы должны предоставить доступную метку с `aria-label="label"`, `aria-labelledby="id"` или `<label>`.
+-   ToggleButton устанавливает `aria-pressed="<bool>"` в соответствии с состоянием кнопки. Для каждой кнопки следует использовать метку `aria-label`.
 
-### Keyboard
+### Клавиатура <meta data-oversett="" data-original-text="Keyboard">
 
-At present, toggle buttons are in DOM order. Navigate between them with the tab key. The button behavior follows standard keyboard semantics.
+В настоящее время кнопки переключения расположены в порядке DOM. Переход между ними осуществляется с помощью клавиши табуляции. Поведение кнопки соответствует стандартной клавиатурной семантике.

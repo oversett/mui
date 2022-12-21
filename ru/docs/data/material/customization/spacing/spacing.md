@@ -1,8 +1,10 @@
-# Spacing
 
-<p class="description">Use the theme.spacing() helper to create consistent spacing between the elements of your UI.</p>
 
-MUI uses [a recommended 8px scaling factor](https://m2.material.io/design/layout/understanding-layout.html) by default.
+# Расстановка <meta data-oversett="" data-original-text="Spacing">
+
+<p class="description">Используйте помощник theme.spacing() для создания согласованного расстояния между элементами пользовательского интерфейса.</p>
+
+По умолчанию MUI использует [рекомендуемый коэффициент масштабирования 8px](https://m2.material.io/design/layout/understanding-layout.html).
 
 ```js
 const theme = createTheme();
@@ -10,11 +12,11 @@ const theme = createTheme();
 theme.spacing(2); // `${8 * 2}px` = '16px'
 ```
 
-## Custom spacing
+## Пользовательский интервал <meta data-oversett="" data-original-text="Custom spacing">
 
-You can change the spacing transformation by providing:
+Вы можете изменить преобразование интервалов, указав:
 
-- a number
+-   число
 
 ```js
 const theme = createTheme({
@@ -24,7 +26,7 @@ const theme = createTheme({
 theme.spacing(2); // `${4 * 2}px` = '8px'
 ```
 
-- a function
+-   функция
 
 ```js
 const theme = createTheme({
@@ -34,7 +36,7 @@ const theme = createTheme({
 theme.spacing(2); // = 0.25 * 2rem = 0.5rem = 8px
 ```
 
-- an array
+-   массив
 
 ```js
 const theme = createTheme({
@@ -44,17 +46,16 @@ const theme = createTheme({
 theme.spacing(2); // = '8px'
 ```
 
-## Multiple arity
+## Множественная четкость <meta data-oversett="" data-original-text="Multiple arity">
 
-The `theme.spacing()` helper accepts up to 4 arguments.
-You can use the arguments to reduce the boilerplate.
+Помощник `theme.spacing()` принимает до 4 аргументов. Вы можете использовать аргументы, чтобы сократить шаблон.
 
 ```diff
 -padding: `${theme.spacing(1)} ${theme.spacing(2)}`, // '8px 16px'
 +padding: theme.spacing(1, 2), // '8px 16px'
 ```
 
-Mixing string values is also supported:
+Также поддерживается смешивание строковых значений:
 
 ```js
 margin: theme.spacing(1, 'auto'), // '8px auto'

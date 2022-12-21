@@ -1,27 +1,28 @@
-# Troubleshooting
 
-<p class="description">This document covers known issues and common problems encountered when migrating from Material UI v4 to v5.</p>
 
-## Material UI v5 migration
+# Устранение неполадок <meta data-oversett="" data-original-text="Troubleshooting">
 
-1. [Getting started](/material-ui/migration/migration-v4/)
-2. [Breaking changes part one: style and theme](/material-ui/migration/v5-style-changes/)
-3. [Breaking changes part two: components](/material-ui/migration/v5-component-changes/)
-4. [Migrating from JSS](/material-ui/migration/migrating-from-jss/)
-5. Troubleshooting 👈 _you are here_
+<p class="description">В этом документе описаны известные проблемы и общие проблемы, возникающие при переходе с Material UI v4 на v5.</p>
 
-## Styles broken after migrating to v5
+## Миграция Material UI v5 <meta data-oversett="" data-original-text="Material UI v5 migration">
 
-There are two reasons why component styles may be broken after you've completed all steps in the migration process.
+1.  [Начало работы](/material-ui/migration/migration-v4/)
+2.  [Первая часть: стиль и тема](/material-ui/migration/v5-style-changes/)
+3.  [Внесение изменений, часть вторая: компоненты](/material-ui/migration/v5-component-changes/)
+4.  [Миграция с JSS](/material-ui/migration/migrating-from-jss/)
+5.  Устранение неполадок 👈 _вы здесь_
 
-First, check if you have configured the `StyledEngineProvider` correctly, as shown in the [Style library](/material-ui/migration/v5-style-changes/#style-library) section.
+## Нарушение стилей после перехода на v5 <meta data-oversett="" data-original-text="Styles broken after migrating to v5">
 
-If the `StyledEngineProvider` is already used at the top of your application and the styles are still broken, it may be the case that you still have `@material-ui/core` in your application.
+Есть две причины, по которым стили компонентов могут быть нарушены после выполнения всех шагов процесса миграции.
 
-This could be caused by other dependencies in the app that still rely on Material UI v4.
+Во-первых, проверьте, правильно ли вы настроили `StyledEngineProvider`, как показано в разделе " [Библиотека стилей](/material-ui/migration/v5-style-changes/#style-library) ".
 
-To check this, run `npm ls @material-ui/core` (or `yarn why @material-ui/core`).
-If your project contains such dependencies, you will see a list that looks something like this:
+Если `StyledEngineProvider` уже используется в верхней части вашего приложения, а стили все еще не работают, возможно, в вашем приложении все еще присутствует `@material-ui/core`.
+
+Это может быть вызвано другими зависимостями в приложении, которые все еще полагаются на Material UI v4.
+
+Чтобы проверить это, запустите `npm ls @material-ui/core` (или `yarn why @material-ui/core`). Если ваш проект содержит такие зависимости, вы увидите список, который выглядит примерно так:
 
 ```sh
 $ npm ls @material-ui/core
@@ -30,13 +31,13 @@ project@0.1.0 /path/to/project
   └── @material-ui/core@4.12.3
 ```
 
-The output above indicates that `@material-ui/core` is a dependency of `@mui/x-data-grid`.
+Приведенный выше результат показывает, что `@material-ui/core` является зависимостью от `@mui/x-data-grid`.
 
-In this specific example, you would need to bump the version of `@mui/x-data-grid` to [v5](https://www.npmjs.com/package/@mui/x-data-grid) so that it depends on `@mui/material` instead.
+В данном конкретном примере вам нужно увеличить версию `@mui/x-data-grid` до [v5](https://www.npmjs.com/package/@mui/x-data-grid), чтобы она зависела от `@mui/material`.
 
-## Storybook and Emotion
+## Storybook и Emotion <meta data-oversett="" data-original-text="Storybook and Emotion">
 
-If your project uses Storybook v6.x, you will need to update the `.storybook/main.js` webpack config to use the most recent version of Emotion:
+Если ваш проект использует Storybook v6.x, вам нужно обновить конфигурацию webpack `.storybook/main.js`, чтобы использовать последнюю версию Emotion:
 
 ```js
 // .storybook/main.js
@@ -61,7 +62,7 @@ module.exports = {
 };
 ```
 
-Next, update `.storybook/preview.js` to prevent Storybook's Docs tab from displaying an empty page:
+Затем обновите `.storybook/preview.js`, чтобы вкладка "Документы" Storybook не отображала пустую страницу:
 
 ```js
 // .storybook/preview.js
@@ -87,8 +88,7 @@ export const decorators = [withThemeProvider];
 ```
 
 :::info
-
-This solution has been tested on the following versions:
+Это решение было протестировано на следующих версиях:
 
 ```json
 {
@@ -100,19 +100,19 @@ This solution has been tested on the following versions:
 }
 ```
 
-Note that this is a workaround that may not be suitable for your situation if you are using different versions.
+Обратите внимание, что это обходной путь, который может не подойти для вашей ситуации, если вы используете другие версии.
 
-For more details, checkout these GitHub issues:
+Для получения более подробной информации ознакомьтесь с этими проблемами на GitHub:
 
-- https://github.com/storybookjs/storybook/issues/16099
-- https://github.com/mui/material-ui/issues/24282#issuecomment-796755133
-  :::
+-   [https://github.com/storybookjs/storybook/issues/16099](https://github.com/storybookjs/storybook/issues/16099)
+-   [https://github.com/mui/material-ui/issues/24282#issuecomment-796755133](https://github.com/mui/material-ui/issues/24282#issuecomment-796755133)
+:::
 
-## Cannot read property scrollTop of null
+## Невозможно прочитать свойство scrollTop равное null <meta data-oversett="" data-original-text="Cannot read property scrollTop of null">
 
-This error comes from `Fade`, `Grow`, `Slide`, `Zoom` components due to a missing DOM node.
+Эта ошибка возникает в компонентах `Fade`, `Grow`, `Slide`, `Zoom` из-за отсутствия узла DOM.
 
-Make sure that the children forward the `ref` to the DOM for custom components:
+Убедитесь, что дочерние компоненты передают `ref` в DOM для пользовательских компонентов:
 
 ```jsx
 // Ex. 1-1 ❌ This will cause an error because the Fragment is not a DOM node:
@@ -158,19 +158,19 @@ const CustomComponent = React.forwardRef(function CustomComponent(props, ref) {
 </Fade>
 ```
 
-For more details, checkout [this issue](https://github.com/mui/material-ui/issues/27154) on GitHub.
+Для более подробной информации ознакомьтесь с [этой проблемой](https://github.com/mui/material-ui/issues/27154) на GitHub.
 
-## [Types] Property "palette", "spacing" does not exist on type 'DefaultTheme'
+## \[Типы\] Свойство "palette", "spacing" не существует для типа 'DefaultTheme'. <meta data-oversett="" data-original-text="[Types] Property &quot;palette&quot;, &quot;spacing&quot; does not exist on type 'DefaultTheme'">
 
-This error arises because `makeStyles` is now exported from the `@mui/styles` package, which does not know about `Theme` in the core package.
+Эта ошибка возникает потому, что `makeStyles` теперь экспортируется из пакета `@mui/styles`, который не знает о `Theme` в основном пакете.
 
-To fix this, you need to augment the `DefaultTheme` (empty object) in `@mui/styles` with `Theme` from the core.
+Чтобы исправить это, необходимо дополнить `DefaultTheme` (пустой объект) в `@mui/styles` модулем `Theme` из ядра.
 
-Read more about module augmentation in [the official TypeScript docs](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
+Подробнее о дополнении модулей читайте в [официальной документации по TypeScript](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
 
-### TypeScript
+### TypeScript <meta data-oversett="" data-original-text="TypeScript">
 
-Add this snippet to your theme file:
+Добавьте этот фрагмент в файл вашей темы:
 
 ```ts
 // it could be your App.tsx file or theme file that is included in your tsconfig.json
@@ -182,9 +182,9 @@ declare module '@mui/styles/defaultTheme' {
 }
 ```
 
-### JavaScript
+### JavaScript <meta data-oversett="" data-original-text="JavaScript">
 
-If you are using an IDE like VSCode which is able to infer types from a `d.ts` file, create `index.d.ts` in your `src` folder and add the following lines of code:
+Если вы используете IDE, например VSCode, которая может определять типы из файла `d.ts`, создайте `index.d.ts` в папке `src` и добавьте следующие строки кода:
 
 ```js
 // index.d.ts
@@ -195,28 +195,26 @@ declare module '@mui/private-theming' {
 }
 ```
 
-## [Jest] SyntaxError: Unexpected token 'export'
+## \[Jest\] SyntaxError: Unexpected token 'export' <meta data-oversett="" data-original-text="[Jest] SyntaxError: Unexpected token 'export'">
 
-`@mui/material/colors/red` is considered private since v1.0.0.
-To fix this error, you must replace the import.
-For more details, see [this GitHub issue](https://github.com/mui/material-ui/issues/27296).
+`@mui/material/colors/red` считается приватным с версии 1.0.0. Чтобы исправить эту ошибку, вы должны заменить импорт. Для более подробной информации смотрите [эту проблему на GitHub](https://github.com/mui/material-ui/issues/27296).
 
-We recommend using this codemod to fix all imports in your project:
+Мы рекомендуем использовать этот кодмод для исправления всех импортов в вашем проекте:
 
 ```sh
 npx @mui/codemod v5.0.0/optimal-imports <path>
 ```
 
-You can fix it manually like this:
+Вы можете исправить его вручную следующим образом:
 
 ```diff
 -import red from '@mui/material/colors/red';
 +import { red } from '@mui/material/colors';
 ```
 
-## makeStyles - TypeError: Cannot read property 'drawer' of undefined
+## makeStyles - TypeError: Cannot read property 'drawer' of undefined <meta data-oversett="" data-original-text="makeStyles - TypeError: Cannot read property 'drawer' of undefined">
 
-This error occurs when calling `useStyles` or `withStyles` outside of the scope of `<ThemeProvider>`, as in the following example:
+Эта ошибка возникает при вызове `useStyles` или `withStyles` вне области видимости `<ThemeProvider>`, как в следующем примере:
 
 ```js
 import * as React from 'react';
@@ -248,7 +246,7 @@ function App() {
 export default App;
 ```
 
-You can fix this by moving `useStyles` inside another component so that it is called under `<ThemeProvider>`:
+Вы можете исправить это, переместив `useStyles` внутрь другого компонента так, чтобы он вызывался под `<ThemeProvider>`:
 
 ```js
 // ...imports
@@ -270,23 +268,22 @@ function App(props) {
 export default App;
 ```
 
-## TypeError: Cannot read properties of undefined (reading 'pxToRem')
+## TypeError: Cannot read properties of undefined (reading 'pxToRem') <meta data-oversett="" data-original-text="TypeError: Cannot read properties of undefined (reading 'pxToRem')">
 
-This error results from trying to access an empty theme.
+Эта ошибка возникает при попытке получить доступ к пустой теме.
 
-Make sure that you have addressed the following issues:
+Убедитесь, что вы решили следующие проблемы:
 
-1. `styled` should only be imported from `@mui/material/styles` (if you are not using the standalone `@mui/system`):
+1.  `styled` следует импортировать только из `@mui/material/styles` (если вы не используете автономный `@mui/system`):
 
 ```js
 import { styled } from '@mui/material/styles';
 ```
 
-2. `useStyles` cannot be called outside of `<ThemeProvider>`.
-   To fix this problem, follow [the instructions in this section](#makestyles-typeerror-cannot-read-property-drawer-of-undefined).
+2.  `useStyles` не может быть вызвана вне `<ThemeProvider>`. Чтобы исправить эту проблему, следуйте [инструкциям в этом разделе](#makestyles-typeerror-cannot-read-property-drawer-of-undefined).
 
-For more details, see [this GitHub issue](https://github.com/mui/material-ui/issues/28496).
+Для получения более подробной информации см. [этот вопрос на GitHub](https://github.com/mui/material-ui/issues/28496).
 
-## Still having problems?
+## Все еще есть проблемы? <meta data-oversett="" data-original-text="Still having problems?">
 
-If you're encountering a problem not covered here, please [create a GitHub issue](https://github.com/mui/material-ui/issues/new?assignees=&labels=status%3A+needs+triage&template=1.bug.yml) with this title format: **[Migration] Summary of your issue**.
+Если вы столкнулись с проблемой, не описанной здесь, пожалуйста, [создайте проблему на GitHub](https://github.com/mui/material-ui/issues/new?assignees=&labels=status%3A+needs+triage&template=1.bug.yml) с таким форматом заголовка: **\[Migration\] Краткое описание вашей проблемы**.

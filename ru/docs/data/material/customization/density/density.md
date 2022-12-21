@@ -1,48 +1,42 @@
-# Density
 
-<p class="description">How to apply density to MUI components.</p>
 
-## Applying density
+# Плотность <meta data-oversett="" data-original-text="Density">
 
-This section explains how to apply density.
-It doesn't cover potential use cases, or considerations for using density in your application.
-The Material Design guidelines have a [comprehensive guide](https://m2.material.io/design/layout/applying-density.html) covering these topics in more detail.
+<p class="description">Как применить плотность к компонентам MUI.</p>
 
-## Implementing density
+## Применение плотности <meta data-oversett="" data-original-text="Applying density">
 
-Higher density can be applied to some components via props. The component pages
-have at least one example using the respective component with higher density applied.
+Этот раздел объясняет, как применять плотность. В нем не рассматриваются потенциальные случаи использования или соображения по поводу применения плотности в вашем приложении. В руководстве по Material Design есть [исчерпывающее руководство](https://m2.material.io/design/layout/applying-density.html), в котором эти темы рассматриваются более подробно.
 
-Depending on the component, density is applied either via lower spacing, or simply by
-reducing the size.
+## Применение плотности <meta data-oversett="" data-original-text="Implementing density">
 
-The following components have props applying higher density:
+Повышенная плотность может быть применена к некоторым компонентам с помощью реквизитов. На страницах компонентов есть как минимум один пример использования соответствующего компонента с повышенной плотностью.
 
-- [Button](/material-ui/api/button/)
-- [Fab](/material-ui/api/fab/)
-- [FilledInput](/material-ui/api/filled-input/)
-- [FormControl](/material-ui/api/form-control/)
-- [FormHelperText](/material-ui/api/form-helper-text/)
-- [IconButton](/material-ui/api/icon-button/)
-- [InputBase](/material-ui/api/input-base/)
-- [InputLabel](/material-ui/api/input-label/)
-- [ListItem](/material-ui/api/list-item/)
-- [OutlinedInput](/material-ui/api/outlined-input/)
-- [Table](/material-ui/api/table/)
-- [TextField](/material-ui/api/text-field/)
-- [Toolbar](/material-ui/api/toolbar/)
+В зависимости от компонента, плотность применяется либо за счет уменьшения интервалов, либо просто за счет уменьшения размера.
 
-## Explore theme density
+Следующие компоненты имеют реквизиты, применяющие повышенную плотность:
 
-This tool allows you to apply density via spacing and component props. You can browse
-around and see how this applies to the overall feel of MUI components.
+-   [Кнопка](/material-ui/api/button/)
+-   [Фаб](/material-ui/api/fab/)
+-   [FilledInput](/material-ui/api/filled-input/)
+-   [FormControl](/material-ui/api/form-control/)
+-   [FormHelperText](/material-ui/api/form-helper-text/)
+-   [IconButton](/material-ui/api/icon-button/)
+-   [InputBase](/material-ui/api/input-base/)
+-   [InputLabel](/material-ui/api/input-label/)
+-   [ListItem](/material-ui/api/list-item/)
+-   [OutlinedInput](/material-ui/api/outlined-input/)
+-   [Таблица](/material-ui/api/table/)
+-   [Текстовое поле](/material-ui/api/text-field/)
+-   [Панель инструментов](/material-ui/api/toolbar/)
 
-If you enable high density a custom theme is applied to the docs. This theme is only
-for demonstration purposes. You _should not_ apply this theme to your whole application
-as this might negatively impact user experience. The [Material Design guidelines](https://m2.material.io/design/layout/applying-density.html) has examples
-for when not to apply density.
+## Изучение плотности темы <meta data-oversett="" data-original-text="Explore theme density">
 
-The theme is configured with the following options:
+Этот инструмент позволяет применять плотность с помощью интервалов и реквизитов компонентов. Вы можете просмотреть, как это влияет на общее восприятие компонентов MUI.
+
+Если вы включите высокую плотность, к документам будет применена пользовательская тема. Эта тема предназначена только для демонстрации. _Не следует_ применять эту тему ко всему приложению, так как это может негативно сказаться на пользовательском опыте. В [руководстве по Material Design](https://m2.material.io/design/layout/applying-density.html) есть примеры того, когда не следует применять плотность.
+
+Тема настраивается с помощью следующих параметров:
 
 ```js
 const theme = createTheme({

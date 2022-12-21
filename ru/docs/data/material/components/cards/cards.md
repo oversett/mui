@@ -6,64 +6,64 @@ githubLabel: 'component: card'
 materialDesign: https://m2.material.io/components/cards
 ---
 
-# Card
+# Карточка <meta data-oversett="" data-original-text="Card">
 
-<p class="description">Cards contain content and actions about a single subject.</p>
+<p class="description">Карточки содержат содержимое и действия по одной теме.</p>
 
-Cards are surfaces that display content and actions on a single topic.
+Карточки - это поверхности, на которых отображается содержание и действия по одной теме.
 
-They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy.
+Они должны быть удобными для сканирования в поисках нужной и полезной информации. Элементы, такие как текст и изображения, должны быть размещены на них таким образом, чтобы четко обозначить иерархию.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic card
+## Базовая карточка <meta data-oversett="" data-original-text="Basic card">
 
-Although cards can support multiple actions, UI controls, and an overflow menu, use restraint and remember that cards are entry points to more complex and detailed information.
+Хотя карточки могут поддерживать несколько действий, элементы управления пользовательским интерфейсом и переполняемое меню, будьте сдержанны и помните, что карточки являются точками входа к более сложной и подробной информации.
 
 {{"demo": "BasicCard.js", "bg": true}}
 
-### Outlined Card
+### Очерченная карточка <meta data-oversett="" data-original-text="Outlined Card">
 
-Set `variant="outlined"` to render an outlined card.
+Установите `variant="outlined"` для отображения контурной карточки.
 
 {{"demo": "OutlinedCard.js", "bg": true}}
 
-## Complex Interaction
+## Сложное взаимодействие <meta data-oversett="" data-original-text="Complex Interaction">
 
-On desktop, card content can expand. (Click the downward chevron to view the recipe.)
+На рабочем столе содержимое карточки может расширяться. (Нажмите на нисходящий шеврон, чтобы просмотреть рецепт).
 
 {{"demo": "RecipeReviewCard.js", "bg": true}}
 
-## Media
+## Медиа <meta data-oversett="" data-original-text="Media">
 
-Example of a card using an image to reinforce the content.
+Пример карточки с использованием изображения для усиления содержимого.
 
 {{"demo": "MediaCard.js", "bg": true}}
 
-By default, we use the combination of a `<div>` element and a _background image_ to display the media. It can be problematic in some situations, for example, you might want to display a video or a responsive image. Use the `component` prop for these use cases:
+По умолчанию для отображения мультимедиа используется комбинация элемента `<div>` и _фонового изображения_. Это может быть проблематично в некоторых ситуациях, например, вы можете захотеть отобразить видео или отзывчивое изображение. Для таких случаев используйте элемент `component`:
 
 {{"demo": "ImgMediaCard.js", "bg": true}}
 
 :::warning
-When `component="img"`, CardMedia relies on `object-fit` for centering the image. It's not supported by IE11.
+Когда `component="img"`, CardMedia полагается на `object-fit` для центрирования изображения. Он не поддерживается IE11.
 :::
 
-## Primary action
+## Основное действие <meta data-oversett="" data-original-text="Primary action">
 
-Often a card allow users to interact with the entirety of its surface to trigger its main action, be it an expansion, a link to another screen or some other behavior. The action area of the card can be specified by wrapping its contents in a `CardActionArea` component.
+Часто карточка позволяет пользователям взаимодействовать со всей ее поверхностью, чтобы вызвать основное действие, будь то расширение, ссылка на другой экран или какое-то другое поведение. Область действия карточки можно определить, обернув ее содержимое в компонент `CardActionArea`.
 
 {{"demo": "ActionAreaCard.js", "bg": true}}
 
-A card can also offer supplemental actions which should stand detached from the main action area in order to avoid event overlap.
+Карточка также может предлагать дополнительные действия, которые должны быть отделены от основной области действия, чтобы избежать наложения событий.
 
 {{"demo": "MultiActionAreaCard.js", "bg": true}}
 
-## UI Controls
+## Элементы управления пользовательским интерфейсом <meta data-oversett="" data-original-text="UI Controls">
 
-Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically placed at the bottom of the card.
+Дополнительные действия внутри карточки явно обозначаются с помощью значков, текста и элементов управления пользовательского интерфейса, которые обычно располагаются в нижней части карточки.
 
-Here's an example of a media control card.
+Вот пример карточки управления мультимедиа.
 
 {{"demo": "MediaControlCard.js", "bg": true}}
 
-🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/components/card/).
+🎨 Если вы ищете вдохновение, вы можете посмотреть [примеры настройки MUI Treasury](https://mui-treasury.com/components/card/).

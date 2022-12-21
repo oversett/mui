@@ -1,58 +1,58 @@
-# Migration to Grid v2
 
-<p class="description">This guide explains how and why to migrate from Material UI Grid v1 to v2.</p>
 
-## Why you should migrate
+# Переход на Grid v2 <meta data-oversett="" data-original-text="Migration to Grid v2">
 
-Grid v2 has several new feature and many improvements over the original:
+<p class="description">Это руководство объясняет, как и зачем переходить с Material UI Grid v1 на v2.</p>
 
-- Grid v2 uses CSS variables which remove CSS specificity from class selectors.
-  Now you can use `sx` prop on the Grid to control any style you'd like.
-- All grids are considered items without specifying the `item` prop.
-- The long-awaited [offset feature](/material-ui/react-grid2/#offset) gives you more flexibility for positioning.
-- [Nested grids](/material-ui/react-grid2/#nested-grid) now have no depth limitation.
-- The `disableEqualOverflow` flag disables the horizontal scrollbar in smaller viewports.
+## Почему вам следует перейти <meta data-oversett="" data-original-text="Why you should migrate">
+
+Grid v2 имеет несколько новых функций и множество улучшений по сравнению с оригиналом:
+
+-   Grid v2 использует переменные CSS, которые удаляют специфику CSS из селекторов классов. Теперь вы можете использовать `sx` prop в Grid для управления любым стилем, который вы хотите.
+-   Все сетки считаются элементами без указания `item` prop.
+-   Долгожданная [функция смещения](/material-ui/react-grid2/#offset) дает вам больше гибкости при позиционировании.
+-   [Вложенные сетки](/material-ui/react-grid2/#nested-grid) теперь не имеют ограничений по глубине.
+-   Флаг `disableEqualOverflow` отключает горизонтальную полосу прокрутки в небольших видовых экранах.
 
 :::info
-Grid v2 is currently considered `Unstable_` as we give the community time to try it out and offer feedback.
-We will make it stable and deprecate v1 in the next major release of Material UI.
+Grid v2 в настоящее время рассматривается как `Unstable_`, так как мы даем сообществу время опробовать его и предложить свои отзывы. Мы сделаем его стабильным и откажемся от v1 в следующем крупном выпуске Material UI.
 :::
 
-## With Material UI v4
+## В Material UI v4 <meta data-oversett="" data-original-text="With Material UI v4">
 
-The Grid v2 is introduced in Material UI v5, so you have to follow the [Material UI migration guide](/material-ui/migration/migration-v4/) first.
+Grid v2 вводится в Material UI v5, поэтому сначала вам нужно следовать [руководству по миграции Material UI](/material-ui/migration/migration-v4/).
 
-## With Material UI v5
+## С Material UI v5 <meta data-oversett="" data-original-text="With Material UI v5">
 
-The migration is expected to be smooth since most of the APIs remains the same. However, there is one breaking change that we want to clarify:
+Ожидается, что миграция будет плавной, поскольку большинство API-интерфейсов останется прежним. Однако есть одно принципиальное изменение, которое мы хотели бы прояснить:
 
-The default implementation of the negative margin in Grid v2 is spread equally on all sides (same as the Grid in Material UI v4).
+Реализация отрицательного поля в Grid v2 по умолчанию распределяется одинаково по всем сторонам (как и в Grid в Material UI v4).
 
 {{"demo": "GridsDiff.js", "bg": true, "hideToolbar": true}}
 
-### Import
+### Импортировать <meta data-oversett="" data-original-text="Import">
 
 ```diff
 - import Grid from '@mui/material/Grid';
 + import Grid from '@mui/material/Unstable_Grid2';
 ```
 
-### Remove props
+### Удалить реквизиты <meta data-oversett="" data-original-text="Remove props">
 
-The `item` and `zeroMinWidth` props have been removed in Grid v2:
+Реквизиты `item` и `zeroMinWidth` были удалены в Grid v2:
 
 ```diff
 - <Grid item zeroMinWidth xs={6}>
 + <Grid xs={6}>
 ```
 
-### Negative margins
+### Отрицательные поля <meta data-oversett="" data-original-text="Negative margins">
 
-If you want to apply the negative margins similar to the Grid v1, specify `disableEqualOverflow: true` on the grid container:
+Если вы хотите применить отрицательные поля, аналогичные Grid v1, укажите `disableEqualOverflow: true` в контейнере сетки:
 
 {{"demo": "GridDisableEqualOverflow.js", "bg": true, "hideToolbar": true}}
 
-To apply to all grids, add the default props to the theme:
+Чтобы применить ко всем сеткам, добавьте реквизит по умолчанию в тему:
 
 ```js
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -79,6 +79,6 @@ function Demo() {
 }
 ```
 
-## Documentation page
+## Страница документации <meta data-oversett="" data-original-text="Documentation page">
 
-Check out [Grid v2 docs](/material-ui/react-grid2/#fluid-grids) for all the demos and code samples.
+Просмотрите [документацию Grid v2](/material-ui/react-grid2/#fluid-grids) для всех демонстраций и примеров кода.

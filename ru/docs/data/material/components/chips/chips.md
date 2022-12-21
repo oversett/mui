@@ -6,90 +6,85 @@ githubLabel: 'component: chip'
 materialDesign: https://m2.material.io/components/chips
 ---
 
-# Chip
+# Фишка <meta data-oversett="" data-original-text="Chip">
 
-<p class="description">Chips are compact elements that represent an input, attribute, or action.</p>
+<p class="description">Фишки - это компактные элементы, которые представляют ввод, атрибут или действие.</p>
 
-Chips allow users to enter information, make selections, filter content, or trigger actions.
+Фишки позволяют пользователям вводить информацию, делать выбор, фильтровать содержимое или запускать действия.
 
-While included here as a standalone component, the most common use will
-be in some form of input, so some of the behavior demonstrated here is
-not shown in context.
+Несмотря на то, что фишки представлены здесь как самостоятельный компонент, наиболее часто они используются в той или иной форме ввода, поэтому некоторые из демонстрируемых здесь действий не показаны в контексте.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic chip
+## Базовая фишка <meta data-oversett="" data-original-text="Basic chip">
 
-The `Chip` component supports outlined and filled styling.
+Компонент `Chip` поддерживает стилизацию с обводкой и заливкой.
 
 {{"demo": "BasicChips.js"}}
 
-## Chip actions
+## Действия фишки <meta data-oversett="" data-original-text="Chip actions">
 
-You can use the following actions.
+Вы можете использовать следующие действия.
 
-- Chips with the `onClick` prop defined change appearance on focus, hover, and click.
-- Chips with the `onDelete` prop defined will display a delete icon which changes appearance on hover.
+-   Фишки с определенным реквизитом `onClick` изменяют внешний вид при фокусе, наведении и нажатии.
+-   Фишки с определенным реквизитом `onDelete` отображают иконку удаления, которая меняет вид при наведении.
 
-### Clickable
+### Кликабельный <meta data-oversett="" data-original-text="Clickable">
 
 {{"demo": "ClickableChips.js"}}
 
-### Deletable
+### Удаляемый <meta data-oversett="" data-original-text="Deletable">
 
 {{"demo": "DeletableChips.js"}}
 
-### Clickable and deletable
+### Кликабельный и удаляемый <meta data-oversett="" data-original-text="Clickable and deletable">
 
 {{"demo": "ClickableAndDeletableChips.js"}}
 
-### Clickable link
+### Щелкаемая ссылка <meta data-oversett="" data-original-text="Clickable link">
 
 {{"demo": "ClickableLinkChips.js"}}
 
-### Custom delete icon
+### Пользовательский значок удаления <meta data-oversett="" data-original-text="Custom delete icon">
 
 {{"demo": "CustomDeleteIconChips.js"}}
 
-## Chip adornments
+## Украшения для фишек <meta data-oversett="" data-original-text="Chip adornments">
 
-You can add ornaments to the beginning of the component.
+Вы можете добавить украшения в начало компонента.
 
-Use the `avatar` prop to add an avatar or use the `icon` prop to add an icon.
+Используйте реквизит `avatar` для добавления аватара или используйте реквизит `icon` для добавления иконки.
 
-### Avatar chip
+### Фишка аватара <meta data-oversett="" data-original-text="Avatar chip">
 
 {{"demo": "AvatarChips.js"}}
 
-### Icon chip
+### Фишка иконки <meta data-oversett="" data-original-text="Icon chip">
 
 {{"demo": "IconChips.js"}}
 
-## Color chip
+## Фишка цвета <meta data-oversett="" data-original-text="Color chip">
 
-You can use the `color` prop to define a color from theme palette.
+Вы можете использовать реквизит `color` для определения цвета из палитры тем.
 
 {{"demo": "ColorChips.js"}}
 
-## Sizes chip
+## Фишка размеров <meta data-oversett="" data-original-text="Sizes chip">
 
-You can use the `size` prop to define a small Chip.
+Вы можете использовать реквизит `size` для определения маленькой фишки.
 
 {{"demo": "SizesChips.js"}}
 
-## Chip array
+## Массив фишек <meta data-oversett="" data-original-text="Chip array">
 
-An example of rendering multiple chips from an array of values.
-Deleting a chip removes it from the array. Note that since no
-`onClick` prop is defined, the `Chip` can be focused, but does not
-gain depth while clicked or touched.
+Пример рендеринга нескольких фишек из массива значений. Удаление фишки удаляет ее из массива. Обратите внимание, что поскольку реквизит`onClick` не определен, `Chip` может быть сфокусирован, но не набирает глубину при нажатии или касании.
 
 {{"demo": "ChipsArray.js", "bg": true}}
 
-## Chip playground
+## Игровая площадка фишек <meta data-oversett="" data-original-text="Chip playground">
 
 {{"demo": "ChipsPlayground.js", "hideToolbar": true}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-If the Chip is deletable or clickable then it is a button in tab order. When the Chip is focused (e.g. when tabbing) releasing (`keyup` event) `Backspace` or `Delete` will call the `onDelete` handler while releasing `Escape` will blur the Chip.
+Если фишка удаляема или кликабельна, то она является кнопкой в порядке вкладок. Когда фишка сфокусирована (например, при переходе по вкладкам), отпускание (событие`keyup` ) `Backspace` или `Delete` вызовет обработчик `onDelete`, а отпускание `Escape` приведет к размытию фишки.

@@ -1,33 +1,30 @@
-# Migration from v3 to v4
 
-<p class="description">Yeah, v4 has been released!</p>
 
-Looking for the v3 docs? You can [find the latest version here](https://mui.com/versions/).
+# Миграция с v3 на v4 <meta data-oversett="" data-original-text="Migration from v3 to v4">
+
+<p class="description">Да, v4 уже вышла!</p>
+
+Ищете документацию по v3? Вы можете [найти последнюю версию здесь](https://mui.com/versions/).
 
 :::info
-This document is a work in progress.
-Have you upgraded your site and run into something that's not covered here?
-[Add your changes on GitHub](https://github.com/mui/material-ui/blob/master/docs/data/material/migration/migration-v3/migration-v3.md).
+Этот документ находится в процессе разработки. Если вы обновили свой сайт и столкнулись с чем-то, что здесь не описано?[Добавьте свои изменения на GitHub](https://github.com/mui/material-ui/blob/master/docs/data/material/migration/migration-v3/migration-v3.md).
 :::
 
-## Introduction
+## Введение <meta data-oversett="" data-original-text="Introduction">
 
-This is a reference for upgrading your site from Material UI v3 to v4.
-While there's a lot covered here, you probably won't need to do everything for your site.
-We'll do our best to keep things easy to follow, and as sequential as possible so you can quickly get rocking on v4!
+Это руководство по обновлению вашего сайта с Material UI v3 до v4. Хотя здесь многое описано, вам, вероятно, не понадобится делать все для вашего сайта. Мы постараемся сделать все возможное, чтобы все было легко и последовательно, чтобы вы могли быстро перейти на v4!
 
-## Why you should migrate
+## Почему вы должны мигрировать <meta data-oversett="" data-original-text="Why you should migrate">
 
-This documentation page covers the **how** of migrating from v3 to v4.
-The **why** is covered in the [release blog post on Medium](https://mui.com/blog/material-ui-v4-is-out/).
+На этой странице документации описано, **как** перейти с v3 на v4. О том, **зачем** это делать, рассказывается в [блоге релиза на Medium](https://mui.com/blog/material-ui-v4-is-out/).
 
-## Updating your dependencies
+## Обновление зависимостей <meta data-oversett="" data-original-text="Updating your dependencies">
 
-The very first thing you will need to do is to update your dependencies.
+Самое первое, что вам нужно будет сделать, это обновить ваши зависимости.
 
-### Update Material UI version
+### Обновление версии Material UI <meta data-oversett="" data-original-text="Update Material UI version">
 
-You need to update your `package.json` to use the latest version of Material UI.
+Вам необходимо обновить `package.json`, чтобы использовать последнюю версию Material UI.
 
 ```json
 "dependencies": {
@@ -35,7 +32,7 @@ You need to update your `package.json` to use the latest version of Material UI.
 }
 ```
 
-Or run
+Или выполните команду
 
 ```sh
 npm install @material-ui/core
@@ -45,14 +42,13 @@ or
 yarn add @material-ui/core
 ```
 
-### Update React version
+### Обновить версию React <meta data-oversett="" data-original-text="Update React version">
 
-The minimum required version of React was increased from `react@^16.3.0` to `react@^16.8.0`.
-This allows us to rely on [Hooks](https://reactjs.org/docs/hooks-intro.html) (we no longer use the class API).
+Минимально необходимая версия React была увеличена с `react@^16.3.0` до `react@^16.8.0`. Это позволяет нам полагаться на [Hooks](https://reactjs.org/docs/hooks-intro.html) (мы больше не используем API классов).
 
-### Update Material UI Styles version
+### Обновить версию Material UI Styles <meta data-oversett="" data-original-text="Update Material UI Styles version">
 
-If you were previously using `@material-ui/styles` with v3 you need to update your `package.json` to use the latest version of Material UI Styles.
+Если вы ранее использовали `@material-ui/styles` с v3, вам необходимо обновить `package.json`, чтобы использовать последнюю версию Material UI Styles.
 
 ```json
 "dependencies": {
@@ -60,7 +56,7 @@ If you were previously using `@material-ui/styles` with v3 you need to update yo
 }
 ```
 
-Or run
+Или запустите
 
 ```sh
 npm install @material-ui/styles
@@ -70,122 +66,115 @@ or
 yarn add @material-ui/styles
 ```
 
-## Handling breaking changes
+## Обработка нежелательных изменений <meta data-oversett="" data-original-text="Handling breaking changes">
 
-### Core
+### Ядро <meta data-oversett="" data-original-text="Core">
 
-- Every component forward their ref.
-  This is implemented by using `React.forwardRef()`.
-  This affects the internal component tree and display name and therefore might break shallow or snapshot tests.
-  `innerRef` will no longer return a ref to the instance (or nothing if the inner component is a function component) but a ref to its root component.
-  The corresponding API docs list the root component.
+-   Каждый компонент пересылает свою ссылку. Это реализовано с помощью `React.forwardRef()`. Это влияет на внутреннее дерево компонентов и отображаемое имя и поэтому может сломать неглубокие или моментальные тесты.`innerRef` больше не будет возвращать ссылку на экземпляр (или ничего, если внутренний компонент является функциональным компонентом), а будет возвращать ссылку на его корневой компонент. В соответствующих документах API указан корневой компонент.
 
-### Styles
+### Стили <meta data-oversett="" data-original-text="Styles">
 
-- ⚠️ Material UI depends on JSS v10. JSS v10 is not backward compatible with v9.
-  Make sure JSS v9 is not installed in your environment.
-  (Removing `react-jss` from your `package.json` can help).
-  The StylesProvider component replaces the JssProvider one.
-- Remove the first option argument of `withTheme()`.
-  (The first argument was a placeholder for a potential future option that never arose.)
-
-  It matches the [emotion API](https://emotion.sh/docs/introduction) and the [styled-components API](https://styled-components.com).
-
-  ```diff
-  -const DeepChild = withTheme()(DeepChildRaw);
-  +const DeepChild = withTheme(DeepChildRaw);
-  ```
-
-- Rename `convertHexToRGB` to `hexToRgb`.
-
-  ```diff
-  -import { convertHexToRgb } from '@material-ui/core/styles/colorManipulator';
-  +import { hexToRgb } from '@material-ui/core/styles';
-  ```
-
-- Scope the [keyframes API](https://cssinjs.org/jss-syntax/#keyframes-animation). You should apply the following changes in your codebase.
-  It helps isolating the animation logic:
-
-  ```diff
-    rippleVisible: {
-      opacity: 0.3,
-  -   animation: 'mui-ripple-enter 100ms cubic-bezier(0.4, 0, 0.2, 1)',
-  +   animation: '$mui-ripple-enter 100ms cubic-bezier(0.4, 0, 0.2, 1)',
-    },
-    '@keyframes mui-ripple-enter': {
-      '0%': {
-        opacity: 0.1,
-      },
-      '100%': {
+-   ⚠️ Material UI зависит от JSS v10. JSS v10 не имеет обратной совместимости с v9. Убедитесь, что JSS v9 не установлен в вашей среде. (Удаление `react-jss` из вашего `package.json` может помочь). Компонент StylesProvider заменяет компонент JssProvider.
+    
+-   Удалите первый аргумент опции `withTheme()`. (Первый аргумент был заполнителем для потенциальной будущей опции, которая так и не возникла).
+    
+    Он соответствует [API эмоций](https://emotion.sh/docs/introduction) и [API стилизованных компонентов](https://styled-components.com).
+    
+    ```diff
+    -const DeepChild = withTheme()(DeepChildRaw);
+    +const DeepChild = withTheme(DeepChildRaw);
+    ```
+    
+-   Переименуйте `convertHexToRGB` в `hexToRgb`.
+    
+    ```diff
+    -import { convertHexToRgb } from '@material-ui/core/styles/colorManipulator';
+    +import { hexToRgb } from '@material-ui/core/styles';
+    ```
+    
+-   Область применения [API ключевых кадров](https://cssinjs.org/jss-syntax/#keyframes-animation). Вы должны применить следующие изменения в вашей кодовой базе. Это поможет изолировать логику анимации:
+    
+    ```diff
+      rippleVisible: {
         opacity: 0.3,
+    -   animation: 'mui-ripple-enter 100ms cubic-bezier(0.4, 0, 0.2, 1)',
+    +   animation: '$mui-ripple-enter 100ms cubic-bezier(0.4, 0, 0.2, 1)',
       },
-    },
-  ```
+      '@keyframes mui-ripple-enter': {
+        '0%': {
+          opacity: 0.1,
+        },
+        '100%': {
+          opacity: 0.3,
+        },
+      },
+    ```
+    
 
-### Theme
+### Тема <meta data-oversett="" data-original-text="Theme">
 
-- The `theme.palette.augmentColor()` method no longer performs a side effect on its input color.
-  To use it correctly, you have to use the returned value.
-
-  ```diff
-  -const background = { main: color };
-  -theme.palette.augmentColor(background);
-  +const background = theme.palette.augmentColor({ main: color });
-
-   console.log({ background });
-  ```
-
-- You can safely remove the next variant from the theme creation:
-
-  ```diff
-   typography: {
-  -  useNextVariants: true,
-   },
-  ```
-
-- `theme.spacing.unit` usage is deprecated, you can use the new API:
-
-  ```diff
-   label: {
-     [theme.breakpoints.up('sm')]: {
-  -    paddingTop: theme.spacing.unit * 12,
-  +    paddingTop: theme.spacing(12),
+-   Метод `theme.palette.augmentColor()` больше не выполняет побочный эффект для своего входного цвета. Чтобы использовать его правильно, вы должны использовать возвращаемое значение.
+    
+    ```diff
+    -const background = { main: color };
+    -theme.palette.augmentColor(background);
+    +const background = theme.palette.augmentColor({ main: color });
+    
+     console.log({ background });
+    ```
+    
+-   Вы можете смело удалить следующий вариант из создания темы:
+    
+    ```diff
+     typography: {
+    -  useNextVariants: true,
      },
-   }
-  ```
+    ```
+    
+-   `theme.spacing.unit` использование устарело, вы можете использовать новый API:
+    
+    ```diff
+     label: {
+       [theme.breakpoints.up('sm')]: {
+    -    paddingTop: theme.spacing.unit * 12,
+    +    paddingTop: theme.spacing(12),
+       },
+     }
+    ```
+    
+    _Совет: вы можете предоставить более 1 аргумента: `theme.spacing(1, 2) // = '8px 16px'`._
+    
+    Вы можете использовать [помощник миграции](https://github.com/mui/material-ui/tree/master/packages/mui-codemod/README.md#theme-spacing-api) в вашем проекте, чтобы сделать это более гладко.
+    
 
-  _Tip: you can provide more than 1 argument: `theme.spacing(1, 2) // = '8px 16px'`_.
+### Макет <meta data-oversett="" data-original-text="Layout">
 
-  You can use [the migration helper](https://github.com/mui/material-ui/tree/master/packages/mui-codemod/README.md#theme-spacing-api) on your project to make this smoother.
+-   \[Grid\] Для поддержки произвольных значений интервалов и устранения необходимости мысленно считать по 8, мы изменяем API интервалов:
+    
+    ```diff
+      /**
+       * Defines the space between the type `item` component.
+       * It can only be used on a type `container` component.
+       */
+    -  spacing: PropTypes.oneOf([0, 8, 16, 24, 32, 40]),
+    +  spacing: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+    ```
+    
+    В дальнейшем вы сможете использовать эту тему для реализации [пользовательской функции преобразования расстояний Grid](https://mui.com/system/spacing/#transformation).
+    
+-   \[Контейнер\] Перемещен с `@material-ui/lab` на `@material-ui/core`.
+    
+    ```diff
+    -import Container from '@material-ui/lab/Container';
+    +import Container from '@material-ui/core/Container';
+    ```
+    
 
-### Layout
+### TypeScript <meta data-oversett="" data-original-text="TypeScript">
 
-- [Grid] In order to support arbitrary spacing values and to remove the need to mentally count by 8, we are changing the spacing API:
+#### `value` тип <meta data-oversett="" data-original-text="value type">
 
-  ```diff
-    /**
-     * Defines the space between the type `item` component.
-     * It can only be used on a type `container` component.
-     */
-  -  spacing: PropTypes.oneOf([0, 8, 16, 24, 32, 40]),
-  +  spacing: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
-  ```
-
-  Going forward, you can use the theme to implement [a custom Grid spacing transformation function](https://mui.com/system/spacing/#transformation).
-
-- [Container] Moved from `@material-ui/lab` to `@material-ui/core`.
-
-  ```diff
-  -import Container from '@material-ui/lab/Container';
-  +import Container from '@material-ui/core/Container';
-  ```
-
-### TypeScript
-
-#### `value` type
-
-Normalized `value` prop type for input components to use `unknown`. This affects
-`InputBase`, `NativeSelect`, `OutlinedInput`, `Radio`, `RadioGroup`, `Select`, `SelectInput`, `Switch`, `TextArea`, and `TextField`.
+Тип `value` для компонентов ввода нормализован для использования `unknown`. Это затрагивает`InputBase`, `NativeSelect`, `OutlinedInput`, `Radio`, `RadioGroup`, `Select`, `SelectInput`, `Switch`, `TextArea`, и `TextField`.
 
 ```diff
  function MySelect({ children }) {
@@ -198,279 +187,271 @@ Normalized `value` prop type for input components to use `unknown`. This affects
  }
 ```
 
-This change is explained in more detail in the [TypeScript guide](/material-ui/guides/typescript/#handling-value-and-event-handlers)
-
-### Button
-
-- [Button] Remove the deprecated button variants (flat, raised and fab):
-
-  ```diff
-  -<Button variant="raised" />
-  +<Button variant="contained" />
-  ```
-
-  ```diff
-  -<Button variant="flat" />
-  +<Button variant="text" />
-  ```
-
-  ```diff
-  -import Button from '@material-ui/core/Button';
-  -<Button variant="fab" />
-  +import Fab from '@material-ui/core/Fab';
-  +<Fab />
-  ```
-
-  ```diff
-  -import Button from '@material-ui/core/Button';
-  -<Button variant="extendedFab" />
-  +import Fab from '@material-ui/core/Fab';
-  +<Fab variant="extended" />
-  ```
-
-- [ButtonBase] The component passed to the `component` prop needs to be able to hold a ref.
-  The [composition guide](/material-ui/guides/composition/#caveat-with-refs) explains the migration strategy.
-
-  This also applies to `BottomNavigationAction`, `Button`, `CardActionArea`, `Checkbox`, `ExpansionPanelSummary`, `Fab`, `IconButton`, `MenuItem`, `Radio`, `StepButton`, `Tab`, `TableSortLabel` as well as `ListItem` if the `button` prop is true.
-
-### Card
-
-- [CardActions] Rename the `disableActionSpacing` prop to `disableSpacing`.
-- [CardActions] Remove the `disableActionSpacing` CSS class.
-- [CardActions] Rename the `action` CSS class to `spacing`.
-
-### ClickAwayListener
-
-- [ClickAwayListener] Hide react-event-listener props.
-
-### Dialog
-
-- [DialogActions] Rename the `disableActionSpacing` prop to `disableSpacing`.
-- [DialogActions] Rename the `action` CSS class to `spacing`.
-- [DialogContentText] Use typography variant `body1` instead of `subtitle1`.
-- [Dialog] The child needs to be able to hold a ref. The [composition guide](/material-ui/guides/composition/#caveat-with-refs)
-  explains the migration strategy.
-
-### Divider
-
-- [Divider] Remove the deprecated `inset` prop.
-
-  ```diff
-  -<Divider inset />
-  +<Divider variant="inset" />
-  ```
-
-### ExpansionPanel
-
-- [ExpansionPanelActions] Rename the `action` CSS class to `spacing`.
-- [ExpansionPanel] Increase the CSS specificity of the `disabled` and `expanded` style rules.
-- [ExpansionPanel] Rename the `CollapseProps` prop to `TransitionProps`.
-
-### List
-
-- [List] Rework the list components to match the specification:
-
-  - The `ListItemAvatar` component is required when using an avatar.
-  - The `ListItemIcon` component is required when using a left checkbox.
-  - The `edge` property should be set on the icon buttons.
-
-- [List] `dense` no longer reduces the top and bottom padding of the `List` element.
-- [ListItem] Increase the CSS specificity of the `disabled` and `focusVisible` style rules.
-
-### Menu
-
-- [MenuItem] Remove the fixed height of the MenuItem.
-  The padding and line-height are used by the browser to compute the height.
-
-### Modal
-
-- [Modal] The child needs to be able to hold a ref. The [composition guide](/material-ui/guides/composition/#caveat-with-refs) explains
-  the migration strategy.
-
-  This also applies to `Dialog` and `Popover`.
-
-- [Modal] Remove the classes customization API for the Modal component (-74% bundle size reduction when used standalone).
-- [Modal] event.defaultPrevented is now ignored.
-  The new logic closes the Modal even if `event.preventDefault()` is called on the key down escape event.
-  `event.preventDefault()` is meant to stop default behaviors like clicking a checkbox to check it, hitting a button to submit a form, and hitting left arrow to move the cursor in a text input etc.
-  Only special HTML elements have these default behaviors.
-  You should use `event.stopPropagation()` if you don't want to trigger an `onClose` event on the modal.
-
-### Paper
-
-- [Paper] Reduce the default elevation.
-  Change the default Paper elevation to match the Card and the Expansion Panel:
-
-  ```diff
-  -<Paper />
-  +<Paper elevation={2} />
-  ```
-
-  This affects the `ExpansionPanel` as well.
-
-### Portal
-
-- [Portal] The child needs to be able to hold a ref when `disablePortal` is used. The [composition guide](/material-ui/guides/composition/#caveat-with-refs) explains
-  the migration strategy.
-
-### Slide
-
-- [Slide] The child needs to be able to hold a ref. The [composition guide](/material-ui/guides/composition/#caveat-with-refs) explains
-  the migration strategy.
-
-### Slider
-
-- [Slider] Move from `@material-ui/lab` to `@material-ui/core`.
-
-  ```diff
-  -import Slider from '@material-ui/lab/Slider'
-  +import Slider from '@material-ui/core/Slider'
-  ```
-
-### Switch
-
-- [Switch] Refactor the implementation to make it easier to override the styles.
-  Rename the class names to match the specification wording:
-
-  ```diff
-  -icon
-  -bar
-  +thumb
-  +track
-  ```
-
-### Snackbar
-
-- [Snackbar] Match the new specification.
-
-  - Change the dimensions
-  - Change the default transition from `Slide` to `Grow`.
-
-### SvgIcon
-
-- [SvgIcon] Rename nativeColor -> htmlColor.
-  React solved the same problem with the `for` HTML attribute, they have decided to call the prop `htmlFor`. This change follows the same reasoning.
-
-  ```diff
-  -<AddIcon nativeColor="#fff" />
-  +<AddIcon htmlColor="#fff" />
-  ```
-
-### Tabs
-
-- [Tab] Remove the `labelContainer`, `label` and `labelWrapped` class keys for simplicity.
-  This has allowed us to remove 2 intermediary DOM elements.
-  You should be able to move the custom styles to the `root` class key.
-
-  ![A simpler tab item DOM structure](https://user-images.githubusercontent.com/3165635/53287870-53a35500-3782-11e9-9431-2d1a14a41be0.png)
-
-- [Tabs] Remove deprecated fullWidth and scrollable props:
-
-  ```diff
-  -<Tabs fullWidth scrollable />
-  +<Tabs variant="scrollable" />
-  ```
-
-### Table
-
-- [TableCell] Remove the deprecated `numeric` property:
-
-  ```diff
-  -<TableCell numeric>{row.calories}</TableCell>
-  +<TableCell align="right">{row.calories}</TableCell>
-  ```
-
-- [TableRow] Remove the fixed height CSS property.
-  The cell height is computed by the browser using the padding and line-height.
-- [TableCell] Move the `dense` mode to a different property:
-
-  ```diff
-  -<TableCell padding="dense" />
-  +<TableCell size="small" />
-  ```
-
-- [TablePagination] The component no longer tries to fix invalid (`page`, `count`, `rowsPerPage`) property combinations. It raises a warning instead.
-
-### TextField
-
-- [InputLabel] You should be able to override all the styles of the FormLabel component using the CSS API of the InputLabel component.
-  The `FormLabelClasses` property has been removed.
-
-  ```diff
-   <InputLabel
-  -  FormLabelClasses={{ asterisk: 'bar' }}
-  +  classes={{ asterisk: 'bar' }}
-   >
-     Foo
-   </InputLabel>
-  ```
-
-- [InputBase] Change the default box sizing model.
-  It uses the following CSS now:
-
-  ```css
-  box-sizing: border-box;
-  ```
-
-  This solves issues with the `fullWidth` prop.
-
-- [InputBase] Remove the `inputType` class from `InputBase`.
-
-### Tooltip
-
-- [Tooltip] The child needs to be able to hold a ref. The [composition guide](/material-ui/guides/composition/#caveat-with-refs) explains
-  the migration strategy.
-- [Tooltip] Appears only after focus-visible focus instead of any focus.
-
-### Typography
-
-- [Typography] Remove the deprecated typography variants. You can upgrade by performing the following replacements:
-  - display4 => h1
-  - display3 => h2
-  - display2 => h3
-  - display1 => h4
-  - headline => h5
-  - title => h6
-  - subheading => subtitle1
-  - body2 => body1
-  - body1 (default) => body2 (default)
-- [Typography] Remove the opinionated `display: block` default typography style.
-  You can use the new `display?: 'initial' | 'inline' | 'block';` property.
-- [Typography] Rename the `headlineMapping` property to `variantMapping` to better align with its purpose.
-
-  ```diff
-  -<Typography headlineMapping={headlineMapping}>
-  +<Typography variantMapping={variantMapping}>
-  ```
-
-- [Typography] Change the default variant from `body2` to `body1`.
-  A font size of 16px is a better default than 14px.
-  Bootstrap, material.io, and even the documentation use 16px as a default font size.
-  14px like Ant Design uses is understandable, as Chinese users have a different alphabet.
-  12px is recommended as the default font size for Japanese.
-- [Typography] Remove the default color from the typography variants.
-  The color should inherit most of the time. It's the default behavior of the web.
-- [Typography] Rename `color="default"` to `color="initial"` following the logic of [this thread](https://github.com/mui/material-ui/issues/13028).
-  The usage of _default_ should be avoided, it lacks semantic.
-
-### Node
-
-- [Drop node 6 support](https://github.com/nodejs/Release/blob/eb91c94681ea968a69bf4a4fe85c656ed44263b3/README.md#release-schedule), you should upgrade to node 8.
-
-### UMD
-
-- This change eases the use of Material UI with a CDN:
-
-  ```diff
-   const {
-     Button,
-     TextField,
-  -} = window['material-ui'];
-  +} = MaterialUI;
-  ```
-
-  It's consistent with other React projects:
-
-  - material-ui => MaterialUI
-  - react-dom => ReactDOM
-  - prop-types => PropTypes
+Более подробно это изменение описано в [руководстве по TypeScript](/material-ui/guides/typescript/#handling-value-and-event-handlers).
+
+### Кнопка <meta data-oversett="" data-original-text="Button">
+
+-   \[Button\] Удалите устаревшие варианты кнопок (плоская, приподнятая и fab):
+    
+    ```diff
+    -<Button variant="raised" />
+    +<Button variant="contained" />
+    ```
+    
+    ```diff
+    -<Button variant="flat" />
+    +<Button variant="text" />
+    ```
+    
+    ```diff
+    -import Button from '@material-ui/core/Button';
+    -<Button variant="fab" />
+    +import Fab from '@material-ui/core/Fab';
+    +<Fab />
+    ```
+    
+    ```diff
+    -import Button from '@material-ui/core/Button';
+    -<Button variant="extendedFab" />
+    +import Fab from '@material-ui/core/Fab';
+    +<Fab variant="extended" />
+    ```
+    
+-   \[ButtonBase\] Компонент, передаваемый в реквизит `component`, должен быть способен удерживать ссылку. В [руководстве по композиции](/material-ui/guides/composition/#caveat-with-refs) объясняется стратегия перехода.
+    
+    Это также относится к `BottomNavigationAction`, `Button`, `CardActionArea`, `Checkbox`, `ExpansionPanelSummary`, `Fab`, `IconButton`, `MenuItem`, `Radio`, `StepButton`, `Tab`, `TableSortLabel`, а также `ListItem`, если реквизит `button` равен true.
+    
+
+### Card <meta data-oversett="" data-original-text="Card">
+
+-   \[CardActions\] Переименуйте реквизит `disableActionSpacing` в `disableSpacing`.
+-   \[CardActions\] Удалите CSS-класс `disableActionSpacing`.
+-   \[CardActions\] Переименуйте CSS-класс `action` в `spacing`.
+
+### ClickAwayListener <meta data-oversett="" data-original-text="ClickAwayListener">
+
+-   \[ClickAwayListener\] Скрыть реквизит react-event-listener.
+
+### Dialog <meta data-oversett="" data-original-text="Dialog">
+
+-   \[DialogActions\] Переименуйте реквизит `disableActionSpacing` в `disableSpacing`.
+-   \[DialogActions\] Переименуйте CSS-класс `action` в `spacing`.
+-   \[DialogContentText\] Использовать вариант типографики `body1` вместо `subtitle1`.
+-   \[Dialog\] Ребенок должен уметь держать рефлекс. В [руководстве по композиции](/material-ui/guides/composition/#caveat-with-refs)объясняется стратегия переноса.
+
+### Divider <meta data-oversett="" data-original-text="Divider">
+
+-   \[Divider\] Удалите устаревший реквизит `inset`.
+    
+    ```diff
+    -<Divider inset />
+    +<Divider variant="inset" />
+    ```
+    
+
+### ExpansionPanel <meta data-oversett="" data-original-text="ExpansionPanel">
+
+-   \[ExpansionPanelActions\] Переименуйте CSS-класс `action` в `spacing`.
+-   \[ExpansionPanel\] Увеличить CSS-специфичность правил стиля `disabled` и `expanded`.
+-   \[ExpansionPanel\] Переименовать реквизит `CollapseProps` в `TransitionProps`.
+
+### Список <meta data-oversett="" data-original-text="List">
+
+-   \[List\] Переработайте компоненты списка в соответствии со спецификацией:
+    
+    -   Компонент `ListItemAvatar` необходим при использовании аватара.
+    -   Компонент `ListItemIcon` необходим при использовании левого флажка.
+    -   Свойство `edge` должно быть установлено для кнопок с иконками.
+-   \[List\] `dense` больше не уменьшает верхний и нижний padding элемента `List`.
+    
+-   \[ListItem\] Увеличьте CSS-специфичность стилевых правил `disabled` и `focusVisible`.
+    
+
+### Меню <meta data-oversett="" data-original-text="Menu">
+
+-   \[MenuItem\] Уберите фиксированную высоту MenuItem. Для вычисления высоты браузер использует padding и line-height.
+
+### Modal <meta data-oversett="" data-original-text="Modal">
+
+-   \[Modal\] Ребенок должен иметь возможность удерживать ссылку. В [руководстве по композиции](/material-ui/guides/composition/#caveat-with-refs) объясняется стратегия переноса.
+    
+    Это также относится к `Dialog` и `Popover`.
+    
+-   \[Modal\] Удалите API настройки классов для компонента Modal (уменьшение размера пакета на -74% при автономном использовании).
+    
+-   \[Modal\] event.defaultPrevented теперь игнорируется. Новая логика закрывает Modal, даже если `event.preventDefault()` вызывается по событию нажатия клавиши escape.`event.preventDefault()` предназначен для остановки поведения по умолчанию, такого как нажатие на чекбокс для установки галочки, нажатие кнопки для отправки формы, нажатие стрелки влево для перемещения курсора в текстовом вводе и т.д. Только специальные элементы HTML имеют такое поведение по умолчанию. Вы должны использовать `event.stopPropagation()`, если не хотите вызывать событие `onClose` на Modal.
+    
+
+### Бумага <meta data-oversett="" data-original-text="Paper">
+
+-   \[Бумага\] Уменьшить высоту по умолчанию. Измените высоту бумаги по умолчанию, чтобы она соответствовала карте и панели расширения:
+    
+    ```diff
+    -<Paper />
+    +<Paper elevation={2} />
+    ```
+    
+    Это также влияет на `ExpansionPanel`.
+    
+
+### Portal \[Портал\] <meta data-oversett="" data-original-text="Portal">
+
+-   \[Портал\] Ребенок должен иметь возможность удерживать ссылку при использовании `disablePortal`. В [руководстве по составлению](/material-ui/guides/composition/#caveat-with-refs) объясняется стратегия перехода.
+
+### Слайд <meta data-oversett="" data-original-text="Slide">
+
+-   \[Слайд\] Ребенок должен иметь возможность удерживать ссылку. [Руководство по составлению](/material-ui/guides/composition/#caveat-with-refs) объясняет стратегию миграции.
+
+### Слайдер <meta data-oversett="" data-original-text="Slider">
+
+-   \[Слайдер\] Перейдите с `@material-ui/lab` на `@material-ui/core`.
+    
+    ```diff
+    -import Slider from '@material-ui/lab/Slider'
+    +import Slider from '@material-ui/core/Slider'
+    ```
+    
+
+### Switch \[Переключатель\] <meta data-oversett="" data-original-text="Switch">
+
+-   \[Switch\] Переработайте реализацию, чтобы упростить переопределение стилей. Переименуйте имена классов в соответствии с формулировкой спецификации:
+    
+    ```diff
+    -icon
+    -bar
+    +thumb
+    +track
+    ```
+    
+
+### Snackbar <meta data-oversett="" data-original-text="Snackbar">
+
+-   \[Snackbar\] Соответствует новой спецификации.
+    
+    -   Изменить размеры
+    -   Изменить переход по умолчанию с `Slide` на `Grow`.
+
+### SvgIcon <meta data-oversett="" data-original-text="SvgIcon">
+
+-   \[SvgIcon\] Переименовать nativeColor -> htmlColor. React решил ту же проблему с HTML-атрибутом `for`, они решили назвать реквизит `htmlFor`. Это изменение следует тем же доводам.
+    
+    ```diff
+    -<AddIcon nativeColor="#fff" />
+    +<AddIcon htmlColor="#fff" />
+    ```
+    
+
+### Вкладки <meta data-oversett="" data-original-text="Tabs">
+
+-   \[Tab\] Для простоты удалите ключи классов `labelContainer`, `label` и `labelWrapped`. Это позволило нам удалить 2 промежуточных элемента DOM. Вы должны быть в состоянии переместить пользовательские стили в ключ класса `root`.
+    
+    ![A simpler tab item DOM structure](https://user-images.githubusercontent.com/3165635/53287870-53a35500-3782-11e9-9431-2d1a14a41be0.png)
+    
+-   \[Tabs\] Удалены устаревшие реквизиты fullWidth и scrollable:
+    
+    ```diff
+    -<Tabs fullWidth scrollable />
+    +<Tabs variant="scrollable" />
+    ```
+    
+
+### Table <meta data-oversett="" data-original-text="Table">
+
+-   \[TableCell\] Удалите устаревшее свойство `numeric`:
+    
+    ```diff
+    -<TableCell numeric>{row.calories}</TableCell>
+    +<TableCell align="right">{row.calories}</TableCell>
+    ```
+    
+-   \[TableRow\] Удалите CSS-свойство фиксированной высоты. Высота ячейки вычисляется браузером с помощью padding и line-height.
+    
+-   \[TableCell\] Переместите режим `dense` в другое свойство:
+    
+    ```diff
+    -<TableCell padding="dense" />
+    +<TableCell size="small" />
+    ```
+    
+-   \[TablePagination\] Компонент больше не пытается исправить недопустимые комбинации свойств (`page`, `count`, `rowsPerPage`). Вместо этого он выдает предупреждение.
+    
+
+### TextField <meta data-oversett="" data-original-text="TextField">
+
+-   \[InputLabel\] Вы должны иметь возможность переопределять все стили компонента FormLabel, используя CSS API компонента InputLabel. Свойство `FormLabelClasses` было удалено.
+    
+    ```diff
+     <InputLabel
+    -  FormLabelClasses={{ asterisk: 'bar' }}
+    +  classes={{ asterisk: 'bar' }}
+     >
+       Foo
+     </InputLabel>
+    ```
+    
+-   \[InputBase\] Измените модель размера поля по умолчанию. Теперь она использует следующий CSS:
+    
+    ```css
+    box-sizing: border-box;
+    ```
+    
+    Это решает проблемы со свойством `fullWidth`.
+    
+-   \[InputBase\] Удалите класс `inputType` из `InputBase`.
+    
+
+### Tooltip <meta data-oversett="" data-original-text="Tooltip">
+
+-   \[Tooltip\] Ребенок должен иметь возможность удерживать ссылку. В [руководстве по композиции](/material-ui/guides/composition/#caveat-with-refs) объясняется стратегия переноса.
+-   \[Tooltip\] Появляется только после фокуса-видимого фокуса вместо любого фокуса.
+
+### Типографика <meta data-oversett="" data-original-text="Typography">
+
+-   \[Typography\] Удалите устаревшие варианты типографики. Вы можете перейти на новые варианты, выполнив следующие замены:
+    
+    -   display4 => h1
+    -   display3 => h2
+    -   display2 => h3
+    -   display1 => h4
+    -   заголовок => h5
+    -   заголовок => h6
+    -   подзаголовок => subtitle1
+    -   body2 => body1
+    -   body1 (по умолчанию) => body2 (по умолчанию)
+-   \[Типографика\] Удалите мнительный типографический стиль `display: block` по умолчанию. Вы можете использовать новое свойство `display?: 'initial' | 'inline' | 'block';`.
+    
+-   \[Типографика\] Переименуйте свойство `headlineMapping` в `variantMapping`, чтобы лучше соответствовать его назначению.
+    
+    ```diff
+    -<Typography headlineMapping={headlineMapping}>
+    +<Typography variantMapping={variantMapping}>
+    ```
+    
+-   \[Typography\] Измените вариант по умолчанию с `body2` на `body1`. Размер шрифта по умолчанию 16px лучше, чем 14px. Bootstrap, material.io и даже документация используют 16px в качестве размера шрифта по умолчанию. 14px, как использует Ant Design, понятно, так как у китайских пользователей другой алфавит. 12px рекомендуется в качестве размера шрифта по умолчанию для японского языка.
+    
+-   \[Типографика\] Удалите цвет по умолчанию из вариантов типографики. Цвет должен наследоваться большую часть времени. Это поведение по умолчанию в Интернете.
+    
+-   \[Типографика\] Переименуйте `color="default"` в `color="initial"`, следуя логике [этой темы](https://github.com/mui/material-ui/issues/13028). Использование _default_ следует избегать, оно лишено семантики.
+    
+
+### Node <meta data-oversett="" data-original-text="Node">
+
+-   [Прекращена поддержка node 6](https://github.com/nodejs/Release/blob/eb91c94681ea968a69bf4a4fe85c656ed44263b3/README.md#release-schedule), вам следует перейти на node 8.
+
+### UMD <meta data-oversett="" data-original-text="UMD">
+
+-   Это изменение облегчает использование Material UI с CDN:
+    
+    ```diff
+     const {
+       Button,
+       TextField,
+    -} = window['material-ui'];
+    +} = MaterialUI;
+    ```
+    
+    Это соответствует другим проектам React:
+    
+    -   material-ui => MaterialUI
+    -   react-dom => ReactDOM
+    -   prop-types => PropTypes

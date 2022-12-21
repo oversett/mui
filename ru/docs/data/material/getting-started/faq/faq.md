@@ -1,38 +1,33 @@
-# Frequently Asked Questions
 
-<p class="description">Stuck on a particular problem? Check some of these common gotchas first in the FAQ.</p>
 
-If you still can't find what you're looking for, you can refer to our [support page](/material-ui/getting-started/support/).
+# Часто задаваемые вопросы <meta data-oversett="" data-original-text="Frequently Asked Questions">
 
-## MUI is awesome. How can I support the project?
+<p class="description">Застряли на конкретной проблеме? Проверьте некоторые из этих распространенных проблем сначала в FAQ.</p>
 
-There are many ways to support MUI:
+Если вы все еще не можете найти то, что ищете, вы можете обратиться к нашей [странице поддержки](/material-ui/getting-started/support/).
 
-- **Spread the word**. Evangelize MUI by [linking to mui.com](https://mui.com/) on your website, every backlink matters.
-  Follow us on [Twitter](https://twitter.com/MUI_hq), like and retweet the important news. Or just talk about us with your friends.
-- **Give us feedback**. Tell us what we're doing well or where we can improve. Please upvote (👍) the issues that you are the most interested in seeing solved.
-- **Help new users**. You can answer questions on
-  [Stack Overflow](https://stackoverflow.com/questions/tagged/mui).
-- **Make changes happen**.
-  - Edit the documentation. Every page has an "EDIT THIS PAGE" link in the top right.
-  - Report bugs or missing features by [creating an issue](https://github.com/mui/material-ui/issues/new).
-  - Review and comment on existing [pull requests](https://github.com/mui/material-ui/pulls) and [issues](https://github.com/mui/material-ui/issues).
-  - Help [translate](https://translate.mui.com) the documentation.
-  - [Improve our documentation](https://github.com/mui/material-ui/tree/HEAD/docs), fix bugs, or add features by [submitting a pull request](https://github.com/mui/material-ui/pulls).
-- **Support us financially on [OpenCollective](https://opencollective.com/mui)**.
-  If you use MUI in a commercial project and would like to support its continued development by becoming a Sponsor, or in a side or hobby project and would like to become a Backer, you can do so through OpenCollective.
-  All funds donated are managed transparently, and Sponsors receive recognition in the README and on the MUI home page.
+## MUI - это круто. Как я могу поддержать проект? <meta data-oversett="" data-original-text="MUI is awesome. How can I support the project?">
 
-## Why do the fixed positioned elements move when a modal is opened?
+Есть много способов поддержать MUI:
 
-Scrolling is blocked as soon as a modal is opened.
-This prevents interacting with the background when the modal should be the only interactive content. However, removing the scrollbar can make your **fixed positioned elements** move.
-In this situation, you can apply a global `.mui-fixed` class name to tell MUI to handle those elements.
+-   **Распространяйте информацию**. Проповедуйте MUI, разместив [ссылку на mui.com](https://mui.com/) на своем сайте, каждая обратная ссылка имеет значение. Следите за нами в [Twitter](https://twitter.com/MUI_hq), ставьте лайк и ретвитите важные новости. Или просто рассказывайте о нас своим друзьям.
+-   **Дайте нам обратную связь**. Расскажите нам, что мы делаем хорошо или что мы можем улучшить. Пожалуйста, проголосуйте (👍) за те вопросы, в решении которых вы больше всего заинтересованы.
+-   **Помогайте новым пользователям**. Вы можете отвечать на вопросы на[Stack Overflow](https://stackoverflow.com/questions/tagged/mui).
+-   Внесите **изменения**.
+    -   Редактируйте документацию. На каждой странице есть ссылка "EDIT THIS PAGE" в правом верхнем углу.
+    -   Сообщайте об ошибках или отсутствующих функциях, [создавая проблему](https://github.com/mui/material-ui/issues/new).
+    -   Просматривайте и комментируйте существующие [запросы](https://github.com/mui/material-ui/pulls) и [проблемы](https://github.com/mui/material-ui/issues).
+    -   Помогите [перевести](https://translate.mui.com) документацию.
+    -   [Улучшайте нашу документацию](https://github.com/mui/material-ui/tree/HEAD/docs), исправляйте ошибки или добавляйте функции, [отправляя запрос на](https://github.com/mui/material-ui/pulls) исправление.
+-   **Поддержите нас финансово на [OpenCollective](https://opencollective.com/mui)**. Если вы используете MUI в коммерческом проекте и хотите поддержать его дальнейшее развитие, став спонсором, или в стороннем проекте или хобби и хотите стать беккером, вы можете сделать это через OpenCollective. Все пожертвованные средства управляются прозрачно, а спонсоры получают признание в README и на главной странице MUI.
 
-## How can I disable the ripple effect globally?
+## Почему элементы с фиксированным расположением перемещаются при открытии модала? <meta data-oversett="" data-original-text="Why do the fixed positioned elements move when a modal is opened?">
 
-The ripple effect is exclusively coming from the `BaseButton` component.
-You can disable the ripple effect globally by providing the following in your theme:
+Прокрутка блокируется, как только открывается модальное окно. Это предотвращает взаимодействие с фоном, когда модальное окно должно быть единственным интерактивным содержимым. Однако удаление полосы прокрутки может привести к перемещению **элементов с фиксированным расположением**. В этой ситуации вы можете применить глобальное имя класса `.mui-fixed`, чтобы указать MUI на обработку этих элементов.
+
+## Как я могу глобально отключить эффект ряби? <meta data-oversett="" data-original-text="How can I disable the ripple effect globally?">
+
+Эффект пульсации исходит исключительно от компонента `BaseButton`. Вы можете отключить эффект пульсации глобально, указав следующее в вашей теме:
 
 ```js
 import { createTheme } from '@mui/material';
@@ -50,10 +45,9 @@ const theme = createTheme({
 });
 ```
 
-## How can I disable transitions globally?
+## Как отключить переходы глобально? <meta data-oversett="" data-original-text="How can I disable transitions globally?">
 
-MUI uses the same theme helper for creating all its transitions.
-Therefore you can disable all transitions by overriding the helper in your theme:
+MUI использует один и тот же помощник темы для создания всех переходов. Поэтому вы можете отключить все переходы, переопределив этот помощник в вашей теме:
 
 ```js
 import { createTheme } from '@mui/material';
@@ -66,9 +60,9 @@ const theme = createTheme({
 });
 ```
 
-It can be useful to disable transitions during visual testing or to improve performance on low-end devices.
+Это может быть полезно для отключения переходов во время визуального тестирования или для улучшения производительности на низкопроизводительных устройствах.
 
-You can go one step further by disabling all transitions and animations effects:
+Вы можете пойти еще дальше и отключить все переходы и эффекты анимации:
 
 ```js
 import { createTheme } from '@mui/material';
@@ -88,8 +82,7 @@ const theme = createTheme({
 });
 ```
 
-Notice that the usage of `CssBaseline` is required for the above approach to work.
-If you choose not to use it, you can still disable transitions and animations by including these CSS rules:
+Обратите внимание, что для работы вышеописанного подхода требуется использование `CssBaseline`. Если вы решили не использовать его, вы все равно можете отключить переходы и анимацию, включив эти правила CSS:
 
 ```css
 *,
@@ -100,35 +93,28 @@ If you choose not to use it, you can still disable transitions and animations by
 }
 ```
 
-## Do I have to use Emotion to style my app?
+## Должен ли я использовать Emotion для стилизации моего приложения? <meta data-oversett="" data-original-text="Do I have to use Emotion to style my app?">
 
-No, it's not required.
-But if you are using the default styled engine (`@mui/styled-engine`) the Emotion dependency comes built in, so carries no additional bundle size overhead.
+Нет, это не обязательно. Но если вы используете стилизованный движок по умолчанию (`@mui/styled-engine`), то зависимость Emotion встроена, поэтому не требует дополнительных затрат на размер пакета.
 
-Perhaps, however, you're adding some MUI components to an app that already uses another styling solution,
-or are already familiar with a different API, and don't want to learn a new one? In that case, head over to the
-[Style library interoperability](/material-ui/guides/interoperability/) section,
-where we show how simple it is to restyle MUI components with alternative style libraries.
+Возможно, вы добавляете некоторые компоненты MUI в приложение, которое уже использует другое решение для стилизации, или уже знакомы с другим API и не хотите изучать новый? В этом случае перейдите к разделу "[Взаимодействие библиотек стилей](/material-ui/guides/interoperability/) ", где мы покажем, как просто изменить стиль компонентов MUI с помощью альтернативных библиотек стилей.
 
-## When should I use inline-style vs. CSS?
+## Когда следует использовать inline-style против CSS? <meta data-oversett="" data-original-text="When should I use inline-style vs. CSS?">
 
-As a rule of thumb, only use inline-styles for dynamic style properties.
-The CSS alternative provides more advantages, such as:
+Как правило, используйте inline-style только для динамических свойств стиля. Альтернатива CSS предоставляет больше преимуществ, таких как:
 
-- auto-prefixing
-- better debugging
-- media queries
-- keyframes
+-   автопрефиксация
+-   лучшая отладка
+-   медиа-запросы
+-   ключевые кадры
 
-## How do I use react-router?
+## Как использовать react-router? <meta data-oversett="" data-original-text="How do I use react-router?">
 
-We detail the [integration with third-party routing libraries](/material-ui/guides/routing/) like react-router, Gatsby or Next.js in our guide.
+Мы подробно описываем [интеграцию со сторонними библиотеками маршрутизации](/material-ui/guides/routing/), такими как react-router, Gatsby или Next.js, в нашем руководстве.
 
-## How can I access the DOM element?
+## Как я могу получить доступ к элементу DOM? <meta data-oversett="" data-original-text="How can I access the DOM element?">
 
-All MUI components that should render something in the DOM forward their
-ref to the underlying DOM component. This means that you can get DOM elements
-by reading the ref attached to MUI components:
+Все компоненты MUI, которые должны отображать что-то в DOM, передают свои ссылки на базовый компонент DOM. Это означает, что вы можете получить элементы DOM, читая ссылки, прикрепленные к компонентам MUI:
 
 ```jsx
 // or a ref setter function
@@ -139,46 +125,41 @@ const ref = React.createRef();
 const element = ref.current;
 ```
 
-If you're not sure if the MUI component in question forwards its ref you
-can check the API documentation under "Props" e.g. the [Button API](/material-ui/api/button/#props)
-includes
+Если вы не уверены, пересылает ли данный MUI-компонент свою ссылку, вы можете проверить документацию API в разделе "Реквизиты", например, [API Button](/material-ui/api/button/#props)включает следующее
 
 :::info
-The ref is forwarded to the root element.
+Ссылка пересылается на корневой элемент.
 :::
 
-indicating that you can access the DOM element with a ref.
+что указывает на то, что вы можете получить доступ к элементу DOM с помощью ссылки.
 
-## I have several instances of styles on the page
+## У меня есть несколько экземпляров стилей на странице. <meta data-oversett="" data-original-text="I have several instances of styles on the page">
 
-If you are seeing a warning message in the console like the one below, you probably have several instances of `@mui/styles` initialized on the page.
+Если вы видите в консоли предупреждающее сообщение, подобное приведенному ниже, то, вероятно, на странице инициализировано несколько экземпляров `@mui/styles`.
 
 :::warning
-It looks like there are several instances of `@mui/styles` initialized in this application.
-This may cause theme propagation issues, broken class names, specificity issues, and make your application bigger without a good reason.
+Похоже, что в этом приложении инициализировано несколько экземпляров `@mui/styles`. Это может вызвать проблемы с распространением тем, неработающие имена классов, проблемы со специфичностью и сделать ваше приложение больше без веской причины.
 :::
 
-### Possible reasons
+### Возможные причины <meta data-oversett="" data-original-text="Possible reasons">
 
-There are several common reasons for this to happen:
+Есть несколько распространенных причин, по которым это может произойти:
 
-- You have another `@mui/styles` library somewhere in your dependencies.
-- You have a monorepo structure for your project (e.g, lerna, yarn workspaces) and `@mui/styles` module is a dependency in more than one package (this one is more or less the same as the previous one).
-- You have several applications that are using `@mui/styles` running on the same page (e.g., several entry points in webpack are loaded on the same page).
+-   У вас есть еще одна библиотека `@mui/styles` где-то в ваших зависимостях.
+-   У вас монореповая структура проекта (например, lerna, yarn workspaces) и модуль `@mui/styles` является зависимостью более чем в одном пакете (этот пакет более или менее похож на предыдущий).
+-   У вас есть несколько приложений, использующих `@mui/styles`, запущенных на одной странице (например, несколько точек входа в webpack загружены на одной странице).
 
-### Duplicated module in node_modules
+### Дублированный модуль в node\_modules <meta data-oversett="" data-original-text="Duplicated module in node_modules">
 
-If you think that the issue may be in the duplication of the @mui/styles module somewhere in your dependencies, there are several ways to check this.
-You can use `npm ls @mui/styles`, `yarn list @mui/styles` or `find -L ./node_modules | grep /@mui/styles/package.json` commands in your application folder.
+Если вы думаете, что проблема может заключаться в дублировании модуля @mui/styles где-то в ваших зависимостях, есть несколько способов проверить это. Вы можете использовать команды `npm ls @mui/styles`, `yarn list @mui/styles` или `find -L ./node_modules | grep /@mui/styles/package.json` в папке вашего приложения.
 
-If none of these commands identified the duplication, try analyzing your bundle for multiple instances of @mui/styles. You can just check your bundle source, or use a tool like [source-map-explorer](https://github.com/danvk/source-map-explorer) or [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer).
+Если ни одна из этих команд не выявила дублирование, попробуйте проанализировать ваш пакет на наличие нескольких экземпляров @mui/styles. Вы можете просто проверить источник вашего пакета или использовать такие инструменты, как [source-map-explorer](https://github.com/danvk/source-map-explorer) или [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer).
 
-If you identified that duplication is the issue that you are encountering there are several things you can try to solve it:
+Если вы определили, что дублирование является проблемой, с которой вы столкнулись, вы можете попробовать решить ее несколькими способами:
 
-If you are using npm you can try running `npm dedupe`.
-This command searches the local dependencies and tries to simplify the structure by moving common dependencies further up the tree.
+Если вы используете npm, вы можете попробовать запустить `npm dedupe`. Эта команда ищет локальные зависимости и пытается упростить структуру, перемещая общие зависимости дальше вверх по дереву.
 
-If you are using webpack, you can change the way it will [resolve](https://webpack.js.org/configuration/resolve/#resolve-modules) the @mui/styles module. You can overwrite the default order in which webpack will look for your dependencies and make your application node_modules more prioritized than default node module resolution order:
+Если вы используете webpack, вы можете изменить способ [разрешения](https://webpack.js.org/configuration/resolve/#resolve-modules) модуля @mui/styles. Вы можете переписать порядок по умолчанию, в котором webpack будет искать ваши зависимости, и сделать приоритет node\_modules вашего приложения выше, чем порядок разрешения node-модулей по умолчанию:
 
 ```diff
  resolve: {
@@ -188,17 +169,17 @@ If you are using webpack, you can change the way it will [resolve](https://webpa
  },
 ```
 
-### Usage with Lerna
+### Использование с Lerna <meta data-oversett="" data-original-text="Usage with Lerna">
 
-One possible fix to get @mui/styles to run in a Lerna monorepo across packages is to [hoist](https://github.com/lerna/lerna/blob/HEAD/doc/hoist.md) shared dependencies to the root of your monorepo file. Try running the bootstrap option with the --hoist flag.
+Одно из возможных решений для того, чтобы @mui/styles работал в монорепо Lerna с разными пакетами - это [поднять](https://github.com/lerna/lerna/blob/HEAD/doc/hoist.md) общие зависимости в корень файла вашего монорепо. Попробуйте запустить опцию bootstrap с флагом --hoist.
 
 ```sh
 lerna bootstrap --hoist
 ```
 
-Alternatively, you can remove @mui/styles from your package.json file and hoist it manually to your top-level package.json file.
+В качестве альтернативы вы можете удалить @mui/styles из файла package.json и поднять его вручную в файл package.json верхнего уровня.
 
-Example of a package.json file in a Lerna root folder
+Пример файла package.json в корневой папке Lerna
 
 ```json
 {
@@ -218,9 +199,9 @@ Example of a package.json file in a Lerna root folder
 }
 ```
 
-### Running multiple applications on one page
+### Запуск нескольких приложений на одной странице <meta data-oversett="" data-original-text="Running multiple applications on one page">
 
-If you have several applications running on one page, consider using one @mui/styles module for all of them. If you are using webpack, you can use [CommonsChunkPlugin](https://webpack.js.org/plugins/commons-chunk-plugin/) to create an explicit [vendor chunk](https://webpack.js.org/plugins/commons-chunk-plugin/#explicit-vendor-chunk), that will contain the @mui/styles module:
+Если на одной странице работает несколько приложений, подумайте об использовании одного модуля @mui/styles для всех них. Если вы используете webpack, вы можете использовать [CommonsChunkPlugin](https://webpack.js.org/plugins/commons-chunk-plugin/) для создания явного [чанка vendor](https://webpack.js.org/plugins/commons-chunk-plugin/#explicit-vendor-chunk), который будет содержать модуль @mui/styles:
 
 ```diff
   module.exports = {
@@ -238,25 +219,19 @@ If you have several applications running on one page, consider using one @mui/st
   }
 ```
 
-## My App doesn't render correctly on the server
+## Мое приложение некорректно отображается на сервере <meta data-oversett="" data-original-text="My App doesn't render correctly on the server">
 
-If it doesn't work, in 99% of cases it's a configuration issue.
-A missing property, a wrong call order, or a missing component – server-side rendering is strict about configuration.
+Если оно не работает, в 99% случаев это проблема конфигурации. Отсутствующее свойство, неправильный порядок вызова или отсутствующий компонент - серверный рендеринг строг к конфигурации.
 
-The best way to find out what's wrong is to compare your project to an **already working setup**.
-Check out the [reference implementations](/material-ui/guides/server-rendering/#reference-implementations), bit by bit.
+Лучший способ выяснить, в чем дело, - сравнить свой проект с **уже работающим**. Проверьте [эталонную реализацию](/material-ui/guides/server-rendering/#reference-implementations), шаг за шагом.
 
-## Why are the colors I am seeing different from what I see here?
+## Почему цвета, которые я вижу, отличаются от того, что я вижу здесь? <meta data-oversett="" data-original-text="Why are the colors I am seeing different from what I see here?">
 
-The documentation site is using a custom theme. Hence, the color palette is
-different from the default theme that MUI ships. Please refer to [this
-page](/material-ui/customization/theming/) to learn about theme customization.
+На сайте документации используется пользовательская тема. Следовательно, цветовая палитра отличается от темы по умолчанию, поставляемой MUI. Пожалуйста, обратитесь к [этой странице](/material-ui/customization/theming/), чтобы узнать о настройке темы.
 
-## Why does component X require a DOM node in a prop instead of a ref object?
+## Почему компонент X требует узел DOM в реквизите вместо объекта ref? <meta data-oversett="" data-original-text="Why does component X require a DOM node in a prop instead of a ref object?">
 
-Components like the [Portal](/base/api/portal/#props) or [Popper](/material-ui/api/popper/#props) require a DOM node in the `container` or `anchorEl` prop respectively.
-It seems convenient to simply pass a ref object in those props and let MUI access the current value.
-This works in a simple scenario:
+Такие компоненты, как [Portal](/base/api/portal/#props) или [Popper](/material-ui/api/popper/#props) требуют DOM-узел в реквизите `container` или `anchorEl` соответственно. Кажется удобным просто передать объект ref в этих реквизитах и позволить MUI получить доступ к текущему значению. Это работает в простом сценарии:
 
 ```jsx
 function App() {
@@ -273,8 +248,7 @@ function App() {
 }
 ```
 
-where `Portal` would only mount the children into the container when `container.current` is available.
-Here is a naive implementation of Portal:
+где `Portal` будет монтировать дочерние объекты в контейнер только тогда, когда `container.current` доступен. Вот наивная реализация Portal:
 
 ```jsx
 function Portal({ children, container }) {
@@ -291,14 +265,9 @@ function Portal({ children, container }) {
 }
 ```
 
-With this simple heuristic `Portal` might re-render after it mounts because refs are up-to-date before any effects run.
-However, just because a ref is up-to-date doesn't mean it points to a defined instance.
-If the ref is attached to a ref forwarding component it is not clear when the DOM node will be available.
-In the example above, the `Portal` would run an effect once, but might not re-render because `ref.current` is still `null`.
-This is especially apparent for React.lazy components in Suspense.
-The above implementation could also not account for a change in the DOM node.
+С помощью этой простой эвристики `Portal` может повторно отображаться после монтирования, потому что ссылки обновляются до запуска эффектов. Однако то, что ссылка обновляется, не означает, что она указывает на определенный экземпляр. Если ссылка прикреплена к компоненту переадресации ссылок, неясно, когда узел DOM будет доступен. В приведенном выше примере `Portal` запустит эффект один раз, но может не повторить рендеринг, потому что `ref.current` все еще `null`. Это особенно очевидно для React.lazy компонентов в Suspense. Приведенная выше реализация также может не учитывать изменение DOM-узла.
 
-This is why we require a prop with the actual DOM node so that React can take care of determining when the `Portal` should re-render:
+Вот почему нам требуется prop с фактическим узлом DOM, чтобы React мог позаботиться об определении того, когда `Portal` должен повторно отобразиться:
 
 ```jsx
 function App() {
@@ -319,11 +288,11 @@ function App() {
 }
 ```
 
-## What's the clsx dependency for?
+## Для чего нужна зависимость clsx? <meta data-oversett="" data-original-text="What's the clsx dependency for?">
 
-[clsx](https://github.com/lukeed/clsx) is a tiny utility for constructing `className` strings conditionally, out of an object with keys being the class strings, and values being booleans.
+[clsx](https://github.com/lukeed/clsx) - это маленькая утилита для условного построения строк `className` из объекта, ключами которого являются строки класса, а значениями - булевы.
 
-Instead of writing:
+Вместо того чтобы написать:
 
 ```jsx
 // let disabled = false, selected = true;
@@ -337,7 +306,7 @@ return (
 );
 ```
 
-you can do:
+вы можете сделать:
 
 ```jsx
 import clsx from 'clsx';
@@ -352,41 +321,37 @@ return (
 );
 ```
 
-## I cannot use components as selectors in the styled() utility. What should I do?
+## Я не могу использовать компоненты в качестве селекторов в утилите styled(). Что мне делать? <meta data-oversett="" data-original-text="I cannot use components as selectors in the styled() utility. What should I do?">
 
-If you are getting the error: `TypeError: Cannot convert a Symbol value to a string`, take a look at the [styled()](/system/styled/#how-to-use-components-selector-api) docs page for instructions on how you can fix this.
+Если вы получаете ошибку: `TypeError: Cannot convert a Symbol value to a string`, посмотрите на страницу документации [styled()](/system/styled/#how-to-use-components-selector-api), где приведены инструкции по устранению этой ошибки.
 
-## [v4] Why aren't my components rendering correctly in production builds?
+## \[v4\] Почему мои компоненты не отображаются правильно в производственных сборках? <meta data-oversett="" data-original-text="[v4] Why aren't my components rendering correctly in production builds?">
 
-The #1 reason this happens is likely due to class name conflicts once your code is in a production bundle.
-For MUI to work, the `className` values of all components on a page must be generated by a single instance of the [class name generator](/system/styles/advanced/#class-names).
+Причина №1, по которой это происходит, скорее всего, связана с конфликтом имен классов, когда ваш код находится в производственной сборке. Для работы MUI значения `className` всех компонентов на странице должны генерироваться одним экземпляром [генератора имен классов](/system/styles/advanced/#class-names).
 
-To correct this issue, all components on the page need to be initialized such that there is only ever **one class name generator** among them.
+Чтобы исправить эту проблему, все компоненты на странице должны быть инициализированы таким образом, чтобы среди них всегда был только **один генератор имен классов**.
 
-You could end up accidentally using two class name generators in a variety of scenarios:
+Вы можете случайно использовать два генератора имен классов в различных сценариях:
 
-- You accidentally **bundle** two versions of MUI. You might have a dependency not correctly setting MUI as a peer dependency.
-- You are using `StylesProvider` for a **subset** of your React tree.
-- You are using a bundler and it is splitting code in a way that causes multiple class name generator instances to be created.
+-   Вы случайно **установили** две версии MUI. Возможно, зависимость неправильно устанавливает MUI в качестве одноранговой зависимости.
+-   Вы используете `StylesProvider` для **подмножества** вашего дерева React.
+-   Вы используете бандлер, и он разделяет код таким образом, что создается несколько экземпляров генератора имен классов.
 
 :::success
-If you are using webpack with the [SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/), try configuring the [`runtimeChunk` setting under `optimizations`](https://webpack.js.org/configuration/optimization/#optimization-runtimechunk).
+Если вы используете webpack с [SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/), попробуйте настроить [параметр`runtimeChunk` под `optimizations`.](https://webpack.js.org/configuration/optimization/#optimization-runtimechunk)
 :::
 
-Overall, it's simple to recover from this problem by wrapping each MUI application with [`StylesProvider`](/system/styles/api/#stylesprovider) components at the top of their component trees **and using a single class name generator shared among them**.
+В целом, от этой проблемы можно легко избавиться, обернув каждое MUI-приложение в [`StylesProvider`](/system/styles/api/#stylesprovider) компонентами в верхней части их деревьев компонентов **и используя единый генератор имен классов, общий для них**.
 
-### [v4] CSS works only on first load and goes missing
+### \[v4\] CSS работает только при первой загрузке и пропадает <meta data-oversett="" data-original-text="[v4] CSS works only on first load and goes missing">
 
-The CSS is only generated on the first load of the page.
-Then, the CSS is missing on the server for consecutive requests.
+CSS генерируется только при первой загрузке страницы. Затем CSS пропадает на сервере при последующих запросах.
 
-#### Action to Take
+#### Действия, которые необходимо предпринять <meta data-oversett="" data-original-text="Action to Take">
 
-The styling solution relies on a cache, the _sheets manager_, to only inject the CSS once per component type
-(if you use two buttons, you only need the CSS of the button one time).
-You need to create **a new `sheets` instance for each request**.
+Решение для стилизации полагается на кэш, _менеджер листов_, чтобы внедрять CSS только один раз для каждого типа компонента (если вы используете две кнопки, вам нужен CSS кнопки только один раз). Вам нужно создать **новый экземпляр `sheets` для каждого запроса**.
 
-Example of fix:
+Пример исправления:
 
 ```diff
 -// Create a sheets instance.
@@ -402,57 +367,51 @@ Example of fix:
    const html = ReactDOMServer.renderToString(
 ```
 
-### [v4] React class name hydration mismatch
+### \[v4\] Несоответствие имени класса гидратации React <meta data-oversett="" data-original-text="[v4] React class name hydration mismatch">
 
 :::warning
-**⚠️ Warning**
+**⚠️ Предупреждение**
 
-Prop className did not match.
+Проп className не совпадает.
 :::
 
-There is a class name mismatch between the client and the server. It might work for the first request.
-Another symptom is that the styling changes between initial page load and the downloading of the client scripts.
+Имеет место несоответствие имени класса между клиентом и сервером. Это может сработать при первом запросе. Другим симптомом является изменение стиля между начальной загрузкой страницы и загрузкой клиентских скриптов.
 
-#### Action to Take
+#### Действия, которые необходимо предпринять <meta data-oversett="" data-original-text="Action to Take">
 
-The class names value relies on the concept of [class name generator](/system/styles/advanced/#class-names).
-The whole page needs to be rendered with **a single generator**.
-This generator needs to behave identically on the server and on the client. For instance:
+Значение имен классов основано на концепции [генератора имен классов](/system/styles/advanced/#class-names). Вся страница должна быть отрисована с помощью **одного генератора**. Этот генератор должен вести себя одинаково на сервере и на клиенте. Например:
 
-- You need to provide a new class name generator for each request.
-  But you shouldn't share a `createGenerateClassName()` between different requests:
-
-  Example of fix:
-
-  ```diff
-  -// Create a new class name generator.
-  -const generateClassName = createGenerateClassName();
-
-   function handleRender(req, res) {
-  +  // Create a new class name generator.
-  +  const generateClassName = createGenerateClassName();
-
-     //…
-
-     // Render the component to a string.
-     const html = ReactDOMServer.renderToString(
-  ```
-
-- You need to verify that your client and server are running the **exactly the same version** of MUI.
-  It is possible that a mismatch of even minor versions can cause styling problems.
-  To check version numbers, run `npm list @mui/material` in the environment where you build your application and also in your deployment environment.
-
-  You can also ensure the same version in different environments by specifying a specific MUI version in the dependencies of your package.json.
-
-  _example of fix (package.json):_
-
-  ```diff
-    "dependencies": {
-      ...
-  -   "@mui/material": "^4.0.0",
-  +   "@mui/material": "4.0.0",
-      ...
-    },
-  ```
-
-- You need to make sure that the server and the client share the same `process.env.NODE_ENV` value.
+-   Вы должны предоставлять новый генератор имен классов для каждого запроса. Но вы не должны совместно использовать `createGenerateClassName()` между разными запросами:
+    
+    Пример исправления:
+    
+    ```diff
+    -// Create a new class name generator.
+    -const generateClassName = createGenerateClassName();
+    
+     function handleRender(req, res) {
+    +  // Create a new class name generator.
+    +  const generateClassName = createGenerateClassName();
+    
+       //…
+    
+       // Render the component to a string.
+       const html = ReactDOMServer.renderToString(
+    ```
+    
+-   Вам необходимо убедиться, что на вашем клиенте и сервере используется **абсолютно одинаковая версия** MUI. Возможно, что несоответствие даже незначительных версий может вызвать проблемы со стилем. Чтобы проверить номера версий, запустите `npm list @mui/material` в среде, где вы собираете приложение, а также в среде развертывания.
+    
+    Вы также можете обеспечить одну и ту же версию в разных средах, указав конкретную версию MUI в зависимостях вашего package.json.
+    
+    _пример исправления (package.json):_
+    
+    ```diff
+      "dependencies": {
+        ...
+    -   "@mui/material": "^4.0.0",
+    +   "@mui/material": "4.0.0",
+        ...
+      },
+    ```
+    
+-   Необходимо убедиться, что сервер и клиент используют одно и то же значение `process.env.NODE_ENV`.

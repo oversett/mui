@@ -1,15 +1,15 @@
-# Design kits
 
-<p class="description">Boost consistency and facilitate communication when working with developers by using Material UI components in your favorite design tool.</p>
 
-The Material UI design kits allow you to be more efficient by designing and developing with the same library.
+# Наборы для дизайна <meta data-oversett="" data-original-text="Design kits">
 
-- **For designers:** Save time getting the Material UI components all set up, leveraging the latest features from your favorite design tool.
-- **For product managers:** Quickly put together ideas and high-fidelity mockups/prototypes using components from your actual product.
-- **For developers:** Effortlessly communicate with designers using the same language around the Material UI component props and variants.
+<p class="description">Повысьте согласованность и облегчите общение при работе с разработчиками, используя компоненты Material UI в вашем любимом инструменте проектирования.</p>
 
-Find them in your design tool of choice:
+Наборы для дизайна Material UI позволяют повысить эффективность проектирования и разработки с помощью одной и той же библиотеки.
 
-<a href="https://mui.com/store/items/figma-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-figma" style="margin-left: 8px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-figma.svg" alt="figma" /></a>
-<a href="https://mui.com/store/items/adobe-xd-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-adobe-xd" style="margin-left: 32px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-adobe-xd.svg" alt="adobe-xd" /></a>
-<a href="https://mui.com/store/items/sketch-react/?utm_source=docs&utm_medium=referral&utm_campaign=installation-sketch" style="margin-left: 32px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-sketch.svg" alt="sketch" /></a>
+-   **Для дизайнеров:** Сэкономьте время на настройке компонентов Material UI, используя новейшие возможности вашего любимого инструмента проектирования.
+-   **Для менеджеров по продуктам:** Быстро создавайте идеи и макеты/прототипы с высокой точностью, используя компоненты вашего реального продукта.
+-   **Для разработчиков:** Без труда общайтесь с дизайнерами на одном языке, используя реквизиты и варианты компонентов Material UI.
+
+Найдите их в выбранном вами инструменте проектирования:
+
+<a href="https://mui.com/store/items/figma-react/?utm_source=docs&amp;utm_medium=referral&amp;utm_campaign=installation-figma" style="margin-left: 8px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-figma.svg" alt="figma"></a> <a href="https://mui.com/store/items/adobe-xd-react/?utm_source=docs&amp;utm_medium=referral&amp;utm_campaign=installation-adobe-xd" style="margin-left: 32px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-adobe-xd.svg" alt="adobe-xd"></a> <a href="https://mui.com/store/items/sketch-react/?utm_source=docs&amp;utm_medium=referral&amp;utm_campaign=installation-sketch" style="margin-left: 32px; margin-top: 8px; display: inline-block;"><img src="/static/images/download-sketch.svg" alt="sketch"></a>

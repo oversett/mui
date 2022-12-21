@@ -7,63 +7,62 @@ materialDesign: https://m2.material.io/components/buttons-floating-action-button
 waiAria: https://www.w3.org/WAI/ARIA/apg/patterns/menubutton/
 ---
 
-# Speed Dial
+# Быстрый набор <meta data-oversett="" data-original-text="Speed Dial">
 
-<p class="description">When pressed, a floating action button can display three to six related actions in the form of a Speed Dial.</p>
+<p class="description">При нажатии плавающая кнопка действия может отображать от трех до шести связанных действий в виде быстрого набора.</p>
 
-If more than six actions are needed, something other than a FAB should be used to present them.
+Если требуется более шести действий, для их отображения следует использовать что-то другое, а не FAB.
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-## Basic speed dial
+## Основной быстрый набор <meta data-oversett="" data-original-text="Basic speed dial">
 
-The floating action button can display related actions.
+Плавающая кнопка действия может отображать связанные действия.
 
 {{"demo": "BasicSpeedDial.js"}}
 
-## Playground
+## Игровая площадка <meta data-oversett="" data-original-text="Playground">
 
 {{"demo": "PlaygroundSpeedDial.js"}}
 
-## Controlled speed dial
+## Управляемый быстрый набор <meta data-oversett="" data-original-text="Controlled speed dial">
 
-The open state of the component can be controlled with the `open`/`onOpen`/`onClose` props.
+Открытым состоянием компонента можно управлять с помощью реквизитов `open`/`onOpen`/`onClose`.
 
 {{"demo": "ControlledOpenSpeedDial.js"}}
 
-## Custom close icon
+## Пользовательский значок закрытия <meta data-oversett="" data-original-text="Custom close icon">
 
-You can provide an alternate icon for the closed and open states using the `icon` and `openIcon` props
-of the `SpeedDialIcon` component.
+Вы можете предоставить альтернативную иконку для закрытого и открытого состояния, используя реквизиты `icon` и `openIcon` компонента `SpeedDialIcon`.
 
 {{"demo": "OpenIconSpeedDial.js"}}
 
-## Persistent action tooltips
+## Постоянные всплывающие подсказки действий <meta data-oversett="" data-original-text="Persistent action tooltips">
 
-The SpeedDialActions tooltips can be displayed persistently so that users don't have to long-press to see the tooltip on touch devices.
+Подсказки SpeedDialActions могут отображаться постоянно, чтобы пользователям не приходилось долго нажимать, чтобы увидеть подсказку на сенсорных устройствах.
 
-It is enabled here across all devices for demo purposes, but in production it could use the `isTouch` logic to conditionally set the prop.
+Здесь эта функция включена для всех устройств в демонстрационных целях, но в производстве можно использовать логику `isTouch` для условной установки этого параметра.
 
 {{"demo": "SpeedDialTooltipOpen.js"}}
 
-## Accessibility
+## Доступность <meta data-oversett="" data-original-text="Accessibility">
 
-### ARIA
+### ARIA <meta data-oversett="" data-original-text="ARIA">
 
-#### Required
+#### Требуемый <meta data-oversett="" data-original-text="Required">
 
-- You should provide an `ariaLabel` for the speed dial component.
-- You should provide a `tooltipTitle` for each speed dial action.
+-   Вы должны предоставить `ariaLabel` для компонента быстрого набора.
+-   Вы должны предоставить `tooltipTitle` для каждого действия быстрого набора.
 
-#### Provided
+#### Предоставляется <meta data-oversett="" data-original-text="Provided">
 
-- The Fab has `aria-haspopup`, `aria-expanded` and `aria-controls` attributes.
-- The speed dial actions container has `role="menu"` and `aria-orientation` set according to the direction.
-- The speed dial actions have `role="menuitem"`, and an `aria-describedby` attribute that references the associated tooltip.
+-   Fab имеет атрибуты `aria-haspopup`, `aria-expanded` и `aria-controls`.
+-   Контейнер действий быстрого набора имеет `role="menu"` и `aria-orientation`, установленные в соответствии с направлением.
+-   Действия быстрого набора имеют `role="menuitem"`, и атрибут `aria-describedby`, который ссылается на связанную подсказку.
 
-### Keyboard
+### Клавиатура <meta data-oversett="" data-original-text="Keyboard">
 
-- The speed dial opens on focus.
-- The Space and Enter keys trigger the selected speed dial action, and toggle the speed dial open state.
-- The cursor keys move focus to the next or previous speed dial action. (Note that any cursor direction can be used initially to open the speed dial. This enables the expected behavior for the actual or perceived orientation of the speed dial, for example for a screen reader user who perceives the speed dial as a drop-down menu.)
-- The Escape key closes the speed dial and, if a speed dial action was focused, returns focus to the Fab.
+-   Клавиатура быстрого набора открывается при фокусе.
+-   Клавиши пробел и Enter вызывают выбранное действие быстрого набора и переключают состояние открытия быстрого набора.
+-   Клавиши управления курсором перемещают фокус к следующему или предыдущему действию быстрого набора. (Обратите внимание, что изначально для открытия быстрого набора можно использовать любое направление курсора. Это обеспечивает ожидаемое поведение в зависимости от фактической или воспринимаемой ориентации быстрого набора, например, для пользователя программы чтения с экрана, который воспринимает быстрый набор как выпадающее меню).
+-   Клавиша Escape закрывает быстрый набор и, если действие быстрого набора было сфокусировано, возвращает фокус на Fab.

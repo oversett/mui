@@ -1,56 +1,53 @@
-# Migration from v0.x to v1
 
-<p class="description">Yeah, v1 has been released! Take advantage of 2 years worth of effort.</p>
 
-## FAQ
+# Переход с v0.x на v1 <meta data-oversett="" data-original-text="Migration from v0.x to v1">
 
-### Woah - the API is way different! Does that mean 1.0 is completely different, I'll have to learn the basics all over again, and migrating will be practically impossible?
+<p class="description">Да, v1 была выпущена! Воспользуйтесь преимуществами двухлетних усилий.</p>
 
-I'm glad you asked! The answer is no. The core concepts haven't changed.
-You will notice that the API provides more flexibility, but this has a cost –
-lower-level components that abstract less complexity.
+## FAQ <meta data-oversett="" data-original-text="FAQ">
 
-### What motivated such a large change?
+### Ух ты - API сильно изменился! Значит ли это, что 1.0 полностью изменился, мне придется изучать основы заново, а миграция будет практически невозможна? <meta data-oversett="" data-original-text="Woah - the API is way different! Does that mean 1.0 is completely different, I'll have to learn the basics all over again, and migrating will be practically impossible?">
 
-Material UI was started [4 years ago](https://github.com/mui/material-ui/commit/28b768913b75752ecf9b6bb32766e27c241dbc46).
-The ecosystem has evolved a lot since then, we have also learned a lot.
-[@nathanmarks](https://github.com/nathanmarks/) started an ambitious task, rebuilding Material UI from the **ground-up**
-taking advantage of this knowledge to address long-standing issues. To name some of the major changes:
+Я рад, что вы спросили! Ответ - нет. Основные концепции не изменились. Вы заметите, что API обеспечивает большую гибкость, но это имеет свою цену - компоненты более низкого уровня, которые абстрагируют меньшую сложность.
 
-- New styling solution using CSS-in-JS (better [customization](/material-ui/customization/how-to-customize/) power, better performance)
-- New theme handling (nesting, self-supporting, etc.)
-- Blazing fast documentation thanks to [Next.js](https://github.com/vercel/next.js)
-- Way better [test coverage](/material-ui/guides/testing/) (99%+, run on all the major browsers, [visual regression tests](https://app.argos-ci.com/mui/material-ui/builds))
-- Full [server-side rendering](/material-ui/guides/server-rendering/) support
-- Wide range of [supported browsers](/material-ui/getting-started/supported-platforms/)
+### Что послужило причиной столь масштабных изменений? <meta data-oversett="" data-original-text="What motivated such a large change?">
 
-### Where should I start in a migration?
+Material UI был запущен [4 года назад](https://github.com/mui/material-ui/commit/28b768913b75752ecf9b6bb32766e27c241dbc46). С тех пор экосистема сильно развилась, мы тоже многому научились.[@nathanmarks](https://github.com/nathanmarks/) приступил к амбициозной задаче, перестроив Material UI с **нуля**, используя эти знания для решения давних проблем. Вот некоторые из основных изменений:
 
-1. Start by installing the v1.x version of Material UI along side the v0.x version.
+-   Новое решение для стилизации с использованием CSS-in-JS (больше возможностей для [настройки](/material-ui/customization/how-to-customize/), лучшая производительность).
+-   Новая работа с темами (вложенность, самоподдерживающиеся и т.д.)
+-   Молниеносная документация благодаря [Next.js](https://github.com/vercel/next.js)
+-   Гораздо лучшее [покрытие тестами](/material-ui/guides/testing/) (99%+, запуск на всех основных браузерах, [визуальные регрессионные тесты](https://app.argos-ci.com/mui/material-ui/builds))
+-   Полная поддержка [рендеринга на стороне сервера](/material-ui/guides/server-rendering/)
+-   Широкий спектр [поддерживаемых браузеров](/material-ui/getting-started/supported-platforms/)
 
-With yarn:
+### С чего начать миграцию? <meta data-oversett="" data-original-text="Where should I start in a migration?">
+
+1.  Начните с установки версии Material UI v1.x вместе с версией v0.x.
+
+С помощью yarn:
 
 ```sh
 yarn add material-ui
 yarn add @material-ui/core
 ```
 
-Or with npm:
+или с помощью npm:
 
 ```sh
 npm install material-ui
 npm install @material-ui/core
 ```
 
-then
+, затем .
 
 ```js
 import FlatButton from 'material-ui/FlatButton'; // v0.x
 import Button from '@material-ui/core/Button'; // v1.x
 ```
 
-2. Run [the migration helper](https://github.com/mui/material-ui/tree/master/packages/mui-codemod) on your project.
-3. `MuiThemeProvider` is optional for v1.x., but if you have a custom theme, you are free to use v0.x and v1.x versions of the component at the same time, like this:
+2.  Запустите [помощник миграции](https://github.com/mui/material-ui/tree/master/packages/mui-codemod) на вашем проекте.
+3.  `MuiThemeProvider` для версии v1.x необязателен, но если у вас есть пользовательская тема, вы можете использовать версии компонента v0.x и v1.x одновременно, например, так:
 
 ```jsx
 import * as React from 'react';
@@ -76,22 +73,21 @@ function App() {
 export default App;
 ```
 
-4. After that, you are free to migrate one component instance at the time.
+4.  После этого вы можете свободно мигрировать по одному экземпляру компонента за раз.
 
-## Components
+## Компоненты <meta data-oversett="" data-original-text="Components">
 
-### Autocomplete
+### Автозаполнение <meta data-oversett="" data-original-text="Autocomplete">
 
-Material UI doesn't provide a high-level API for solving this problem.
-You're encouraged you to explore [the solutions the React community has built](/material-ui/react-autocomplete/).
+Material UI не предоставляет высокоуровневого API для решения этой проблемы. Мы рекомендуем вам изучить [решения, созданные сообществом React](/material-ui/react-autocomplete/).
 
-In the future, we will look into providing a simple component to solve the simple use cases: [#9997](https://github.com/mui/material-ui/issues/9997).
+В будущем мы рассмотрим возможность предоставления простого компонента для решения простых случаев использования: [#9997](https://github.com/mui/material-ui/issues/9997).
 
-### Svg Icon
+### Иконка Svg <meta data-oversett="" data-original-text="Svg Icon">
 
-Run [the migration helper](https://github.com/mui/material-ui/tree/master/packages/mui-codemod) on your project.
+Запустите [помощник миграции](https://github.com/mui/material-ui/tree/master/packages/mui-codemod) в вашем проекте.
 
-This will apply a change such as the following:
+Это позволит применить изменения, подобные следующим:
 
 ```diff
 -import AddIcon from 'material-ui/svg-icons/Add';
@@ -100,7 +96,7 @@ This will apply a change such as the following:
  <AddIcon />
 ```
 
-### Flat Button
+### Плоская кнопка <meta data-oversett="" data-original-text="Flat Button">
 
 ```diff
 -import FlatButton from 'material-ui/FlatButton';
@@ -110,9 +106,9 @@ This will apply a change such as the following:
 +<Button />
 ```
 
-### Raised Button
+### Приподнятая кнопка <meta data-oversett="" data-original-text="Raised Button">
 
-RaisedButton upgrade path:
+Путь обновления RaisedButton:
 
 ```diff
 -import RaisedButton from 'material-ui/RaisedButton';
@@ -122,7 +118,7 @@ RaisedButton upgrade path:
 +<Button variant="contained" />
 ```
 
-### Subheader
+### Subheader <meta data-oversett="" data-original-text="Subheader">
 
 ```diff
 -import Subheader from 'material-ui/Subheader';
@@ -132,7 +128,7 @@ RaisedButton upgrade path:
 +<ListSubheader>Sub Heading</ListSubheader>
 ```
 
-### Toggle
+### Переключение <meta data-oversett="" data-original-text="Toggle">
 
 ```diff
 -import Toggle from 'material-ui/Toggle';
@@ -148,7 +144,7 @@ RaisedButton upgrade path:
 +/>
 ```
 
-### Menu Item
+### Пункт меню <meta data-oversett="" data-original-text="Menu Item">
 
 ```diff
 -import MenuItem from 'material-ui/MenuItem';
@@ -158,7 +154,7 @@ RaisedButton upgrade path:
 +<MenuItem>Profile</MenuItem>
 ```
 
-### Font Icon
+### Иконка шрифта <meta data-oversett="" data-original-text="Font Icon">
 
 ```diff
 -import FontIcon from 'material-ui/FontIcon';
@@ -168,7 +164,7 @@ RaisedButton upgrade path:
 +<Icon>home</Icon>
 ```
 
-### Circular Progress
+### Круговой прогресс <meta data-oversett="" data-original-text="Circular Progress">
 
 ```diff
 -import CircularProgress from 'material-ui/CircularProgress';
@@ -178,7 +174,7 @@ RaisedButton upgrade path:
 +<CircularProgress variant="indeterminate" />
 ```
 
-### Drop Down Menu
+### Выпадающее меню <meta data-oversett="" data-original-text="Drop Down Menu">
 
 ```diff
 -import DropDownMenu from 'material-ui/DropDownMenu';
@@ -188,7 +184,6 @@ RaisedButton upgrade path:
 +<Select value={this.state.value}></Select>
 ```
 
-### To be continued…
+### Продолжение следует... <meta data-oversett="" data-original-text="To be continued…">
 
-Have you successfully migrated your app, and wish to help the community?
-There is an open issue in order to finish this migration guide [#7195](https://github.com/mui/material-ui/issues/7195). Any pull request is welcomed 😊.
+Вы успешно мигрировали свое приложение и хотите помочь сообществу? Существует открытый вопрос для завершения этого руководства по миграции [#7195](https://github.com/mui/material-ui/issues/7195). Любой запрос на исправление приветствуется 😊.
